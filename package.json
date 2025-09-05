@@ -1,0 +1,22 @@
+{
+  "name": "n8n-agent",
+  "version": "1.0.0",
+  "description": "A2A agent with N8N node documentation generation",
+  "main": "main.go",
+  "scripts": {
+    "generate-docs": "node scripts/generate-n8n-docs.js",
+    "test": "node scripts/test-generator.js",
+    "test-docs": "node scripts/test-generator.js"
+  },
+  "keywords": ["n8n", "agent", "documentation", "a2a"],
+  "author": "n8n-agent",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.0.0",
+    "path": "^0.12.7"
+  }
+}
