@@ -1,0 +1,26 @@
+apiVersion: adl.dev/v1
+kind: Agent
+metadata:
+  name: n8n-agent
+  description: A helpful AI agent
+  version: 0.1.0
+spec:
+  capabilities:
+    streaming: true
+    pushNotifications: false
+    stateTransitionHistory: false
+  agent:
+    provider: ""
+    model: ""
+    systemPrompt: You are a helpful AI assistant.
+  server:
+    port: 8080
+    debug: false
+  language:
+    go:
+      module: github.com/inference-gateway/n8n-agent
+      version: "1.24"
+  scm:
+    provider: github
+    url: https://github.com/inference-gateway/n8n-agent
+    github_app: true

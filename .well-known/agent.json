@@ -1,0 +1,17 @@
+{
+	"name": "n8n-agent",
+	"version": "0.1.0",
+	"description": "A helpful AI agent",
+	"protocolVersion": "0.3.0",
+	"url": "",
+	"preferredTransport": "JSONRPC",
+	"defaultInputModes": ["text"],
+	"defaultOutputModes": ["text"],
+	"capabilities": {
+		"streaming": true,
+		"pushNotifications": false,
+		"stateTransitionHistory": false
+	},
+	"skills": [
+	]
+}
