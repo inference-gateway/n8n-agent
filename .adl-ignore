@@ -10,6 +10,8 @@
 # - Comments: lines starting with #
 
 skills/*
+Taskfile.yml
+.github/workflows/cd.yml
 
 # Go dependency files
 go.sum

@@ -11,7 +11,7 @@ vars:
 tasks:
   generate:
     desc: Generate code from ADL
-    cmd: adl generate --file agent.yaml --output .
+    cmd: adl generate --file agent.yaml --output . --overwrite --flox --ci --cd
 
   build:
     desc: Build the application
