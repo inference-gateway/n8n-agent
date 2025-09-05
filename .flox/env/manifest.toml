@@ -17,6 +17,9 @@ git.pkg-group = "common"
 docker.pkg-path = "docker"
 docker.pkg-group = "common"
 
+claude-code.pkg-path = "claude-code"
+claude-code.pkg-group = "common"
+
 [hook]
 on-activate = '''
   echo "🌟 Welcome to n8n-agent development environment!"
