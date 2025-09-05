@@ -4,100 +4,116 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a n8n-agent A2A (Agent-to-Agent) server generated from ADL (Agent Definition Language). The project is designed to implement agent-to-agent communication capabilities with the following core functionality:
-
-A helpful AI agent
+n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](https://github.com/inference-gateway/adk) for agent-to-agent communication. A helpful AI agent. The project is automatically generated from ADL (Agent Definition Language) specifications defined in `agent.yaml`.
 
 ## Core Architecture
 
-### Generated Components
+### ADL-Generated Structure
 
-- **Main Server**: `main.go` - HTTP server entry point with 8080 port
-- **Agent Configuration**: `.well-known/agent.json` - Agent metadata and capabilities
+The codebase is generated using ADL CLI 0.18.2 and follows a strict generation pattern:
+- **Generated Files**: Marked with `DO NOT EDIT` headers - manual changes will be overwritten
+- **Configuration Source**: `agent.yaml` - defines agent capabilities, skills, and metadata
+- **Server Implementation**: Built on the ADK (Agent Development Kit) framework from `github.com/inference-gateway/adk`
 
+### Key Components
 
+- **Main Entry Point**: `main.go` - Configures and starts the A2A server with:
+  - OpenAI-compatible LLM client configuration
+  - Agent builder with system prompt from `agent.yaml`
+  - A2A server with streaming and background task handlers
+  - Graceful shutdown handling
 
-### Key Features
+- **Agent Configuration**: `.well-known/agent.json` - Serves agent metadata at runtime
+- **Environment Configuration**: Extensive env vars with `A2A_` prefix (see README for full list)
 
-- **Streaming Support**: Real-time response streaming enabled
+## Development Commands
 
+```bash
+# Generate/regenerate code from ADL specification
+task generate
 
+# Run the agent in development mode (debug enabled, port 8080)
+task run
 
+# Run tests (note: no tests currently exist)
+task test
+task test:cover  # with coverage
 
+# Code quality
+task lint         # Run golangci-lint
+task fmt          # Format code with go fmt
 
-## Development Guidelines
+# Build
+task build        # Creates bin/n8n-agent
+task docker:build # Build Docker image
 
-### Code Patterns and Conventions
+# Clean build artifacts
+task clean
+```
 
-- Use standard Go project layout with clear separation of concerns
-- Implement proper error handling with context using `fmt.Errorf("context: %w", err)`  
-- Follow Go naming conventions (PascalCase for exported, camelCase for internal)
-- Use interfaces for testability and dependency injection
-- Structure handler functions to be easily testable
-- Use table-driven tests for comprehensive test coverage
+## Testing Individual Components
 
+```bash
+# Run specific test file (when tests are added)
+go test -v ./path/to/package -run TestFunctionName
+
+# Debug with A2A Debugger
+docker run --rm -it --network host ghcr.io/inference-gateway/a2a-debugger:latest \
+  --server-url http://localhost:8080 tasks submit "Your query"
+```
+
+## LLM Provider Configuration
+
+The agent uses OpenAI-compatible LLM client. Configure with:
+- `A2A_AGENT_CLIENT_PROVIDER`: `openai`, `anthropic`, `azure`, `ollama`, `deepseek`
+- `A2A_AGENT_CLIENT_MODEL`: Model identifier
+- `A2A_AGENT_CLIENT_API_KEY`: Provider API key
+- `A2A_AGENT_CLIENT_BASE_URL`: Custom endpoint (optional)
+
+## Adding New Functionality
 
 ### Skills Implementation
+Currently no skills are defined. To add skills:
+1. Update `agent.yaml` with skill definitions
+2. Run `task generate` to regenerate the codebase
+3. Implement skill logic in generated skill files (look for TODO placeholders)
+4. Write tests for each skill
 
-The TODO placeholders in the skills files should be replaced with actual business logic. Each skill represents a specific capability or function of your agent:
+### Modifying Agent Behavior
 
+- **System Prompt**: Edit in `agent.yaml`, then regenerate
+- **Capabilities**: Modify in `agent.yaml` (streaming, pushNotifications, stateTransitionHistory)
+- **Server Configuration**: Update environment variables or `agent.yaml` server section
 
-No skills defined - this is a minimal agent template.
+## Testing Strategy
 
+When implementing tests:
+- Create `*_test.go` files alongside implementation files
+- Use table-driven tests for comprehensive coverage
+- Mock external dependencies (LLM client, Redis if used)
+- Test A2A protocol compliance with integration tests
 
-### Agent Integration
+## Environment Management
+The project includes Flox environment configuration (`.flox/env/manifest.toml`) providing:
+- Go 1.24
+- golangci-lint (linter)
+- go-task (Task runner)
+- Docker
+- Claude Code CLI
 
+Activate with: `flox activate` (if Flox is installed)
 
+## Important Constraints
 
+- **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
+- **Configuration Changes**: Always modify `agent.yaml` and regenerate
+- **ADL Version**: Ensure ADL CLI 0.18.2 or compatible version for regeneration
+- **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
+## Debugging Tips
 
-**System Prompt**: You are a helpful AI assistant.
-
-
-Key configuration:
-
-
-
-
-### Testing Strategy
-
-- **Unit Tests**: Test each skill and handler function in isolation
-- **Integration Tests**: Test the complete agent workflow end-to-end
-- **API Tests**: Validate all HTTP endpoints and their responses
-- **Agent Tests**: Test AI provider integration and responses
-
-
-Run tests with: `task test` or `go test ./...`
-
-
-### Development Workflow
-
-1. **Implement Skills**: Start by implementing the TODO placeholders in skill files
-2. **Add Tests**: Write comprehensive tests for each skill
-3. **Configure Agent**: Update agent configuration as needed
-4. **Test Integration**: Run full integration tests
-
-5. **Build & Run**: Use `task build` and `task run` commands
-
-
-### Environment Setup
-
-
-
-This project includes **Flox** environment configuration for reproducible development.
-
-
-
-
-Configure the required environment variables for your AI provider and other settings as needed.
-
-## Important Reminders
-
-- Focus on implementing the business logic in TODO placeholders
-- Follow the established code patterns and conventions  
-- Write comprehensive tests for all functionality
-- Ensure proper error handling throughout
-- Keep the agent's core purpose and capabilities in mind while implementing
-- The generated scaffolding provides structure - implement the specific agent behavior
-
-Remember: This agent is designed to a helpful ai agent. Keep this core purpose in focus while implementing features.
+- Enable debug mode: `A2A_DEBUG=true`
+- Check health: `GET /health`
+- View agent metadata: `GET /.well-known/agent.json`
+- Monitor streaming updates: Set `A2A_STREAMING_STATUS_UPDATE_INTERVAL`
+- Use A2A Debugger container for interactive testing
