@@ -24,3 +24,4 @@ spec:
     provider: github
     url: https://github.com/inference-gateway/n8n-agent
     github_app: true
+    issue_templates: true
