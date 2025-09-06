@@ -76,9 +76,9 @@ func (s *SearchN8NDocsSkill) SearchN8NDocsHandler(ctx context.Context, args map[
 		s.logger.Debug("category filter applied", zap.String("category", p.Category))
 	}
 
-	if p.Query == "" {
-		s.logger.Error("empty query provided")
-		return "", fmt.Errorf("query cannot be empty")
+	if p.Query == "" && p.Category == "" && p.NodeType == "" {
+		s.logger.Error("empty query provided without filters")
+		return "", fmt.Errorf("query cannot be empty when no filters are specified")
 	}
 
 	s.logger.Info("searching documentation",
@@ -132,12 +132,15 @@ type DocResult struct {
 // searchDocumentation searches through the docs/nodes directory
 func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
 	var results []DocResult
-	docsPath := "docs/nodes"
 
-	if _, err := os.Stat(docsPath); os.IsNotExist(err) {
-		s.logger.Error("documentation directory does not exist", zap.String("path", docsPath))
-		return nil, fmt.Errorf("documentation directory %s does not exist", docsPath)
+	docsPath := s.findDocsPath()
+	
+	if docsPath == "" {
+		s.logger.Error("documentation directory does not exist")
+		return nil, fmt.Errorf("documentation directory docs/nodes does not exist")
 	}
+	
+	s.logger.Debug("using documentation path", zap.String("path", docsPath))
 
 	filesScanned := 0
 	err := filepath.WalkDir(docsPath, func(path string, d fs.DirEntry, err error) error {
@@ -146,11 +149,10 @@ func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category strin
 			return err
 		}
 
-		if !d.IsDir() && strings.HasSuffix(path, ".md") && path != "docs/nodes/README.md" {
+		if !d.IsDir() && strings.HasSuffix(path, ".md") && !strings.HasSuffix(path, "README.md") {
 			filesScanned++
 			content, err := os.ReadFile(path)
 			if err != nil {
-				// Log error but continue processing other files
 				s.logger.Warn("failed to read file", zap.String("path", path), zap.Error(err))
 				return nil
 			}
@@ -163,22 +165,44 @@ func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category strin
 			}
 
 			if category != "" {
-				if category == "trigger" && !strings.Contains(filename, "trigger") {
+				if category == "trigger" && !strings.Contains(strings.ToLower(filename), "trigger") {
 					return nil
 				}
-				if category == "langchain" && !strings.Contains(filename, "langchain") {
+				if category == "langchain" && !strings.Contains(strings.ToLower(filename), "langchain") {
 					return nil
 				}
 			}
 
-			if strings.Contains(contentStr, query) || strings.Contains(filename, query) {
+			filenameMatch := strings.Contains(strings.ToLower(filename), query)
+			contentMatch := strings.Contains(contentStr, query)
+			
+			if query == "" || filenameMatch || contentMatch {
 				result := parseDocumentationFile(string(content), filename)
 				if result != nil {
-					s.logger.Debug("found matching document",
-						zap.String("filename", filename),
-						zap.String("name", result.Name),
-						zap.String("type", result.NodeType))
-					results = append(results, *result)
+					if filenameMatch && !contentMatch {
+						results = append([]DocResult{*result}, results...)
+						s.logger.Debug("found filename match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					} else if filenameMatch && contentMatch {
+						insertPos := 0
+						for i, r := range results {
+							if !strings.Contains(strings.ToLower(r.Filename), query) {
+								insertPos = i
+								break
+							}
+							insertPos = i + 1
+						}
+						results = append(results[:insertPos], append([]DocResult{*result}, results[insertPos:]...)...)
+						s.logger.Debug("found filename+content match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					} else {
+						results = append(results, *result)
+						s.logger.Debug("found content match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					}
 				}
 			}
 		}
@@ -265,4 +289,43 @@ func parseDocumentationFile(content, filename string) *DocResult {
 	}
 
 	return result
+}
+
+// findDocsPath attempts to locate the docs/nodes directory
+func (s *SearchN8NDocsSkill) findDocsPath() string {
+	execPath, err := os.Executable()
+	var basePaths []string
+	
+	if err == nil {
+		execDir := filepath.Dir(execPath)
+		basePaths = append(basePaths, execDir, filepath.Dir(execDir))
+	}
+	
+	wd, err := os.Getwd()
+	if err == nil {
+		basePaths = append(basePaths, wd)
+		parent := wd
+		for range 3 {
+			parent = filepath.Dir(parent)
+			if parent == "/" || parent == "." {
+				break
+			}
+			basePaths = append(basePaths, parent)
+		}
+	}
+	
+	if envPath := os.Getenv("N8N_AGENT_DOCS_PATH"); envPath != "" {
+		basePaths = append([]string{envPath}, basePaths...)
+	}
+	
+	for _, base := range basePaths {
+		docsPath := filepath.Join(base, "docs", "nodes")
+		if stat, err := os.Stat(docsPath); err == nil && stat.IsDir() {
+			s.logger.Debug("found docs path", zap.String("path", docsPath))
+			return docsPath
+		}
+	}
+	
+	s.logger.Debug("docs path not found", zap.Strings("tried_paths", basePaths))
+	return ""
 }
