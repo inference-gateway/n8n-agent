@@ -17,14 +17,10 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm install
+          deno-version: v2.x
       
       - name: Clone n8n repository
         run: |
@@ -36,7 +32,7 @@ jobs:
         id: generate
         run: |
           echo "🚀 Starting documentation generation..."
-          npm run generate-docs
+          deno run --allow-read --allow-write scripts/generate-n8n-docs.ts
           
           if git diff --quiet docs/nodes/; then
             echo "changes=false" >> $GITHUB_OUTPUT
