@@ -899,7 +899,7 @@ ${sortedNodes.filter(n => n.packageName === '@n8n/n8n-nodes-langchain').map(node
 
 ## Usage with n8n-cli
 
-1. **Install n8n-cli**: \`npm install -g @edenreich/n8n-cli\`
+1. **Install n8n-cli**: \`curl -sSLf https://raw.github.com/edenreich/n8n-cli/main/install.sh | sh\`
 2. **Reference nodes**: Use the \`n8n-nodes-base.{nodeName}\` format shown in each node's documentation
 3. **Configure parameters**: Check the official n8n documentation links in each node doc
 4. **Sync workflows**: Use n8n-cli to push your YAML workflows to n8n
