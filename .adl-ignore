@@ -11,6 +11,7 @@
 
 skills/*
 .flox/env/manifest.toml
+Taskfile.yml
 
 # Go dependency files
 go.sum
