@@ -15,11 +15,21 @@ nodes:
   - id: ${unique-node-id}
     name: AI Transform
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      instructions: "" # Provide instructions on how you want to transform the data, then click 'Generate code'. Use dot notation to refer to nested fields (e.g. address.street).
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.aiTransform
 ```
+
+## Parameters
+
+### Instructions
+
+- **Name**: `instructions`
+- **Type**: `button`
+- **Default**: `""`
+- **Description**: Provide instructions on how you want to transform the data, then click 'Generate code'. Use dot notation to refer to nested fields (e.g. address.street).
+- **Placeholder**: Example: Merge 'firstname' and 'lastname' into a field 'details.name' and sort by 'email'
+
 
 ## Node Information
 
@@ -34,17 +44,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.aitransform/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/AiTransform/AiTransform.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

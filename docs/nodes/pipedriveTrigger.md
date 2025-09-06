@@ -15,11 +15,59 @@ nodes:
   - id: ${unique-node-id}
     name: Pipedrive Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "apiToken"
+      incomingAuthentication: "none" # If authentication should be activated for the webhook (makes it more secure)
+      action: "*" # Data got added
+      action: "*" # Any change
+      entity: "*" # Type of object to receive notifications about
+      object: "*" # Type of object to receive notifications about
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.pipedriveTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiToken"`
+
+### Incoming Authentication
+
+- **Name**: `incomingAuthentication`
+- **Type**: `options`
+- **Default**: `"none"`
+- **Description**: If authentication should be activated for the webhook (makes it more secure)
+
+### Action
+
+- **Name**: `action`
+- **Type**: `options`
+- **Default**: `"*"`
+- **Description**: Data got added
+
+### Action
+
+- **Name**: `action`
+- **Type**: `options`
+- **Default**: `"*"`
+- **Description**: Any change
+
+### Entity
+
+- **Name**: `entity`
+- **Type**: `options`
+- **Default**: `"*"`
+- **Description**: Type of object to receive notifications about
+
+### Object
+
+- **Name**: `object`
+- **Type**: `options`
+- **Default**: `"*"`
+- **Description**: Type of object to receive notifications about
+
 
 ## Node Information
 
@@ -34,17 +82,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.pipedrivetrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Pipedrive/PipedriveTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

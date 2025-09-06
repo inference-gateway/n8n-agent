@@ -15,11 +15,47 @@ nodes:
   - id: ${unique-node-id}
     name: Text Classifier
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      inputText: "" # Use an expression to reference data in previous nodes or enter static text
+      categories: {} # Category to add
+      options: # What to do with items that don’t match the categories exactly
+        multiClass: false
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.textClassifier
 ```
+
+## Parameters
+
+### Text to Classify
+
+- **Name**: `inputText`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Use an expression to reference data in previous nodes or enter static text
+
+### Categories
+
+- **Name**: `categories`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Description**: Category to add
+- **Placeholder**: Add Category
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: What to do with items that don’t match the categories exactly
+- **Placeholder**: Add Option
+
+**Options:**
+
+#### Allow Multiple Classes To Be True
+- **Name**: `multiClass`
+- **Type**: `boolean`
+- **Default**: `false`
+
+
 
 ## Node Information
 
@@ -34,17 +70,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.textclassifier/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/chains/TextClassifier/TextClassifier.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,28 @@ nodes:
   - id: ${unique-node-id}
     name: Google Vertex Chat Model
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      projectId: "{ mode: 'list', value: '' }" # Select or enter your Google Cloud project ID
+      modelName: "gemini-1.5-flash" # The model which will generate the completion. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models">Learn more</a>.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatGoogleVertex
 ```
+
+## Parameters
+
+### Project ID
+
+- **Name**: `projectId`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: Select or enter your Google Cloud project ID
+
+### Model Name
+
+- **Name**: `modelName`
+- **Type**: `string`
+- **Default**: `"gemini-1.5-flash"`
+- **Description**: The model which will generate the completion. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models">Learn more</a>.
+
 
 ## Node Information
 
@@ -34,17 +51,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.lmchatgooglevertex/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/llms/LmChatGoogleVertex/LmChatGoogleVertex.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

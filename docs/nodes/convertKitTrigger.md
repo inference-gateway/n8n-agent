@@ -15,11 +15,59 @@ nodes:
   - id: ${unique-node-id}
     name: ConvertKit Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      event: "" # The events that can trigger the webhook and whether they are enabled
+      formId: "" # Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+      courseId: "" # Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+      link: "" # The URL of the initiating link
+      productId: ""
+      tagId: "" # Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.convertKitTrigger
 ```
+
+## Parameters
+
+### Event
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: The events that can trigger the webhook and whether they are enabled
+
+### Form Name or ID
+
+- **Name**: `formId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+
+### Sequence Name or ID
+
+- **Name**: `courseId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+
+### Initiating Link
+
+- **Name**: `link`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The URL of the initiating link
+
+### Product ID
+
+- **Name**: `productId`
+- **Type**: `string`
+- **Default**: `""`
+
+### Tag Name or ID
+
+- **Name**: `tagId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+
 
 ## Node Information
 
@@ -34,17 +82,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.convertkittrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/ConvertKit/ConvertKitTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

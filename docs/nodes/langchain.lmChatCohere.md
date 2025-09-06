@@ -15,11 +15,46 @@ nodes:
   - id: ${unique-node-id}
     name: Cohere Chat Model
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      model: "command-a-03-2025" # The model which will generate the completion. <a href="https://docs.cohere.com/docs/models">Learn more</a>.
+      options: # Additional options to add
+        temperature: "0.7" # Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
+        maxRetries: "2" # Maximum number of retries to attempt
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatCohere
 ```
+
+## Parameters
+
+### Model
+
+- **Name**: `model`
+- **Type**: `options`
+- **Default**: `"command-a-03-2025"`
+- **Description**: The model which will generate the completion. <a href="https://docs.cohere.com/docs/models">Learn more</a>.
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Additional options to add
+- **Placeholder**: Add Option
+
+**Options:**
+
+#### Sampling Temperature
+- **Name**: `temperature`
+- **Type**: `number`
+- **Default**: `"0.7"`
+- **Description**: Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
+
+#### Max Retries
+- **Name**: `maxRetries`
+- **Type**: `number`
+- **Default**: `"2"`
+- **Description**: Maximum number of retries to attempt
+
+
 
 ## Node Information
 
@@ -34,17 +69,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.lmchatcohere/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/llms/LmChatCohere/LmChatCohere.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

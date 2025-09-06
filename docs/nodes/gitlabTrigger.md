@@ -15,11 +15,45 @@ nodes:
   - id: ${unique-node-id}
     name: GitLab Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "accessToken"
+      owner: "" # Owner of the repository
+      repository: "" # The name of the repository
+      events: [] # Any time any event is triggered (Wildcard Event)
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.gitlabTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"accessToken"`
+
+### Repository Owner
+
+- **Name**: `owner`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Owner of the repository
+- **Placeholder**: n8n-io
+
+### Repository Name
+
+- **Name**: `repository`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The name of the repository
+- **Placeholder**: n8n
+
+### Events
+
+- **Name**: `events`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: Any time any event is triggered (Wildcard Event)
+
 
 ## Node Information
 
@@ -34,17 +68,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gitlabtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Gitlab/GitlabTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,34 @@ nodes:
   - id: ${unique-node-id}
     name: Code
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      mode: "runOnceForAllItems" # Run this code only once, no matter how many input items there are
+      language: "javaScript"
+      language: "javaScript"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.code
 ```
+
+## Parameters
+
+### Mode
+
+- **Name**: `mode`
+- **Type**: `options`
+- **Default**: `"runOnceForAllItems"`
+- **Description**: Run this code only once, no matter how many input items there are
+
+### Language
+
+- **Name**: `language`
+- **Type**: `options`
+- **Default**: `"javaScript"`
+
+### Language
+
+- **Name**: `language`
+- **Type**: `hidden`
+- **Default**: `"javaScript"`
+
 
 ## Node Information
 
@@ -34,17 +57,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Code/Code.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

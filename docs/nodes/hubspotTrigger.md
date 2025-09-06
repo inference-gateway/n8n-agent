@@ -15,11 +15,38 @@ nodes:
   - id: ${unique-node-id}
     name: HubSpot Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      eventsUi: {} # To get notified if any company is created in a customer's account
+      additionalFields:
+        maxConcurrentRequests: "5"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.hubspotTrigger
 ```
+
+## Parameters
+
+### Events
+
+- **Name**: `eventsUi`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Description**: To get notified if any company is created in a customer's account
+- **Placeholder**: Add Event
+
+### Additional Fields
+
+- **Name**: `additionalFields`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Field
+
+**Options:**
+
+#### Max Concurrent Requests
+- **Name**: `maxConcurrentRequests`
+- **Type**: `number`
+- **Default**: `"5"`
+
+
 
 ## Node Information
 
@@ -34,17 +61,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hubspottrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Hubspot/HubspotTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,36 @@ nodes:
   - id: ${unique-node-id}
     name: Webex by Cisco Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      resource: "meeting"
+      resolveData: true # By default the response only contain a reference to the data the user inputed. If this option gets activated, it will resolve the data automatically.
+      filters: {} # Whether to limit to messages which contain file content attachments
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.ciscoWebexTrigger
 ```
+
+## Parameters
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"meeting"`
+
+### Resolve Data
+
+- **Name**: `resolveData`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: By default the response only contain a reference to the data the user inputed. If this option gets activated, it will resolve the data automatically.
+
+### Filters
+
+- **Name**: `filters`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to limit to messages which contain file content attachments
+- **Placeholder**: Add Filter
+
 
 ## Node Information
 
@@ -34,17 +59,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.ciscowebextrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Cisco/Webex/CiscoWebexTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

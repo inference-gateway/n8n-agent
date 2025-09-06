@@ -15,11 +15,80 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft Teams Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      event: "newChannelMessage" # A new channel is created
+      watchAllTeams: false # Whether to watch for the event in all the available teams
+      teamId: "{
+					mode: 'list',
+					value: '',
+				}" # Select a team from the list, enter an ID or a URL
+      watchAllChannels: false # Whether to watch for the event in all the available channels
+      channelId: "{
+					mode: 'list',
+					value: '',
+				}" # Select a channel from the list, enter an ID or a URL
+      watchAllChats: false # Whether to watch for the event in all the available chats
+      chatId: "{
+					mode: 'list',
+					value: '',
+				}" # Select a chat from the list, enter an ID or a URL
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftTeamsTrigger
 ```
+
+## Parameters
+
+### Trigger On
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `"newChannelMessage"`
+- **Description**: A new channel is created
+
+### Watch All Teams
+
+- **Name**: `watchAllTeams`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to watch for the event in all the available teams
+
+### Team
+
+- **Name**: `teamId`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: '',\n\t\t\t\t}"`
+- **Description**: Select a team from the list, enter an ID or a URL
+- **Placeholder**: Select a team...
+
+### Watch All Channels
+
+- **Name**: `watchAllChannels`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to watch for the event in all the available channels
+
+### Channel
+
+- **Name**: `channelId`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: '',\n\t\t\t\t}"`
+- **Description**: Select a channel from the list, enter an ID or a URL
+- **Placeholder**: Select a channel...
+
+### Watch All Chats
+
+- **Name**: `watchAllChats`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to watch for the event in all the available chats
+
+### Chat
+
+- **Name**: `chatId`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: '',\n\t\t\t\t}"`
+- **Description**: Select a chat from the list, enter an ID or a URL
+- **Placeholder**: Select a chat...
+
 
 ## Node Information
 
@@ -34,17 +103,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftteamstrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Microsoft/Teams/MicrosoftTeamsTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

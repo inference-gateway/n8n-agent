@@ -15,11 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Manual Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      notice: ""
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.manualTrigger
 ```
+
+## Parameters
+
+### This node is where the workflow execution starts (when you click the ‘test’ button on the canvas).<br><br> <a data-action="showNodeCreator">Explore other ways to trigger your workflow</a> (e.g on a schedule, or a webhook)
+
+- **Name**: `notice`
+- **Type**: `notice`
+- **Default**: `""`
+
 
 ## Node Information
 
@@ -34,17 +42,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.manualtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/ManualTrigger/ManualTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

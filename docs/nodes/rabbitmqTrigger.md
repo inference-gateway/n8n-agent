@@ -15,11 +15,47 @@ nodes:
   - id: ${unique-node-id}
     name: RabbitMQ Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      queue: "" # The name of the queue to read from
+      options: # Whether to save the content as binary
+        contentIsBinary: false # Whether to save the content as binary
+      laterMessageNode: ""
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.rabbitmqTrigger
 ```
+
+## Parameters
+
+### Queue / Topic
+
+- **Name**: `queue`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The name of the queue to read from
+- **Placeholder**: queue-name
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to save the content as binary
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Content Is Binary
+- **Name**: `contentIsBinary`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to save the content as binary
+
+
+### To delete an item from the queue, insert a RabbitMQ node later in the workflow and use the 'Delete from queue' operation
+
+- **Name**: `laterMessageNode`
+- **Type**: `notice`
+- **Default**: `""`
+
 
 ## Node Information
 
@@ -34,17 +70,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rabbitmqtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/RabbitMQ/RabbitMQTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

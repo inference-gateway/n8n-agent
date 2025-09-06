@@ -15,11 +15,29 @@ nodes:
   - id: ${unique-node-id}
     name: Execute Command
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      executeOnce: true # Whether to execute only once instead of once for each entry
+      command: "" # The command to execute
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.executeCommand
 ```
+
+## Parameters
+
+### Execute Once
+
+- **Name**: `executeOnce`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to execute only once instead of once for each entry
+
+### Command
+
+- **Name**: `command`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The command to execute
+- **Placeholder**: echo "test"
+
 
 ## Node Information
 
@@ -34,17 +52,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.executecommand/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/ExecuteCommand/ExecuteCommand.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

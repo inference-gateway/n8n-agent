@@ -15,11 +15,54 @@ nodes:
   - id: ${unique-node-id}
     name: GetResponse Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "apiKey"
+      events: [] # Receive notifications when a customer is subscribed to a list
+      listIds: [] # Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+      options: # Whether to delete the current subscription
+        delete: false # Whether to delete the current subscription
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.getResponseTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiKey"`
+
+### Events
+
+- **Name**: `events`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: Receive notifications when a customer is subscribed to a list
+
+### List Names or IDs
+
+- **Name**: `listIds`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to delete the current subscription
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Delete Current Subscription
+- **Name**: `delete`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to delete the current subscription
+
+
 
 ## Node Information
 
@@ -34,17 +77,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.getresponsetrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/GetResponse/GetResponseTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,37 @@ nodes:
   - id: ${unique-node-id}
     name: Google Business Profile Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      event: "reviewAdded"
+      account: "{ mode: 'list', value: '' }" # The Google Business Profile account
+      location: "{ mode: 'list', value: '' }" # The specific location or business associated with the account
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.googleBusinessProfileTrigger
 ```
+
+## Parameters
+
+### Event
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `"reviewAdded"`
+
+### Account
+
+- **Name**: `account`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: The Google Business Profile account
+- **Placeholder**: e.g. accounts/0123456789
+
+### Location
+
+- **Name**: `location`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: The specific location or business associated with the account
+- **Placeholder**: e.g. locations/0123456789
+
 
 ## Node Information
 
@@ -34,17 +60,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofiletrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/BusinessProfile/GoogleBusinessProfileTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

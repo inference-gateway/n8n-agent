@@ -7,8 +7,8 @@
  * No imports, no JavaScript conversion - just straightforward text parsing.
  */
 
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import * as fs from 'fs';
+import * as path from 'path';
 
 interface NodeDefinition {
     displayName: string;
@@ -21,7 +21,7 @@ interface NodeDefinition {
     filePath: string;
     docsUrl: string;
     sourceUrl: string;
-    packageName: string;  // Track which package the node belongs to
+    packageName: string;
 }
 
 interface ParseError {
@@ -39,7 +39,7 @@ class TextBasedN8NDocGenerator {
     private errors: ParseError[];
 
     constructor() {
-        this.n8nPath = '/tmp/n8n-repo';
+        this.n8nPath = 'n8n';
         this.nodesBasePath = path.join(this.n8nPath, 'packages', 'nodes-base', 'nodes');
         this.langchainPath = path.join(this.n8nPath, 'packages', '@n8n', 'nodes-langchain');
         this.outputPath = path.join(Deno.cwd(), 'docs', 'nodes');
@@ -105,7 +105,6 @@ class TextBasedN8NDocGenerator {
     async parseNodeDefinitions(): Promise<void> {
         console.log('📖 Parsing node definitions...');
         
-        // Parse nodes-base nodes
         const nodeFiles = this.findNodeFiles(this.nodesBasePath);
         console.log(`Found ${nodeFiles.length} node files in nodes-base`);
 
@@ -165,12 +164,29 @@ class TextBasedN8NDocGenerator {
     async parseNodeFile(filePath: string, packageName: string = 'n8n-nodes-base'): Promise<void> {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         
-        const descriptionMatch = fileContent.match(/description:\s*INodeTypeDescription\s*=\s*{([\s\S]*?)^(\s*)}/m);
-        if (!descriptionMatch) {
+        const descriptionStart = fileContent.indexOf('description: INodeTypeDescription = {');
+        if (descriptionStart === -1) {
             throw new Error('No INodeTypeDescription found');
         }
-
-        const descriptionContent = descriptionMatch[1];
+        
+        let braceCount = 0;
+        let start = descriptionStart + 'description: INodeTypeDescription = '.length;
+        let end = start;
+        
+        for (let i = start; i < fileContent.length; i++) {
+            const char = fileContent[i];
+            if (char === '{') {
+                braceCount++;
+            } else if (char === '}') {
+                braceCount--;
+                if (braceCount === 0) {
+                    end = i;
+                    break;
+                }
+            }
+        }
+        
+        const descriptionContent = fileContent.substring(start + 1, end);
         
         const displayName = this.extractStringProperty(descriptionContent, 'displayName');
         const name = this.extractStringProperty(descriptionContent, 'name');
@@ -192,7 +208,7 @@ class TextBasedN8NDocGenerator {
             throw new Error('Missing required name or displayName');
         }
 
-        const properties: any[] = [];
+        const properties = this.extractProperties(descriptionContent);
 
         const nodeDefinition: NodeDefinition = {
             displayName,
@@ -212,12 +228,325 @@ class TextBasedN8NDocGenerator {
     }
 
     /**
-     * Extract string property value
+     * Extract string property value - improved to handle complex strings
      */
     extractStringProperty(content: string, property: string): string {
-        const regex = new RegExp(`${property}:\\s*['"\`]([^'"\`]*?)['"\`]`, 's');
-        const match = content.match(regex);
-        return match ? match[1] : '';
+        const propIndex = content.indexOf(`${property}:`);
+        if (propIndex === -1) return '';
+        
+        let start = propIndex + property.length + 1;
+        while (start < content.length && /\s/.test(content[start])) {
+            start++;
+        }
+        
+        if (start >= content.length) return '';
+        
+        const quote = content[start];
+        if (quote !== '"' && quote !== "'" && quote !== '`') {
+            return '';
+        }
+        
+        let end = start + 1;
+        while (end < content.length) {
+            if (content[end] === quote && content[end - 1] !== '\\') {
+                return content.substring(start + 1, end);
+            }
+            end++;
+        }
+        
+        return '';
+    }
+
+    /**
+     * Extract properties array from description content
+     */
+    extractProperties(descriptionContent: string): any[] {
+        const properties: any[] = [];
+        
+        const propIdx = descriptionContent.indexOf('properties:');
+        if (propIdx === -1) return properties;
+        
+        const openBracketIdx = descriptionContent.indexOf('[', propIdx);
+        if (openBracketIdx === -1) return properties;
+        
+        let bracketCount = 0;
+        let closeBracketIdx = -1;
+        
+        for (let i = openBracketIdx; i < descriptionContent.length; i++) {
+            if (descriptionContent[i] === '[') {
+                bracketCount++;
+            } else if (descriptionContent[i] === ']') {
+                bracketCount--;
+                if (bracketCount === 0) {
+                    closeBracketIdx = i;
+                    break;
+                }
+            }
+        }
+        
+        if (closeBracketIdx === -1) return properties;
+        
+        const propsContent = descriptionContent.substring(openBracketIdx + 1, closeBracketIdx);
+        
+        const propertyObjects = this.extractBalancedObjects(propsContent);
+        
+        for (const propObj of propertyObjects) {
+            try {
+                const property = this.parseProperty(propObj);
+                if (property.name) {
+                    properties.push(property);
+                }
+            } catch (error) {
+                continue;
+            }
+        }
+        
+        return properties;
+    }
+
+    /**
+     * Extract balanced brace objects from text - improved version
+     */
+    extractBalancedObjects(text: string): string[] {
+        const objects: string[] = [];
+        let i = 0;
+        
+        while (i < text.length) {
+            while (i < text.length && /[\\s,]/.test(text[i])) {
+                i++;
+            }
+            
+            if (i >= text.length) break;
+            
+            if (text[i] === '{') {
+                const objectStart = i;
+                let braceCount = 0;
+                let inString = false;
+                let stringChar = '';
+                
+                while (i < text.length) {
+                    const char = text[i];
+                    const prevChar = i > 0 ? text[i - 1] : '';
+                    
+                    if ((char === '"' || char === "'" || char === '`') && prevChar !== '\\\\') {
+                        if (!inString) {
+                            inString = true;
+                            stringChar = char;
+                        } else if (char === stringChar) {
+                            inString = false;
+                            stringChar = '';
+                        }
+                    }
+                    
+                    if (!inString) {
+                        if (char === '{') {
+                            braceCount++;
+                        } else if (char === '}') {
+                            braceCount--;
+                            if (braceCount === 0) {
+                                const objectText = text.substring(objectStart, i + 1);
+                                objects.push(objectText.trim());
+                                i++;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    i++;
+                }
+            } else {
+                i++;
+            }
+        }
+        
+        return objects;
+    }
+
+    /**
+     * Parse individual property object
+     */
+    parseProperty(propertyText: string): any {
+        const property: any = {};
+        
+        property.displayName = this.extractStringProperty(propertyText, 'displayName') || '';
+        property.name = this.extractStringProperty(propertyText, 'name') || '';
+        property.type = this.extractStringProperty(propertyText, 'type') || 'string';
+        property.description = this.extractStringProperty(propertyText, 'description') || '';
+        property.placeholder = this.extractStringProperty(propertyText, 'placeholder') || '';
+        
+        const defaultValue = this.extractDefaultValue(propertyText);
+        if (defaultValue !== undefined) {
+            property.default = defaultValue;
+        }
+        
+        if (property.type === 'collection' || property.type === 'options') {
+            property.options = this.extractOptions(propertyText);
+        }
+        
+        return property;
+    }
+
+    /**
+     * Extract default value with better handling of complex values
+     */
+    extractDefaultValue(propertyText: string): any {
+        const defaultIndex = propertyText.indexOf('default:');
+        if (defaultIndex === -1) return undefined;
+        
+        let start = defaultIndex + 8;
+        while (start < propertyText.length && /\s/.test(propertyText[start])) {
+            start++;
+        }
+        
+        if (start >= propertyText.length) return undefined;
+        
+        const char = propertyText[start];
+        
+        if (char === '[') {
+            return this.extractArrayValue(propertyText, start);
+        } else if (char === '{') {
+            return this.extractObjectValue(propertyText, start);
+        } else if (char === '"' || char === "'" || char === '`') {
+            return this.extractQuotedValue(propertyText, start);
+        } else {
+            return this.extractPrimitiveValue(propertyText, start);
+        }
+    }
+
+    /**
+     * Extract array value like ['GET', 'POST']
+     */
+    extractArrayValue(text: string, start: number): string {
+        let bracketCount = 0;
+        let end = start;
+        let inString = false;
+        let stringChar = '';
+        
+        for (let i = start; i < text.length; i++) {
+            const char = text[i];
+            
+            if (!inString && (char === '"' || char === "'" || char === '`')) {
+                inString = true;
+                stringChar = char;
+            } else if (inString && char === stringChar && text[i-1] !== '\\\\') {
+                inString = false;
+                stringChar = '';
+            }
+            
+            if (!inString) {
+                if (char === '[') {
+                    bracketCount++;
+                } else if (char === ']') {
+                    bracketCount--;
+                    if (bracketCount === 0) {
+                        end = i;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        return text.substring(start, end + 1);
+    }
+
+    /**
+     * Extract object value like {}
+     */
+    extractObjectValue(text: string, start: number): string {
+        let braceCount = 0;
+        let end = start;
+        let inString = false;
+        let stringChar = '';
+        
+        for (let i = start; i < text.length; i++) {
+            const char = text[i];
+            
+            if (!inString && (char === '"' || char === "'" || char === '`')) {
+                inString = true;
+                stringChar = char;
+            } else if (inString && char === stringChar && text[i-1] !== '\\\\') {
+                inString = false;
+                stringChar = '';
+            }
+            
+            if (!inString) {
+                if (char === '{') {
+                    braceCount++;
+                } else if (char === '}') {
+                    braceCount--;
+                    if (braceCount === 0) {
+                        end = i;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        return text.substring(start, end + 1);
+    }
+
+    /**
+     * Extract quoted string value
+     */
+    extractQuotedValue(text: string, start: number): string {
+        const quote = text[start];
+        let end = start + 1;
+        
+        while (end < text.length) {
+            if (text[end] === quote && text[end - 1] !== '\\\\') {
+                break;
+            }
+            end++;
+        }
+        
+        // Return the value without surrounding quotes
+        return text.substring(start + 1, end);
+    }
+
+    /**
+     * Extract primitive value (number, boolean, identifier)
+     */
+    extractPrimitiveValue(text: string, start: number): any {
+        let end = start;
+        
+        while (end < text.length) {
+            const char = text[end];
+            if (char === ',' || char === '\\n' || char === '}' || char === ']') {
+                break;
+            }
+            end++;
+        }
+        
+        const value = text.substring(start, end).trim();
+        
+        if (value === 'true') return true;
+        if (value === 'false') return false;
+        if (/^\\d+$/.test(value)) return parseInt(value);
+        if (/^\\d+\\.\\d+$/.test(value)) return parseFloat(value);
+        
+        return value;
+    }
+
+    /**
+     * Extract options array from property text
+     */
+    extractOptions(propertyText: string): any[] {
+        const options: any[] = [];
+        
+        const optionsMatch = propertyText.match(/options:\s*\[([\s\S]*?)\]/s);
+        if (!optionsMatch) return options;
+        
+        const optionsContent = optionsMatch[1];
+        const optionObjects = this.extractBalancedObjects(optionsContent);
+        
+        for (const optionObj of optionObjects) {
+            const option = this.parseProperty(optionObj);
+            if (option.name) {
+                options.push(option);
+            }
+        }
+        
+        return options;
     }
 
     /**
@@ -271,13 +600,35 @@ class TextBasedN8NDocGenerator {
     async parseLangChainNode(filePath: string): Promise<void> {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         
-        let descriptionMatch = fileContent.match(/description:\s*INodeTypeDescription\s*=\s*{([\s\S]*?)^(\s*)}/m);
+        let descriptionStart = fileContent.indexOf('description: INodeTypeDescription = {');
+        let descriptionContent = '';
         
-        if (!descriptionMatch) {
-            descriptionMatch = fileContent.match(/export\s+class\s+\w+\s+implements\s+INodeType\s*{[\s\S]*?description\s*[:=]\s*{([\s\S]*?)^(\s*)}/m);
+        if (descriptionStart === -1) {
+            descriptionStart = fileContent.indexOf('description: {');
         }
         
-        if (!descriptionMatch) {
+        if (descriptionStart !== -1) {
+            let braceCount = 0;
+            let start = descriptionStart + (fileContent.substring(descriptionStart).indexOf('{'));
+            let end = start;
+            
+            for (let i = start; i < fileContent.length; i++) {
+                const char = fileContent[i];
+                if (char === '{') {
+                    braceCount++;
+                } else if (char === '}') {
+                    braceCount--;
+                    if (braceCount === 0) {
+                        end = i;
+                        break;
+                    }
+                }
+            }
+            
+            descriptionContent = fileContent.substring(start + 1, end);
+        }
+        
+        if (!descriptionContent) {
             const classMatch = fileContent.match(/export\s+class\s+(\w+)\s+/);
             if (classMatch) {
                 const className = classMatch[1];
@@ -302,13 +653,12 @@ class TextBasedN8NDocGenerator {
             }
             throw new Error('No node description found');
         }
-
-        const descriptionContent = descriptionMatch[1];
         
         const displayName = this.extractStringProperty(descriptionContent, 'displayName') || 
                            this.extractStringProperty(descriptionContent, 'name');
         const name = this.extractStringProperty(descriptionContent, 'name');
         const description = this.extractStringProperty(descriptionContent, 'description');
+        const properties = this.extractProperties(descriptionContent);
         
         if (!name || !displayName) {
             throw new Error('Missing required name or displayName');
@@ -321,7 +671,7 @@ class TextBasedN8NDocGenerator {
             description: description || `${displayName} - LangChain AI Node`,
             version: 1,
             defaults: {},
-            properties: [],
+            properties,
             filePath,
             docsUrl: this.generateDocsUrl(name, '@n8n/n8n-nodes-langchain'),
             sourceUrl: this.generateSourceUrl(filePath),
@@ -355,6 +705,8 @@ class TextBasedN8NDocGenerator {
             ? `@n8n/n8n-nodes-langchain.${node.type}`
             : `n8n-nodes-base.${node.type}`;
             
+        const parametersYaml = this.generateParametersYaml(node.properties);
+        
         return `# ${node.displayName}
 
 ## Description
@@ -372,11 +724,14 @@ nodes:
   - id: \${unique-node-id}
     name: ${node.displayName}
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+${parametersYaml}
     position: [x, y]  # Canvas position coordinates
     type: ${nodeType}
 \`\`\`
+
+## Parameters
+
+${this.generateParametersDocumentation(node.properties)}
 
 ## Node Information
 
@@ -392,20 +747,116 @@ nodes:
 - [Source Code](${node.sourceUrl}) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
 
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
-
 ---
 *Generated automatically from n8n ${node.version} source code*
 `;
+    }
+
+    /**
+     * Generate YAML parameters configuration
+     */
+    generateParametersYaml(properties: any[]): string {
+        if (!properties || properties.length === 0) {
+            return '      # No parameters available';
+        }
+        
+        const yamlLines: string[] = [];
+        
+        for (const prop of properties) {
+            const comment = prop.description ? ` # ${prop.description}` : '';
+            
+            if (prop.type === 'collection' && prop.options && prop.options.length > 0) {
+                yamlLines.push(`      ${prop.name}:${comment}`);
+                for (const option of prop.options) {
+                    const optionComment = option.description ? ` # ${option.description}` : '';
+                    const defaultValue = this.formatDefaultValue(option.default, option.type);
+                    yamlLines.push(`        ${option.name}: ${defaultValue}${optionComment}`);
+                }
+            } else {
+                const defaultValue = this.formatDefaultValue(prop.default, prop.type);
+                yamlLines.push(`      ${prop.name}: ${defaultValue}${comment}`);
+            }
+        }
+        
+        return yamlLines.join('\n');
+    }
+
+    /**
+     * Format default value for YAML output
+     */
+    formatDefaultValue(defaultValue: any, type: string): string {
+        if (defaultValue === undefined || defaultValue === null) {
+            if (type === 'boolean') return 'false';
+            if (type === 'number') return '0';
+            if (type === 'json') return '{}';
+            return '""';
+        }
+        
+        if (typeof defaultValue === 'string') {
+            if (defaultValue === '' || defaultValue === '{}' || defaultValue === '[]') {
+                return defaultValue === '' ? '""' : defaultValue;
+            }
+            return `"${defaultValue}"`;
+        }
+        
+        if (typeof defaultValue === 'boolean') {
+            return defaultValue.toString();
+        }
+        
+        if (typeof defaultValue === 'number') {
+            return defaultValue.toString();
+        }
+        
+        return JSON.stringify(defaultValue);
+    }
+
+    /**
+     * Generate parameters documentation section
+     */
+    generateParametersDocumentation(properties: any[]): string {
+        if (!properties || properties.length === 0) {
+            return 'This node has no configurable parameters.';
+        }
+        
+        const docs: string[] = [];
+        
+        for (const prop of properties) {
+            docs.push(`### ${prop.displayName || prop.name}`);
+            docs.push('');
+            docs.push(`- **Name**: \`${prop.name}\``);
+            docs.push(`- **Type**: \`${prop.type}\``);
+            if (prop.default !== undefined) {
+                docs.push(`- **Default**: \`${JSON.stringify(prop.default)}\``);
+            }
+            if (prop.description) {
+                docs.push(`- **Description**: ${prop.description}`);
+            }
+            if (prop.placeholder) {
+                docs.push(`- **Placeholder**: ${prop.placeholder}`);
+            }
+            
+            if (prop.type === 'collection' && prop.options && prop.options.length > 0) {
+                docs.push('');
+                docs.push('**Options:**');
+                docs.push('');
+                for (const option of prop.options) {
+                    docs.push(`#### ${option.displayName || option.name}`);
+                    docs.push(`- **Name**: \`${option.name}\``);
+                    docs.push(`- **Type**: \`${option.type}\``);
+                    if (option.default !== undefined) {
+                        docs.push(`- **Default**: \`${JSON.stringify(option.default)}\``);
+                    }
+                    if (option.description) {
+                        docs.push(`- **Description**: ${option.description}`);
+                    }
+                    docs.push('');
+                }
+            }
+            
+            docs.push('');
+        }
+        
+        return docs.join('\n');
     }
 
     /**

@@ -15,11 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: Character Text Splitter
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      separator: ""
+      chunkSize: "1000" # Maximum number of characters per chunk
+      chunkOverlap: "0" # Number of characters shared between consecutive chunks to preserve context
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter
 ```
+
+## Parameters
+
+### Separator
+
+- **Name**: `separator`
+- **Type**: `string`
+- **Default**: `""`
+
+### Chunk Size
+
+- **Name**: `chunkSize`
+- **Type**: `number`
+- **Default**: `"1000"`
+- **Description**: Maximum number of characters per chunk
+
+### Chunk Overlap
+
+- **Name**: `chunkOverlap`
+- **Type**: `number`
+- **Default**: `"0"`
+- **Description**: Number of characters shared between consecutive chunks to preserve context
+
 
 ## Node Information
 
@@ -34,17 +58,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/text_splitters/TextSplitterCharacterTextSplitter/TextSplitterCharacterTextSplitter.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

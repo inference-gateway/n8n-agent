@@ -15,11 +15,40 @@ nodes:
   - id: ${unique-node-id}
     name: Sticky Note
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      content: "## I'm a note \n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)"
+      height: "160"
+      width: "240"
+      color: "1"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.stickyNote
 ```
+
+## Parameters
+
+### Content
+
+- **Name**: `content`
+- **Type**: `string`
+- **Default**: `"## I'm a note \\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)"`
+
+### Height
+
+- **Name**: `height`
+- **Type**: `number`
+- **Default**: `"160"`
+
+### Width
+
+- **Name**: `width`
+- **Type**: `number`
+- **Default**: `"240"`
+
+### Color
+
+- **Name**: `color`
+- **Type**: `number`
+- **Default**: `"1"`
+
 
 ## Node Information
 
@@ -34,17 +63,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stickynote/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/StickyNote/StickyNote.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

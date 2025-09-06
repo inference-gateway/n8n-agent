@@ -15,11 +15,27 @@ nodes:
   - id: ${unique-node-id}
     name: Embeddings Cohere
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      notice: ""
+      modelName: "embed-english-v2.0" # The model which will generate the embeddings. <a href="https://docs.cohere.com/docs/models">Learn more</a>.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.embeddingsCohere
 ```
+
+## Parameters
+
+### Each model is using different dimensional density for embeddings. Please make sure to use the same dimensionality for your vector store. The default model is using 768-dimensional embeddings.
+
+- **Name**: `notice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Model
+
+- **Name**: `modelName`
+- **Type**: `options`
+- **Default**: `"embed-english-v2.0"`
+- **Description**: The model which will generate the embeddings. <a href="https://docs.cohere.com/docs/models">Learn more</a>.
+
 
 ## Node Information
 
@@ -34,17 +50,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.embeddingscohere/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/embeddings/EmbeddingsCohere/EmbeddingsCohere.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

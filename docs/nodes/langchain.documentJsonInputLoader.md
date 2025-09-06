@@ -15,11 +15,29 @@ nodes:
   - id: ${unique-node-id}
     name: JSON Input Loader
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      pointers: "" # Pointers to extract from JSON, e.g. "/text" or "/text, /meta/title"
+      options: {} # Metadata to add to each document. Could be used for filtering during retrieval
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.documentJsonInputLoader
 ```
+
+## Parameters
+
+### Pointers
+
+- **Name**: `pointers`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Pointers to extract from JSON, e.g. "/text" or "/text, /meta/title"
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Metadata to add to each document. Could be used for filtering during retrieval
+- **Placeholder**: Add Option
+
 
 ## Node Information
 
@@ -34,17 +52,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.documentjsoninputloader/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/document_loaders/DocumentJSONInputLoader/DocumentJsonInputLoader.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,52 @@ nodes:
   - id: ${unique-node-id}
     name: DHL
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      resource: "shipment"
+      operation: "get"
+      trackingNumber: ""
+      options: # DHL will return more detailed information on the shipment when you provide the Recipient's Postal Code - it acts as a verification step
+        recipientPostalCode: "" # DHL will return more detailed information on the shipment when you provide the Recipient's Postal Code - it acts as a verification step
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.dhl
 ```
+
+## Parameters
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `hidden`
+- **Default**: `"shipment"`
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"get"`
+
+### Tracking Number
+
+- **Name**: `trackingNumber`
+- **Type**: `string`
+- **Default**: `""`
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: DHL will return more detailed information on the shipment when you provide the Recipient's Postal Code - it acts as a verification step
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Recipient's Postal Code
+- **Name**: `recipientPostalCode`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: DHL will return more detailed information on the shipment when you provide the Recipient's Postal Code - it acts as a verification step
+
+
 
 ## Node Information
 
@@ -34,17 +75,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.dhl/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Dhl/Dhl.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

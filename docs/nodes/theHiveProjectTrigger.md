@@ -15,11 +15,55 @@ nodes:
   - id: ${unique-node-id}
     name: TheHive 5 Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      notice: ""
+      events: [] # Events types
+      filters: {} # Filter any incoming events based on their fields
+      options: # Whether to output data with additional details and omit headers
+        outputOnlyData: false # Whether to output data with additional details and omit headers
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.theHiveProjectTrigger
 ```
+
+## Parameters
+
+### You must set up the webhook in TheHive — instructions <a href="https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger/#configure-a-webhook-in-thehive" target="_blank">here</a>
+
+- **Name**: `notice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Events
+
+- **Name**: `events`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: Events types
+
+### Filters
+
+- **Name**: `filters`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Description**: Filter any incoming events based on their fields
+- **Placeholder**: Add Filter
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to output data with additional details and omit headers
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Output Only Data
+- **Name**: `outputOnlyData`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to output data with additional details and omit headers
+
+
 
 ## Node Information
 
@@ -34,17 +78,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehiveprojecttrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/TheHiveProject/TheHiveProjectTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,48 @@ nodes:
   - id: ${unique-node-id}
     name: Summarize
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      fieldsToSummarize: "{ values: [{ aggregation: 'count', field: '' }] }" # How to combine the values of the field you want to summarize
+      fieldsToSplitBy: "" # The name of the input fields that you want to split the summary by
+      fieldsToSplitBy: "" # The name of the input fields that you want to split the summary by
+      options: {} # Whether to continue if field to summarize can't be found in any items and return single empty item, otherwise an error would be thrown
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.summarize
 ```
+
+## Parameters
+
+### Fields to Summarize
+
+- **Name**: `fieldsToSummarize`
+- **Type**: `fixedCollection`
+- **Default**: `"{ values: [{ aggregation: 'count', field: '' }] }"`
+- **Description**: How to combine the values of the field you want to summarize
+- **Placeholder**: Add Field
+
+### Fields to Split By
+
+- **Name**: `fieldsToSplitBy`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The name of the input fields that you want to split the summary by
+- **Placeholder**: e.g. country, city
+
+### Fields to Group By
+
+- **Name**: `fieldsToSplitBy`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The name of the input fields that you want to split the summary by
+- **Placeholder**: e.g. country, city
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to continue if field to summarize can't be found in any items and return single empty item, otherwise an error would be thrown
+- **Placeholder**: Add option
+
 
 ## Node Information
 
@@ -34,17 +71,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.summarize/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Transform/Summarize/Summarize.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

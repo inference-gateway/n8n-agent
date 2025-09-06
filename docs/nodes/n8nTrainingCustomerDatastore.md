@@ -2,7 +2,7 @@
 
 ## Description
 
-No description available
+Dummy node used for n8n training
 
 **Version**: 1
 
@@ -15,11 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: Customer Datastore (n8n training)
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      operation: "getOnePerson"
+      returnAll: false # Whether to return all results or only up to a given limit
+      limit: "5" # Max number of results to return
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.n8nTrainingCustomerDatastore
 ```
+
+## Parameters
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"getOnePerson"`
+
+### Return All
+
+- **Name**: `returnAll`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return all results or only up to a given limit
+
+### Limit
+
+- **Name**: `limit`
+- **Type**: `number`
+- **Default**: `"5"`
+- **Description**: Max number of results to return
+
 
 ## Node Information
 
@@ -34,17 +58,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.n8ntrainingcustomerdatastore/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/N8nTrainingCustomerDatastore/N8nTrainingCustomerDatastore.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

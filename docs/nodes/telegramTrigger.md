@@ -15,11 +15,53 @@ nodes:
   - id: ${unique-node-id}
     name: Telegram Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      telegramTriggerNotice: ""
+      updates: [] # All updates
+      attachmentNotice: ""
+      additionalFields: # Telegram delivers the image in multiple sizes. By default, just the large image would be downloaded. If you want to change the size, set the field 'Image Size'.
+        download: false # Telegram delivers the image in multiple sizes. By default, just the large image would be downloaded. If you want to change the size, set the field 'Image Size'.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.telegramTrigger
 ```
+
+## Parameters
+
+### Due to Telegram API limitations, you can use just one Telegram trigger for each bot at a time
+
+- **Name**: `telegramTriggerNotice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Trigger On
+
+- **Name**: `updates`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: All updates
+
+### Every uploaded attachment, even if sent in a group, will trigger a separate event. You can identify that an attachment belongs to a certain group by <code>media_group_id</code> .
+
+- **Name**: `attachmentNotice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Additional Fields
+
+- **Name**: `additionalFields`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Telegram delivers the image in multiple sizes. By default, just the large image would be downloaded. If you want to change the size, set the field 'Image Size'.
+- **Placeholder**: Add Field
+
+**Options:**
+
+#### Download Images/Files
+- **Name**: `download`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Telegram delivers the image in multiple sizes. By default, just the large image would be downloaded. If you want to change the size, set the field 'Image Size'.
+
+
 
 ## Node Information
 
@@ -34,17 +76,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegramtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Telegram/TelegramTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,28 @@ nodes:
   - id: ${unique-node-id}
     name: Limit
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      maxItems: "1" # If there are more items than this number, some are removed
+      keep: "firstItems" # When removing items, whether to keep the ones at the start or the ending
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.limit
 ```
+
+## Parameters
+
+### Max Items
+
+- **Name**: `maxItems`
+- **Type**: `number`
+- **Default**: `"1"`
+- **Description**: If there are more items than this number, some are removed
+
+### Keep
+
+- **Name**: `keep`
+- **Type**: `options`
+- **Default**: `"firstItems"`
+- **Description**: When removing items, whether to keep the ones at the start or the ending
+
 
 ## Node Information
 
@@ -34,17 +51,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.limit/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Transform/Limit/Limit.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

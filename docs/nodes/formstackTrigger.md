@@ -15,11 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: Formstack Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "accessToken"
+      formId: "" # The Formstack form to monitor for new submissions. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      simple: true # Whether to return a simplified version of the response instead of the raw data
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.formstackTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"accessToken"`
+
+### Form Name or ID
+
+- **Name**: `formId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: The Formstack form to monitor for new submissions. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Simplify
+
+- **Name**: `simple`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to return a simplified version of the response instead of the raw data
+
 
 ## Node Information
 
@@ -34,17 +58,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.formstacktrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Formstack/FormstackTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

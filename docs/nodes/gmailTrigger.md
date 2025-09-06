@@ -15,11 +15,86 @@ nodes:
   - id: ${unique-node-id}
     name: Gmail Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "oAuth2"
+      event: "messageReceived"
+      simple: true # Whether to return a simplified version of the response instead of the raw data
+      filters: # Whether to include messages from SPAM and TRASH in the results
+        includeSpamTrash: false # Whether to include messages from SPAM and TRASH in the results
+        includeDrafts: false # Whether to include email drafts in the results
+      options: # Prefix for name of the binary property to which to write the attachment. An index starting with 0 will be added. So if name is 'attachment_' the first attachment is saved to 'attachment_0'.
+        dataPropertyAttachmentsPrefixName: "attachment_" # Prefix for name of the binary property to which to write the attachment. An index starting with 0 will be added. So if name is 'attachment_' the first attachment is saved to 'attachment_0'.
+        downloadAttachments: false # Whether the email's attachments will be downloaded
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.gmailTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
+
+### Event
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `"messageReceived"`
+
+### Simplify
+
+- **Name**: `simple`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to return a simplified version of the response instead of the raw data
+
+### Filters
+
+- **Name**: `filters`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to include messages from SPAM and TRASH in the results
+- **Placeholder**: Add Filter
+
+**Options:**
+
+#### Include Spam and Trash
+- **Name**: `includeSpamTrash`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to include messages from SPAM and TRASH in the results
+
+#### Include Drafts
+- **Name**: `includeDrafts`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to include email drafts in the results
+
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Prefix for name of the binary property to which to write the attachment. An index starting with 0 will be added. So if name is 'attachment_' the first attachment is saved to 'attachment_0'.
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Attachment Prefix
+- **Name**: `dataPropertyAttachmentsPrefixName`
+- **Type**: `string`
+- **Default**: `"attachment_"`
+- **Description**: Prefix for name of the binary property to which to write the attachment. An index starting with 0 will be added. So if name is 'attachment_' the first attachment is saved to 'attachment_0'.
+
+#### Download Attachments
+- **Name**: `downloadAttachments`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether the email's attachments will be downloaded
+
+
 
 ## Node Information
 
@@ -34,17 +109,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmailtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/Gmail/GmailTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

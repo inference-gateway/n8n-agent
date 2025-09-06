@@ -15,11 +15,62 @@ nodes:
   - id: ${unique-node-id}
     name: Rundeck
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      resource: "job"
+      operation: "execute" # Execute a job
+      jobid: "" # The job ID to execute
+      arguments: {}
+      filter: "" # Filter Rundeck nodes by name
+      jobid: "" # The job ID to get metadata off
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.rundeck
 ```
+
+## Parameters
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"job"`
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"execute"`
+- **Description**: Execute a job
+
+### Job ID
+
+- **Name**: `jobid`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The job ID to execute
+- **Placeholder**: Rundeck Job ID
+
+### Arguments
+
+- **Name**: `arguments`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Argument
+
+### Filter
+
+- **Name**: `filter`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Filter Rundeck nodes by name
+- **Placeholder**: Add Filters
+
+### Job ID
+
+- **Name**: `jobid`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The job ID to get metadata off
+- **Placeholder**: Rundeck Job ID
+
 
 ## Node Information
 
@@ -34,17 +85,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rundeck/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Rundeck/Rundeck.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

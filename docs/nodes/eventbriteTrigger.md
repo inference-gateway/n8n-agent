@@ -15,11 +15,51 @@ nodes:
   - id: ${unique-node-id}
     name: Eventbrite Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "privateKey"
+      organization: "" # The Eventbrite Organization to work on. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      event: "" # Limit the triggers to this event. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      actions: [] # One or more action to subscribe to
+      resolveData: true # By default does the webhook-data only contain the URL to receive the object data manually. If this option gets activated, it will resolve the data automatically.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.eventbriteTrigger
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"privateKey"`
+
+### Organization Name or ID
+
+- **Name**: `organization`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: The Eventbrite Organization to work on. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Event Name or ID
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Limit the triggers to this event. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Actions
+
+- **Name**: `actions`
+- **Type**: `multiOptions`
+- **Default**: `"[]"`
+- **Description**: One or more action to subscribe to
+
+### Resolve Data
+
+- **Name**: `resolveData`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: By default does the webhook-data only contain the URL to receive the object data manually. If this option gets activated, it will resolve the data automatically.
+
 
 ## Node Information
 
@@ -34,17 +74,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.eventbritetrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Eventbrite/EventbriteTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

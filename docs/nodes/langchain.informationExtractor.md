@@ -15,11 +15,56 @@ nodes:
   - id: ${unique-node-id}
     name: Information Extractor
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      text: "" # The text to extract information from
+      From Attribute Descriptions: "fromAttributes" # How to specify the schema for the desired output
+      attributes: {} # Attribute to extract
+      options: # String to use directly as the system prompt template
+        systemPromptTemplate: "SYSTEM_PROMPT_TEMPLATE" # String to use directly as the system prompt template
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.informationExtractor
 ```
+
+## Parameters
+
+### Text
+
+- **Name**: `text`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The text to extract information from
+
+### From Attribute Descriptions
+
+- **Name**: `From Attribute Descriptions`
+- **Type**: `string`
+- **Default**: `"fromAttributes"`
+- **Description**: How to specify the schema for the desired output
+
+### Attributes
+
+- **Name**: `attributes`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Description**: Attribute to extract
+- **Placeholder**: Add Attribute
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: String to use directly as the system prompt template
+- **Placeholder**: Add Option
+
+**Options:**
+
+#### System Prompt Template
+- **Name**: `systemPromptTemplate`
+- **Type**: `string`
+- **Default**: `"SYSTEM_PROMPT_TEMPLATE"`
+- **Description**: String to use directly as the system prompt template
+
+
 
 ## Node Information
 
@@ -34,17 +79,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.informationextractor/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/chains/InformationExtractor/InformationExtractor.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

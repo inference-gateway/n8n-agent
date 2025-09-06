@@ -15,11 +15,59 @@ nodes:
   - id: ${unique-node-id}
     name: E2E Test
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      operation: "remoteOptions"
+      fieldId: ""
+      remoteOptions: [] # Remote options to load. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      rlc: "{ mode: 'list', value: '' }"
+      resourceMapper: "{
+					mappingMode: 'defineBelow',
+					value: null,
+				}"
+      otherField: ""
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.e2eTest
 ```
+
+## Parameters
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"remoteOptions"`
+
+### Field ID
+
+- **Name**: `fieldId`
+- **Type**: `string`
+- **Default**: `""`
+
+### Remote Options Name or ID
+
+- **Name**: `remoteOptions`
+- **Type**: `options`
+- **Default**: `"[]"`
+- **Description**: Remote options to load. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Resource Locator
+
+- **Name**: `rlc`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Placeholder**: https://example.com/user/a4071e98-7d40-41fb-8911-ce3e7bf94fb2
+
+### Resource Mapping Component
+
+- **Name**: `resourceMapper`
+- **Type**: `resourceMapper`
+- **Default**: `"{\n\t\t\t\t\tmappingMode: 'defineBelow',\n\t\t\t\t\tvalue: null,\n\t\t\t\t}"`
+
+### Other Non Important Field
+
+- **Name**: `otherField`
+- **Type**: `string`
+- **Default**: `""`
+
 
 ## Node Information
 
@@ -34,17 +82,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.e2etest/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/E2eTest/E2eTest.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

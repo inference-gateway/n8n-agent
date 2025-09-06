@@ -15,11 +15,57 @@ nodes:
   - id: ${unique-node-id}
     name: Google Translate
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      authentication: "serviceAccount"
+      authentication: "oAuth2"
+      resource: "language"
+      operation: "translate" # Translate data
+      text: "" # The input text to translate
+      translateTo: "" # The language to use for translation of the input text, set to one of the language codes listed in <a href="https://cloud.google.com/translate/docs/languages">Language Support</a>. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.googleTranslate
 ```
+
+## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"serviceAccount"`
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"language"`
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"translate"`
+- **Description**: Translate data
+
+### Text
+
+- **Name**: `text`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The input text to translate
+
+### Translate To
+
+- **Name**: `translateTo`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: The language to use for translation of the input text, set to one of the language codes listed in <a href="https://cloud.google.com/translate/docs/languages">Language Support</a>. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
 
 ## Node Information
 
@@ -34,17 +80,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googletranslate/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/Translate/GoogleTranslate.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

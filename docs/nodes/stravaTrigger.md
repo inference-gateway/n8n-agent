@@ -15,11 +15,53 @@ nodes:
   - id: ${unique-node-id}
     name: Strava Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      object: "*"
+      event: "*"
+      resolveData: true # By default the webhook-data only contain the Object ID. If this option gets activated, it will resolve the data automatically.
+      options: # Strava allows just one subscription at all times. If you want to delete the current subscription to make room for a new subscription with the current parameters, set this parameter to true. Keep in mind this is a destructive operation.
+        deleteIfExist: false # Strava allows just one subscription at all times. If you want to delete the current subscription to make room for a new subscription with the current parameters, set this parameter to true. Keep in mind this is a destructive operation.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.stravaTrigger
 ```
+
+## Parameters
+
+### Object
+
+- **Name**: `object`
+- **Type**: `options`
+- **Default**: `"*"`
+
+### Event
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `"*"`
+
+### Resolve Data
+
+- **Name**: `resolveData`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: By default the webhook-data only contain the Object ID. If this option gets activated, it will resolve the data automatically.
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Strava allows just one subscription at all times. If you want to delete the current subscription to make room for a new subscription with the current parameters, set this parameter to true. Keep in mind this is a destructive operation.
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Delete If Exist
+- **Name**: `deleteIfExist`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Strava allows just one subscription at all times. If you want to delete the current subscription to make room for a new subscription with the current parameters, set this parameter to true. Keep in mind this is a destructive operation.
+
+
 
 ## Node Information
 
@@ -34,17 +76,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stravatrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Strava/StravaTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

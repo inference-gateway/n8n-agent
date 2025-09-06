@@ -15,11 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: In Memory Vector Store Insert
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      notice: ""
+      clearStore: false # Whether to clear the store before inserting new data
+      memoryKey: "vector_store_key" # The key to use to store the vector memory in the workflow data. The key will be prefixed with the workflow ID to avoid collisions.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.vectorStoreInMemoryInsert
 ```
+
+## Parameters
+
+### The embbded data are stored in the server memory, so they will be lost when the server is restarted. Additionally, if the amount of data is too large, it may cause the server to crash due to insufficient memory.
+
+- **Name**: `notice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Clear Store
+
+- **Name**: `clearStore`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to clear the store before inserting new data
+
+### Memory Key
+
+- **Name**: `memoryKey`
+- **Type**: `string`
+- **Default**: `"vector_store_key"`
+- **Description**: The key to use to store the vector memory in the workflow data. The key will be prefixed with the workflow ID to avoid collisions.
+
 
 ## Node Information
 
@@ -34,17 +58,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemoryinsert/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/vector_store/VectorStoreInMemoryInsert/VectorStoreInMemoryInsert.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

@@ -15,11 +15,45 @@ nodes:
   - id: ${unique-node-id}
     name: MQTT
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      topic: "" # The topic to publish to
+      sendInputData: true # Whether to send the data the node receives as JSON
+      message: "" # The message to publish
+      options: {} # QoS subscription level
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.mqtt
 ```
+
+## Parameters
+
+### Topic
+
+- **Name**: `topic`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The topic to publish to
+
+### Send Input Data
+
+- **Name**: `sendInputData`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to send the data the node receives as JSON
+
+### Message
+
+- **Name**: `message`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The message to publish
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: QoS subscription level
+- **Placeholder**: Add option
+
 
 ## Node Information
 
@@ -34,17 +68,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mqtt/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/MQTT/Mqtt.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

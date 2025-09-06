@@ -15,11 +15,47 @@ nodes:
   - id: ${unique-node-id}
     name: Google Calendar Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      calendarId: "{ mode: 'list', value: '' }" # Google Calendar to operate on
+      triggerOn: ""
+      options: # Free text search terms to filter events that match these terms in any field, except for extended properties
+        matchTerm: "" # Free text search terms to filter events that match these terms in any field, except for extended properties
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.googleCalendarTrigger
 ```
+
+## Parameters
+
+### Calendar
+
+- **Name**: `calendarId`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: Google Calendar to operate on
+- **Placeholder**: Select a Calendar...
+
+### Trigger On
+
+- **Name**: `triggerOn`
+- **Type**: `options`
+- **Default**: `""`
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Free text search terms to filter events that match these terms in any field, except for extended properties
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Match Term
+- **Name**: `matchTerm`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Free text search terms to filter events that match these terms in any field, except for extended properties
+
+
 
 ## Node Information
 
@@ -34,17 +70,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendartrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/Calendar/GoogleCalendarTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

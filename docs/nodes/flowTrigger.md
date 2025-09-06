@@ -15,11 +15,36 @@ nodes:
   - id: ${unique-node-id}
     name: Flow Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      resource: "" # Resource that triggers the webhook
+      listIds: "" # Lists IDs, perhaps known better as "Projects" separated by a comma (,)
+      taskIds: "" # Task IDs separated by a comma (,)
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.flowTrigger
 ```
+
+## Parameters
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Resource that triggers the webhook
+
+### Project ID
+
+- **Name**: `listIds`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Lists IDs, perhaps known better as "Projects" separated by a comma (,)
+
+### Task ID
+
+- **Name**: `taskIds`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Task IDs separated by a comma (,)
+
 
 ## Node Information
 
@@ -34,17 +59,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.flowtrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Flow/FlowTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

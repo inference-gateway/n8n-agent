@@ -15,11 +15,26 @@ nodes:
   - id: ${unique-node-id}
     name: Orbit
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      deprecated: ""
+      resource: "member"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.orbit
 ```
+
+## Parameters
+
+### Orbit has been shutdown and will no longer function from July 11th, You can read more <a target="_blank" href="https://orbit.love/blog/orbit-is-joining-postman">here</a>.
+
+- **Name**: `deprecated`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"member"`
+
 
 ## Node Information
 
@@ -34,17 +49,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.orbit/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Orbit/Orbit.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

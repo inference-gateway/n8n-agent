@@ -15,11 +15,31 @@ nodes:
   - id: ${unique-node-id}
     name: MultiQuery Retriever
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      options: # Additional options to add
+        queryCount: "3" # Number of different versions of the given question to generate
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.retrieverMultiQuery
 ```
+
+## Parameters
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Additional options to add
+- **Placeholder**: Add Option
+
+**Options:**
+
+#### Query Count
+- **Name**: `queryCount`
+- **Type**: `number`
+- **Default**: `"3"`
+- **Description**: Number of different versions of the given question to generate
+
+
 
 ## Node Information
 
@@ -34,17 +54,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.retrievermultiquery/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/retrievers/RetrieverMultiQuery/RetrieverMultiQuery.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

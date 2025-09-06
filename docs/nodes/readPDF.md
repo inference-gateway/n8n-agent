@@ -15,11 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: Read PDF
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      binaryPropertyName: "data" # Name of the binary property from which to read the PDF file
+      encrypted: false
+      password: "" # Password to decrypt the PDF file with
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.readPDF
 ```
+
+## Parameters
+
+### Input Binary Field
+
+- **Name**: `binaryPropertyName`
+- **Type**: `string`
+- **Default**: `"data"`
+- **Description**: Name of the binary property from which to read the PDF file
+
+### Encrypted
+
+- **Name**: `encrypted`
+- **Type**: `boolean`
+- **Default**: `false`
+
+### Password
+
+- **Name**: `password`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Password to decrypt the PDF file with
+
 
 ## Node Information
 
@@ -34,17 +58,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.readpdf/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/ReadPdf/ReadPDF.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

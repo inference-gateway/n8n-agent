@@ -15,11 +15,26 @@ nodes:
   - id: ${unique-node-id}
     name: Manual Chat Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      notice: ""
+      openChat: ""
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.manualChatTrigger
 ```
+
+## Parameters
+
+### This node is where a manual chat workflow execution starts. To make one, go back to the canvas and click ‘Chat’
+
+- **Name**: `notice`
+- **Type**: `notice`
+- **Default**: `""`
+
+### Chat and execute workflow
+
+- **Name**: `openChat`
+- **Type**: `button`
+- **Default**: `""`
+
 
 ## Node Information
 
@@ -34,17 +49,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.manualchattrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/@n8n/nodes-langchain/nodes/trigger/ManualChatTrigger/ManualChatTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*

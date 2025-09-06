@@ -15,11 +15,43 @@ nodes:
   - id: ${unique-node-id}
     name: Netlify Trigger
     parameters:
-      # Configure parameters based on your needs
-      # See official documentation for available options
+      siteId: "" # Select the Site ID. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      event: ""
+      formId: "" # Select a form. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+      simple: true # Whether to return a simplified version of the response instead of the raw data
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.netlifyTrigger
 ```
+
+## Parameters
+
+### Site Name or ID
+
+- **Name**: `siteId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Select the Site ID. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Event
+
+- **Name**: `event`
+- **Type**: `options`
+- **Default**: `""`
+
+### Form Name or ID
+
+- **Name**: `formId`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Select a form. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
+
+### Simplify
+
+- **Name**: `simple`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to return a simplified version of the response instead of the raw data
+
 
 ## Node Information
 
@@ -34,17 +66,6 @@ nodes:
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netlifytrigger/) - Complete parameter reference
 - [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Netlify/NetlifyTrigger.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
-
-## Notes
-
-This documentation provides basic node information. For detailed parameter configuration, 
-refer to the official n8n documentation linked above, which contains:
-
-- Complete parameter reference
-- Required vs optional fields
-- Parameter types and validation
-- Usage examples and workflows
-- API integration details
 
 ---
 *Generated automatically from n8n 1 source code*
