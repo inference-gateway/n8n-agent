@@ -244,7 +244,6 @@ func generateIntegrationNodes(params GenerateN8nWorkflowArgs, startNodeId int, p
 	if (strings.Contains(description, "store") || strings.Contains(description, "save")) && posIndex < len(positions) {
 		if !contains(params.Integrations, "database") {
 			builder.WriteString(generateDatabaseNode(positions[posIndex]))
-			posIndex++
 		}
 	}
 
