@@ -312,12 +312,7 @@ ${sortedNodes.map(node =>
 ## Generation Stats
 
 - **Nodes Documented**: ${sortedNodes.length}
-- **Parse Errors**: ${this.errors.length}
 - **Generated**: ${new Date().toISOString()}
-
-${this.errors.length > 0 ? `### Parse Errors
-${this.errors.map(error => `- ${error}`).join('\n')}
-` : ''}
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

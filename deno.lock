@@ -13,15 +13,5 @@
     "undici-types@7.10.0": {
       "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
     }
-  },
-  "workspace": {
-    "packageJson": {
-      "dependencies": [
-        "npm:@types/node@20",
-        "npm:fs-extra@11",
-        "npm:path@~0.12.7",
-        "npm:typescript@5"
-      ]
-    }
   }
 }

@@ -32,7 +32,7 @@ jobs:
         id: generate
         run: |
           echo "🚀 Starting documentation generation..."
-          deno run --allow-read --allow-write scripts/generate-n8n-docs.ts
+          deno run --allow-read --allow-write scripts/generator.ts
           
           if git diff --quiet docs/nodes/; then
             echo "changes=false" >> $GITHUB_OUTPUT

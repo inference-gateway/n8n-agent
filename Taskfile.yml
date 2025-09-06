@@ -47,3 +47,7 @@ tasks:
   docker:build:
     desc: Build Docker image
     cmd: docker build -t {{.APP_NAME}}:{{.VERSION}} .
+
+  generate:docs:
+    desc: Generate N8N node documentation
+    cmd: deno run --allow-read --allow-write scripts/generator.ts
