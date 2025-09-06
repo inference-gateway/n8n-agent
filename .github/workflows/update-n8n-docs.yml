@@ -1,0 +1,151 @@
+name: Update N8N Node Documentation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      
+      - name: Clone n8n repository
+        run: |
+          echo "📥 Cloning n8n repository..."
+          git clone --depth 1 https://github.com/n8n-io/n8n.git /tmp/n8n-repo
+          echo "✅ N8N repository cloned successfully"
+      
+      - name: Generate N8N documentation
+        id: generate
+        run: |
+          echo "🚀 Starting documentation generation..."
+          deno run --allow-read --allow-write scripts/generator.ts
+          
+          if git diff --quiet docs/nodes/; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "📊 No documentation changes detected"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "📊 Documentation changes detected"
+            
+            CHANGED_FILES=$(git diff --name-only docs/nodes/ | wc -l)
+            echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+            echo "📝 Changed files: $CHANGED_FILES"
+          fi
+      
+      - name: Configure Git
+        if: steps.generate.outputs.changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Create branch and commit changes
+        if: steps.generate.outputs.changes == 'true'
+        id: commit
+        run: |
+          BRANCH_NAME="update-n8n-docs-$(date +%Y%m%d-%H%M%S)"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          
+          git checkout -b "$BRANCH_NAME"
+          
+          git add docs/nodes/
+          
+          COMMIT_MSG="docs: Update N8N node documentation
+
+          - Generated documentation for N8N nodes
+          - Updated $(git diff --cached --name-only | wc -l) files
+          - Source: n8n repository (latest)
+          - Generated on: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          This is an automated update from the N8N documentation generator."
+          
+          git commit -m "$COMMIT_MSG"
+          
+          git push origin "$BRANCH_NAME"
+      
+      - name: Create Pull Request
+        if: steps.generate.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.commit.outputs.branch }}
+          title: "docs: Update N8N Node Documentation"
+          body: |
+            ## 📚 N8N Documentation Update
+            
+            This PR contains automatically generated documentation updates for N8N nodes.
+            
+            ### 📊 Summary
+            - **Changed Files**: ${{ steps.generate.outputs.changed_files }}
+            - **Generated From**: [n8n-io/n8n](https://github.com/n8n-io/n8n) repository
+            - **Timestamp**: ${{ github.event.repository.updated_at }}
+            
+            ### 🔍 Review Checklist
+            - [ ] Documentation formatting is consistent
+            - [ ] Parameter descriptions are accurate
+            - [ ] TypeScript interfaces are valid
+            - [ ] Workflow examples use correct syntax
+            - [ ] Links to official documentation work
+            - [ ] No sensitive information exposed
+            
+            ### 📝 Files Changed
+            <details>
+            <summary>Click to view changed files</summary>
+            
+            ```
+            ${{ steps.generate.outputs.changed_files_list }}
+            ```
+            </details>
+            
+            ### 🤖 Automated Generation
+            This documentation was automatically generated using the N8N documentation generator.
+            
+            ---
+            *This is an automated pull request. Please review the changes before merging.*
+          labels: |
+            documentation
+            automated
+            n8n
+          assignees: ${{ github.actor }}
+          reviewers: ${{ github.actor }}
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 📊 Documentation Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.generate.outputs.changes }}" == "true" ]; then
+            echo "✅ **Status**: Documentation updated successfully" >> $GITHUB_STEP_SUMMARY
+            echo "📝 **Changed Files**: ${{ steps.generate.outputs.changed_files }}" >> $GITHUB_STEP_SUMMARY
+            echo "🌿 **Branch**: \`${{ steps.commit.outputs.branch }}\`" >> $GITHUB_STEP_SUMMARY
+            echo "🔀 **Pull Request**: Created" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **Status**: No documentation changes detected" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Documentation is already up to date with the latest n8n repository." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Generated at: $(date -u +"%Y-%m-%d %H:%M:%S UTC")*" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Cleanup
+        if: always()
+        run: |
+          # Remove cloned n8n repository to save space
+          rm -rf /tmp/n8n-repo || true
+          echo "🧹 Cleanup completed"
