@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.ns", "deno.window"],
+    "strict": true
+  },
+  "nodeModulesDir": "none",
+  "imports": {
+    "node:fs": "node:fs",
+    "node:path": "node:path",
+    "node:process": "node:process"
+  }
+}

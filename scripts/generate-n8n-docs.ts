@@ -39,7 +39,7 @@ class TextBasedN8NDocGenerator {
     constructor() {
         this.n8nPath = '/tmp/n8n-repo';
         this.nodesBasePath = path.join(this.n8nPath, 'packages', 'nodes-base', 'nodes');
-        this.outputPath = path.join(process.cwd(), 'docs', 'nodes');
+        this.outputPath = path.join(Deno.cwd(), 'docs', 'nodes');
         this.nodeDefinitions = new Map<string, NodeDefinition>();
         this.errors = [];
     }
@@ -331,7 +331,57 @@ ${this.errors.map(error => `- ${error}`).join('\n')}
      * Generate documentation URL
      */
     generateDocsUrl(nodeName: string): string {
-        return `https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.${nodeName.toLowerCase()}/`;
+        const category = this.isCorePrimaryNode(nodeName) ? 'core-nodes' : 'app-nodes';
+        return `https://docs.n8n.io/integrations/builtin/${category}/n8n-nodes-base.${nodeName.toLowerCase()}/`;
+    }
+
+    /**
+     * Determine if a node is a core node (vs app node)
+     */
+    isCorePrimaryNode(nodeName: string): boolean {
+        const coreNodes = new Set([
+            // Trigger nodes
+            'webhook', 'manualTrigger', 'scheduleTrigger', 'workflowTrigger',
+            'executionTrigger', 'errorTrigger', 'emailReadImap', 'formTrigger',
+            'ssesTrigger', 'localFileTrigger', 'rssFeedTrigger', 'chatTrigger',
+            'evaluationTrigger', 'executeSubworkflowTrigger', 'mcpServerTrigger',
+            'n8nTrigger', 'activationTrigger',
+            
+            // Transform/Logic nodes
+            'if', 'switch', 'merge', 'set', 'filter', 'sort', 'aggregate',
+            'removeDuplicates', 'splitInBatches', 'itemLists', 'limit',
+            'renameKeys', 'splitOut', 'compareDatasets', 'comparedatasets',
+            
+            // Utility nodes
+            'code', 'noOp', 'stopAndError', 'wait', 'httpRequest', 'webhook',
+            'respondToWebhook', 'respondToChat', 'executeCommand', 'executeSubworkflow',
+            'executionData', 'debugHelper',
+            
+            // File/Data nodes
+            'readWriteFile', 'extractFromFile', 'convertToFile', 'compression',
+            'spreadsheetFile', 'editImage',
+            
+            // Communication nodes
+            'emailSend', 'rss',
+            
+            // Crypto/Security nodes
+            'crypto', 'jwt', 'totp',
+            
+            // Network/Protocol nodes
+            'ftp', 'ssh', 'ldap', 'graphql',
+            
+            // Format/Parse nodes
+            'html', 'xml', 'markdown', 'dateTime',
+            
+            // AI/ML nodes
+            'aiTransform', 'summarize',
+            
+            // Development nodes
+            'git', 'n8n', 'n8nForm', 'evaluation'
+        ]);
+        
+        const isCore = coreNodes.has(nodeName.toLowerCase());
+        return isCore;
     }
 
     /**
@@ -367,7 +417,7 @@ if (import.meta.main) {
     const generator = new TextBasedN8NDocGenerator();
     generator.generate().catch((error: any) => {
         console.error('💥 Fatal error:', error);
-        process.exit(1);
+        Deno.exit(1);
     });
 }
 

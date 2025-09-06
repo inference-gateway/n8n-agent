@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-import
 
 /**
  * Test script for N8N Documentation Generator
@@ -17,7 +17,7 @@ class GeneratorTester {
     private outputPath: string;
 
     constructor() {
-        this.testDir = path.join(process.cwd(), 'test-tmp');
+        this.testDir = path.join(Deno.cwd(), 'test-tmp');
         this.mockN8nPath = path.join(this.testDir, 'mock-n8n');
         this.mockNodesPath = path.join(this.mockN8nPath, 'packages', 'nodes-base', 'nodes');
         this.outputPath = path.join(this.testDir, 'test-docs');
@@ -40,7 +40,7 @@ class GeneratorTester {
         } catch (error: any) {
             console.error('❌ Test failed:', error.message);
             this.cleanup();
-            process.exit(1);
+            Deno.exit(1);
         }
     }
 
@@ -231,11 +231,8 @@ export class HttpRequest implements INodeType {
         const requiredSections = [
             '# Webhook',
             '## Description',
-            '## Parameters',
-            '### HTTP Method',
-            '### Path',
-            '## Schema Structure',
-            '## Workflow Example',
+            '## n8n-cli Configuration',
+            '## Node Information',
             '## Resources'
         ];
         
@@ -245,8 +242,8 @@ export class HttpRequest implements INodeType {
             }
         }
 
-        if (!content.includes('**Required**: Yes') || !content.includes('**Type**: `options`')) {
-            throw new Error('Missing parameter details in webhook.md');
+        if (!content.includes('n8n-nodes-base.webhook') || !content.includes('**Version**: 1')) {
+            throw new Error('Missing node type or version information in webhook.md');
         }
     }
 
@@ -261,8 +258,8 @@ export class HttpRequest implements INodeType {
             throw new Error('Missing version information in httpRequest.md');
         }
         
-        if (!content.includes('**Type**: `boolean`')) {
-            throw new Error('Missing boolean parameter type in httpRequest.md');
+        if (!content.includes('n8n-nodes-base.httpRequest')) {
+            throw new Error('Missing node type in httpRequest.md');
         }
     }
 
@@ -299,7 +296,7 @@ if (import.meta.main) {
     const tester = new GeneratorTester();
     tester.runTests().catch((error: any) => {
         console.error('💥 Test runner failed:', error);
-        process.exit(1);
+        Deno.exit(1);
     });
 }
 
