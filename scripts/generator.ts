@@ -39,7 +39,7 @@ class TextBasedN8NDocGenerator {
     private errors: ParseError[];
 
     constructor() {
-        this.n8nPath = 'n8n';
+        this.n8nPath = '/tmp/n8n-repo';
         this.nodesBasePath = path.join(this.n8nPath, 'packages', 'nodes-base', 'nodes');
         this.langchainPath = path.join(this.n8nPath, 'packages', '@n8n', 'nodes-langchain');
         this.outputPath = path.join(Deno.cwd(), 'docs', 'nodes');
