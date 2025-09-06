@@ -34,16 +34,23 @@ jobs:
           echo "🚀 Starting documentation generation..."
           deno run --allow-read --allow-write scripts/generator.ts
           
-          if git diff --quiet docs/nodes/; then
+          CHANGED_FILES=$(git diff --name-only docs/nodes/ 2>/dev/null | wc -l)
+          UNTRACKED_FILES=$(git ls-files --others --exclude-standard docs/nodes/ 2>/dev/null | wc -l)
+          TOTAL_CHANGES=$((CHANGED_FILES + UNTRACKED_FILES))
+          
+          echo "📊 Checking for documentation changes..."
+          echo "   Modified files: $CHANGED_FILES"
+          echo "   Untracked files: $UNTRACKED_FILES" 
+          echo "   Total changes: $TOTAL_CHANGES"
+          
+          if [ "$TOTAL_CHANGES" -gt 0 ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "changed_files=$TOTAL_CHANGES" >> $GITHUB_OUTPUT
+            echo "📊 Documentation changes detected"
+            echo "📝 Changed files: $TOTAL_CHANGES"
+          else
             echo "changes=false" >> $GITHUB_OUTPUT
             echo "📊 No documentation changes detected"
-          else
-            echo "changes=true" >> $GITHUB_OUTPUT
-            echo "📊 Documentation changes detected"
-            
-            CHANGED_FILES=$(git diff --name-only docs/nodes/ | wc -l)
-            echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
-            echo "📝 Changed files: $CHANGED_FILES"
           fi
       
       - name: Configure Git
