@@ -79,7 +79,12 @@ Currently no skills are defined. To add skills:
 3. Implement skill logic in generated skill files (look for TODO placeholders)
 4. Write tests for each skill
 
-**Important**: The `task generate` command must be executed after adding or modifying skills in `agent.yaml`. This command validates the ADL specification and regenerates all necessary files. Skills require an `id` field for validation to pass.
+**Critical Requirements for `task generate`:**
+- The `task generate` command must be executed after adding or modifying skills in `agent.yaml`
+- This command validates the ADL specification and regenerates all necessary files
+- Skills require both `id` and `name` fields for ADL validation to pass
+- **ADL CLI must be installed** - if you get `"adl": executable file not found in $PATH`, see the "ADL CLI Installation Issues" section below
+- The command must complete with exit code 0 (success) before proceeding with development
 
 ### Modifying Agent Behavior
 
@@ -102,15 +107,32 @@ The project includes Flox environment configuration (`.flox/env/manifest.toml`) 
 - go-task (Task runner)
 - Docker
 - Claude Code CLI
+- ADL CLI (required for `task generate`)
 
 Activate with: `flox activate` (if Flox is installed)
+
+### ADL CLI Installation Issues
+The `task generate` command requires the ADL CLI to be available in PATH. If you encounter the error `"adl": executable file not found in $PATH`, you need to install the ADL CLI.
+
+**Known installation failures:**
+- `go install github.com/inference-gateway/adl/cmd/adl@latest` - package not found
+- `go install github.com/inference-gateway/adl@latest` - package not found
+- `go install github.com/inference-gateway/adk/cmd/adl@latest` - package not found
+
+**Solutions:**
+1. Add ADL CLI to the flox environment (recommended for consistent development)
+2. Download binary release from GitHub (if available)
+3. Build from source if repository access is available
+
+The ADL CLI version 0.18.2 is specifically mentioned in the constraints, indicating version compatibility requirements.
 
 ## Important Constraints
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate with `task generate`
 - **Skills Validation**: All skills in `agent.yaml` must have both `id` and `name` fields for ADL validation
-- **ADL Version**: Ensure ADL CLI 0.18.2 or compatible version for regeneration
+- **ADL CLI Requirement**: `task generate` requires ADL CLI 0.18.2 to be installed - see "ADL CLI Installation Issues" section if not available
+- **Generate Command Success**: The `task generate` command must complete successfully (exit code 0) before development can proceed
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips
