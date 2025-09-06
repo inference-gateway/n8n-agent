@@ -73,11 +73,21 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 ## Adding New Functionality
 
 ### Skills Implementation
-Currently no skills are defined. To add skills:
-1. Update `agent.yaml` with skill definitions
-2. Run `task generate` to regenerate the codebase
+The following skills are currently defined:
+- **search-n8n-docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+- **generate-n8n-workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+
+To modify skills:
+1. Update `agent.yaml` with skill definitions (ensure each skill has `id`, `name`, `type`, `tags`, and `schema` fields)
+2. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes (automatically installs ADL CLI)
 3. Implement skill logic in generated skill files (look for TODO placeholders)
 4. Write tests for each skill
+
+**Critical Requirements for `task generate`:**
+- The `task generate` command must be executed after adding or modifying skills in `agent.yaml`
+- Skills require `id`, `name`, `type` (usually "function"), `tags` (array), and `schema` (JSON Schema) fields
+- ADL CLI is automatically installed via the `generate` task
+- The command should complete with exit code 0 (success) before proceeding with development
 
 ### Modifying Agent Behavior
 
@@ -101,13 +111,20 @@ The project includes Flox environment configuration (`.flox/env/manifest.toml`) 
 - Docker
 - Claude Code CLI
 
-Activate with: `flox activate` (if Flox is installed)
+**ADL CLI Installation:**
+- ADL CLI v0.18.2 is automatically installed when running `task generate:docs` or `task generate`
+- Installation command: `curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash`
+- Installs to `~/.local/bin/adl` and verifies PATH availability
+
+Activate Flox with: `flox activate` (if Flox is installed)
 
 ## Important Constraints
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
-- **Configuration Changes**: Always modify `agent.yaml` and regenerate
-- **ADL Version**: Ensure ADL CLI 0.18.2 or compatible version for regeneration
+- **Configuration Changes**: Always modify `agent.yaml` and regenerate with `task generate`
+- **ADL CLI Requirement**: ADL CLI is automatically installed when running `task generate`
+- **Skills Validation**: All skills in `agent.yaml` must have `id`, `name`, `type`, `tags`, and `schema` fields
+- **Generate Command Success**: The `task generate` command must complete successfully before development can proceed
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips
