@@ -1,0 +1,45 @@
+---
+services:
+  inference-gateway:
+    image: ghcr.io/inference-gateway/inference-gateway:latest
+    container_name: inference-gateway
+    environment:
+      ENVIRONMENT: development
+    env_file:
+      .env
+    networks:
+      - a2a-network
+
+  agent:
+    build:
+      context: ..
+    container_name: agent
+    ports:
+      - "8080:8080"
+    environment:
+      A2A_PORT: 8080
+      A2A_DEBUG: true
+      A2A_AGENT_CLIENT_PROVIDER: deepseek
+      A2A_AGENT_CLIENT_MODEL: deepseek-chat
+      A2A_AGENT_CLIENT_API_KEY: ${DEEPSEEK_API_KEY}
+      A2A_AGENT_CLIENT_BASE_URL: http://inference-gateway:8080/v1
+      A2A_AGENT_STREAMING_ENABLED: true
+      A2A_STREAMING_STATUS_UPDATE_INTERVAL: 1s
+    networks:
+      - a2a-network
+
+  a2a-debugger:
+    image: ghcr.io/inference-gateway/a2a-debugger:latest
+    pull_policy: always
+    entrypoint:
+      - /a2a
+      - --server-url
+      - http://agent:8080
+    networks:
+      - a2a-network
+    profiles:
+      - manual
+
+networks:
+  a2a-network:
+    driver: bridge
