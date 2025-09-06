@@ -47,6 +47,9 @@ COPY --from=builder /app/main .
 # Copy agent card
 COPY --from=builder /app/.well-known ./.well-known
 
+# Copy nodes docs
+COPY --from=builder /app/docs ./docs
+
 # Expose port
 EXPOSE 8080
 
