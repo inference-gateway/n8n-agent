@@ -74,10 +74,12 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 
 ### Skills Implementation
 Currently no skills are defined. To add skills:
-1. Update `agent.yaml` with skill definitions
-2. Run `task generate` to regenerate the codebase
+1. Update `agent.yaml` with skill definitions (ensure each skill has both `id` and `name` fields)
+2. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes
 3. Implement skill logic in generated skill files (look for TODO placeholders)
 4. Write tests for each skill
+
+**Important**: The `task generate` command must be executed after adding or modifying skills in `agent.yaml`. This command validates the ADL specification and regenerates all necessary files. Skills require an `id` field for validation to pass.
 
 ### Modifying Agent Behavior
 
@@ -106,7 +108,8 @@ Activate with: `flox activate` (if Flox is installed)
 ## Important Constraints
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
-- **Configuration Changes**: Always modify `agent.yaml` and regenerate
+- **Configuration Changes**: Always modify `agent.yaml` and regenerate with `task generate`
+- **Skills Validation**: All skills in `agent.yaml` must have both `id` and `name` fields for ADL validation
 - **ADL Version**: Ensure ADL CLI 0.18.2 or compatible version for regeneration
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 

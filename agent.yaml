@@ -10,7 +10,8 @@ spec:
     pushNotifications: false
     stateTransitionHistory: false
   skills:
-    - name: search-n8n-docs
+    - id: search-n8n-docs
+      name: search-n8n-docs
       description: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
       parameters:
         - name: query
@@ -25,7 +26,8 @@ spec:
           type: string
           required: false
           description: Optional filter by category (e.g., "trigger", "action", "langchain")
-    - name: generate-n8n-workflow
+    - id: generate-n8n-workflow
+      name: generate-n8n-workflow
       description: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
       parameters:
         - name: workflow_description
