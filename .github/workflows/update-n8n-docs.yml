@@ -81,6 +81,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
           branch: ${{ steps.commit.outputs.branch }}
           title: "docs: Update N8N Node Documentation"
           body: |
