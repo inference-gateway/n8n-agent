@@ -56,33 +56,50 @@ func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
 
 // SearchN8NDocsHandler handles the search-n8n-docs skill execution
 func (s *SearchN8NDocsSkill) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
+	s.logger.Debug("SearchN8NDocsHandler invoked", zap.Any("args", args))
+
 	var p SearchN8nDocsArgs
 	if query, ok := args["query"].(string); ok {
 		p.Query = strings.TrimSpace(strings.ToLower(query))
 	} else {
+		s.logger.Error("query parameter missing or invalid", zap.Any("args", args))
 		return "", fmt.Errorf("query parameter is required")
 	}
 
 	if nodeType, ok := args["node_type"].(string); ok {
 		p.NodeType = strings.TrimSpace(strings.ToLower(nodeType))
+		s.logger.Debug("node_type filter applied", zap.String("node_type", p.NodeType))
 	}
 
 	if category, ok := args["category"].(string); ok {
 		p.Category = strings.TrimSpace(strings.ToLower(category))
+		s.logger.Debug("category filter applied", zap.String("category", p.Category))
 	}
 
 	if p.Query == "" {
+		s.logger.Error("empty query provided")
 		return "", fmt.Errorf("query cannot be empty")
 	}
 
-	results, err := searchDocumentation(p.Query, p.NodeType, p.Category)
+	s.logger.Info("searching documentation",
+		zap.String("query", p.Query),
+		zap.String("node_type", p.NodeType),
+		zap.String("category", p.Category))
+
+	results, err := s.searchDocumentation(p.Query, p.NodeType, p.Category)
 	if err != nil {
+		s.logger.Error("documentation search failed", zap.Error(err))
 		return "", fmt.Errorf("failed to search documentation: %v", err)
 	}
 
 	if len(results) == 0 {
+		s.logger.Info("no matching documentation found", zap.String("query", p.Query))
 		return "No matching documentation found for your query. Try using more general terms or check the available nodes in docs/nodes/README.md", nil
 	}
+
+	s.logger.Info("documentation search completed",
+		zap.String("query", p.Query),
+		zap.Int("results_count", len(results)))
 
 	content := fmt.Sprintf("Found %d matching N8N nodes:\n\n", len(results))
 	for _, result := range results {
@@ -113,18 +130,28 @@ type DocResult struct {
 }
 
 // searchDocumentation searches through the docs/nodes directory
-func searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
+func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
 	var results []DocResult
 	docsPath := "docs/nodes"
 
+	if _, err := os.Stat(docsPath); os.IsNotExist(err) {
+		s.logger.Error("documentation directory does not exist", zap.String("path", docsPath))
+		return nil, fmt.Errorf("documentation directory %s does not exist", docsPath)
+	}
+
+	filesScanned := 0
 	err := filepath.WalkDir(docsPath, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
+			s.logger.Warn("error walking directory", zap.String("path", path), zap.Error(err))
 			return err
 		}
 
 		if !d.IsDir() && strings.HasSuffix(path, ".md") && path != "docs/nodes/README.md" {
+			filesScanned++
 			content, err := os.ReadFile(path)
 			if err != nil {
+				// Log error but continue processing other files
+				s.logger.Warn("failed to read file", zap.String("path", path), zap.Error(err))
 				return nil
 			}
 
@@ -147,6 +174,10 @@ func searchDocumentation(query, nodeType, category string) ([]DocResult, error) 
 			if strings.Contains(contentStr, query) || strings.Contains(filename, query) {
 				result := parseDocumentationFile(string(content), filename)
 				if result != nil {
+					s.logger.Debug("found matching document",
+						zap.String("filename", filename),
+						zap.String("name", result.Name),
+						zap.String("type", result.NodeType))
 					results = append(results, *result)
 				}
 			}
@@ -156,10 +187,16 @@ func searchDocumentation(query, nodeType, category string) ([]DocResult, error) 
 	})
 
 	if err != nil {
+		s.logger.Error("error walking documentation directory", zap.Error(err))
 		return nil, err
 	}
 
+	s.logger.Debug("search statistics",
+		zap.Int("files_scanned", filesScanned),
+		zap.Int("results_found", len(results)))
+
 	if len(results) > 10 {
+		s.logger.Debug("truncating results to 10", zap.Int("original_count", len(results)))
 		results = results[:10]
 	}
 
