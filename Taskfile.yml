@@ -9,6 +9,10 @@ vars:
   VERSION: 0.1.0
 
 tasks:
+  install:
+    desc: Install ADL CLI
+    cmd: curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash
+
   generate:
     desc: Generate code from ADL
     cmd: adl generate --file agent.yaml --output . --overwrite --ci --cd --flox --ai

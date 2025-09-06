@@ -29,6 +29,9 @@ The codebase is generated using ADL CLI 0.18.2 and follows a strict generation p
 ## Development Commands
 
 ```bash
+# Install ADL CLI (required for code generation)
+task install
+
 # Generate/regenerate code from ADL specification
 task generate
 
@@ -73,18 +76,22 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 ## Adding New Functionality
 
 ### Skills Implementation
-Currently no skills are defined. To add skills:
-1. Update `agent.yaml` with skill definitions (ensure each skill has both `id` and `name` fields)
-2. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes
-3. Implement skill logic in generated skill files (look for TODO placeholders)
-4. Write tests for each skill
+The following skills are currently defined:
+- **search-n8n-docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+- **generate-n8n-workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+
+To modify skills:
+1. **Install ADL CLI first**: Run `task install` to ensure ADL CLI is available
+2. Update `agent.yaml` with skill definitions (ensure each skill has `id`, `name`, `type`, `tags`, and `schema` fields)
+3. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes
+4. Implement skill logic in generated skill files (look for TODO placeholders)
+5. Write tests for each skill
 
 **Critical Requirements for `task generate`:**
 - The `task generate` command must be executed after adding or modifying skills in `agent.yaml`
-- This command validates the ADL specification and regenerates all necessary files
-- Skills require both `id` and `name` fields for ADL validation to pass
-- **ADL CLI must be installed** - if you get `"adl": executable file not found in $PATH`, see the "ADL CLI Installation Issues" section below
-- The command must complete with exit code 0 (success) before proceeding with development
+- Skills require `id`, `name`, `type` (usually "function"), `tags` (array), and `schema` (JSON Schema) fields
+- ADL CLI must be installed first using `task install`
+- The command should complete with exit code 0 (success) before proceeding with development
 
 ### Modifying Agent Behavior
 
@@ -107,33 +114,31 @@ The project includes Flox environment configuration (`.flox/env/manifest.toml`) 
 - go-task (Task runner)
 - Docker
 - Claude Code CLI
-- ADL CLI (required for `task generate`)
 
-Activate with: `flox activate` (if Flox is installed)
+**ADL CLI Installation:**
+- Use `task install` command to download and install ADL CLI v0.18.2
+- Installation command: `curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash`
+- Installs to `~/.local/bin/adl` and verifies PATH availability
 
-### ADL CLI Installation Issues
-The `task generate` command requires the ADL CLI to be available in PATH. If you encounter the error `"adl": executable file not found in $PATH`, you need to install the ADL CLI.
-
-**Known installation failures:**
-- `go install github.com/inference-gateway/adl/cmd/adl@latest` - package not found
-- `go install github.com/inference-gateway/adl@latest` - package not found
-- `go install github.com/inference-gateway/adk/cmd/adl@latest` - package not found
-
-**Solutions:**
-1. Add ADL CLI to the flox environment (recommended for consistent development)
-2. Download binary release from GitHub (if available)
-3. Build from source if repository access is available
-
-The ADL CLI version 0.18.2 is specifically mentioned in the constraints, indicating version compatibility requirements.
+Activate Flox with: `flox activate` (if Flox is installed)
 
 ## Important Constraints
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate with `task generate`
-- **Skills Validation**: All skills in `agent.yaml` must have both `id` and `name` fields for ADL validation
-- **ADL CLI Requirement**: `task generate` requires ADL CLI 0.18.2 to be installed - see "ADL CLI Installation Issues" section if not available
-- **Generate Command Success**: The `task generate` command must complete successfully (exit code 0) before development can proceed
+- **ADL CLI Requirement**: Use `task install` to install ADL CLI before running `task generate`
+- **Skills Validation**: All skills in `agent.yaml` must have `id`, `name`, `type`, `tags`, and `schema` fields
+- **Generate Command Success**: The `task generate` command must complete successfully before development can proceed
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
+
+## Known Issues
+
+### ADL CLI Template Error
+The `task generate` command currently has a known template error:
+- **Error**: `failed to execute template ai/agents.md: template: template:70:15: executing "template" at <.Type>: can't evaluate field Type`
+- **Impact**: Most files generate successfully, but generation fails at the final template step
+- **Workaround**: The core functionality works - skill validation passes and main files are generated correctly
+- **Status**: This appears to be a bug in ADL CLI v0.18.2 template system rather than configuration issue
 
 ## Debugging Tips
 

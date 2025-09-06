@@ -12,36 +12,42 @@ spec:
   skills:
     - id: search-n8n-docs
       name: search-n8n-docs
+      type: function
       description: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-      parameters:
-        - name: query
-          type: string
-          required: true
-          description: Search query to find relevant N8N nodes or documentation
-        - name: node_type
-          type: string
-          required: false
-          description: Optional filter by specific node type (e.g., "webhook", "http", "database")
-        - name: category
-          type: string
-          required: false
-          description: Optional filter by category (e.g., "trigger", "action", "langchain")
+      tags: ["documentation", "search", "n8n"]
+      schema:
+        type: object
+        properties:
+          query:
+            type: string
+            description: Search query to find relevant N8N nodes or documentation
+          node_type:
+            type: string
+            description: Optional filter by specific node type (e.g., "webhook", "http", "database")
+          category:
+            type: string
+            description: Optional filter by category (e.g., "trigger", "action", "langchain")
+        required: ["query"]
     - id: generate-n8n-workflow
       name: generate-n8n-workflow
+      type: function
       description: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
-      parameters:
-        - name: workflow_description
-          type: string
-          required: true
-          description: Description of what the workflow should accomplish
-        - name: trigger_type
-          type: string
-          required: false
-          description: Preferred trigger type (e.g., "webhook", "schedule", "manual")
-        - name: integrations
-          type: array
-          required: false
-          description: List of services or platforms to integrate (e.g., ["slack", "gmail", "database"])
+      tags: ["generation", "workflow", "n8n", "yaml"]
+      schema:
+        type: object
+        properties:
+          workflow_description:
+            type: string
+            description: Description of what the workflow should accomplish
+          trigger_type:
+            type: string
+            description: Preferred trigger type (e.g., "webhook", "schedule", "manual")
+          integrations:
+            type: array
+            items:
+              type: string
+            description: List of services or platforms to integrate (e.g., ["slack", "gmail", "database"])
+        required: ["workflow_description"]
   agent:
     provider: ""
     model: ""
