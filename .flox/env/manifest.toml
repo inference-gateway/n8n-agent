@@ -24,9 +24,6 @@ docker.pkg-group = "common"
 claude-code.pkg-path = "claude-code"
 claude-code.pkg-group = "common"
 
-# Note: ADL CLI is required for `task generate` but not available in standard package repositories
-# Manual installation may be required - see CLAUDE.md for installation instructions
-
 [hook]
 on-activate = '''
   echo "🌟 Welcome to n8n-agent development environment!"

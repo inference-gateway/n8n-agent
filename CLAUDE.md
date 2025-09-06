@@ -29,10 +29,7 @@ The codebase is generated using ADL CLI 0.18.2 and follows a strict generation p
 ## Development Commands
 
 ```bash
-# Generate N8N node documentation (automatically installs ADL CLI if needed)
-task generate:docs
-
-# Generate/regenerate code from ADL specification (runs generate:docs first)
+# Generate/regenerate code from ADL specification
 task generate
 
 # Run the agent in development mode (debug enabled, port 8080)
@@ -89,7 +86,7 @@ To modify skills:
 **Critical Requirements for `task generate`:**
 - The `task generate` command must be executed after adding or modifying skills in `agent.yaml`
 - Skills require `id`, `name`, `type` (usually "function"), `tags` (array), and `schema` (JSON Schema) fields
-- ADL CLI is automatically installed via the `generate:docs` dependency
+- ADL CLI is automatically installed via the `generate` task
 - The command should complete with exit code 0 (success) before proceeding with development
 
 ### Modifying Agent Behavior
@@ -129,15 +126,6 @@ Activate Flox with: `flox activate` (if Flox is installed)
 - **Skills Validation**: All skills in `agent.yaml` must have `id`, `name`, `type`, `tags`, and `schema` fields
 - **Generate Command Success**: The `task generate` command must complete successfully before development can proceed
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
-
-## Known Issues
-
-### ADL CLI Template Error
-The `task generate` command currently has a known template error:
-- **Error**: `failed to execute template ai/agents.md: template: template:70:15: executing "template" at <.Type>: can't evaluate field Type`
-- **Impact**: Most files generate successfully, but generation fails at the final template step
-- **Workaround**: The core functionality works - skill validation passes and main files are generated correctly
-- **Status**: This appears to be a bug in ADL CLI v0.18.2 template system rather than configuration issue
 
 ## Debugging Tips
 
