@@ -9,17 +9,16 @@ vars:
   VERSION: 0.1.0
 
 tasks:
-  install:
-    desc: Install ADL CLI
-    cmd: curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash
-
   generate:
     desc: Generate code from ADL
+    deps: [generate:docs]
     cmd: adl generate --file agent.yaml --output . --overwrite --ci --cd --flox --ai
 
   generate:docs:
-    desc: Generate MD files from N8N types
-    cmd: deno run --allow-read --allow-write --allow-net --unstable-sloppy-imports scripts/generator.ts
+    desc: Generate N8N node documentation (includes ADL CLI installation)
+    cmds:
+      - curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash
+      - deno run --allow-read --allow-write --allow-net --unstable-sloppy-imports scripts/generator.ts
 
   build:
     desc: Build the application
@@ -56,6 +55,3 @@ tasks:
     desc: Build Docker image
     cmd: docker build -t {{.APP_NAME}}:{{.VERSION}} .
 
-  generate:docs:
-    desc: Generate N8N node documentation
-    cmd: deno run --allow-read --allow-write scripts/generator.ts

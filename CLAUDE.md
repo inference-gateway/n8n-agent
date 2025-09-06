@@ -29,10 +29,10 @@ The codebase is generated using ADL CLI 0.18.2 and follows a strict generation p
 ## Development Commands
 
 ```bash
-# Install ADL CLI (required for code generation)
-task install
+# Generate N8N node documentation (automatically installs ADL CLI if needed)
+task generate:docs
 
-# Generate/regenerate code from ADL specification
+# Generate/regenerate code from ADL specification (runs generate:docs first)
 task generate
 
 # Run the agent in development mode (debug enabled, port 8080)
@@ -81,16 +81,15 @@ The following skills are currently defined:
 - **generate-n8n-workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 To modify skills:
-1. **Install ADL CLI first**: Run `task install` to ensure ADL CLI is available
-2. Update `agent.yaml` with skill definitions (ensure each skill has `id`, `name`, `type`, `tags`, and `schema` fields)
-3. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes
-4. Implement skill logic in generated skill files (look for TODO placeholders)
-5. Write tests for each skill
+1. Update `agent.yaml` with skill definitions (ensure each skill has `id`, `name`, `type`, `tags`, and `schema` fields)
+2. **REQUIRED**: Run `task generate` to regenerate the codebase after any skill changes (automatically installs ADL CLI)
+3. Implement skill logic in generated skill files (look for TODO placeholders)
+4. Write tests for each skill
 
 **Critical Requirements for `task generate`:**
 - The `task generate` command must be executed after adding or modifying skills in `agent.yaml`
 - Skills require `id`, `name`, `type` (usually "function"), `tags` (array), and `schema` (JSON Schema) fields
-- ADL CLI must be installed first using `task install`
+- ADL CLI is automatically installed via the `generate:docs` dependency
 - The command should complete with exit code 0 (success) before proceeding with development
 
 ### Modifying Agent Behavior
@@ -116,7 +115,7 @@ The project includes Flox environment configuration (`.flox/env/manifest.toml`) 
 - Claude Code CLI
 
 **ADL CLI Installation:**
-- Use `task install` command to download and install ADL CLI v0.18.2
+- ADL CLI v0.18.2 is automatically installed when running `task generate:docs` or `task generate`
 - Installation command: `curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash`
 - Installs to `~/.local/bin/adl` and verifies PATH availability
 
@@ -126,7 +125,7 @@ Activate Flox with: `flox activate` (if Flox is installed)
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate with `task generate`
-- **ADL CLI Requirement**: Use `task install` to install ADL CLI before running `task generate`
+- **ADL CLI Requirement**: ADL CLI is automatically installed when running `task generate`
 - **Skills Validation**: All skills in `agent.yaml` must have `id`, `name`, `type`, `tags`, and `schema` fields
 - **Generate Command Success**: The `task generate` command must complete successfully before development can proceed
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
