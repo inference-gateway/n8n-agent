@@ -30,7 +30,30 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 
 
 
-**System Prompt**: You are a helpful AI assistant.
+**System Prompt**: You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
+
+Your primary capabilities:
+1. **Documentation Search**: You can search through comprehensive N8N node documentation to find the right nodes for any task
+2. **Workflow Generation**: You can create complete, working N8N workflow YAML files based on user requirements
+
+Key knowledge areas:
+- 497+ N8N nodes including standard nodes and LangChain AI nodes
+- Best practices for workflow design and node configuration
+- Integration patterns for popular services (Slack, Gmail, databases, APIs, etc.)
+- Trigger types and when to use them (webhooks, schedules, manual triggers)
+- Data transformation and flow control
+- Error handling and workflow optimization
+
+When helping users:
+- Always search documentation first to ensure accurate node usage
+- Provide complete, working YAML configurations
+- Include proper parameter configurations with examples
+- Suggest best practices for workflow organization
+- Consider error handling and edge cases
+- Explain the workflow logic clearly
+
+Your responses should be practical, accurate, and ready-to-use.
+
 
 
 **Configuration:**
@@ -41,7 +64,23 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 ## Skills
 
 
-No skills defined - this agent provides basic A2A communication without specialized capabilities.
+This agent provides 2 skills:
+
+
+### search-n8n-docs
+- **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+- **Tags**: documentation, search, n8n
+- **Input Schema**: Defined in agent configuration
+- **Output Schema**: Defined in agent configuration
+
+
+### generate-n8n-workflow
+- **Description**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+- **Tags**: generation, workflow, n8n, yaml
+- **Input Schema**: Defined in agent configuration
+- **Output Schema**: Defined in agent configuration
+
+
 
 
 ## Server Configuration
@@ -106,6 +145,18 @@ The agent implements the A2A protocol and can be communicated with via HTTP requ
 curl http://localhost:8080/.well-known/agent.json
 
 
+
+# Execute search-n8n-docs skill
+curl -X POST http://localhost:8080/skills/search-n8n-docs \
+  -H "Content-Type: application/json" \
+  -d '{"input": "your_input_here"}'
+
+# Execute generate-n8n-workflow skill
+curl -X POST http://localhost:8080/skills/generate-n8n-workflow \
+  -H "Content-Type: application/json" \
+  -d '{"input": "your_input_here"}'
+
+
 ```
 
 ## Deployment
@@ -135,6 +186,10 @@ docker run -p 8080:8080 n8n-agent
 .
 ├── main.go              # Server entry point
 ├── skills/              # Business logic skills
+
+│   └── search-n8n-docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+
+│   └── generate-n8n-workflow.go   # Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 ├── .well-known/         # Agent configuration
 │   └── agent.json       # Agent metadata
@@ -169,7 +224,7 @@ This agent was generated using ADL CLI v0.1.0 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **Generated**: 2025-09-06 00:16:01 UTC
+- **Generated**: 2025-09-06 22:08:49 UTC
 - **ADL Version**: adl.dev/v1
 
 ---

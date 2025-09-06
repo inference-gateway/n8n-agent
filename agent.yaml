@@ -12,7 +12,6 @@ spec:
   skills:
     - id: search-n8n-docs
       name: search-n8n-docs
-      type: function
       description: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
       tags: ["documentation", "search", "n8n"]
       schema:
@@ -30,7 +29,6 @@ spec:
         required: ["query"]
     - id: generate-n8n-workflow
       name: generate-n8n-workflow
-      type: function
       description: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
       tags: ["generation", "workflow", "n8n", "yaml"]
       schema:
@@ -82,6 +80,8 @@ spec:
     go:
       module: github.com/inference-gateway/n8n-agent
       version: "1.24"
+    acronyms:
+      - n8n
   scm:
     provider: github
     url: https://github.com/inference-gateway/n8n-agent
