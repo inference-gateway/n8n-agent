@@ -10,6 +10,7 @@
 # - Comments: lines starting with #
 
 skills/*
+.flox/env/manifest.toml
 
 # Go dependency files
 go.sum
