@@ -13,6 +13,7 @@ import (
 
 	server "github.com/inference-gateway/adk/server"
 	config "github.com/inference-gateway/adk/server/config"
+	"github.com/inference-gateway/n8n-agent/skills"
 	envconfig "github.com/sethvargo/go-envconfig"
 	zap "go.uber.org/zap"
 )
@@ -59,6 +60,10 @@ func main() {
 	logger.Debug("loaded configuration", zap.Any("config", cfg))
 
 	toolBox := server.NewDefaultToolBox()
+	
+	// Add custom N8N skills
+	toolBox.AddTool(&skills.SearchN8nDocsTool{})
+	toolBox.AddTool(&skills.GenerateN8nWorkflowTool{})
 
 	llmClient, err := server.NewOpenAICompatibleLLMClient(&cfg.A2A.AgentConfig, logger)
 	if err != nil {
@@ -69,7 +74,29 @@ func main() {
 		WithConfig(&cfg.A2A.AgentConfig).
 		WithLLMClient(llmClient).
 		WithToolBox(toolBox).
-		WithSystemPrompt(`You are a helpful AI assistant.`).
+		WithSystemPrompt(`You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
+
+Your primary capabilities:
+1. **Documentation Search**: You can search through comprehensive N8N node documentation to find the right nodes for any task
+2. **Workflow Generation**: You can create complete, working N8N workflow YAML files based on user requirements
+
+Key knowledge areas:
+- 497+ N8N nodes including standard nodes and LangChain AI nodes
+- Best practices for workflow design and node configuration
+- Integration patterns for popular services (Slack, Gmail, databases, APIs, etc.)
+- Trigger types and when to use them (webhooks, schedules, manual triggers)
+- Data transformation and flow control
+- Error handling and workflow optimization
+
+When helping users:
+- Always search documentation first to ensure accurate node usage
+- Provide complete, working YAML configurations
+- Include proper parameter configurations with examples
+- Suggest best practices for workflow organization
+- Consider error handling and edge cases
+- Explain the workflow logic clearly
+
+Your responses should be practical, accurate, and ready-to-use.`).
 		Build()
 	if err != nil {
 		logger.Fatal("failed to create agent", zap.Error(err))
