@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.n8nTrigger`
 - **Display Name**: n8n Trigger
 - **Internal Name**: `n8nTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

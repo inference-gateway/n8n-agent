@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.mandrill`
 - **Display Name**: Mandrill
 - **Internal Name**: `mandrill`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.splitInBatches`
 - **Display Name**: Loop Over Items (Split in Batches)
 - **Internal Name**: `splitInBatches`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

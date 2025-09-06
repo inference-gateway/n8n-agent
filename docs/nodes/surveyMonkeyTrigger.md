@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.surveyMonkeyTrigger`
 - **Display Name**: SurveyMonkey Trigger
 - **Internal Name**: `surveyMonkeyTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

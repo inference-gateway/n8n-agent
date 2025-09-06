@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.odoo`
 - **Display Name**: Odoo
 - **Internal Name**: `odoo`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

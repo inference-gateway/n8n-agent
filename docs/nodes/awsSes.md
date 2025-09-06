@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.awsSes`
 - **Display Name**: AWS SES
 - **Internal Name**: `awsSes`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

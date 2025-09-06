@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.airtableTrigger`
 - **Display Name**: Airtable Trigger
 - **Internal Name**: `airtableTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

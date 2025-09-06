@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.extractFromFile`
 - **Display Name**: Extract from File
 - **Internal Name**: `extractFromFile`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

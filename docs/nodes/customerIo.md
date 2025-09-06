@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.customerIo`
 - **Display Name**: Customer.io
 - **Internal Name**: `customerIo`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

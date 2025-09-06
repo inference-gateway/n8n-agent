@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.venafiTlsProtectDatacenterTrigger`
 - **Display Name**: Venafi TLS Protect Datacenter Trigger
 - **Internal Name**: `venafiTlsProtectDatacenterTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

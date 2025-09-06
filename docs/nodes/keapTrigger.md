@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.keapTrigger`
 - **Display Name**: Keap Trigger
 - **Internal Name**: `keapTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

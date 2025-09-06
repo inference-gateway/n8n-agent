@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleSheetsTrigger`
 - **Display Name**: Google Sheets Trigger
 - **Internal Name**: `googleSheetsTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

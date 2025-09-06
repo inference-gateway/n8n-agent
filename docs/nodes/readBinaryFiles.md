@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.readBinaryFiles`
 - **Display Name**: Read Binary Files
 - **Internal Name**: `readBinaryFiles`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

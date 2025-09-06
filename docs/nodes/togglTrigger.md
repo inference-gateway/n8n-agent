@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.togglTrigger`
 - **Display Name**: Toggl Trigger
 - **Internal Name**: `togglTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

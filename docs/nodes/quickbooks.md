@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.quickbooks`
 - **Display Name**: QuickBooks Online
 - **Internal Name**: `quickbooks`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

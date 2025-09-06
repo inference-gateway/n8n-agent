@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.jotFormTrigger`
 - **Display Name**: JotForm Trigger
 - **Internal Name**: `jotFormTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

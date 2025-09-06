@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.mqttTrigger`
 - **Display Name**: MQTT Trigger
 - **Internal Name**: `mqttTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

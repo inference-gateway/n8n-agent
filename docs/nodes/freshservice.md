@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.freshservice`
 - **Display Name**: Freshservice
 - **Internal Name**: `freshservice`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

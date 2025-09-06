@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.helpScout`
 - **Display Name**: Help Scout
 - **Internal Name**: `helpScout`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

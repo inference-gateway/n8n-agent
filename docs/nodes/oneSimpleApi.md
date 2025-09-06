@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.oneSimpleApi`
 - **Display Name**: One Simple API
 - **Internal Name**: `oneSimpleApi`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

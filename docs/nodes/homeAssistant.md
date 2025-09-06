@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.homeAssistant`
 - **Display Name**: Home Assistant
 - **Internal Name**: `homeAssistant`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

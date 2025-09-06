@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.activeCampaignTrigger`
 - **Display Name**: ActiveCampaign Trigger
 - **Internal Name**: `activeCampaignTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

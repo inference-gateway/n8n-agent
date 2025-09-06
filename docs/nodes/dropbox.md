@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.dropbox`
 - **Display Name**: Dropbox
 - **Internal Name**: `dropbox`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

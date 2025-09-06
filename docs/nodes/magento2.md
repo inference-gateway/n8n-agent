@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.magento2`
 - **Display Name**: Magento 2
 - **Internal Name**: `magento2`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

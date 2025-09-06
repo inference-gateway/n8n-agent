@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.moveBinaryData`
 - **Display Name**: Convert to/from binary data
 - **Internal Name**: `moveBinaryData`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

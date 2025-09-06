@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.venafiTlsProtectCloud`
 - **Display Name**: Venafi TLS Protect Cloud
 - **Internal Name**: `venafiTlsProtectCloud`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

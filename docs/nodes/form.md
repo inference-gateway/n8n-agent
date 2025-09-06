@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.form`
 - **Display Name**: n8n Form
 - **Internal Name**: `form`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

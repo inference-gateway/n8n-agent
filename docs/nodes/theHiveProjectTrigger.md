@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.theHiveProjectTrigger`
 - **Display Name**: TheHive 5 Trigger
 - **Internal Name**: `theHiveProjectTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

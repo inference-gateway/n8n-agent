@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.n8nTrainingCustomerDatastore`
 - **Display Name**: Customer Datastore (n8n training)
 - **Internal Name**: `n8nTrainingCustomerDatastore`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

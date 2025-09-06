@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.facebookTrigger`
 - **Display Name**: Facebook Trigger
 - **Internal Name**: `facebookTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

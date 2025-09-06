@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.copperTrigger`
 - **Display Name**: Copper Trigger
 - **Internal Name**: `copperTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

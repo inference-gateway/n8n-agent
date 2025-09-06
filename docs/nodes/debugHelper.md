@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.debugHelper`
 - **Display Name**: DebugHelper
 - **Internal Name**: `debugHelper`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

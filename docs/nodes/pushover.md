@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.pushover`
 - **Display Name**: Pushover
 - **Internal Name**: `pushover`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

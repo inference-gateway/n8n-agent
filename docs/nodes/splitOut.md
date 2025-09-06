@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.splitOut`
 - **Display Name**: Split Out
 - **Internal Name**: `splitOut`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.invoiceNinjaTrigger`
 - **Display Name**: Invoice Ninja Trigger
 - **Internal Name**: `invoiceNinjaTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

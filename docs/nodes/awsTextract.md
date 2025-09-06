@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.awsTextract`
 - **Display Name**: AWS Textract
 - **Internal Name**: `awsTextract`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

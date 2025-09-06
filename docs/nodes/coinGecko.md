@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.coinGecko`
 - **Display Name**: CoinGecko
 - **Internal Name**: `coinGecko`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.html`
 - **Display Name**: HTML
 - **Internal Name**: `html`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

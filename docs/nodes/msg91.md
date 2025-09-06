@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.msg91`
 - **Display Name**: MSG91
 - **Internal Name**: `msg91`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

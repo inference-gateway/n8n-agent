@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.awsCertificateManager`
 - **Display Name**: AWS Certificate Manager
 - **Internal Name**: `awsCertificateManager`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

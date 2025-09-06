@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.affinityTrigger`
 - **Display Name**: Affinity Trigger
 - **Internal Name**: `affinityTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

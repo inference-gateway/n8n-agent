@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.totp`
 - **Display Name**: TOTP
 - **Internal Name**: `totp`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

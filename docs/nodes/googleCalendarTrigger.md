@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleCalendarTrigger`
 - **Display Name**: Google Calendar Trigger
 - **Internal Name**: `googleCalendarTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

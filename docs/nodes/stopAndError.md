@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.stopAndError`
 - **Display Name**: Stop and Error
 - **Internal Name**: `stopAndError`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

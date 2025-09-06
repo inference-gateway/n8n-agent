@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleFirebaseRealtimeDatabase`
 - **Display Name**: Google Cloud Realtime Database
 - **Internal Name**: `googleFirebaseRealtimeDatabase`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.formIoTrigger`
 - **Display Name**: Form.io Trigger
 - **Internal Name**: `formIoTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

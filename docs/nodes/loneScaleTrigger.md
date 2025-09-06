@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.loneScaleTrigger`
 - **Display Name**: LoneScale Trigger
 - **Internal Name**: `loneScaleTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

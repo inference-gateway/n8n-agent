@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.facebookGraphApi`
 - **Display Name**: Facebook Graph API
 - **Internal Name**: `facebookGraphApi`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

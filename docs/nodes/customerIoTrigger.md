@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.customerIoTrigger`
 - **Display Name**: Customer.io Trigger
 - **Internal Name**: `customerIoTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

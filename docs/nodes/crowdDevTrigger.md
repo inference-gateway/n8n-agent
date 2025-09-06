@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.crowdDevTrigger`
 - **Display Name**: crowd.dev Trigger
 - **Internal Name**: `crowdDevTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

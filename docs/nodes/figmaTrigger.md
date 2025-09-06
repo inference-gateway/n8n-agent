@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.figmaTrigger`
 - **Display Name**: Figma Trigger (Beta)
 - **Internal Name**: `figmaTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

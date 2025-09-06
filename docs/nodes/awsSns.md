@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.awsSns`
 - **Display Name**: AWS SNS
 - **Internal Name**: `awsSns`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.signl4`
 - **Display Name**: SIGNL4
 - **Internal Name**: `signl4`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

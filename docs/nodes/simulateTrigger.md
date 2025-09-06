@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.simulateTrigger`
 - **Display Name**: Simulate Trigger
 - **Internal Name**: `simulateTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

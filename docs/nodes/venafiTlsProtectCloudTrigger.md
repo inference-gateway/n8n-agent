@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.venafiTlsProtectCloudTrigger`
 - **Display Name**: Venafi TLS Protect Cloud Trigger
 - **Internal Name**: `venafiTlsProtectCloudTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

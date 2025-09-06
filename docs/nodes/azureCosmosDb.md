@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.azureCosmosDb`
 - **Display Name**: Azure Cosmos DB
 - **Internal Name**: `azureCosmosDb`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.calTrigger`
 - **Display Name**: Cal.com Trigger
 - **Internal Name**: `calTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

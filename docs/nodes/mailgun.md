@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.mailgun`
 - **Display Name**: Mailgun
 - **Internal Name**: `mailgun`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

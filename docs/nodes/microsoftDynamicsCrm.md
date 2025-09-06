@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.microsoftDynamicsCrm`
 - **Display Name**: Microsoft Dynamics CRM
 - **Internal Name**: `microsoftDynamicsCrm`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

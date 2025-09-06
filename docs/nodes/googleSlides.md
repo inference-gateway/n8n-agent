@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleSlides`
 - **Display Name**: Google Slides
 - **Internal Name**: `googleSlides`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

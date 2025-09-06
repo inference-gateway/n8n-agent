@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.crowdDev`
 - **Display Name**: crowd.dev
 - **Internal Name**: `crowdDev`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

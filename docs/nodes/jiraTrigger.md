@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.jiraTrigger`
 - **Display Name**: Jira Trigger
 - **Internal Name**: `jiraTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

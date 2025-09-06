@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.microsoftGraphSecurity`
 - **Display Name**: Microsoft Graph Security
 - **Internal Name**: `microsoftGraphSecurity`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

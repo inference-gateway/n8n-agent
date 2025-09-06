@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.functionItem`
 - **Display Name**: Function Item
 - **Internal Name**: `functionItem`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

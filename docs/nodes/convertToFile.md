@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.convertToFile`
 - **Display Name**: Convert to File
 - **Internal Name**: `convertToFile`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

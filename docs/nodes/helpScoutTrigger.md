@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.helpScoutTrigger`
 - **Display Name**: Help Scout Trigger
 - **Internal Name**: `helpScoutTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

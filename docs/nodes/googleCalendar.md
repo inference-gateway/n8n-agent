@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleCalendar`
 - **Display Name**: Google Calendar
 - **Internal Name**: `googleCalendar`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

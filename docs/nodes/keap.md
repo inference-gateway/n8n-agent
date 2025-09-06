@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.keap`
 - **Display Name**: Keap
 - **Internal Name**: `keap`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

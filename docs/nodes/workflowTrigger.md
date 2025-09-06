@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.workflowTrigger`
 - **Display Name**: Workflow Trigger
 - **Internal Name**: `workflowTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

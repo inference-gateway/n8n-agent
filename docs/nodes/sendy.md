@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.sendy`
 - **Display Name**: Sendy
 - **Internal Name**: `sendy`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.gSuiteAdmin`
 - **Display Name**: Google Workspace Admin
 - **Internal Name**: `gSuiteAdmin`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

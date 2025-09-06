@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.n8nTrainingCustomerMessenger`
 - **Display Name**: Customer Messenger (n8n training)
 - **Internal Name**: `n8nTrainingCustomerMessenger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

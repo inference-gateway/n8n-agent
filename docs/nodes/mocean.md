@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.mocean`
 - **Display Name**: Mocean
 - **Internal Name**: `mocean`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.apiTemplateIo`
 - **Display Name**: APITemplate.io
 - **Internal Name**: `apiTemplateIo`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

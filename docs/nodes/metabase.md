@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.metabase`
 - **Display Name**: Metabase
 - **Internal Name**: `metabase`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.code`
 - **Display Name**: Code
 - **Internal Name**: `code`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

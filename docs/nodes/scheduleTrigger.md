@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.scheduleTrigger`
 - **Display Name**: Schedule Trigger
 - **Internal Name**: `scheduleTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

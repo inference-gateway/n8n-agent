@@ -21,6 +21,7 @@ interface NodeDefinition {
     filePath: string;
     docsUrl: string;
     sourceUrl: string;
+    packageName: string;  // Track which package the node belongs to
 }
 
 interface ParseError {
@@ -32,6 +33,7 @@ interface ParseError {
 class TextBasedN8NDocGenerator {
     public n8nPath: string;
     public nodesBasePath: string;
+    public langchainPath: string;
     public outputPath: string;
     private nodeDefinitions: Map<string, NodeDefinition>;
     private errors: ParseError[];
@@ -39,6 +41,7 @@ class TextBasedN8NDocGenerator {
     constructor() {
         this.n8nPath = '/tmp/n8n-repo';
         this.nodesBasePath = path.join(this.n8nPath, 'packages', 'nodes-base', 'nodes');
+        this.langchainPath = path.join(this.n8nPath, 'packages', '@n8n', 'nodes-langchain');
         this.outputPath = path.join(Deno.cwd(), 'docs', 'nodes');
         this.nodeDefinitions = new Map<string, NodeDefinition>();
         this.errors = [];
@@ -76,6 +79,12 @@ class TextBasedN8NDocGenerator {
             throw new Error(`Nodes directory not found at: ${this.nodesBasePath}`);
         }
         
+        if (fs.existsSync(this.langchainPath)) {
+            console.log('✅ LangChain nodes package found');
+        } else {
+            console.log('⚠️  LangChain nodes package not found - will skip AI nodes');
+        }
+        
         console.log('✅ N8N repository paths validated');
     }
 
@@ -96,17 +105,35 @@ class TextBasedN8NDocGenerator {
     async parseNodeDefinitions(): Promise<void> {
         console.log('📖 Parsing node definitions...');
         
+        // Parse nodes-base nodes
         const nodeFiles = this.findNodeFiles(this.nodesBasePath);
-        console.log(`Found ${nodeFiles.length} node files`);
+        console.log(`Found ${nodeFiles.length} node files in nodes-base`);
 
         for (const filePath of nodeFiles) {
             try {
-                await this.parseNodeFile(filePath);
+                await this.parseNodeFile(filePath, 'n8n-nodes-base');
             } catch (error: any) {
                 this.errors.push({
                     file: path.basename(filePath),
                     error: error.message
                 });
+            }
+        }
+        
+        if (fs.existsSync(this.langchainPath)) {
+            console.log('📖 Parsing LangChain nodes...');
+            const langchainFiles = this.findLangChainNodes(this.langchainPath);
+            console.log(`Found ${langchainFiles.length} LangChain node files`);
+            
+            for (const filePath of langchainFiles) {
+                try {
+                    await this.parseLangChainNode(filePath);
+                } catch (error: any) {
+                    this.errors.push({
+                        file: path.basename(filePath),
+                        error: error.message
+                    });
+                }
             }
         }
         
@@ -135,7 +162,7 @@ class TextBasedN8NDocGenerator {
     /**
      * Parse a single node file from text
      */
-    async parseNodeFile(filePath: string): Promise<void> {
+    async parseNodeFile(filePath: string, packageName: string = 'n8n-nodes-base'): Promise<void> {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         
         const descriptionMatch = fileContent.match(/description:\s*INodeTypeDescription\s*=\s*{([\s\S]*?)^(\s*)}/m);
@@ -176,8 +203,9 @@ class TextBasedN8NDocGenerator {
             defaults: {},
             properties,
             filePath,
-            docsUrl: this.generateDocsUrl(name),
-            sourceUrl: this.generateSourceUrl(filePath)
+            docsUrl: this.generateDocsUrl(name, packageName),
+            sourceUrl: this.generateSourceUrl(filePath),
+            packageName
         };
 
         this.nodeDefinitions.set(nodeDefinition.type, nodeDefinition);
@@ -190,6 +218,117 @@ class TextBasedN8NDocGenerator {
         const regex = new RegExp(`${property}:\\s*['"\`]([^'"\`]*?)['"\`]`, 's');
         const match = content.match(regex);
         return match ? match[1] : '';
+    }
+
+    /**
+     * Find LangChain node files
+     */
+    findLangChainNodes(dir: string, files: string[] = []): string[] {
+        if (!fs.existsSync(dir)) return files;
+        
+        const nodesDir = path.join(dir, 'nodes');
+        if (fs.existsSync(nodesDir)) {
+            this.findNodeFilesRecursive(nodesDir, files, ['.node.ts', '.node.js']);
+        }
+        
+        const clusterDir = path.join(dir, 'nodes', 'agents');
+        if (fs.existsSync(clusterDir)) {
+            this.findNodeFilesRecursive(clusterDir, files, ['.node.ts', '.node.js']);
+        }
+        
+        const rootDir = path.join(dir, 'nodes', 'chains');
+        if (fs.existsSync(rootDir)) {
+            this.findNodeFilesRecursive(rootDir, files, ['.node.ts', '.node.js']);
+        }
+        
+        return files;
+    }
+
+    /**
+     * Recursively find node files with specific extensions
+     */
+    findNodeFilesRecursive(dir: string, files: string[] = [], extensions: string[] = ['.node.ts']): string[] {
+        if (!fs.existsSync(dir)) return files;
+        
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        
+        for (const entry of entries) {
+            const fullPath = path.join(dir, entry.name);
+            
+            if (entry.isDirectory()) {
+                this.findNodeFilesRecursive(fullPath, files, extensions);
+            } else if (extensions.some(ext => entry.name.endsWith(ext))) {
+                files.push(fullPath);
+            }
+        }
+        
+        return files;
+    }
+
+    /**
+     * Parse a LangChain node file
+     */
+    async parseLangChainNode(filePath: string): Promise<void> {
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
+        
+        let descriptionMatch = fileContent.match(/description:\s*INodeTypeDescription\s*=\s*{([\s\S]*?)^(\s*)}/m);
+        
+        if (!descriptionMatch) {
+            descriptionMatch = fileContent.match(/export\s+class\s+\w+\s+implements\s+INodeType\s*{[\s\S]*?description\s*[:=]\s*{([\s\S]*?)^(\s*)}/m);
+        }
+        
+        if (!descriptionMatch) {
+            const classMatch = fileContent.match(/export\s+class\s+(\w+)\s+/);
+            if (classMatch) {
+                const className = classMatch[1];
+                const simpleName = className.replace(/Node$/, '').replace(/^LangChain/, '');
+                
+                const nodeDefinition: NodeDefinition = {
+                    displayName: simpleName,
+                    name: simpleName,
+                    type: simpleName,
+                    description: `${simpleName} - LangChain AI Node`,
+                    version: 1,
+                    defaults: {},
+                    properties: [],
+                    filePath,
+                    docsUrl: this.generateDocsUrl(simpleName, '@n8n/n8n-nodes-langchain'),
+                    sourceUrl: this.generateSourceUrl(filePath),
+                    packageName: '@n8n/n8n-nodes-langchain'
+                };
+                
+                this.nodeDefinitions.set(`langchain.${nodeDefinition.type}`, nodeDefinition);
+                return;
+            }
+            throw new Error('No node description found');
+        }
+
+        const descriptionContent = descriptionMatch[1];
+        
+        const displayName = this.extractStringProperty(descriptionContent, 'displayName') || 
+                           this.extractStringProperty(descriptionContent, 'name');
+        const name = this.extractStringProperty(descriptionContent, 'name');
+        const description = this.extractStringProperty(descriptionContent, 'description');
+        
+        if (!name || !displayName) {
+            throw new Error('Missing required name or displayName');
+        }
+
+        const nodeDefinition: NodeDefinition = {
+            displayName,
+            name,
+            type: name,
+            description: description || `${displayName} - LangChain AI Node`,
+            version: 1,
+            defaults: {},
+            properties: [],
+            filePath,
+            docsUrl: this.generateDocsUrl(name, '@n8n/n8n-nodes-langchain'),
+            sourceUrl: this.generateSourceUrl(filePath),
+            packageName: '@n8n/n8n-nodes-langchain'
+        };
+
+        this.nodeDefinitions.set(`langchain.${nodeDefinition.type}`, nodeDefinition);
     }
 
 
@@ -212,6 +351,10 @@ class TextBasedN8NDocGenerator {
      * Generate documentation for a single node
      */
     generateNodeDocument(node: NodeDefinition): string {
+        const nodeType = node.packageName === '@n8n/n8n-nodes-langchain' 
+            ? `@n8n/n8n-nodes-langchain.${node.type}`
+            : `n8n-nodes-base.${node.type}`;
+            
         return `# ${node.displayName}
 
 ## Description
@@ -232,15 +375,16 @@ nodes:
       # Configure parameters based on your needs
       # See official documentation for available options
     position: [x, y]  # Canvas position coordinates
-    type: n8n-nodes-base.${node.type}
+    type: ${nodeType}
 \`\`\`
 
 ## Node Information
 
-- **Node Type**: \`n8n-nodes-base.${node.type}\`
+- **Node Type**: \`${nodeType}\`
 - **Display Name**: ${node.displayName}
 - **Internal Name**: \`${node.name}\`
-- **Category**: Based on file location in n8n repository
+- **Package**: \`${node.packageName}\`
+- **Category**: ${node.packageName === '@n8n/n8n-nodes-langchain' ? 'AI/LangChain' : 'Based on file location in n8n repository'}
 
 ## Resources
 
@@ -292,9 +436,15 @@ nodes:
 
 ## Available Nodes (${sortedNodes.length})
 
-${sortedNodes.map(node => 
+### Standard Nodes
+${sortedNodes.filter(n => n.packageName !== '@n8n/n8n-nodes-langchain').map(node => 
     `- [${node.displayName}](./${node.type}.md) (\`n8n-nodes-base.${node.type}\`) - ${node.description.substring(0, 80)}${node.description.length > 80 ? '...' : ''}`
 ).join('\n')}
+
+### LangChain AI Nodes
+${sortedNodes.filter(n => n.packageName === '@n8n/n8n-nodes-langchain').map(node => 
+    `- [${node.displayName}](./langchain.${node.type}.md) (\`@n8n/n8n-nodes-langchain.${node.type}\`) - ${node.description.substring(0, 80)}${node.description.length > 80 ? '...' : ''}`
+).join('\n') || 'No LangChain nodes found - ensure @n8n/n8n-nodes-langchain is installed in the n8n repository'}
 
 ## Usage with n8n-cli
 
@@ -325,7 +475,11 @@ ${sortedNodes.map(node =>
     /**
      * Generate documentation URL
      */
-    generateDocsUrl(nodeName: string): string {
+    generateDocsUrl(nodeName: string, packageName: string = 'n8n-nodes-base'): string {
+        if (packageName === '@n8n/n8n-nodes-langchain') {
+            // LangChain nodes have different URL structure
+            return `https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.${nodeName.toLowerCase()}/`;
+        }
         const category = this.isCorePrimaryNode(nodeName) ? 'core-nodes' : 'app-nodes';
         return `https://docs.n8n.io/integrations/builtin/${category}/n8n-nodes-base.${nodeName.toLowerCase()}/`;
     }

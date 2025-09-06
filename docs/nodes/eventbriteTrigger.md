@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.eventbriteTrigger`
 - **Display Name**: Eventbrite Trigger
 - **Internal Name**: `eventbriteTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

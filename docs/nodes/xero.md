@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.xero`
 - **Display Name**: Xero
 - **Internal Name**: `xero`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

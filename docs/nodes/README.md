@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 392 n8n nodes, generated from the official n8n repository.
+Documentation for 493 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,8 +15,9 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (392)
+## Available Nodes (493)
 
+### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
 - [ActiveCampaign](./activeCampaign.md) (`n8n-nodes-base.activeCampaign`) - Create and edit data in ActiveCampaign
 - [ActiveCampaign Trigger](./activeCampaignTrigger.md) (`n8n-nodes-base.activeCampaignTrigger`) - Handle ActiveCampaign events via webhooks
@@ -410,6 +411,109 @@ nodes:
 - [Zoom](./zoom.md) (`n8n-nodes-base.zoom`) - Consume Zoom API
 - [Zulip](./zulip.md) (`n8n-nodes-base.zulip`) - Consume Zulip API
 
+### LangChain AI Nodes
+- [Agent](./langchain.Agent.md) (`@n8n/n8n-nodes-langchain.Agent`) - Agent - LangChain AI Node
+- [AgentTool](./langchain.AgentTool.md) (`@n8n/n8n-nodes-langchain.AgentTool`) - AgentTool - LangChain AI Node
+- [AI Agent](./langchain.AI Agent.md) (`@n8n/n8n-nodes-langchain.AI Agent`) - AI Agent - LangChain AI Node
+- [AI Agent Tool](./langchain.AI Agent Tool.md) (`@n8n/n8n-nodes-langchain.AI Agent Tool`) - AI Agent Tool - LangChain AI Node
+- [Anthropic](./langchain.Anthropic.md) (`@n8n/n8n-nodes-langchain.Anthropic`) - Anthropic - LangChain AI Node
+- [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
+- [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
+- [AWS Bedrock Chat Model](./langchain.lmChatAwsBedrock.md) (`@n8n/n8n-nodes-langchain.lmChatAwsBedrock`) - Language Model AWS Bedrock
+- [Azure OpenAI Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
+- [Basic LLM Chain](./langchain.chainLlm.md) (`@n8n/n8n-nodes-langchain.chainLlm`) - A simple chain to prompt a large language model
+- [Binary Input Loader](./langchain.documentBinaryInputLoader.md) (`@n8n/n8n-nodes-langchain.documentBinaryInputLoader`) - Use binary data from a previous step in the workflow
+- [Calculator](./langchain.toolCalculator.md) (`@n8n/n8n-nodes-langchain.toolCalculator`) - Make it easier for AI agents to perform arithmetic
+- [ChainSummarization](./langchain.ChainSummarization.md) (`@n8n/n8n-nodes-langchain.ChainSummarization`) - ChainSummarization - LangChain AI Node
+- [Character Text Splitter](./langchain.textSplitterCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter`) - Split text into chunks by characters
+- [Chat Memory Manager](./langchain.memoryManager.md) (`@n8n/n8n-nodes-langchain.memoryManager`) - Manage chat messages memory and use it in the workflow
+- [Chat Messages Retriever](./langchain.memoryChatRetriever.md) (`@n8n/n8n-nodes-langchain.memoryChatRetriever`) - Retrieve chat messages from memory and use them in the workflow
+- [Chat Trigger](./langchain.chatTrigger.md) (`@n8n/n8n-nodes-langchain.chatTrigger`) - Runs the workflow when an n8n generated webchat is submitted
+- [Code Tool](./langchain.toolCode.md) (`@n8n/n8n-nodes-langchain.toolCode`) - Write a tool in JS or Python
+- [Cohere Chat Model](./langchain.lmChatCohere.md) (`@n8n/n8n-nodes-langchain.lmChatCohere`) - For advanced usage with an AI chain
+- [Cohere Model](./langchain.lmCohere.md) (`@n8n/n8n-nodes-langchain.lmCohere`) - Language Model Cohere
+- [Contextual Compression Retriever](./langchain.retrieverContextualCompression.md) (`@n8n/n8n-nodes-langchain.retrieverContextualCompression`) - Enhances document similarity search by contextual compression.
+- [DeepSeek Chat Model](./langchain.lmChatDeepSeek.md) (`@n8n/n8n-nodes-langchain.lmChatDeepSeek`) - For advanced usage with an AI chain
+- [Default Data Loader](./langchain.documentDefaultDataLoader.md) (`@n8n/n8n-nodes-langchain.documentDefaultDataLoader`) - Load data from previous step in the workflow
+- [Embeddings AWS Bedrock](./langchain.embeddingsAwsBedrock.md) (`@n8n/n8n-nodes-langchain.embeddingsAwsBedrock`) - Embeddings AWS Bedrock - LangChain AI Node
+- [Embeddings Azure OpenAI](./langchain.embeddingsAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`) - Embeddings Azure OpenAI - LangChain AI Node
+- [Embeddings Cohere](./langchain.embeddingsCohere.md) (`@n8n/n8n-nodes-langchain.embeddingsCohere`) - Use Cohere Embeddings
+- [Embeddings Google Gemini](./langchain.embeddingsGoogleGemini.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleGemini`) - Use Google Gemini Embeddings
+- [Embeddings Google Vertex](./langchain.embeddingsGoogleVertex.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleVertex`) - Use Google Vertex Embeddings
+- [Embeddings Hugging Face Inference](./langchain.embeddingsHuggingFaceInference.md) (`@n8n/n8n-nodes-langchain.embeddingsHuggingFaceInference`) - Use HuggingFace Inference Embeddings
+- [Embeddings Mistral Cloud](./langchain.embeddingsMistralCloud.md) (`@n8n/n8n-nodes-langchain.embeddingsMistralCloud`) - Embeddings Mistral Cloud - LangChain AI Node
+- [Embeddings Ollama](./langchain.embeddingsOllama.md) (`@n8n/n8n-nodes-langchain.embeddingsOllama`) - Use Ollama Embeddings
+- [Embeddings OpenAI](./langchain.embeddingsOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsOpenAi`) - Embeddings OpenAI - LangChain AI Node
+- [GitHub Document Loader](./langchain.documentGithubLoader.md) (`@n8n/n8n-nodes-langchain.documentGithubLoader`) - Use GitHub data as input to this chain
+- [Google Gemini Chat Model](./langchain.lmChatGoogleGemini.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleGemini`) - Chat Model Google Gemini
+- [Google Vertex Chat Model](./langchain.lmChatGoogleVertex.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleVertex`) - Chat Model Google Vertex
+- [GoogleGemini](./langchain.GoogleGemini.md) (`@n8n/n8n-nodes-langchain.GoogleGemini`) - GoogleGemini - LangChain AI Node
+- [Groq Chat Model](./langchain.lmChatGroq.md) (`@n8n/n8n-nodes-langchain.lmChatGroq`) - Language Model Groq
+- [HTTP Request Tool](./langchain.toolHttpRequest.md) (`@n8n/n8n-nodes-langchain.toolHttpRequest`) - Makes an HTTP request and returns the response data
+- [Hugging Face Inference Model](./langchain.lmOpenHuggingFaceInference.md) (`@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference`) - Language Model HuggingFaceInference
+- [In Memory Vector Store Insert](./langchain.vectorStoreInMemoryInsert.md) (`@n8n/n8n-nodes-langchain.vectorStoreInMemoryInsert`) - Insert data into an in-memory vector store
+- [In Memory Vector Store Load](./langchain.vectorStoreInMemoryLoad.md) (`@n8n/n8n-nodes-langchain.vectorStoreInMemoryLoad`) - Load embedded data from an in-memory vector store
+- [Information Extractor](./langchain.informationExtractor.md) (`@n8n/n8n-nodes-langchain.informationExtractor`) - Extract information from text in a structured format
+- [Item List Output Parser](./langchain.outputParserItemList.md) (`@n8n/n8n-nodes-langchain.outputParserItemList`) - Return the results as separate items
+- [JSON Input Loader](./langchain.documentJsonInputLoader.md) (`@n8n/n8n-nodes-langchain.documentJsonInputLoader`) - Use JSON data from a previous step in the workflow
+- [LangChain Code](./langchain.code.md) (`@n8n/n8n-nodes-langchain.code`) - LangChain Code Node
+- [Manual Chat Trigger](./langchain.manualChatTrigger.md) (`@n8n/n8n-nodes-langchain.manualChatTrigger`) - Runs the flow on new manual chat message
+- [MCP Client Tool](./langchain.mcpClientTool.md) (`@n8n/n8n-nodes-langchain.mcpClientTool`) - MCP Client Tool - LangChain AI Node
+- [MCP Server Trigger](./langchain.mcpTrigger.md) (`@n8n/n8n-nodes-langchain.mcpTrigger`) - MCP Server Trigger - LangChain AI Node
+- [Mistral Cloud Chat Model](./langchain.lmChatMistralCloud.md) (`@n8n/n8n-nodes-langchain.lmChatMistralCloud`) - For advanced usage with an AI chain
+- [Model Selector](./langchain.modelSelector.md) (`@n8n/n8n-nodes-langchain.modelSelector`) - Model Selector - LangChain AI Node
+- [MongoDB Chat Memory](./langchain.memoryMongoDbChat.md) (`@n8n/n8n-nodes-langchain.memoryMongoDbChat`) - Stores the chat history in MongoDB collection.
+- [Motorhead](./langchain.memoryMotorhead.md) (`@n8n/n8n-nodes-langchain.memoryMotorhead`) - Use Motorhead Memory
+- [MultiQuery Retriever](./langchain.retrieverMultiQuery.md) (`@n8n/n8n-nodes-langchain.retrieverMultiQuery`) - Automates prompt tuning, generates diverse queries and expands document pool for...
+- [Ollama Chat Model](./langchain.lmChatOllama.md) (`@n8n/n8n-nodes-langchain.lmChatOllama`) - Language Model Ollama
+- [Ollama Model](./langchain.lmOllama.md) (`@n8n/n8n-nodes-langchain.lmOllama`) - Language Model Ollama
+- [OpenAi](./langchain.OpenAi.md) (`@n8n/n8n-nodes-langchain.OpenAi`) - OpenAi - LangChain AI Node
+- [OpenAI Assistant](./langchain.openAiAssistant.md) (`@n8n/n8n-nodes-langchain.openAiAssistant`) - Utilizes Assistant API from Open AI.
+- [OpenAI Chat Model](./langchain.lmChatOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatOpenAi`) - For advanced usage with an AI chain
+- [OpenAI Model](./langchain.lmOpenAi.md) (`@n8n/n8n-nodes-langchain.lmOpenAi`) - For advanced usage with an AI chain
+- [OpenRouter Chat Model](./langchain.lmChatOpenRouter.md) (`@n8n/n8n-nodes-langchain.lmChatOpenRouter`) - For advanced usage with an AI chain
+- [Pinecone: Insert](./langchain.vectorStorePineconeInsert.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeInsert`) - Insert data into Pinecone Vector Store index
+- [Pinecone: Load](./langchain.vectorStorePineconeLoad.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeLoad`) - Load data from Pinecone Vector Store index
+- [Postgres Chat Memory](./langchain.memoryPostgresChat.md) (`@n8n/n8n-nodes-langchain.memoryPostgresChat`) - Stores the chat history in Postgres table.
+- [Question and Answer Chain](./langchain.chainRetrievalQa.md) (`@n8n/n8n-nodes-langchain.chainRetrievalQa`) - Answer questions about retrieved documents
+- [Recursive Character Text Splitter](./langchain.textSplitterRecursiveCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter`) - Split text into chunks by characters recursively, recommended for most use cases
+- [Redis Chat Memory](./langchain.memoryRedisChat.md) (`@n8n/n8n-nodes-langchain.memoryRedisChat`) - Stores the chat history in Redis.
+- [Reranker Cohere](./langchain.rerankerCohere.md) (`@n8n/n8n-nodes-langchain.rerankerCohere`) - Use Cohere Reranker to reorder documents after retrieval from a vector store by ...
+- [Respond to Chat](./langchain.chat.md) (`@n8n/n8n-nodes-langchain.chat`) - Send a message to a chat
+- [SearXNG](./langchain.toolSearXng.md) (`@n8n/n8n-nodes-langchain.toolSearXng`) - Search in SearXNG
+- [Sentiment Analysis](./langchain.sentimentAnalysis.md) (`@n8n/n8n-nodes-langchain.sentimentAnalysis`) - Analyze the sentiment of your text
+- [SerpApi (Google Search)](./langchain.toolSerpApi.md) (`@n8n/n8n-nodes-langchain.toolSerpApi`) - Search in Google using SerpAPI
+- [Simple Memory](./langchain.memoryBufferWindow.md) (`@n8n/n8n-nodes-langchain.memoryBufferWindow`) - Stores in n8n memory, so no credentials required
+- [Structured Output Parser](./langchain.outputParserStructured.md) (`@n8n/n8n-nodes-langchain.outputParserStructured`) - Return data in a defined JSON format
+- [Summarization Chain](./langchain.Summarization Chain.md) (`@n8n/n8n-nodes-langchain.Summarization Chain`) - Summarization Chain - LangChain AI Node
+- [Supabase: Insert](./langchain.vectorStoreSupabaseInsert.md) (`@n8n/n8n-nodes-langchain.vectorStoreSupabaseInsert`) - Insert data into Supabase Vector Store index [https://supabase.com/docs/guides/a...
+- [Supabase: Load](./langchain.vectorStoreSupabaseLoad.md) (`@n8n/n8n-nodes-langchain.vectorStoreSupabaseLoad`) - Load data from Supabase Vector Store index
+- [Text Classifier](./langchain.textClassifier.md) (`@n8n/n8n-nodes-langchain.textClassifier`) - Classify your text into distinct categories
+- [Think Tool](./langchain.toolThink.md) (`@n8n/n8n-nodes-langchain.toolThink`) - Invite the AI agent to do some thinking
+- [Token Splitter](./langchain.textSplitterTokenSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterTokenSplitter`) - Split text into chunks by tokens
+- [Tool Executor](./langchain.toolExecutor.md) (`@n8n/n8n-nodes-langchain.toolExecutor`) - Tool Executor - LangChain AI Node
+- [ToolWorkflow](./langchain.ToolWorkflow.md) (`@n8n/n8n-nodes-langchain.ToolWorkflow`) - ToolWorkflow - LangChain AI Node
+- [Vector Store Question Answer Tool](./langchain.toolVectorStore.md) (`@n8n/n8n-nodes-langchain.toolVectorStore`) - Answer questions with a vector store
+- [Vector Store Retriever](./langchain.retrieverVectorStore.md) (`@n8n/n8n-nodes-langchain.retrieverVectorStore`) - Use a Vector Store as Retriever
+- [VectorStoreInMemory](./langchain.VectorStoreInMemory.md) (`@n8n/n8n-nodes-langchain.VectorStoreInMemory`) - VectorStoreInMemory - LangChain AI Node
+- [VectorStoreMilvus](./langchain.VectorStoreMilvus.md) (`@n8n/n8n-nodes-langchain.VectorStoreMilvus`) - VectorStoreMilvus - LangChain AI Node
+- [VectorStoreMongoDBAtlas](./langchain.VectorStoreMongoDBAtlas.md) (`@n8n/n8n-nodes-langchain.VectorStoreMongoDBAtlas`) - VectorStoreMongoDBAtlas - LangChain AI Node
+- [VectorStorePGVector](./langchain.VectorStorePGVector.md) (`@n8n/n8n-nodes-langchain.VectorStorePGVector`) - VectorStorePGVector - LangChain AI Node
+- [VectorStorePinecone](./langchain.VectorStorePinecone.md) (`@n8n/n8n-nodes-langchain.VectorStorePinecone`) - VectorStorePinecone - LangChain AI Node
+- [VectorStoreQdrant](./langchain.VectorStoreQdrant.md) (`@n8n/n8n-nodes-langchain.VectorStoreQdrant`) - VectorStoreQdrant - LangChain AI Node
+- [VectorStoreSupabase](./langchain.VectorStoreSupabase.md) (`@n8n/n8n-nodes-langchain.VectorStoreSupabase`) - VectorStoreSupabase - LangChain AI Node
+- [VectorStoreWeaviate](./langchain.VectorStoreWeaviate.md) (`@n8n/n8n-nodes-langchain.VectorStoreWeaviate`) - VectorStoreWeaviate - LangChain AI Node
+- [VectorStoreZep](./langchain.VectorStoreZep.md) (`@n8n/n8n-nodes-langchain.VectorStoreZep`) - VectorStoreZep - LangChain AI Node
+- [Vercel AI Gateway Chat Model](./langchain.lmChatVercelAiGateway.md) (`@n8n/n8n-nodes-langchain.lmChatVercelAiGateway`) - For advanced usage with an AI chain via Vercel AI Gateway
+- [Wikipedia](./langchain.toolWikipedia.md) (`@n8n/n8n-nodes-langchain.toolWikipedia`) - Search in Wikipedia
+- [Wolfram|Alpha](./langchain.toolWolframAlpha.md) (`@n8n/n8n-nodes-langchain.toolWolframAlpha`) - Connects to WolframAlpha
+- [Workflow Retriever](./langchain.retrieverWorkflow.md) (`@n8n/n8n-nodes-langchain.retrieverWorkflow`) - Use an n8n Workflow as Retriever
+- [xAI Grok Chat Model](./langchain.lmChatXAiGrok.md) (`@n8n/n8n-nodes-langchain.lmChatXAiGrok`) - For advanced usage with an AI chain
+- [Xata](./langchain.memoryXata.md) (`@n8n/n8n-nodes-langchain.memoryXata`) - Use Xata Memory
+- [Zep](./langchain.memoryZep.md) (`@n8n/n8n-nodes-langchain.memoryZep`) - Use Zep Memory
+- [Zep Vector Store: Insert](./langchain.vectorStoreZepInsert.md) (`@n8n/n8n-nodes-langchain.vectorStoreZepInsert`) - Insert data into Zep Vector Store index
+- [Zep Vector Store: Load](./langchain.vectorStoreZepLoad.md) (`@n8n/n8n-nodes-langchain.vectorStoreZepLoad`) - Load data from Zep Vector Store index
+
 ## Usage with n8n-cli
 
 1. **Install n8n-cli**: `npm install -g @edenreich/n8n-cli`
@@ -425,8 +529,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 392
-- **Generated**: 2025-09-06T01:26:03.374Z
+- **Nodes Documented**: 493
+- **Generated**: 2025-09-06T11:33:24.886Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

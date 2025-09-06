@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.e2eTest`
 - **Display Name**: E2E Test
 - **Internal Name**: `e2eTest`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

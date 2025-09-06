@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.postgresTrigger`
 - **Display Name**: Postgres Trigger
 - **Internal Name**: `postgresTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

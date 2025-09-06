@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.writeBinaryFile`
 - **Display Name**: Write Binary File
 - **Internal Name**: `writeBinaryFile`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

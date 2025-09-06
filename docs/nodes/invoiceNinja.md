@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.invoiceNinja`
 - **Display Name**: Invoice Ninja
 - **Internal Name**: `invoiceNinja`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

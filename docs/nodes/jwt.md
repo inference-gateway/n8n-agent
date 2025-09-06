@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.jwt`
 - **Display Name**: JWT
 - **Internal Name**: `jwt`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

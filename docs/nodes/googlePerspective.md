@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googlePerspective`
 - **Display Name**: Google Perspective
 - **Internal Name**: `googlePerspective`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

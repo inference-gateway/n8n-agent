@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.microsoftOutlookTrigger`
 - **Display Name**: Microsoft Outlook Trigger
 - **Internal Name**: `microsoftOutlookTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

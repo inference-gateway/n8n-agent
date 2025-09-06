@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.googleBooks`
 - **Display Name**: Google Books
 - **Internal Name**: `googleBooks`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

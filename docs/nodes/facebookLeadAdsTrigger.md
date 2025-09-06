@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.facebookLeadAdsTrigger`
 - **Display Name**: Facebook Lead Ads Trigger
 - **Internal Name**: `facebookLeadAdsTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

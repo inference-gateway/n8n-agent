@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.whatsApp`
 - **Display Name**: WhatsApp Business Cloud
 - **Internal Name**: `whatsApp`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

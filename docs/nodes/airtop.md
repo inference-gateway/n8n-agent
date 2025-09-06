@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.airtop`
 - **Display Name**: Airtop
 - **Internal Name**: `airtop`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.rssFeedReadTrigger`
 - **Display Name**: RSS Feed Trigger
 - **Internal Name**: `rssFeedReadTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

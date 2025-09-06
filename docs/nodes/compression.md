@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.compression`
 - **Display Name**: Compression
 - **Internal Name**: `compression`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

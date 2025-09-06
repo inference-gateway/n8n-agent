@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.executeCommand`
 - **Display Name**: Execute Command
 - **Internal Name**: `executeCommand`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

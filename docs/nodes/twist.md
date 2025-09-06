@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.twist`
 - **Display Name**: Twist
 - **Internal Name**: `twist`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.shopify`
 - **Display Name**: Shopify
 - **Internal Name**: `shopify`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

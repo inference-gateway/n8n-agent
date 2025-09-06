@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.workableTrigger`
 - **Display Name**: Workable Trigger
 - **Internal Name**: `workableTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

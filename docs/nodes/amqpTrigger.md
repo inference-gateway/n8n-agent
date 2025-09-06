@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.amqpTrigger`
 - **Display Name**: AMQP Trigger
 - **Internal Name**: `amqpTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

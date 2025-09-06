@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.ciscoWebexTrigger`
 - **Display Name**: Webex by Cisco Trigger
 - **Internal Name**: `ciscoWebexTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

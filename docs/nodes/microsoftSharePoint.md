@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.microsoftSharePoint`
 - **Display Name**: Microsoft SharePoint
 - **Internal Name**: `microsoftSharePoint`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

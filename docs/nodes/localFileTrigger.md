@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.localFileTrigger`
 - **Display Name**: Local File Trigger
 - **Internal Name**: `localFileTrigger`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

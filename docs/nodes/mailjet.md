@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.mailjet`
 - **Display Name**: Mailjet
 - **Internal Name**: `mailjet`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

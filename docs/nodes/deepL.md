@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.deepL`
 - **Display Name**: DeepL
 - **Internal Name**: `deepL`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources

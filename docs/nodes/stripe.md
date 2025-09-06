@@ -26,6 +26,7 @@ nodes:
 - **Node Type**: `n8n-nodes-base.stripe`
 - **Display Name**: Stripe
 - **Internal Name**: `stripe`
+- **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
 
 ## Resources
