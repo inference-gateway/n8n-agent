@@ -57,7 +57,6 @@ func (t *SearchN8nDocsTool) GetParameters() map[string]any {
 
 // Execute performs the search through N8N documentation
 func (t *SearchN8nDocsTool) Execute(ctx context.Context, params map[string]any) (string, error) {
-	// Parse parameters
 	var p SearchN8nDocsParams
 	if query, ok := params["query"].(string); ok {
 		p.Query = strings.TrimSpace(strings.ToLower(query))
@@ -77,7 +76,6 @@ func (t *SearchN8nDocsTool) Execute(ctx context.Context, params map[string]any) 
 		return "", fmt.Errorf("query cannot be empty")
 	}
 
-	// Search through documentation files
 	results, err := searchDocumentation(p.Query, p.NodeType, p.Category)
 	if err != nil {
 		return "", fmt.Errorf("failed to search documentation: %v", err)
@@ -87,7 +85,6 @@ func (t *SearchN8nDocsTool) Execute(ctx context.Context, params map[string]any) 
 		return "No matching documentation found for your query. Try using more general terms or check the available nodes in docs/nodes/README.md", nil
 	}
 
-	// Format results
 	content := fmt.Sprintf("Found %d matching N8N nodes:\n\n", len(results))
 	for _, result := range results {
 		content += fmt.Sprintf("## %s\n", result.Name)
@@ -127,16 +124,14 @@ func searchDocumentation(query, nodeType, category string) ([]DocResult, error) 
 		}
 
 		if !d.IsDir() && strings.HasSuffix(path, ".md") && path != "docs/nodes/README.md" {
-			// Read file content
 			content, err := os.ReadFile(path)
 			if err != nil {
-				return nil // Skip files we can't read
+				return nil
 			}
 
 			contentStr := strings.ToLower(string(content))
 			filename := filepath.Base(path)
 
-			// Apply filters
 			if nodeType != "" && !strings.Contains(contentStr, nodeType) {
 				return nil
 			}
@@ -150,7 +145,6 @@ func searchDocumentation(query, nodeType, category string) ([]DocResult, error) 
 				}
 			}
 
-			// Check if content matches query
 			if strings.Contains(contentStr, query) || strings.Contains(filename, query) {
 				result := parseDocumentationFile(string(content), filename)
 				if result != nil {
@@ -166,7 +160,6 @@ func searchDocumentation(query, nodeType, category string) ([]DocResult, error) 
 		return nil, err
 	}
 
-	// Limit results to avoid overwhelming output
 	if len(results) > 10 {
 		results = results[:10]
 	}
@@ -186,12 +179,10 @@ func parseDocumentationFile(content, filename string) *DocResult {
 	yamlLineCount := 0
 
 	for i, line := range lines {
-		// Extract title (first # header)
 		if result.Name == "" && strings.HasPrefix(line, "# ") {
 			result.Name = strings.TrimPrefix(line, "# ")
 		}
 
-		// Extract description
 		if result.Description == "" && strings.HasPrefix(line, "## Description") && i+2 < len(lines) {
 			desc := strings.TrimSpace(lines[i+2])
 			if desc != "" && !strings.HasPrefix(desc, "**") {
@@ -199,7 +190,6 @@ func parseDocumentationFile(content, filename string) *DocResult {
 			}
 		}
 
-		// Extract node type from yaml example
 		if strings.Contains(line, "type: n8n-nodes-base.") || strings.Contains(line, "type: @n8n/n8n-nodes-langchain.") {
 			parts := strings.Split(line, "type: ")
 			if len(parts) > 1 {
@@ -207,7 +197,6 @@ func parseDocumentationFile(content, filename string) *DocResult {
 			}
 		}
 
-		// Extract YAML example for usage
 		if strings.Contains(line, "```yaml") {
 			inYamlBlock = true
 			yamlLineCount = 0
@@ -216,13 +205,12 @@ func parseDocumentationFile(content, filename string) *DocResult {
 		if inYamlBlock && strings.Contains(line, "```") {
 			break
 		}
-		if inYamlBlock && yamlLineCount < 8 { // Limit example size
+		if inYamlBlock && yamlLineCount < 8 {
 			yamlExample.WriteString(line + "\n")
 			yamlLineCount++
 		}
 	}
 
-	// Determine category
 	if strings.Contains(strings.ToLower(filename), "trigger") {
 		result.Category = "trigger"
 	} else if strings.Contains(strings.ToLower(filename), "langchain") {
@@ -233,7 +221,6 @@ func parseDocumentationFile(content, filename string) *DocResult {
 
 	result.Excerpt = strings.TrimSpace(yamlExample.String())
 
-	// Set defaults if not found
 	if result.Name == "" {
 		result.Name = strings.TrimSuffix(filename, ".md")
 	}
