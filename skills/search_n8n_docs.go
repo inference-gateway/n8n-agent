@@ -134,12 +134,12 @@ func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category strin
 	var results []DocResult
 
 	docsPath := s.findDocsPath()
-	
+
 	if docsPath == "" {
 		s.logger.Error("documentation directory does not exist")
 		return nil, fmt.Errorf("documentation directory docs/nodes does not exist")
 	}
-	
+
 	s.logger.Debug("using documentation path", zap.String("path", docsPath))
 
 	filesScanned := 0
@@ -175,7 +175,7 @@ func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category strin
 
 			filenameMatch := strings.Contains(strings.ToLower(filename), query)
 			contentMatch := strings.Contains(contentStr, query)
-			
+
 			if query == "" || filenameMatch || contentMatch {
 				result := parseDocumentationFile(string(content), filename)
 				if result != nil {
@@ -295,12 +295,12 @@ func parseDocumentationFile(content, filename string) *DocResult {
 func (s *SearchN8NDocsSkill) findDocsPath() string {
 	execPath, err := os.Executable()
 	var basePaths []string
-	
+
 	if err == nil {
 		execDir := filepath.Dir(execPath)
 		basePaths = append(basePaths, execDir, filepath.Dir(execDir))
 	}
-	
+
 	wd, err := os.Getwd()
 	if err == nil {
 		basePaths = append(basePaths, wd)
@@ -313,11 +313,11 @@ func (s *SearchN8NDocsSkill) findDocsPath() string {
 			basePaths = append(basePaths, parent)
 		}
 	}
-	
+
 	if envPath := os.Getenv("N8N_AGENT_DOCS_PATH"); envPath != "" {
 		basePaths = append([]string{envPath}, basePaths...)
 	}
-	
+
 	for _, base := range basePaths {
 		docsPath := filepath.Join(base, "docs", "nodes")
 		if stat, err := os.Stat(docsPath); err == nil && stat.IsDir() {
@@ -325,7 +325,7 @@ func (s *SearchN8NDocsSkill) findDocsPath() string {
 			return docsPath
 		}
 	}
-	
+
 	s.logger.Debug("docs path not found", zap.Strings("tried_paths", basePaths))
 	return ""
 }

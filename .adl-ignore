@@ -12,6 +12,7 @@
 
 .flox/env/manifest.toml
 Taskfile.yml
+Dockerfile
 
 # Go dependency files
 go.sum

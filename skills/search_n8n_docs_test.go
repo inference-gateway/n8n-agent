@@ -71,8 +71,8 @@ func TestSearchN8NDocsHandler(t *testing.T) {
 			wantErr: true,
 		},
 		{
-			name: "Missing query",
-			args: map[string]any{},
+			name:    "Missing query",
+			args:    map[string]any{},
 			wantErr: true,
 		},
 	}
@@ -80,12 +80,12 @@ func TestSearchN8NDocsHandler(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := skill.SearchN8NDocsHandler(context.Background(), tt.args)
-			
+
 			if (err != nil) != tt.wantErr {
 				t.Errorf("SearchN8NDocsHandler() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			
+
 			if !tt.wantErr && tt.expectMatch != "" {
 				if !strings.Contains(strings.ToLower(result), strings.ToLower(tt.expectMatch)) {
 					t.Errorf("SearchN8NDocsHandler() result does not contain expected match %q, got: %q", tt.expectMatch, result)
