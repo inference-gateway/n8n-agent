@@ -1,0 +1,331 @@
+package skills
+
+import (
+	"context"
+	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"strings"
+
+	server "github.com/inference-gateway/adk/server"
+	zap "go.uber.org/zap"
+)
+
+// SearchN8NDocsSkill struct holds the skill with logger
+type SearchN8NDocsSkill struct {
+	logger *zap.Logger
+}
+
+// SearchN8nDocsParams represents the input parameters for the search-n8n-docs skill
+type SearchN8nDocsArgs struct {
+	Query    string `json:"query"`
+	NodeType string `json:"node_type,omitempty"`
+	Category string `json:"category,omitempty"`
+}
+
+// NewSearchN8NDocsSkill creates a new search-n8n-docs skill
+func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
+	skill := &SearchN8NDocsSkill{
+		logger: logger,
+	}
+	return server.NewBasicTool(
+		"search-n8n-docs",
+		"Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns",
+		map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"category": map[string]any{
+					"description": "Optional filter by category (e.g., \"trigger\", \"action\", \"langchain\")",
+					"type":        "string",
+				},
+				"node_type": map[string]any{
+					"description": "Optional filter by specific node type (e.g., \"webhook\", \"http\", \"database\")",
+					"type":        "string",
+				},
+				"query": map[string]any{
+					"description": "Search query to find relevant N8N nodes or documentation",
+					"type":        "string",
+				},
+			},
+			"required": []string{"query"},
+		},
+		skill.SearchN8NDocsHandler,
+	)
+}
+
+// SearchN8NDocsHandler handles the search-n8n-docs skill execution
+func (s *SearchN8NDocsSkill) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
+	s.logger.Debug("SearchN8NDocsHandler invoked", zap.Any("args", args))
+
+	var p SearchN8nDocsArgs
+	if query, ok := args["query"].(string); ok {
+		p.Query = strings.TrimSpace(strings.ToLower(query))
+	} else {
+		s.logger.Error("query parameter missing or invalid", zap.Any("args", args))
+		return "", fmt.Errorf("query parameter is required")
+	}
+
+	if nodeType, ok := args["node_type"].(string); ok {
+		p.NodeType = strings.TrimSpace(strings.ToLower(nodeType))
+		s.logger.Debug("node_type filter applied", zap.String("node_type", p.NodeType))
+	}
+
+	if category, ok := args["category"].(string); ok {
+		p.Category = strings.TrimSpace(strings.ToLower(category))
+		s.logger.Debug("category filter applied", zap.String("category", p.Category))
+	}
+
+	if p.Query == "" && p.Category == "" && p.NodeType == "" {
+		s.logger.Error("empty query provided without filters")
+		return "", fmt.Errorf("query cannot be empty when no filters are specified")
+	}
+
+	s.logger.Info("searching documentation",
+		zap.String("query", p.Query),
+		zap.String("node_type", p.NodeType),
+		zap.String("category", p.Category))
+
+	results, err := s.searchDocumentation(p.Query, p.NodeType, p.Category)
+	if err != nil {
+		s.logger.Error("documentation search failed", zap.Error(err))
+		return "", fmt.Errorf("failed to search documentation: %v", err)
+	}
+
+	if len(results) == 0 {
+		s.logger.Info("no matching documentation found", zap.String("query", p.Query))
+		return "No matching documentation found for your query. Try using more general terms or check the available nodes in docs/nodes/README.md", nil
+	}
+
+	s.logger.Info("documentation search completed",
+		zap.String("query", p.Query),
+		zap.Int("results_count", len(results)))
+
+	content := fmt.Sprintf("Found %d matching N8N nodes:\n\n", len(results))
+	for _, result := range results {
+		content += fmt.Sprintf("## %s\n", result.Name)
+		content += fmt.Sprintf("**Type**: `%s`\n", result.NodeType)
+		content += fmt.Sprintf("**Description**: %s\n", result.Description)
+		if result.Category != "" {
+			content += fmt.Sprintf("**Category**: %s\n", result.Category)
+		}
+		content += fmt.Sprintf("**File**: docs/nodes/%s\n", result.Filename)
+		if len(result.Excerpt) > 0 {
+			content += fmt.Sprintf("**Usage Example**:\n```yaml\n%s\n```\n", result.Excerpt)
+		}
+		content += "\n---\n\n"
+	}
+
+	return content, nil
+}
+
+// DocResult represents a search result
+type DocResult struct {
+	Name        string
+	NodeType    string
+	Description string
+	Category    string
+	Filename    string
+	Excerpt     string
+}
+
+// searchDocumentation searches through the docs/nodes directory
+func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
+	var results []DocResult
+
+	docsPath := s.findDocsPath()
+
+	if docsPath == "" {
+		s.logger.Error("documentation directory does not exist")
+		return nil, fmt.Errorf("documentation directory docs/nodes does not exist")
+	}
+
+	s.logger.Debug("using documentation path", zap.String("path", docsPath))
+
+	filesScanned := 0
+	err := filepath.WalkDir(docsPath, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			s.logger.Warn("error walking directory", zap.String("path", path), zap.Error(err))
+			return err
+		}
+
+		if !d.IsDir() && strings.HasSuffix(path, ".md") && !strings.HasSuffix(path, "README.md") {
+			filesScanned++
+			content, err := os.ReadFile(path)
+			if err != nil {
+				s.logger.Warn("failed to read file", zap.String("path", path), zap.Error(err))
+				return nil
+			}
+
+			contentStr := strings.ToLower(string(content))
+			filename := filepath.Base(path)
+
+			if nodeType != "" && !strings.Contains(contentStr, nodeType) {
+				return nil
+			}
+
+			if category != "" {
+				if category == "trigger" && !strings.Contains(strings.ToLower(filename), "trigger") {
+					return nil
+				}
+				if category == "langchain" && !strings.Contains(strings.ToLower(filename), "langchain") {
+					return nil
+				}
+			}
+
+			filenameMatch := strings.Contains(strings.ToLower(filename), query)
+			contentMatch := strings.Contains(contentStr, query)
+
+			if query == "" || filenameMatch || contentMatch {
+				result := parseDocumentationFile(string(content), filename)
+				if result != nil {
+					if filenameMatch && !contentMatch {
+						results = append([]DocResult{*result}, results...)
+						s.logger.Debug("found filename match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					} else if filenameMatch && contentMatch {
+						insertPos := 0
+						for i, r := range results {
+							if !strings.Contains(strings.ToLower(r.Filename), query) {
+								insertPos = i
+								break
+							}
+							insertPos = i + 1
+						}
+						results = append(results[:insertPos], append([]DocResult{*result}, results[insertPos:]...)...)
+						s.logger.Debug("found filename+content match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					} else {
+						results = append(results, *result)
+						s.logger.Debug("found content match",
+							zap.String("filename", filename),
+							zap.String("name", result.Name))
+					}
+				}
+			}
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		s.logger.Error("error walking documentation directory", zap.Error(err))
+		return nil, err
+	}
+
+	s.logger.Debug("search statistics",
+		zap.Int("files_scanned", filesScanned),
+		zap.Int("results_found", len(results)))
+
+	if len(results) > 10 {
+		s.logger.Debug("truncating results to 10", zap.Int("original_count", len(results)))
+		results = results[:10]
+	}
+
+	return results, nil
+}
+
+// parseDocumentationFile extracts metadata from a documentation file
+func parseDocumentationFile(content, filename string) *DocResult {
+	lines := strings.Split(content, "\n")
+	result := &DocResult{
+		Filename: filename,
+	}
+
+	var yamlExample strings.Builder
+	inYamlBlock := false
+	yamlLineCount := 0
+
+	for i, line := range lines {
+		if result.Name == "" && strings.HasPrefix(line, "# ") {
+			result.Name = strings.TrimPrefix(line, "# ")
+		}
+
+		if result.Description == "" && strings.HasPrefix(line, "## Description") && i+2 < len(lines) {
+			desc := strings.TrimSpace(lines[i+2])
+			if desc != "" && !strings.HasPrefix(desc, "**") {
+				result.Description = desc
+			}
+		}
+
+		if strings.Contains(line, "type: n8n-nodes-base.") || strings.Contains(line, "type: @n8n/n8n-nodes-langchain.") {
+			parts := strings.Split(line, "type: ")
+			if len(parts) > 1 {
+				result.NodeType = strings.TrimSpace(parts[1])
+			}
+		}
+
+		if strings.Contains(line, "```yaml") {
+			inYamlBlock = true
+			yamlLineCount = 0
+			continue
+		}
+		if inYamlBlock && strings.Contains(line, "```") {
+			break
+		}
+		if inYamlBlock && yamlLineCount < 8 {
+			yamlExample.WriteString(line + "\n")
+			yamlLineCount++
+		}
+	}
+
+	if strings.Contains(strings.ToLower(filename), "trigger") {
+		result.Category = "trigger"
+	} else if strings.Contains(strings.ToLower(filename), "langchain") {
+		result.Category = "langchain"
+	} else {
+		result.Category = "action"
+	}
+
+	result.Excerpt = strings.TrimSpace(yamlExample.String())
+
+	if result.Name == "" {
+		result.Name = strings.TrimSuffix(filename, ".md")
+	}
+	if result.Description == "" {
+		result.Description = "N8N node for automation workflows"
+	}
+
+	return result
+}
+
+// findDocsPath attempts to locate the docs/nodes directory
+func (s *SearchN8NDocsSkill) findDocsPath() string {
+	execPath, err := os.Executable()
+	var basePaths []string
+
+	if err == nil {
+		execDir := filepath.Dir(execPath)
+		basePaths = append(basePaths, execDir, filepath.Dir(execDir))
+	}
+
+	wd, err := os.Getwd()
+	if err == nil {
+		basePaths = append(basePaths, wd)
+		parent := wd
+		for range 3 {
+			parent = filepath.Dir(parent)
+			if parent == "/" || parent == "." {
+				break
+			}
+			basePaths = append(basePaths, parent)
+		}
+	}
+
+	if envPath := os.Getenv("N8N_AGENT_DOCS_PATH"); envPath != "" {
+		basePaths = append([]string{envPath}, basePaths...)
+	}
+
+	for _, base := range basePaths {
+		docsPath := filepath.Join(base, "docs", "nodes")
+		if stat, err := os.Stat(docsPath); err == nil && stat.IsDir() {
+			s.logger.Debug("found docs path", zap.String("path", docsPath))
+			return docsPath
+		}
+	}
+
+	s.logger.Debug("docs path not found", zap.Strings("tried_paths", basePaths))
+	return ""
+}

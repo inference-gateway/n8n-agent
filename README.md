@@ -41,6 +41,8 @@ docker run -p 8080:8080 n8n-agent
 
 | Skill | Description | Parameters |
 |-------|-------------|------------|
+| `search-n8n-docs` | Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns |category, node_type, query |
+| `generate-n8n-workflow` | Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices |integrations, trigger_type, workflow_description |
 
 ## Configuration
 

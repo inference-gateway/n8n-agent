@@ -520,7 +520,7 @@ nodes:
 
 ## Usage with n8n-cli
 
-1. **Install n8n-cli**: `npm install -g @edenreich/n8n-cli`
+1. **Install n8n-cli**: `curl -sSLf https://raw.github.com/edenreich/n8n-cli/main/install.sh | sh`
 2. **Reference nodes**: Use the `n8n-nodes-base.{nodeName}` format shown in each node's documentation
 3. **Configure parameters**: Check the official n8n documentation links in each node doc
 4. **Sync workflows**: Use n8n-cli to push your YAML workflows to n8n
@@ -534,7 +534,7 @@ nodes:
 ## Generation Stats
 
 - **Nodes Documented**: 497
-- **Generated**: 2025-09-06T13:42:04.261Z
+- **Generated**: 2025-09-06T22:45:36.941Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

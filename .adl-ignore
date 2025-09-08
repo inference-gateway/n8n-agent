@@ -9,9 +9,10 @@
 # - Directories: build/
 # - Comments: lines starting with #
 
-skills/*
+
 .flox/env/manifest.toml
 Taskfile.yml
+Dockerfile
 
 # Go dependency files
 go.sum
@@ -19,3 +20,6 @@ go.sum
 # Add your own files to ignore here:
 # my-custom-file.go
 # config/secrets.yaml
+
+skills/generate_n8n_workflow.go
+skills/search_n8n_docs.go

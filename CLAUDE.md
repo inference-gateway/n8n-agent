@@ -10,7 +10,7 @@ n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](http
 
 ### ADL-Generated Structure
 
-The codebase is generated using ADL CLI 0.18.2 and follows a strict generation pattern:
+The codebase is generated using ADL CLI 0.19.7 and follows a strict generation pattern:
 - **Generated Files**: Marked with `DO NOT EDIT` headers - manual changes will be overwritten
 - **Configuration Source**: `agent.yaml` - defines agent capabilities, skills, and metadata
 - **Server Implementation**: Built on the ADK (Agent Development Kit) framework from `github.com/inference-gateway/adk`
@@ -73,7 +73,11 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 ## Adding New Functionality
 
 ### Skills Implementation
-Currently no skills are defined. To add skills:
+The following skills are currently defined:
+- **search-n8n-docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+- **generate-n8n-workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+
+To modify skills:
 1. Update `agent.yaml` with skill definitions
 2. Run `task generate` to regenerate the codebase
 3. Implement skill logic in generated skill files (look for TODO placeholders)
@@ -107,7 +111,7 @@ Activate with: `flox activate` (if Flox is installed)
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate
-- **ADL Version**: Ensure ADL CLI 0.18.2 or compatible version for regeneration
+- **ADL Version**: Ensure ADL CLI 0.19.7 or compatible version for regeneration
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips
