@@ -20,6 +20,10 @@ k8s/*.yml linguist-generated=true
 # Documentation (partially generated)
 README.md linguist-documentation=true
 
+# Vendored
+docs/nodes/* linguist-generated=true
+scripts/* linguist-vendored=true
+
 # Preserve line endings for generated files
 *.go text eol=lf
 *.yaml text eol=lf
