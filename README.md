@@ -1,6 +1,6 @@
 <div align="center">
 
-# N8n-Agent
+# N8N-Agent
 [![CI](https://github.com/inference-gateway/n8n-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/n8n-agent/actions/workflows/ci.yml)
 [![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
