@@ -140,12 +140,6 @@ docker build \
 
 These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
 
-### Kubernetes
-
-```bash
-kubectl apply -f k8s/
-```
-
 ## License
 
 MIT License - see LICENSE file for details

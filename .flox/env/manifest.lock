@@ -182,7 +182,7 @@
         "out": "/nix/store/ihv5w3z7sz706jy0q6l1pbczyyydhnq3-deno-2.4.4"
       },
       "system": "aarch64-darwin",
-      "group": "toplevel",
+      "group": "common",
       "priority": 5
     },
     {
@@ -211,7 +211,7 @@
         "out": "/nix/store/39lq8avaf8cn5ib4rnhrasxhjg7w8md6-deno-2.4.4"
       },
       "system": "aarch64-linux",
-      "group": "toplevel",
+      "group": "common",
       "priority": 5
     },
     {
@@ -240,7 +240,7 @@
         "out": "/nix/store/wkgipg03p5bczkl6y34lpglwbvdg2zx1-deno-2.4.4"
       },
       "system": "x86_64-darwin",
-      "group": "toplevel",
+      "group": "common",
       "priority": 5
     },
     {
@@ -269,7 +269,7 @@
         "out": "/nix/store/q9wcm5pnkndwps4mb1zb969iccqa22d4-deno-2.4.4"
       },
       "system": "x86_64-linux",
-      "group": "toplevel",
+      "group": "common",
       "priority": 5
     },
     {

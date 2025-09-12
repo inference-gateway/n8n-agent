@@ -10,6 +10,11 @@ Dockerfile linguist-generated=true
 Taskfile.yml linguist-generated=true
 .gitignore linguist-generated=true
 
+# CI/CD workflows
+.github/workflows/ci.yml linguist-generated=true
+.github/workflows/cd.yml linguist-generated=true
+.releaserc.yaml linguist-generated=true
+
 # Kubernetes manifests
 k8s/*.yaml linguist-generated=true
 k8s/*.yml linguist-generated=true

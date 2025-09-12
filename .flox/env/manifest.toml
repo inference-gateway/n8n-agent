@@ -8,10 +8,6 @@ golangci-lint.pkg-path = "golangci-lint"
 golangci-lint.version = "^2.4.0"
 golangci-lint.pkg-group = "common"
 
-deno.pkg-path = "deno"
-deno.version = "^2.4.4"
-deno.pkg-group = "common"
-
 go-task.pkg-path = "go-task"
 go-task.pkg-group = "common"
 
@@ -23,6 +19,10 @@ docker.pkg-group = "common"
 
 claude-code.pkg-path = "claude-code"
 claude-code.pkg-group = "common"
+
+deno.pkg-path = "deno"
+deno.version = "^2.4.4"
+deno.pkg-group = "common"
 
 [hook]
 on-activate = '''
