@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2](https://github.com/inference-gateway/n8n-agent/compare/v0.1.1...v0.1.2) (2025-09-12)
+
+### 🐛 Bug Fixes
+
+* Update ADL CLI version and generated timestamps in documentation and code files ([be7f402](https://github.com/inference-gateway/n8n-agent/commit/be7f402280c3b5492c6bac68f69b966cf45d512c))
+* Update generated files and documentation for ADL CLI v0.19.12 ([ec1a227](https://github.com/inference-gateway/n8n-agent/commit/ec1a227a38d4496742290f150a6a8ec4da14a7f9))
+
+### 📚 Documentation
+
+* Fix capitalization in project name from 'N8n' to 'N8N' ([8152de4](https://github.com/inference-gateway/n8n-agent/commit/8152de4b1d6b70895dd5ee24389c5775511ba4fb))
+
 ## [0.1.1](https://github.com/inference-gateway/n8n-agent/compare/v0.1.0...v0.1.1) (2025-09-08)
 
 ### 🐛 Bug Fixes
