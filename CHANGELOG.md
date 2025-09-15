@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3](https://github.com/inference-gateway/n8n-agent/compare/v0.1.2...v0.1.3) (2025-09-15)
+
+### 🐛 Bug Fixes
+
+* Add WithMaxChatCompletion to LLM client config ([672c638](https://github.com/inference-gateway/n8n-agent/commit/672c63882fb0d3f319e8f3e3db9159f373e9e68a))
+
 ## [0.1.2](https://github.com/inference-gateway/n8n-agent/compare/v0.1.1...v0.1.2) (2025-09-12)
 
 ### 🐛 Bug Fixes
