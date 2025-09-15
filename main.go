@@ -81,6 +81,7 @@ func main() {
 		WithConfig(&cfg.A2A.AgentConfig).
 		WithLLMClient(llmClient).
 		WithToolBox(toolBox).
+		WithMaxChatCompletion(cfg.A2A.AgentConfig.MaxChatCompletionIterations).
 		WithSystemPrompt(`You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
 
 Your primary capabilities:
