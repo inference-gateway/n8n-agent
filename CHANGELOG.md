@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4](https://github.com/inference-gateway/n8n-agent/compare/v0.1.3...v0.1.4) (2025-09-15)
+
+### ♻️ Improvements
+
+* Bump ADK version to v0.10.1 ([fbd6f5e](https://github.com/inference-gateway/n8n-agent/commit/fbd6f5e47406d369425d86f5d6044c3b29384db3))
+
 ## [0.1.3](https://github.com/inference-gateway/n8n-agent/compare/v0.1.2...v0.1.3) (2025-09-15)
 
 ### 🐛 Bug Fixes
