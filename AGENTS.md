@@ -67,14 +67,14 @@ Your responses should be practical, accurate, and ready-to-use.
 This agent provides 2 skills:
 
 
-### search-n8n-docs
+### search_n8n_docs
 - **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 - **Tags**: documentation, search, n8n
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
 
 
-### generate-n8n-workflow
+### generate_n8n_workflow
 - **Description**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 - **Tags**: generation, workflow, n8n, yaml
 - **Input Schema**: Defined in agent configuration
@@ -146,13 +146,13 @@ curl http://localhost:8080/.well-known/agent.json
 
 
 
-# Execute search-n8n-docs skill
-curl -X POST http://localhost:8080/skills/search-n8n-docs \
+# Execute search_n8n_docs skill
+curl -X POST http://localhost:8080/skills/search_n8n_docs \
   -H "Content-Type: application/json" \
   -d '{"input": "your_input_here"}'
 
-# Execute generate-n8n-workflow skill
-curl -X POST http://localhost:8080/skills/generate-n8n-workflow \
+# Execute generate_n8n_workflow skill
+curl -X POST http://localhost:8080/skills/generate_n8n_workflow \
   -H "Content-Type: application/json" \
   -d '{"input": "your_input_here"}'
 
@@ -187,9 +187,9 @@ docker run -p 8080:8080 n8n-agent
 ├── main.go              # Server entry point
 ├── skills/              # Business logic skills
 
-│   └── search-n8n-docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+│   └── search_n8n_docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 
-│   └── generate-n8n-workflow.go   # Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+│   └── generate_n8n_workflow.go   # Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 ├── .well-known/         # Agent configuration
 │   └── agent.json       # Agent metadata
@@ -224,7 +224,7 @@ This agent was generated using ADL CLI v0.1.0 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **Generated**: 2025-09-15 18:19:12 UTC
+- **Generated**: 2025-09-16 20:25:31 UTC
 - **ADL Version**: adl.dev/v1
 
 ---
