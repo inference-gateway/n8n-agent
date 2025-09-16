@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5](https://github.com/inference-gateway/n8n-agent/compare/v0.1.4...v0.1.5) (2025-09-16)
+
+### ♻️ Improvements
+
+* Inject logger into the skills ([4920c93](https://github.com/inference-gateway/n8n-agent/commit/4920c93e6fd9c2c03f2effc8db3044bc688ab014))
+
 ## [0.1.4](https://github.com/inference-gateway/n8n-agent/compare/v0.1.3...v0.1.4) (2025-09-15)
 
 ### ♻️ Improvements
