@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6](https://github.com/inference-gateway/n8n-agent/compare/v0.1.5...v0.1.6) (2025-09-17)
+
+### 🐛 Bug Fixes
+
+* Update ADL CLI version to 0.20.7 and adjust generated file headers ([6b23195](https://github.com/inference-gateway/n8n-agent/commit/6b231958bb2cb1b72bd9f1235155e0930796191e))
+
 ## [0.1.5](https://github.com/inference-gateway/n8n-agent/compare/v0.1.4...v0.1.5) (2025-09-16)
 
 ### ♻️ Improvements
