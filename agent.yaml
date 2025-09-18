@@ -13,7 +13,10 @@ spec:
     - id: search_n8n_docs
       name: search_n8n_docs
       description: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-      tags: ["documentation", "search", "n8n"]
+      tags:
+       - documentation
+       - search
+       - n8n
       schema:
         type: object
         properties:
@@ -26,13 +29,18 @@ spec:
           category:
             type: string
             description: Optional filter by category (e.g., "trigger", "action", "langchain")
-        required: ["query"]
+        required:
+          - query
       inject:
         - logger
     - id: generate_n8n_workflow
       name: generate_n8n_workflow
       description: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
-      tags: ["generation", "workflow", "n8n", "yaml"]
+      tags:
+        - generation
+        - workflow
+        - n8n
+        - yaml
       schema:
         type: object
         properties:
@@ -47,7 +55,8 @@ spec:
             items:
               type: string
             description: List of services or platforms to integrate (e.g., ["slack", "gmail", "database"])
-        required: ["workflow_description"]
+        required:
+          - workflow_description
       inject:
         - logger
   agent:
