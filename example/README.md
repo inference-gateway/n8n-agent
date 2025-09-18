@@ -107,8 +107,8 @@ The Inference Gateway provides unified access to multiple LLM providers, allowin
 
 The N8N Agent exposes two primary skills:
 
-1. **search-n8n-docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-2. **generate-n8n-workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+1. **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+2. **generate_n8n_workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 View all available skills:
 ```bash

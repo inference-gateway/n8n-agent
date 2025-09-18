@@ -14,20 +14,20 @@ type GenerateN8NWorkflowSkill struct {
 	logger *zap.Logger
 }
 
-// GenerateN8nWorkflowArgs represents the input parameters for the generate-n8n-workflow skill
+// GenerateN8nWorkflowArgs represents the input parameters for the generate_n8n_workflow skill
 type GenerateN8nWorkflowArgs struct {
 	WorkflowDescription string   `json:"workflow_description"`
 	TriggerType         string   `json:"trigger_type,omitempty"`
 	Integrations        []string `json:"integrations,omitempty"`
 }
 
-// NewGenerateN8NWorkflowSkill creates a new generate-n8n-workflow skill
+// NewGenerateN8NWorkflowSkill creates a new generate_n8n_workflow skill
 func NewGenerateN8NWorkflowSkill(logger *zap.Logger) server.Tool {
 	skill := &GenerateN8NWorkflowSkill{
 		logger: logger,
 	}
 	return server.NewBasicTool(
-		"generate-n8n-workflow",
+		"generate_n8n_workflow",
 		"Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices",
 		map[string]any{
 			"type": "object",
@@ -52,7 +52,7 @@ func NewGenerateN8NWorkflowSkill(logger *zap.Logger) server.Tool {
 	)
 }
 
-// GenerateN8NWorkflowHandler handles the generate-n8n-workflow skill execution
+// GenerateN8NWorkflowHandler handles the generate_n8n_workflow skill execution
 func (s *GenerateN8NWorkflowSkill) GenerateN8NWorkflowHandler(ctx context.Context, args map[string]any) (string, error) {
 	s.logger.Debug("GenerateN8NWorkflowHandler invoked", zap.Any("args", args))
 

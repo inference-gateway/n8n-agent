@@ -17,20 +17,20 @@ type SearchN8NDocsSkill struct {
 	logger *zap.Logger
 }
 
-// SearchN8nDocsParams represents the input parameters for the search-n8n-docs skill
+// SearchN8nDocsParams represents the input parameters for the search_n8n_docs skill
 type SearchN8nDocsArgs struct {
 	Query    string `json:"query"`
 	NodeType string `json:"node_type,omitempty"`
 	Category string `json:"category,omitempty"`
 }
 
-// NewSearchN8NDocsSkill creates a new search-n8n-docs skill
+// NewSearchN8NDocsSkill creates a new search_n8n_docs skill
 func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
 	skill := &SearchN8NDocsSkill{
 		logger: logger,
 	}
 	return server.NewBasicTool(
-		"search-n8n-docs",
+		"search_n8n_docs",
 		"Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns",
 		map[string]any{
 			"type": "object",
@@ -54,7 +54,7 @@ func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
 	)
 }
 
-// SearchN8NDocsHandler handles the search-n8n-docs skill execution
+// SearchN8NDocsHandler handles the search_n8n_docs skill execution
 func (s *SearchN8NDocsSkill) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
 	s.logger.Debug("SearchN8NDocsHandler invoked", zap.Any("args", args))
 
