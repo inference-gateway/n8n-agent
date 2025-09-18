@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7](https://github.com/inference-gateway/n8n-agent/compare/v0.1.6...v0.1.7) (2025-09-18)
+
+### 🔧 Miscellaneous
+
+* Update Go version to 1.24.5 and regenerate files with ADL CLI v0.20.16 ([5236947](https://github.com/inference-gateway/n8n-agent/commit/5236947e2ffc6ef444967e847c01674950c72cf8))
+
+### 🎨 Miscellaneous
+
+* Update tags and required fields formatting in agent.yaml ([05ed5ac](https://github.com/inference-gateway/n8n-agent/commit/05ed5ac0bdcbb41cbd0e02ad9294b853aa675dbb))
+
 ## [0.1.6](https://github.com/inference-gateway/n8n-agent/compare/v0.1.5...v0.1.6) (2025-09-17)
 
 ### 🐛 Bug Fixes
