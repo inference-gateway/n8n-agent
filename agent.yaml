@@ -2,7 +2,7 @@ apiVersion: adl.dev/v1
 kind: Agent
 metadata:
   name: n8n-agent
-  description: A helpful AI agent
+  description: A2A agent server specialized in generating and automating n8n workflows
   version: 0.1.9
 spec:
   capabilities:
