@@ -5,7 +5,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### n8n-agent
-**Version**: 0.1.0  
+**Version**: 0.1.9  
 **Description**: A helpful AI agent
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
@@ -220,7 +220,7 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.1.0 with the following configuration:
+This agent was generated using ADL CLI v0.1.9 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent

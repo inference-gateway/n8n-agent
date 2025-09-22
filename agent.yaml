@@ -3,7 +3,7 @@ kind: Agent
 metadata:
   name: n8n-agent
   description: A helpful AI agent
-  version: 0.1.0
+  version: 0.1.9
 spec:
   capabilities:
     streaming: true

@@ -22,7 +22,7 @@ import (
 )
 
 var (
-	Version          = "0.1.0"
+	Version          = "0.1.9"
 	AgentName        = "n8n-agent"
 	AgentDescription = "A helpful AI agent"
 )
