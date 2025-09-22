@@ -92,7 +92,7 @@ spec:
   language:
     go:
       module: github.com/inference-gateway/n8n-agent
-      version: "1.24.5"
+      version: "1.25.0"
   acronyms:
     - n8n
   scm:
