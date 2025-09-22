@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.10](https://github.com/inference-gateway/n8n-agent/compare/v0.1.9...v0.1.10) (2025-09-22)
+
+### 🐛 Bug Fixes
+
+* Update agent description to reflect specialization in n8n workflows ([74318da](https://github.com/inference-gateway/n8n-agent/commit/74318dabce7a6f37b3e76ab58e3c13f619095a10))
+
+### 🔧 Miscellaneous
+
+* Run task genrate ([50bd682](https://github.com/inference-gateway/n8n-agent/commit/50bd68205d87d1f238d9b09843c1eb3510fdbb70))
+
 ## [0.1.9](https://github.com/inference-gateway/n8n-agent/compare/v0.1.8...v0.1.9) (2025-09-22)
 
 ### 🐛 Bug Fixes
