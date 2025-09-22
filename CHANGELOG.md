@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.8](https://github.com/inference-gateway/n8n-agent/compare/v0.1.7...v0.1.8) (2025-09-22)
+
+### 🐛 Bug Fixes
+
+* Update skill names and parameters to use underscores instead of hyphens ([a92671b](https://github.com/inference-gateway/n8n-agent/commit/a92671b78c2ac3e08a132381fb9f7d6854175bee))
+
+### 🔧 Miscellaneous
+
+* **deps:** Upgrade Go version to 1.25.0 and update generated files ([0289290](https://github.com/inference-gateway/n8n-agent/commit/0289290f378508a52d57acb6235ab7962a888b19))
+
 ## [0.1.7](https://github.com/inference-gateway/n8n-agent/compare/v0.1.6...v0.1.7) (2025-09-18)
 
 ### 🔧 Miscellaneous
