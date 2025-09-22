@@ -60,7 +60,7 @@ plugins:
       publishCmd: |
         echo "Building and pushing Docker image for version ${nextRelease.version}"
         REPO_LOWER=$(echo "$GITHUB_REPOSITORY" | tr '[:upper:]' '[:lower:]')
-        DESCRIPTION="A helpful AI agent"
+        DESCRIPTION="A2A agent server specialized in generating and automating n8n workflows"
         TITLE="n8n-agent"
         
         if [[ "$GITHUB_REF_NAME" == rc/* ]]; then

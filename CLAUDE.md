@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](https://github.com/inference-gateway/adk) for agent-to-agent communication. A helpful AI agent. The project is automatically generated from ADL (Agent Definition Language) specifications defined in `agent.yaml`.
+n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](https://github.com/inference-gateway/adk) for agent-to-agent communication. A2A agent server specialized in generating and automating n8n workflows. The project is automatically generated from ADL (Agent Definition Language) specifications defined in `agent.yaml`.
 
 ## Core Architecture
 

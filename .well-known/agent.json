@@ -1,7 +1,7 @@
 {
 	"name": "n8n-agent",
 	"version": "0.1.9",
-	"description": "A helpful AI agent",
+	"description": "A2A agent server specialized in generating and automating n8n workflows",
 	"protocolVersion": "0.3.0",
 	"url": "",
 	"preferredTransport": "JSONRPC",

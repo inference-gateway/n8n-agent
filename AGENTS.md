@@ -6,7 +6,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 
 ### n8n-agent
 **Version**: 0.1.9  
-**Description**: A helpful AI agent
+**Description**: A2A agent server specialized in generating and automating n8n workflows
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
 

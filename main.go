@@ -24,7 +24,7 @@ import (
 var (
 	Version          = "0.1.9"
 	AgentName        = "n8n-agent"
-	AgentDescription = "A helpful AI agent"
+	AgentDescription = "A2A agent server specialized in generating and automating n8n workflows"
 )
 
 func main() {
