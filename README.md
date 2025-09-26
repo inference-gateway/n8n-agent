@@ -1,12 +1,12 @@
 <div align="center">
 
-# N8n-Agent
+# N8N-Agent
 [![CI](https://github.com/inference-gateway/n8n-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/n8n-agent/actions/workflows/ci.yml)
 [![Go Version](https://img.shields.io/badge/Go-1.25.0+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**A helpful AI agent**
+**A2A agent server specialized in generating and automating n8n workflows**
 
 A production-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
 
@@ -33,7 +33,7 @@ docker run -p 8080:8080 n8n-agent
 
 ## Endpoints
 
-- `GET /.well-known/agent.json` - Agent metadata and capabilities
+- `GET /.well-known/agent-card.json` - Agent metadata and capabilities
 - `GET /health` - Health check endpoint
 - `POST /a2a` - A2A protocol endpoint
 
@@ -58,7 +58,7 @@ Configure the agent via environment variables:
 | **Server** | `A2A_SERVER_WRITE_TIMEOUT` | HTTP server write timeout | `120s` |
 | **Server** | `A2A_SERVER_IDLE_TIMEOUT` | HTTP server idle timeout | `120s` |
 | **Server** | `A2A_SERVER_DISABLE_HEALTHCHECK_LOG` | Disable logging for health check requests | `true` |
-| **Agent Metadata** | `A2A_AGENT_CARD_FILE_PATH` | Path to agent card JSON file | `.well-known/agent.json` |
+| **Agent Metadata** | `A2A_AGENT_CARD_FILE_PATH` | Path to agent card JSON file | `.well-known/agent-card.json` |
 | **LLM Client** | `A2A_AGENT_CLIENT_PROVIDER` | LLM provider (`openai`, `anthropic`, `azure`, `ollama`, `deepseek`) |`` |
 | **LLM Client** | `A2A_AGENT_CLIENT_MODEL` | Model to use |`` |
 | **LLM Client** | `A2A_AGENT_CLIENT_API_KEY` | API key for LLM provider | - |
@@ -134,9 +134,9 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.1.0`)
+- `VERSION` - Agent version (default: `0.1.10`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
-- `AGENT_DESCRIPTION` - Agent description (default: `A helpful AI agent`)
+- `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 
 These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
 
