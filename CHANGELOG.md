@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.11](https://github.com/inference-gateway/n8n-agent/compare/v0.1.10...v0.1.11) (2025-09-26)
+
+### ♻️ Improvements
+
+* Run task generate - upgrade adl cli and change agent card url path ([de595ac](https://github.com/inference-gateway/n8n-agent/commit/de595ac3b7775f5c9d015b9019542a59e2d2b4e0))
+
 ## [0.1.10](https://github.com/inference-gateway/n8n-agent/compare/v0.1.9...v0.1.10) (2025-09-22)
 
 ### 🐛 Bug Fixes
