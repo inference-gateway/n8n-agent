@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.13](https://github.com/inference-gateway/n8n-agent/compare/v0.1.12...v0.1.13) (2025-10-07)
+
+### ♻️ Improvements
+
+* Remove go.sum from .adl-ignore file ([b7195fb](https://github.com/inference-gateway/n8n-agent/commit/b7195fb726c5cc97e87dcdee8426c4b735054783))
+* Simplify pull request creation and documentation generation steps in update-n8n-docs workflow ([b0c5771](https://github.com/inference-gateway/n8n-agent/commit/b0c5771d748204c53bb05fb609f40a7f643d2a7d))
+
+### 👷 CI
+
+* **deps:** Update actions/checkout to v5 and Deno version to v2.5.2 in update-n8n-docs workflow ([703c614](https://github.com/inference-gateway/n8n-agent/commit/703c614c1caa2ac5c7b348fb0e8b26f887e1c6c7))
+
+### 📚 Documentation
+
+* Update N8N node documentation ([9bf5e03](https://github.com/inference-gateway/n8n-agent/commit/9bf5e037a1f7a7002e16ae920bbfb6cef2cb0338))
+* Update N8N Node Documentation ([#10](https://github.com/inference-gateway/n8n-agent/issues/10)) ([cede056](https://github.com/inference-gateway/n8n-agent/commit/cede0569975d631f756b72305af1d83ee361c86c))
+
+### 🔧 Miscellaneous
+
+* **deps:** Update dependencies in manifest.toml ([3d69113](https://github.com/inference-gateway/n8n-agent/commit/3d6911303908be433ec2bd75bae29584f8cad810))
+* Update ADL CLI version to 0.23.0 in generated files ([1466d20](https://github.com/inference-gateway/n8n-agent/commit/1466d2043cb692da6e4bad0a4fb80d70ede734b7))
+
 ## [0.1.12](https://github.com/inference-gateway/n8n-agent/compare/v0.1.11...v0.1.12) (2025-09-26)
 
 ### ♻️ Improvements

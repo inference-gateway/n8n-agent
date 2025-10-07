@@ -22,7 +22,7 @@ import (
 )
 
 var (
-	Version          = "0.1.12"
+	Version          = "0.1.13"
 	AgentName        = "n8n-agent"
 	AgentDescription = "A2A agent server specialized in generating and automating n8n workflows"
 )
