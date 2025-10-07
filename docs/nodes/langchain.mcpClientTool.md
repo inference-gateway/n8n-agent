@@ -17,7 +17,6 @@ nodes:
     parameters:
       sseEndpoint: "" # SSE Endpoint of your MCP server
       endpointUrl: "" # Endpoint of your MCP server
-      serverTransport: "sse" # The transport used by your endpoint
       authentication: "none" # The way to authenticate with your endpoint
       credentials: ""
       include: "all" # How to select the tools you want to be exposed to the AI Agent
@@ -46,13 +45,6 @@ nodes:
 - **Default**: `""`
 - **Description**: Endpoint of your MCP server
 - **Placeholder**: e.g. https://my-mcp-server.ai/mcp
-
-### Server Transport
-
-- **Name**: `serverTransport`
-- **Type**: `options`
-- **Default**: `"sse"`
-- **Description**: The transport used by your endpoint
 
 ### Authentication
 

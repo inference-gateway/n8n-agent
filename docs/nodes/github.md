@@ -110,6 +110,12 @@ nodes:
       email: "" # The email address of the invited user
       returnAll: false # Whether to return all results or only up to a given limit
       limit: "50" # Max number of results to return
+      returnAll: false # Whether to return all results or only up to a given limit
+      limit: "50" # Max number of results to return
+      getUserIssuesFilters: # Return only issues in which a specific user was mentioned
+        mentioned: "" # Return only issues in which a specific user was mentioned
+        labels: "" # Return only issues with the given labels. Multiple labels can be separated by comma.
+        since: "" # Return only issues updated at or after this time
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.github
 ```
@@ -719,6 +725,48 @@ nodes:
 - **Type**: `number`
 - **Default**: `"50"`
 - **Description**: Max number of results to return
+
+### Return All
+
+- **Name**: `returnAll`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return all results or only up to a given limit
+
+### Limit
+
+- **Name**: `limit`
+- **Type**: `number`
+- **Default**: `"50"`
+- **Description**: Max number of results to return
+
+### Filters
+
+- **Name**: `getUserIssuesFilters`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Return only issues in which a specific user was mentioned
+
+**Options:**
+
+#### Mentioned
+- **Name**: `mentioned`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Return only issues in which a specific user was mentioned
+
+#### Labels
+- **Name**: `labels`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Return only issues with the given labels. Multiple labels can be separated by comma.
+
+#### Updated Since
+- **Name**: `since`
+- **Type**: `dateTime`
+- **Default**: `""`
+- **Description**: Return only issues updated at or after this time
+
 
 
 ## Node Information
