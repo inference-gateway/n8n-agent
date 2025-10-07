@@ -16,7 +16,7 @@ nodes:
     name: Google Vertex Chat Model
     parameters:
       projectId: "{ mode: 'list', value: '' }" # Select or enter your Google Cloud project ID
-      modelName: "gemini-1.5-flash" # The model which will generate the completion. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models">Learn more</a>.
+      modelName: "gemini-2.5-flash" # The model which will generate the completion. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models">Learn more</a>.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatGoogleVertex
 ```
@@ -34,7 +34,7 @@ nodes:
 
 - **Name**: `modelName`
 - **Type**: `string`
-- **Default**: `"gemini-1.5-flash"`
+- **Default**: `"gemini-2.5-flash"`
 - **Description**: The model which will generate the completion. <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models">Learn more</a>.
 
 

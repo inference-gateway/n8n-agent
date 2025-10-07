@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 497 n8n nodes, generated from the official n8n repository.
+Documentation for 498 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (497)
+## Available Nodes (498)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -217,7 +217,6 @@ nodes:
 - [Local File Trigger](./localFileTrigger.md) (`n8n-nodes-base.localFileTrigger`) - Triggers a workflow on file system changes
 - [LoneScale](./loneScale.md) (`n8n-nodes-base.loneScale`) - Create List, add / delete items
 - [LoneScale Trigger](./loneScaleTrigger.md) (`n8n-nodes-base.loneScaleTrigger`) - Trigger LoneScale Workflow
-- [Loop Over Items (Split in Batches)](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Magento 2](./magento2.md) (`n8n-nodes-base.magento2`) - Consume Magento API
 - [Mailcheck](./mailcheck.md) (`n8n-nodes-base.mailcheck`) - Consume Mailcheck API
 - [Mailchimp](./mailchimp.md) (`n8n-nodes-base.mailchimp`) - Consume Mailchimp API
@@ -336,6 +335,7 @@ nodes:
 - [Slack Trigger](./slackTrigger.md) (`n8n-nodes-base.slackTrigger`) - Handle Slack events via webhooks
 - [Snowflake](./snowflake.md) (`n8n-nodes-base.snowflake`) - Get, add and update data in Snowflake
 - [Sort](./sort.md) (`n8n-nodes-base.sort`) - Change items order
+- [Split In Batches](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Split Out](./splitOut.md) (`n8n-nodes-base.splitOut`) - Turn a list inside item(s) into separate items
 - [Spontit](./spontit.md) (`n8n-nodes-base.spontit`) - Consume Spontit API
 - [Spotify](./spotify.md) (`n8n-nodes-base.spotify`) - Access public song data via the Spotify API
@@ -417,6 +417,7 @@ nodes:
 - [AgentToolV2](./langchain.AgentToolV2.md) (`@n8n/n8n-nodes-langchain.AgentToolV2`) - AgentToolV2 - LangChain AI Node
 - [AgentV1](./langchain.AgentV1.md) (`@n8n/n8n-nodes-langchain.AgentV1`) - AgentV1 - LangChain AI Node
 - [AgentV2](./langchain.AgentV2.md) (`@n8n/n8n-nodes-langchain.AgentV2`) - AgentV2 - LangChain AI Node
+- [AgentV3](./langchain.AgentV3.md) (`@n8n/n8n-nodes-langchain.AgentV3`) - AgentV3 - LangChain AI Node
 - [Anthropic](./langchain.Anthropic.md) (`@n8n/n8n-nodes-langchain.Anthropic`) - Anthropic - LangChain AI Node
 - [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
 - [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
@@ -533,8 +534,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 497
-- **Generated**: 2025-09-06T22:45:36.941Z
+- **Nodes Documented**: 498
+- **Generated**: 2025-10-07T13:08:44.701Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*
