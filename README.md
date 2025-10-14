@@ -78,6 +78,20 @@ Configure the agent via environment variables:
 | **Storage** | `A2A_QUEUE_URL` | Redis connection URL (when using Redis) | - |
 | **Storage** | `A2A_QUEUE_MAX_SIZE` | Maximum queue size | `100` |
 | **Storage** | `A2A_QUEUE_CLEANUP_INTERVAL` | Task cleanup interval | `30s` |
+| **Artifacts** | `ARTIFACTS_ENABLE` | Enable artifacts support | `false` |
+| **Artifacts** | `ARTIFACTS_SERVER_HOST` | Artifacts server host | `localhost` |
+| **Artifacts** | `ARTIFACTS_SERVER_PORT` | Artifacts server port | `8081` |
+| **Artifacts** | `ARTIFACTS_STORAGE_PROVIDER` | Storage backend (`filesystem` or `minio`) | `filesystem` |
+| **Artifacts** | `ARTIFACTS_STORAGE_BASE_PATH` | Base path for filesystem storage | `./artifacts` |
+| **Artifacts** | `ARTIFACTS_STORAGE_BASE_URL` | Override base URL for direct downloads | (auto-generated) |
+| **Artifacts** | `ARTIFACTS_STORAGE_ENDPOINT` | MinIO/S3 endpoint URL | - |
+| **Artifacts** | `ARTIFACTS_STORAGE_ACCESS_KEY` | MinIO/S3 access key | - |
+| **Artifacts** | `ARTIFACTS_STORAGE_SECRET_KEY` | MinIO/S3 secret key | - |
+| **Artifacts** | `ARTIFACTS_STORAGE_BUCKET_NAME` | MinIO/S3 bucket name | `artifacts` |
+| **Artifacts** | `ARTIFACTS_STORAGE_USE_SSL` | Use SSL for MinIO/S3 connections | `true` |
+| **Artifacts** | `ARTIFACTS_RETENTION_MAX_ARTIFACTS` | Max artifacts per task (0 = unlimited) | `5` |
+| **Artifacts** | `ARTIFACTS_RETENTION_MAX_AGE` | Max artifact age (0 = no age limit) | `7d` |
+| **Artifacts** | `ARTIFACTS_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `24h` |
 | **Authentication** | `A2A_AUTH_ENABLE` | Enable OIDC authentication | `false` |
 
 ## Development
@@ -134,7 +148,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.1.12`)
+- `VERSION` - Agent version (default: `0.1.13`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 
