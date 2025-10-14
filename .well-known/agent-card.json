@@ -1,6 +1,6 @@
 {
 	"name": "n8n-agent",
-	"version": "0.1.13",
+	"version": "0.2.0",
 	"description": "A2A agent server specialized in generating and automating n8n workflows",
 	"protocolVersion": "0.3.0",
 	"url": "",
@@ -19,6 +19,13 @@
 			"description": "Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns",
 			"tags": ["documentation","search","n8n"],
 			"schema": {"properties":{"category":{"description":"Optional filter by category (e.g., \"trigger\", \"action\", \"langchain\")","type":"string"},"node_type":{"description":"Optional filter by specific node type (e.g., \"webhook\", \"http\", \"database\")","type":"string"},"query":{"description":"Search query to find relevant N8N nodes or documentation","type":"string"}},"required":["query"],"type":"object"}
+		},
+		{
+			"id": "validate_n8n_workflow",
+			"name": "validate_n8n_workflow",
+			"description": "Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts",
+			"tags": ["validation","workflow","n8n","yaml","json"],
+			"schema": {"properties":{"format":{"default":"auto","description":"The format of the workflow content (auto-detect if not specified)","enum":["yaml","json","auto"],"type":"string"},"workflow_content":{"description":"The complete N8N workflow content to validate (YAML or JSON format)","type":"string"}},"required":["workflow_content"],"type":"object"}
 		}
 	]
 }

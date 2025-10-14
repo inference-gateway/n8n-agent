@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0](https://github.com/inference-gateway/n8n-agent/compare/v0.1.13...v0.2.0) (2025-10-14)
+
+### ✨ Features
+
+* Enable artifacts and update ADL generated files ([#11](https://github.com/inference-gateway/n8n-agent/issues/11)) ([b2fef70](https://github.com/inference-gateway/n8n-agent/commit/b2fef7097e7d5a75d47a40d28cd81cf78b855e01))
+* Update ADL CLI version and regenerate files ([67d9b7b](https://github.com/inference-gateway/n8n-agent/commit/67d9b7b4ba9e79ba6a172badb0c9297d3238650e))
+* **validation:** Add N8N workflow validation skill ([c087ab0](https://github.com/inference-gateway/n8n-agent/commit/c087ab0c5e0a8f7dc1beffe57e828a6683124bf4))
+* **validation:** Add N8N workflow validation skill ([#14](https://github.com/inference-gateway/n8n-agent/issues/14)) ([e02fdf7](https://github.com/inference-gateway/n8n-agent/commit/e02fdf72314c0dc740d8605e0744dbaf797c570b)), closes [#issue-12](https://github.com/inference-gateway/n8n-agent/issues/issue-12)
+
+### ♻️ Improvements
+
+* Remove generate_n8n_workflow skill and update documentation for workflow generation process ([ab9a53e](https://github.com/inference-gateway/n8n-agent/commit/ab9a53e9ef641406ad9fedbc7e2d96ff576130c2))
+* **test:** Replace custom contains function with strings.Contains ([dc10d14](https://github.com/inference-gateway/n8n-agent/commit/dc10d14f1aa393c4e0167e615adeb3b68d4e284c))
+* Update workflow generation process in documentation and configuration ([b433f19](https://github.com/inference-gateway/n8n-agent/commit/b433f19294cf778a312348b489deed895c598aa8))
+
+### 🐛 Bug Fixes
+
+* Add missing container names for cli and a2a-debugger services in docker-compose.yaml ([f6be58e](https://github.com/inference-gateway/n8n-agent/commit/f6be58eb814b53648bfe7b133edcfaab354fcfaa))
+* Correct environment variable names for A2A agent in docker-compose.yaml ([2591b17](https://github.com/inference-gateway/n8n-agent/commit/2591b17b1e51ce2301e8eaae031b361cc506c8ee))
+* Remove duplicate Go package entries in manifest.lock ([67dadf4](https://github.com/inference-gateway/n8n-agent/commit/67dadf4189c86ac0110611490b60b66111c8620d))
+* Remove generate_n8n_workflow.go from .adl-ignore file ([1b576ee](https://github.com/inference-gateway/n8n-agent/commit/1b576ee6cd7a9e94d468312690c5a9cf2a4a07db))
+
+### 📚 Documentation
+
+* Add important note on artifact creation for workflows ([b47b52f](https://github.com/inference-gateway/n8n-agent/commit/b47b52f0b787425ad7f5a77a1a642be038885ef0))
+* Add important note on artifact creation for workflows in agent.yaml ([b0266f1](https://github.com/inference-gateway/n8n-agent/commit/b0266f134bc5a01e7b228c83e80a20d1db9a6fde))
+* Update environment variables in .env.example and docker-compose.yaml for improved configuration ([23a0237](https://github.com/inference-gateway/n8n-agent/commit/23a02378a0e0af540a361114c011c3b5ee7380fc))
+* Update environment variables in docker-compose and add .gitignore for downloads ([a9aa574](https://github.com/inference-gateway/n8n-agent/commit/a9aa5744076c9f7a5baf913e3e3222499f376ea8))
+* Update N8N node documentation ([cc37cfd](https://github.com/inference-gateway/n8n-agent/commit/cc37cfd96bb8257b893bc0c3a4f892999f672644))
+* Update N8N Node Documentation ([#13](https://github.com/inference-gateway/n8n-agent/issues/13)) ([c336ccf](https://github.com/inference-gateway/n8n-agent/commit/c336ccfbee1f8cf3cd126bb6320cae34a0e8051d))
+* Update README and docker-compose for task listing and environment variables ([cc95b90](https://github.com/inference-gateway/n8n-agent/commit/cc95b900befe8c459d764fdb59a15003554dd8b3))
+
+### 🔧 Miscellaneous
+
+* Add todos ([f7163fe](https://github.com/inference-gateway/n8n-agent/commit/f7163fed2593a928926eea0555894d6ce1eaaaff))
+* Remove redundant inline comments ([f7aa4ba](https://github.com/inference-gateway/n8n-agent/commit/f7aa4ba992ddf67ee5a832c1a1ee1e63968c9817))
+* Update go.mod to include gopkg.in/yaml.v3 as a direct dependency ([ad67d76](https://github.com/inference-gateway/n8n-agent/commit/ad67d767e8d9d2d74273af8e4330c8d358225d9f))
+
 ## [0.1.13](https://github.com/inference-gateway/n8n-agent/compare/v0.1.12...v0.1.13) (2025-10-07)
 
 ### ♻️ Improvements

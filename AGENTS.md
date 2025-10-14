@@ -5,7 +5,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### n8n-agent
-**Version**: 0.1.13  
+**Version**: 0.2.0  
 **Description**: A2A agent server specialized in generating and automating n8n workflows
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
@@ -35,6 +35,7 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 Your primary capabilities:
 1. **Documentation Search**: Use the search_n8n_docs skill to search through comprehensive N8N node documentation to find the right nodes for any task
 2. **Workflow Generation**: Create complete, working N8N workflow YAML files based on user requirements using your knowledge and the create_artifact tool
+3. **Workflow Validation**: Use the validate_n8n_workflow skill to ensure all workflows are valid before creating artifacts
 
 Key knowledge areas:
 - 497+ N8N nodes including standard nodes and LangChain AI nodes
@@ -65,12 +66,17 @@ Step 2: Generate the complete workflow YAML
 - Include proper node IDs, parameters, connections, and positions
 - Add error handling and best practices
 
-Step 3: Save as artifact (MANDATORY)
+Step 3: Validate the workflow (MANDATORY)
+- Use validate_n8n_workflow to ensure the workflow is valid
+- Fix any validation errors before proceeding
+- Repeat validation until the workflow passes all checks
+
+Step 4: Save as artifact (MANDATORY)
 - Use the create_artifact tool to save the workflow YAML
 - Filename should be descriptive (e.g., "customer_onboarding_workflow.yaml")
 - Content must be valid YAML format
 
-Step 4: Respond concisely
+Step 5: Respond concisely
 - Provide a brief 2-3 sentence description
 - Include the artifact download link
 - List required configuration steps
@@ -101,12 +107,19 @@ Your automation solutions should be maintainable, efficient, and production-read
 ## Skills
 
 
-This agent provides 1 skills:
+This agent provides 2 skills:
 
 
 ### search_n8n_docs
 - **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 - **Tags**: documentation, search, n8n
+- **Input Schema**: Defined in agent configuration
+- **Output Schema**: Defined in agent configuration
+
+
+### validate_n8n_workflow
+- **Description**: Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
+- **Tags**: validation, workflow, n8n, yaml, json
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
 
@@ -181,6 +194,11 @@ curl -X POST http://localhost:8080/skills/search_n8n_docs \
   -H "Content-Type: application/json" \
   -d '{"input": "your_input_here"}'
 
+# Execute validate_n8n_workflow skill
+curl -X POST http://localhost:8080/skills/validate_n8n_workflow \
+  -H "Content-Type: application/json" \
+  -d '{"input": "your_input_here"}'
+
 
 ```
 
@@ -214,6 +232,8 @@ docker run -p 8080:8080 n8n-agent
 
 │   └── search_n8n_docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 
+│   └── validate_n8n_workflow.go   # Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
+
 ├── .well-known/         # Agent configuration
 │   └── agent-card.json  # Agent metadata
 ├── go.mod               # Go module definition
@@ -243,7 +263,7 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.1.13 with the following configuration:
+This agent was generated using ADL CLI v0.2.0 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
