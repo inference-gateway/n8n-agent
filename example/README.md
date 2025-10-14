@@ -236,9 +236,9 @@ The N8N Agent exposes two primary skills:
 1. **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 2. **generate_n8n_workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
-View all available skills:
+View all available tasks:
 ```bash
-docker compose run --rm a2a-debugger tools list
+docker compose run --rm a2a-debugger tasks list --include-artifacts
 ```
 
 ## Troubleshooting
