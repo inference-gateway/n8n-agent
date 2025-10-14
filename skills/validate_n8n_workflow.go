@@ -361,7 +361,7 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflowLogic(workflow *N8NWorkflow, 
 		result.Warnings = append(result.Warnings, "Workflow has no trigger nodes - it cannot be executed automatically")
 	}
 
-	// Additional logic validation could be added here:
+	// TODOs - Additional logic validation could be added here:
 	// - Check for unreachable nodes
 	// - Validate circular dependencies
 	// - Check for orphaned nodes
