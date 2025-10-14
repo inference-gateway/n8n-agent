@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 498 n8n nodes, generated from the official n8n repository.
+Documentation for 500 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (498)
+## Available Nodes (500)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -469,6 +469,7 @@ nodes:
 - [MongoDB Chat Memory](./langchain.memoryMongoDbChat.md) (`@n8n/n8n-nodes-langchain.memoryMongoDbChat`) - Stores the chat history in MongoDB collection.
 - [Motorhead](./langchain.memoryMotorhead.md) (`@n8n/n8n-nodes-langchain.memoryMotorhead`) - Use Motorhead Memory
 - [MultiQuery Retriever](./langchain.retrieverMultiQuery.md) (`@n8n/n8n-nodes-langchain.retrieverMultiQuery`) - Automates prompt tuning, generates diverse queries and expands document pool for...
+- [Ollama](./langchain.Ollama.md) (`@n8n/n8n-nodes-langchain.Ollama`) - Ollama - LangChain AI Node
 - [Ollama Chat Model](./langchain.lmChatOllama.md) (`@n8n/n8n-nodes-langchain.lmChatOllama`) - Language Model Ollama
 - [Ollama Model](./langchain.lmOllama.md) (`@n8n/n8n-nodes-langchain.lmOllama`) - Language Model Ollama
 - [OpenAi](./langchain.OpenAi.md) (`@n8n/n8n-nodes-langchain.OpenAi`) - OpenAi - LangChain AI Node
@@ -506,6 +507,7 @@ nodes:
 - [VectorStorePGVector](./langchain.VectorStorePGVector.md) (`@n8n/n8n-nodes-langchain.VectorStorePGVector`) - VectorStorePGVector - LangChain AI Node
 - [VectorStorePinecone](./langchain.VectorStorePinecone.md) (`@n8n/n8n-nodes-langchain.VectorStorePinecone`) - VectorStorePinecone - LangChain AI Node
 - [VectorStoreQdrant](./langchain.VectorStoreQdrant.md) (`@n8n/n8n-nodes-langchain.VectorStoreQdrant`) - VectorStoreQdrant - LangChain AI Node
+- [VectorStoreRedis](./langchain.VectorStoreRedis.md) (`@n8n/n8n-nodes-langchain.VectorStoreRedis`) - VectorStoreRedis - LangChain AI Node
 - [VectorStoreSupabase](./langchain.VectorStoreSupabase.md) (`@n8n/n8n-nodes-langchain.VectorStoreSupabase`) - VectorStoreSupabase - LangChain AI Node
 - [VectorStoreWeaviate](./langchain.VectorStoreWeaviate.md) (`@n8n/n8n-nodes-langchain.VectorStoreWeaviate`) - VectorStoreWeaviate - LangChain AI Node
 - [VectorStoreZep](./langchain.VectorStoreZep.md) (`@n8n/n8n-nodes-langchain.VectorStoreZep`) - VectorStoreZep - LangChain AI Node
@@ -534,8 +536,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 498
-- **Generated**: 2025-10-07T13:08:44.701Z
+- **Nodes Documented**: 500
+- **Generated**: 2025-10-14T20:02:10.304Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*
