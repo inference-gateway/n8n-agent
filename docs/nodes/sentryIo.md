@@ -15,8 +15,6 @@ nodes:
   - id: ${unique-node-id}
     name: Sentry.io
     parameters:
-      sentryVersion: "cloud"
-      authentication: "accessToken"
       authentication: "accessToken"
       resource: "event"
     position: [x, y]  # Canvas position coordinates
@@ -24,18 +22,6 @@ nodes:
 ```
 
 ## Parameters
-
-### Sentry Version
-
-- **Name**: `sentryVersion`
-- **Type**: `options`
-- **Default**: `"cloud"`
-
-### Authentication
-
-- **Name**: `authentication`
-- **Type**: `options`
-- **Default**: `"accessToken"`
 
 ### Authentication
 
