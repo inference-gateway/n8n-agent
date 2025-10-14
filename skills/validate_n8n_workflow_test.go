@@ -2,6 +2,7 @@ package skills
 
 import (
 	"context"
+	"strings"
 	"testing"
 
 	"go.uber.org/zap"
@@ -262,7 +263,7 @@ nodes:
 			if tt.expectError {
 				if err == nil {
 					t.Errorf("expected error but got none")
-				} else if tt.errorContains != "" && !contains(err.Error(), tt.errorContains) {
+				} else if tt.errorContains != "" && !strings.Contains(err.Error(), tt.errorContains) {
 					t.Errorf("expected error to contain %q, got %q", tt.errorContains, err.Error())
 				}
 				return
@@ -273,13 +274,13 @@ nodes:
 				return
 			}
 
-			if tt.resultContains != "" && !contains(result, tt.resultContains) {
+			if tt.resultContains != "" && !strings.Contains(result, tt.resultContains) {
 				t.Errorf("expected result to contain %q, got %q", tt.resultContains, result)
 			}
 
-			if tt.expectValid && contains(result, "INVALID") {
+			if tt.expectValid && strings.Contains(result, "INVALID") {
 				t.Errorf("expected valid workflow but got invalid result: %s", result)
-			} else if !tt.expectValid && contains(result, "VALID") && !contains(result, "INVALID") {
+			} else if !tt.expectValid && strings.Contains(result, "VALID") && !strings.Contains(result, "INVALID") {
 				t.Errorf("expected invalid workflow but got valid result: %s", result)
 			}
 		})
@@ -365,15 +366,3 @@ func TestIsTriggerNode(t *testing.T) {
 	}
 }
 
-// Helper function to check if a string contains a substring
-func contains(s, substr string) bool {
-	return len(s) >= len(substr) &&
-		(len(substr) == 0 || func() bool {
-			for i := 0; i <= len(s)-len(substr); i++ {
-				if s[i:i+len(substr)] == substr {
-					return true
-				}
-			}
-			return false
-		}())
-}
