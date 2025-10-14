@@ -277,7 +277,6 @@ nodes:
 				t.Errorf("expected result to contain %q, got %q", tt.resultContains, result)
 			}
 
-			// Check if validation result matches expectation
 			if tt.expectValid && contains(result, "INVALID") {
 				t.Errorf("expected valid workflow but got invalid result: %s", result)
 			} else if !tt.expectValid && contains(result, "VALID") && !contains(result, "INVALID") {

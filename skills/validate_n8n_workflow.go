@@ -122,7 +122,6 @@ func (s *ValidateN8NWorkflowSkill) ValidateN8NWorkflowHandler(ctx context.Contex
 		zap.Int("errors_count", len(result.Errors)),
 		zap.Int("warnings_count", len(result.Warnings)))
 
-	// Format the response
 	response := "## N8N Workflow Validation Result\n\n"
 
 	if result.Valid {
@@ -161,11 +160,9 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflow(content, format string) (*Va
 		Warnings: []string{},
 	}
 
-	// Detect format if auto
 	detectedFormat := s.detectFormat(content, format)
 	s.logger.Debug("detected workflow format", zap.String("format", detectedFormat))
 
-	// Parse the workflow
 	var workflow N8NWorkflow
 	var err error
 
@@ -190,7 +187,6 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflow(content, format string) (*Va
 		return result, nil
 	}
 
-	// Validate workflow structure
 	s.validateWorkflowStructure(&workflow, result)
 	s.validateNodes(&workflow, result)
 	s.validateConnections(&workflow, result)
@@ -210,7 +206,6 @@ func (s *ValidateN8NWorkflowSkill) detectFormat(content, requestedFormat string)
 		return "unknown"
 	}
 
-	// Try JSON first (more strict)
 	var jsonTest interface{}
 	if json.Unmarshal([]byte(content), &jsonTest) == nil {
 		// Additional check to ensure it's meaningful JSON
@@ -219,10 +214,8 @@ func (s *ValidateN8NWorkflowSkill) detectFormat(content, requestedFormat string)
 		}
 	}
 
-	// Try YAML - but be more strict about what we accept
 	var yamlTest interface{}
 	if yaml.Unmarshal([]byte(content), &yamlTest) == nil {
-		// Check if the content is meaningful YAML (not just a plain string)
 		if strings.Contains(content, ":") || strings.Contains(content, "-") {
 			return "yaml"
 		}
@@ -233,14 +226,12 @@ func (s *ValidateN8NWorkflowSkill) detectFormat(content, requestedFormat string)
 
 // validateWorkflowStructure validates the basic workflow structure
 func (s *ValidateN8NWorkflowSkill) validateWorkflowStructure(workflow *N8NWorkflow, result *ValidationResult) {
-	// Check if nodes array exists and is not empty
 	if len(workflow.Nodes) == 0 {
 		result.Valid = false
 		result.Errors = append(result.Errors, "Workflow must contain at least one node")
 		return
 	}
 
-	// Warn about missing optional fields
 	if workflow.Name == "" {
 		result.Warnings = append(result.Warnings, "Workflow name is not specified")
 	}
@@ -254,12 +245,10 @@ func (s *ValidateN8NWorkflowSkill) validateNodes(workflow *N8NWorkflow, result *
 	for i, node := range workflow.Nodes {
 		nodePrefix := fmt.Sprintf("Node %d", i+1)
 
-		// Validate required fields
 		if node.ID == "" {
 			result.Valid = false
 			result.Errors = append(result.Errors, fmt.Sprintf("%s: 'id' is required", nodePrefix))
 		} else {
-			// Check for duplicate IDs
 			if nodeIDs[node.ID] {
 				result.Valid = false
 				result.Errors = append(result.Errors, fmt.Sprintf("%s: duplicate node ID '%s'", nodePrefix, node.ID))
@@ -276,24 +265,20 @@ func (s *ValidateN8NWorkflowSkill) validateNodes(workflow *N8NWorkflow, result *
 			result.Valid = false
 			result.Errors = append(result.Errors, fmt.Sprintf("%s (%s): 'type' is required", nodePrefix, node.ID))
 		} else {
-			// Validate node type format
 			if !validNodeTypePattern.MatchString(node.Type) {
 				result.Valid = false
 				result.Errors = append(result.Errors, fmt.Sprintf("%s (%s): invalid node type format '%s'. Must follow 'n8n-nodes-base.*' or '@n8n/n8n-nodes-langchain.*' pattern", nodePrefix, node.ID, node.Type))
 			}
 		}
 
-		// Validate parameters
 		if node.Parameters == nil {
 			result.Warnings = append(result.Warnings, fmt.Sprintf("%s (%s): 'parameters' is empty (should be {} if no parameters needed)", nodePrefix, node.ID))
 		}
 
-		// Validate position
 		if len(node.Position) != 2 {
 			result.Valid = false
 			result.Errors = append(result.Errors, fmt.Sprintf("%s (%s): 'position' must be an array of exactly 2 numbers [x, y]", nodePrefix, node.ID))
 		} else {
-			// Check if position values are reasonable
 			for _, pos := range node.Position {
 				if pos < 0 || pos > 10000 {
 					result.Warnings = append(result.Warnings, fmt.Sprintf("%s (%s): position coordinates seem unusual [%.0f, %.0f]", nodePrefix, node.ID, node.Position[0], node.Position[1]))
@@ -306,7 +291,6 @@ func (s *ValidateN8NWorkflowSkill) validateNodes(workflow *N8NWorkflow, result *
 
 // validateConnections validates connections between nodes
 func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, result *ValidationResult) {
-	// Build node ID map for validation
 	nodeIDs := make(map[string]bool)
 	for _, node := range workflow.Nodes {
 		if node.ID != "" {
@@ -315,14 +299,11 @@ func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, re
 	}
 
 	if len(workflow.Nodes) <= 1 {
-		// Single node workflows don't need connections
 		if len(workflow.Connections) > 0 {
 			result.Warnings = append(result.Warnings, "Single-node workflow has connections defined (will be ignored)")
 		}
-		// Still validate any connections that exist for structural correctness
 	}
 
-	// Multi-node workflows should have connections
 	if len(workflow.Nodes) > 1 && len(workflow.Connections) == 0 {
 		result.Warnings = append(result.Warnings, "Multi-node workflow has no connections defined - nodes will not be linked")
 	}
@@ -331,7 +312,6 @@ func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, re
 		return
 	}
 
-	// Validate each connection
 	for i, conn := range workflow.Connections {
 		connPrefix := fmt.Sprintf("Connection %d", i+1)
 
@@ -351,13 +331,11 @@ func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, re
 			result.Errors = append(result.Errors, fmt.Sprintf("%s: target node '%s' does not exist", connPrefix, conn.Target))
 		}
 
-		// Check for self-connections
 		if conn.Source == conn.Target && conn.Source != "" {
 			result.Valid = false
 			result.Errors = append(result.Errors, fmt.Sprintf("%s: node cannot connect to itself ('%s')", connPrefix, conn.Source))
 		}
 
-		// Validate indices
 		if conn.SourceIndex < 0 {
 			result.Valid = false
 			result.Errors = append(result.Errors, fmt.Sprintf("%s: sourceIndex must be >= 0", connPrefix))
@@ -373,7 +351,6 @@ func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, re
 func (s *ValidateN8NWorkflowSkill) validateWorkflowLogic(workflow *N8NWorkflow, result *ValidationResult) {
 	triggerNodes := 0
 
-	// Check for trigger nodes
 	for _, node := range workflow.Nodes {
 		if s.isTriggerNode(node.Type) {
 			triggerNodes++
