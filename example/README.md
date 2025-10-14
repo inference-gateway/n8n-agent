@@ -74,9 +74,10 @@ docker compose up --build
 ```
 
 This will start:
-- N8N Agent on port 8080
+- N8N Agent on port 8080 (API) and 8081 (Artifact Server)
 - Inference Gateway (internal network)
 - Services will auto-restart unless stopped
+- Generated workflows will be saved to `./workflows` directory
 
 ### 3. Test the Agent
 
@@ -207,7 +208,10 @@ When you request a workflow generation, the agent will:
    - A brief description of what the workflow does
    - A download link for the artifact
    - Key configuration steps (credentials, channel names, etc.)
-3. **Auto-download with CLI** - When using the containerized CLI, workflow artifacts are automatically saved to the `./downloads` directory
+3. **Access workflow files** - Generated workflows are available in two ways:
+   - **Via artifact server**: Download from the provided URL (e.g., `http://agent:8081/artifacts/xxx/workflow.yaml`)
+   - **Local directory**: Access directly from the `./workflows` directory (mounted from container's `/tmp/workflows`)
+4. **Auto-download with CLI** - When using the containerized CLI, workflow artifacts can be automatically saved to the `./downloads` directory
 
 **Example workflow request:**
 ```bash

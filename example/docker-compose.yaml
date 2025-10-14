@@ -27,6 +27,9 @@ services:
     container_name: agent
     ports:
       - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ./workflows:/tmp/workflows
     environment:
       A2A_PORT: 8080
       A2A_DEBUG: true
