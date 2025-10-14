@@ -47,6 +47,7 @@ services:
 
   cli:
     image: ghcr.io/inference-gateway/cli:latest
+    container_name: cli
     pull_policy: always
     volumes:
       - ./downloads:/tmp/downloads
@@ -68,6 +69,7 @@ services:
 
   a2a-debugger:
     image: ghcr.io/inference-gateway/a2a-debugger:latest
+    container_name: a2a-debugger
     pull_policy: always
     entrypoint:
       - /a2a
