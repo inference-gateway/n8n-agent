@@ -6,6 +6,7 @@ require (
 	github.com/inference-gateway/adk v0.15.0
 	github.com/sethvargo/go-envconfig v1.3.0
 	go.uber.org/zap v1.27.0
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -69,5 +70,4 @@ require (
 	golang.org/x/sys v0.33.0 // indirect
 	golang.org/x/text v0.25.0 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

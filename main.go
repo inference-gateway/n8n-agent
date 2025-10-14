@@ -51,6 +51,11 @@ func main() {
 	toolBox.AddTool(searchN8NDocsSkill)
 	l.Info("registered skill: search_n8n_docs (Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns)")
 
+	// Register validate_n8n_workflow skill
+	validateN8NWorkflowSkill := skills.NewValidateN8NWorkflowSkill(l)
+	toolBox.AddTool(validateN8NWorkflowSkill)
+	l.Info("registered skill: validate_n8n_workflow (Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts)")
+
 	llmClient, err := server.NewOpenAICompatibleLLMClient(&cfg.A2A.AgentConfig, l)
 	if err != nil {
 		l.Fatal("failed to create LLM client", zap.Error(err))
@@ -66,6 +71,7 @@ func main() {
 Your primary capabilities:
 1. **Documentation Search**: Use the search_n8n_docs skill to search through comprehensive N8N node documentation to find the right nodes for any task
 2. **Workflow Generation**: Create complete, working N8N workflow YAML files based on user requirements using your knowledge and the create_artifact tool
+3. **Workflow Validation**: Use the validate_n8n_workflow skill to ensure all workflows are valid before creating artifacts
 
 Key knowledge areas:
 - 497+ N8N nodes including standard nodes and LangChain AI nodes
@@ -96,12 +102,17 @@ Step 2: Generate the complete workflow YAML
 - Include proper node IDs, parameters, connections, and positions
 - Add error handling and best practices
 
-Step 3: Save as artifact (MANDATORY)
+Step 3: Validate the workflow (MANDATORY)
+- Use validate_n8n_workflow to ensure the workflow is valid
+- Fix any validation errors before proceeding
+- Repeat validation until the workflow passes all checks
+
+Step 4: Save as artifact (MANDATORY)
 - Use the create_artifact tool to save the workflow YAML
 - Filename should be descriptive (e.g., "customer_onboarding_workflow.yaml")
 - Content must be valid YAML format
 
-Step 4: Respond concisely
+Step 5: Respond concisely
 - Provide a brief 2-3 sentence description
 - Include the artifact download link
 - List required configuration steps
