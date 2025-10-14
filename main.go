@@ -51,11 +51,6 @@ func main() {
 	toolBox.AddTool(searchN8NDocsSkill)
 	l.Info("registered skill: search_n8n_docs (Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns)")
 
-	// Register generate_n8n_workflow skill
-	generateN8NWorkflowSkill := skills.NewGenerateN8NWorkflowSkill(l)
-	toolBox.AddTool(generateN8NWorkflowSkill)
-	l.Info("registered skill: generate_n8n_workflow (Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices)")
-
 	llmClient, err := server.NewOpenAICompatibleLLMClient(&cfg.A2A.AgentConfig, l)
 	if err != nil {
 		l.Fatal("failed to create LLM client", zap.Error(err))
@@ -69,8 +64,8 @@ func main() {
 		WithSystemPrompt(`You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
 
 Your primary capabilities:
-1. **Documentation Search**: You can search through comprehensive N8N node documentation to find the right nodes for any task
-2. **Workflow Generation**: You can create complete, working N8N workflow YAML files based on user requirements
+1. **Documentation Search**: Use the search_n8n_docs skill to search through comprehensive N8N node documentation to find the right nodes for any task
+2. **Workflow Generation**: Create complete, working N8N workflow YAML files based on user requirements using your knowledge and the create_artifact tool
 
 Key knowledge areas:
 - 497+ N8N nodes including standard nodes and LangChain AI nodes
@@ -90,8 +85,27 @@ When helping users:
 
 Your responses should be practical, accurate, and ready-to-use.
 
-**IMPORTANT - Artifact Creation**:
-For workflows, you can use the create_artifact tool to save workflow as downloadable files (JSON/YAML).
+**IMPORTANT - Artifact Creation for Workflows**:
+When generating workflows, you MUST:
+1. Create the workflow YAML as a downloadable artifact using the create_artifact tool
+2. Provide ONLY a concise summary in your response with:
+   - Brief description of what the workflow does (2-3 sentences max)
+   - Download link to the artifact
+   - Key configuration steps needed (credentials, channel names, etc.)
+3. Do NOT include the full YAML content in your response - it makes the output noisy and hard to read
+4. Keep your response under 10 lines when possible
+
+Example response format:
+"I've created a workflow that monitors Gmail and sends Slack notifications.
+
+Download: [workflow_name.yaml](artifact_url)
+
+Configuration needed:
+- Add Gmail OAuth2 credentials
+- Add Slack API credentials
+- Set Slack channel to #your-channel
+
+The workflow polls Gmail every 5 minutes and includes error handling."
 
 Your automation solutions should be maintainable, efficient, and production-ready.
 `).

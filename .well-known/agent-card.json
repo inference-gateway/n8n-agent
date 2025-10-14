@@ -19,13 +19,6 @@
 			"description": "Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns",
 			"tags": ["documentation","search","n8n"],
 			"schema": {"properties":{"category":{"description":"Optional filter by category (e.g., \"trigger\", \"action\", \"langchain\")","type":"string"},"node_type":{"description":"Optional filter by specific node type (e.g., \"webhook\", \"http\", \"database\")","type":"string"},"query":{"description":"Search query to find relevant N8N nodes or documentation","type":"string"}},"required":["query"],"type":"object"}
-		},
-		{
-			"id": "generate_n8n_workflow",
-			"name": "generate_n8n_workflow",
-			"description": "Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices",
-			"tags": ["generation","workflow","n8n","yaml"],
-			"schema": {"properties":{"integrations":{"description":"List of services or platforms to integrate (e.g., [\"slack\", \"gmail\", \"database\"])","items":{"type":"string"},"type":"array"},"trigger_type":{"description":"Preferred trigger type (e.g., \"webhook\", \"schedule\", \"manual\")","type":"string"},"workflow_description":{"description":"Description of what the workflow should accomplish","type":"string"}},"required":["workflow_description"],"type":"object"}
 		}
 	]
 }

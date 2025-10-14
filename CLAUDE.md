@@ -75,7 +75,6 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 ### Skills Implementation
 The following skills are currently defined:
 - **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-- **generate_n8n_workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 To modify skills:
 1. Update `agent.yaml` with skill definitions

@@ -200,9 +200,36 @@ docker compose run --rm cli
 
 ### Downloading Generated Workflows
 
-When workflows are generated, they are saved as artifacts and can be downloaded. The generated YAML files will be available in the `./downloads` directory (mapped from the CLI container's `/tmp/downloads`).
+When you request a workflow generation, the agent will:
 
-**Note**: The CLI is configured to automatically save workflow artifacts to this directory when they are created.
+1. **Create the workflow as an artifact** - The full YAML file is saved as a downloadable artifact
+2. **Provide a concise response** - Instead of cluttering the chat with the full YAML, you'll receive:
+   - A brief description of what the workflow does
+   - A download link for the artifact
+   - Key configuration steps (credentials, channel names, etc.)
+3. **Auto-download with CLI** - When using the containerized CLI, workflow artifacts are automatically saved to the `./downloads` directory
+
+**Example workflow request:**
+```bash
+docker compose run --rm cli
+# Then ask: "Create a workflow that sends Slack notifications when new emails arrive"
+```
+
+The agent will respond with something like:
+```
+I've created a workflow that monitors Gmail and sends Slack notifications.
+
+Download: [email_to_slack_workflow.yaml](http://agent:8081/artifacts/xxx/email_to_slack_workflow.yaml)
+
+Configuration needed:
+- Add Gmail OAuth2 credentials
+- Add Slack API credentials
+- Set Slack channel to #your-channel
+
+The workflow polls Gmail every 5 minutes and includes error handling.
+```
+
+**Note**: This clean, artifact-based approach keeps responses concise and makes it easy to download and import workflows directly into N8N.
 
 ## Architecture
 
@@ -231,12 +258,24 @@ The Inference Gateway provides unified access to multiple LLM providers, allowin
 
 ## Available Skills
 
-The N8N Agent exposes two primary skills:
+The N8N Agent provides one primary skill and leverages built-in tools for workflow generation:
 
-1. **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-2. **generate_n8n_workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+### Skills:
+1. **search_n8n_docs**: Search through comprehensive N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 
-View all available tasks:
+### Workflow Generation:
+The agent generates N8N workflow YAML configurations directly using:
+- The `search_n8n_docs` skill to find appropriate nodes
+- Its extensive knowledge of N8N nodes and best practices
+- The built-in `create_artifact` tool to save workflows as downloadable files
+
+**How it works:**
+- Generated workflows are automatically created as downloadable artifacts
+- The agent provides a concise summary with a download link
+- No verbose YAML output clutters the chat interface
+- Workflows are ready to import directly into N8N
+
+View all available tasks and artifacts:
 ```bash
 docker compose run --rm a2a-debugger tasks list --include-artifacts
 ```
