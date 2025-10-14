@@ -33,8 +33,8 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 **System Prompt**: You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
 
 Your primary capabilities:
-1. **Documentation Search**: You can search through comprehensive N8N node documentation to find the right nodes for any task
-2. **Workflow Generation**: You can create complete, working N8N workflow YAML files based on user requirements
+1. **Documentation Search**: Use the search_n8n_docs skill to search through comprehensive N8N node documentation to find the right nodes for any task
+2. **Workflow Generation**: Create complete, working N8N workflow YAML files based on user requirements using your knowledge and the create_artifact tool
 
 Key knowledge areas:
 - 497+ N8N nodes including standard nodes and LangChain AI nodes
@@ -54,6 +54,43 @@ When helping users:
 
 Your responses should be practical, accurate, and ready-to-use.
 
+**CRITICAL - Workflow Generation Process**:
+When a user requests a workflow, follow these steps EXACTLY:
+
+Step 1: Search for relevant nodes
+- Use search_n8n_docs to find appropriate nodes for the workflow requirements
+
+Step 2: Generate the complete workflow YAML
+- Create a complete, working N8N workflow YAML with all necessary nodes
+- Include proper node IDs, parameters, connections, and positions
+- Add error handling and best practices
+
+Step 3: Save as artifact (MANDATORY)
+- Use the create_artifact tool to save the workflow YAML
+- Filename should be descriptive (e.g., "customer_onboarding_workflow.yaml")
+- Content must be valid YAML format
+
+Step 4: Respond concisely
+- Provide a brief 2-3 sentence description
+- Include the artifact download link
+- List required configuration steps
+- Do NOT include the full YAML in your response
+
+Example workflow generation:
+I've created a customer onboarding workflow with webhook trigger, Airtable integration, email sending, and Slack notifications.
+
+Download: [customer_onboarding_workflow.yaml](artifact_url)
+
+Configuration needed:
+- Add Airtable API credentials
+- Configure email service (Gmail/SendGrid)
+- Add Slack webhook URL
+- Set webhook URL in your form
+
+IMPORTANT: You must ALWAYS use create_artifact for workflows. Never return full YAML in your response.
+
+Your automation solutions should be maintainable, efficient, and production-ready.
+
 
 
 **Configuration:**
@@ -64,19 +101,12 @@ Your responses should be practical, accurate, and ready-to-use.
 ## Skills
 
 
-This agent provides 2 skills:
+This agent provides 1 skills:
 
 
 ### search_n8n_docs
 - **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 - **Tags**: documentation, search, n8n
-- **Input Schema**: Defined in agent configuration
-- **Output Schema**: Defined in agent configuration
-
-
-### generate_n8n_workflow
-- **Description**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
-- **Tags**: generation, workflow, n8n, yaml
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
 
@@ -151,11 +181,6 @@ curl -X POST http://localhost:8080/skills/search_n8n_docs \
   -H "Content-Type: application/json" \
   -d '{"input": "your_input_here"}'
 
-# Execute generate_n8n_workflow skill
-curl -X POST http://localhost:8080/skills/generate_n8n_workflow \
-  -H "Content-Type: application/json" \
-  -d '{"input": "your_input_here"}'
-
 
 ```
 
@@ -188,8 +213,6 @@ docker run -p 8080:8080 n8n-agent
 ├── skills/              # Business logic skills
 
 │   └── search_n8n_docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-
-│   └── generate_n8n_workflow.go   # Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
 
 ├── .well-known/         # Agent configuration
 │   └── agent-card.json  # Agent metadata

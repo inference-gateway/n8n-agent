@@ -1,5 +1,34 @@
 # N8N Agent Example
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+  - [1. Configuration](#1-configuration)
+  - [2. Start the Services](#2-start-the-services)
+  - [3. Test the Agent](#3-test-the-agent)
+- [Usage Examples](#usage-examples)
+  - [Basic N8N Documentation Queries](#basic-n8n-documentation-queries)
+  - [Workflow Generation Examples](#workflow-generation-examples)
+  - [Complex Automation Examples](#complex-automation-examples)
+  - [N8N Best Practices and Troubleshooting](#n8n-best-practices-and-troubleshooting)
+  - [Integration-Specific Examples](#integration-specific-examples)
+  - [Downloading Generated Workflows](#downloading-generated-workflows)
+- [Architecture](#architecture)
+- [Available Skills](#available-skills)
+- [Troubleshooting](#troubleshooting)
+  - [Agent Not Responding](#agent-not-responding)
+  - [API Key Issues](#api-key-issues)
+  - [Debugging Tips](#debugging-tips)
+- [Development](#development)
+  - [Building from Source](#building-from-source)
+  - [Using a Different Inference Provider](#using-a-different-inference-provider)
+  - [Running Services Individually](#running-services-individually)
+- [Cleanup](#cleanup)
+- [Additional Resources](#additional-resources)
+- [License](#license)
+
 ## Overview
 
 This example demonstrates how to run the N8N Agent locally using Docker Compose. The setup includes:
@@ -36,10 +65,6 @@ cp .env.example .env
 - `A2A_AGENT_CLIENT_MODEL`: Model to use (e.g., `deepseek/deepseek-chat`)
 - `A2A_AGENT_CLIENT_BASE_URL`: Inference service URL (default: `http://inference-gateway:8080/v1`)
 
-**.env.gateway** - Inference Gateway configuration:
-- `ENVIRONMENT`: Set to `development` or `production`
-- `DEEPSEEK_API_KEY`: Your DeepSeek API key (or other provider's key)
-
 ### 2. Start the Services
 
 Launch all services with Docker Compose:
@@ -49,13 +74,29 @@ docker compose up --build
 ```
 
 This will start:
-- N8N Agent on port 8080
+- N8N Agent on port 8080 (API) and 8081 (Artifact Server)
 - Inference Gateway (internal network)
 - Services will auto-restart unless stopped
+- Generated workflows will be saved to `./workflows` directory
 
 ### 3. Test the Agent
 
-Submit a test query using the A2A debugger:
+You can interact with the agent using either the **Inference Gateway CLI** (recommended) or the **A2A Debugger**.
+
+#### Using the Inference Gateway CLI (Recommended)
+
+The CLI provides an interactive chat interface for a better user experience:
+
+```bash
+# Start interactive chat session
+docker compose run --rm cli
+```
+
+This opens an interactive chat where you can have conversations with the agent, ask questions, and request workflow generation.
+
+#### Using the A2A Debugger
+
+For quick one-off queries, you can use the A2A debugger:
 
 ```bash
 docker compose run --rm a2a-debugger tasks submit-streaming "How do I create an email campaign in n8n?"
@@ -63,20 +104,136 @@ docker compose run --rm a2a-debugger tasks submit-streaming "How do I create an 
 
 ## Usage Examples
 
-### Basic N8N Documentation Query
+Below are example prompts you can try with the N8N agent:
+
+### Basic N8N Documentation Queries
+
+**Using CLI (interactive chat):**
+```bash
+docker compose run --rm cli
+# Then in the chat interface, ask:
+# - How do I use the HTTP Request node?
+# - What are the authentication options for the Gmail node?
+# - Show me how to use the Code node to transform data
+# - What N8N nodes are available for database operations?
+# - How do I handle errors in n8n workflows?
+# - Explain the Webhook node and its use cases
+```
+
+**Using A2A Debugger:**
 ```bash
 docker compose run --rm a2a-debugger tasks submit-streaming "How do I use the HTTP Request node?"
-```
-
-### Workflow Generation
-```bash
-docker compose run --rm a2a-debugger tasks submit-streaming "Create a workflow that sends Slack notifications when new emails arrive"
-```
-
-### Submit Non-Streaming Task
-```bash
+docker compose run --rm a2a-debugger tasks submit-streaming "What are the authentication options for the Gmail node?"
 docker compose run --rm a2a-debugger tasks submit "What N8N nodes are available for database operations?"
 ```
+
+### Workflow Generation Examples
+
+**Using CLI (interactive chat):**
+```bash
+docker compose run --rm cli
+# Then in the chat interface, request workflows like:
+# - Create a workflow that sends Slack notifications when new emails arrive
+# - Build a workflow that monitors a GitHub repository for new issues and creates Trello cards
+# - Generate a workflow that fetches data from an API every hour and stores it in a PostgreSQL database
+# - Create a workflow that processes incoming webhook data and sends formatted messages to Discord
+# - Build a workflow that backs up Airtable records to Google Sheets daily
+# - Create a workflow that monitors RSS feeds and posts new articles to Twitter
+# - Generate a workflow that processes CSV files from Google Drive and sends summary reports via email
+```
+
+**Using A2A Debugger:**
+```bash
+docker compose run --rm a2a-debugger tasks submit-streaming "Create a workflow that sends Slack notifications when new emails arrive"
+docker compose run --rm a2a-debugger tasks submit-streaming "Build a workflow that monitors a GitHub repository for new issues and creates Trello cards"
+docker compose run --rm a2a-debugger tasks submit-streaming "Generate a workflow that fetches data from an API every hour and stores it in a PostgreSQL database"
+```
+
+### Complex Automation Examples
+
+**Using CLI:**
+```bash
+docker compose run --rm cli
+# Complex multi-step workflows:
+# - Create a customer onboarding workflow that: 1) receives form submissions via webhook, 2) creates a record in Airtable, 3) sends a welcome email, and 4) notifies the team in Slack
+# - Build a data pipeline workflow that: 1) fetches sales data from Shopify API, 2) transforms and aggregates the data, 3) updates a Google Sheet, and 4) sends a daily summary to the sales team
+# - Create a support ticket automation that: 1) monitors incoming emails, 2) categorizes them using AI, 3) creates tickets in Zendesk, and 4) notifies the appropriate team based on priority
+# - Generate a social media automation workflow that: 1) pulls content from a content calendar in Notion, 2) generates image thumbnails, 3) schedules posts to multiple platforms, and 4) tracks engagement metrics
+```
+
+**Using A2A Debugger:**
+```bash
+docker compose run --rm a2a-debugger tasks submit-streaming "Create a customer onboarding workflow that: 1) receives form submissions via webhook, 2) creates a record in Airtable, 3) sends a welcome email, and 4) notifies the team in Slack"
+```
+
+### N8N Best Practices and Troubleshooting
+
+**Using CLI:**
+```bash
+docker compose run --rm cli
+# Ask questions like:
+# - What are best practices for error handling in n8n workflows?
+# - How do I optimize workflows for better performance?
+# - How can I debug a workflow that's not working as expected?
+# - What's the difference between the Function and Code nodes?
+# - How do I securely store API credentials in n8n?
+# - Explain n8n workflow execution modes and when to use each
+```
+
+**Using A2A Debugger:**
+```bash
+docker compose run --rm a2a-debugger tasks submit "What are best practices for error handling in n8n workflows?"
+docker compose run --rm a2a-debugger tasks submit "How do I optimize workflows for better performance?"
+```
+
+### Integration-Specific Examples
+
+**Using CLI:**
+```bash
+docker compose run --rm cli
+# Integration questions:
+# - How do I connect n8n to Salesforce and sync contacts?
+# - Create a workflow that triggers when a new row is added to a Google Sheet
+# - How do I authenticate with the OpenAI API in n8n?
+# - Build a workflow that posts to multiple social media platforms simultaneously
+# - How do I use n8n to automate Jira ticket creation from Slack messages?
+```
+
+### Downloading Generated Workflows
+
+When you request a workflow generation, the agent will:
+
+1. **Create the workflow as an artifact** - The full YAML file is saved as a downloadable artifact
+2. **Provide a concise response** - Instead of cluttering the chat with the full YAML, you'll receive:
+   - A brief description of what the workflow does
+   - A download link for the artifact
+   - Key configuration steps (credentials, channel names, etc.)
+3. **Access workflow files** - Generated workflows are available in two ways:
+   - **Via artifact server**: Download from the provided URL (e.g., `http://agent:8081/artifacts/xxx/workflow.yaml`)
+   - **Local directory**: Access directly from the `./workflows` directory (mounted from container's `/tmp/workflows`)
+4. **Auto-download with CLI** - When using the containerized CLI, workflow artifacts can be automatically saved to the `./downloads` directory
+
+**Example workflow request:**
+```bash
+docker compose run --rm cli
+# Then ask: "Create a workflow that sends Slack notifications when new emails arrive"
+```
+
+The agent will respond with something like:
+```
+I've created a workflow that monitors Gmail and sends Slack notifications.
+
+Download: [email_to_slack_workflow.yaml](http://agent:8081/artifacts/xxx/email_to_slack_workflow.yaml)
+
+Configuration needed:
+- Add Gmail OAuth2 credentials
+- Add Slack API credentials
+- Set Slack channel to #your-channel
+
+The workflow polls Gmail every 5 minutes and includes error handling.
+```
+
+**Note**: This clean, artifact-based approach keeps responses concise and makes it easy to download and import workflows directly into N8N.
 
 ## Architecture
 
@@ -105,14 +262,26 @@ The Inference Gateway provides unified access to multiple LLM providers, allowin
 
 ## Available Skills
 
-The N8N Agent exposes two primary skills:
+The N8N Agent provides one primary skill and leverages built-in tools for workflow generation:
 
-1. **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-2. **generate_n8n_workflow**: Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices
+### Skills:
+1. **search_n8n_docs**: Search through comprehensive N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 
-View all available skills:
+### Workflow Generation:
+The agent generates N8N workflow YAML configurations directly using:
+- The `search_n8n_docs` skill to find appropriate nodes
+- Its extensive knowledge of N8N nodes and best practices
+- The built-in `create_artifact` tool to save workflows as downloadable files
+
+**How it works:**
+- Generated workflows are automatically created as downloadable artifacts
+- The agent provides a concise summary with a download link
+- No verbose YAML output clutters the chat interface
+- Workflows are ready to import directly into N8N
+
+View all available tasks and artifacts:
 ```bash
-docker compose run --rm a2a-debugger tools list
+docker compose run --rm a2a-debugger tasks list --include-artifacts
 ```
 
 ## Troubleshooting

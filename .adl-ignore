@@ -19,5 +19,4 @@ Taskfile.yml
 Dockerfile
 .flox/env/manifest.toml
 
-skills/generate_n8n_workflow.go
 skills/search_n8n_docs.go
