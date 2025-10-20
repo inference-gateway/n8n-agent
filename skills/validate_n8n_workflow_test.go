@@ -365,4 +365,3 @@ func TestIsTriggerNode(t *testing.T) {
 		})
 	}
 }
-

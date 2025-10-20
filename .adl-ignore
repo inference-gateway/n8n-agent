@@ -20,3 +20,4 @@ Dockerfile
 .flox/env/manifest.toml
 
 skills/search_n8n_docs.go
+skills/validate_n8n_workflow.go

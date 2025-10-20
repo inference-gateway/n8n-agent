@@ -8,7 +8,7 @@
 
 **A2A agent server specialized in generating and automating n8n workflows**
 
-A production-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
+A enterprise-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
 
 </div>
 
@@ -42,7 +42,7 @@ docker run -p 8080:8080 n8n-agent
 | Skill | Description | Parameters |
 |-------|-------------|------------|
 | `search_n8n_docs` | Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns |category, node_type, query |
-| `generate_n8n_workflow` | Generate complete N8N workflow YAML configurations based on user requirements, using documented nodes and best practices |integrations, trigger_type, workflow_description |
+| `validate_n8n_workflow` | Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts |format, workflow_content |
 
 ## Configuration
 
@@ -90,7 +90,7 @@ Configure the agent via environment variables:
 | **Artifacts** | `ARTIFACTS_STORAGE_BUCKET_NAME` | MinIO/S3 bucket name | `artifacts` |
 | **Artifacts** | `ARTIFACTS_STORAGE_USE_SSL` | Use SSL for MinIO/S3 connections | `true` |
 | **Artifacts** | `ARTIFACTS_RETENTION_MAX_ARTIFACTS` | Max artifacts per task (0 = unlimited) | `5` |
-| **Artifacts** | `ARTIFACTS_RETENTION_MAX_AGE` | Max artifact age (0 = no age limit) | `7d` |
+| **Artifacts** | `ARTIFACTS_RETENTION_MAX_AGE` | Max artifact age (0 = no age limit) | `168h` |
 | **Artifacts** | `ARTIFACTS_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `24h` |
 | **Authentication** | `A2A_AUTH_ENABLE` | Enable OIDC authentication | `false` |
 
@@ -148,7 +148,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.1.13`)
+- `VERSION` - Agent version (default: `0.2.0`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 
