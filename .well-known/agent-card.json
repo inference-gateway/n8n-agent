@@ -1,6 +1,6 @@
 {
 	"name": "n8n-agent",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "A2A agent server specialized in generating and automating n8n workflows",
 	"protocolVersion": "0.3.0",
 	"url": "",

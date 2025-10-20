@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1](https://github.com/inference-gateway/n8n-agent/compare/v0.2.0...v0.2.1) (2025-10-20)
+
+### 🔧 Miscellaneous
+
+* **deps:** Update ADL CLI version to 0.23.11 and add validate_n8n_workflow skill ([12b2c8a](https://github.com/inference-gateway/n8n-agent/commit/12b2c8abe03d3347f4d782c55197c4bfaae99f5f))
+
 ## [0.2.0](https://github.com/inference-gateway/n8n-agent/compare/v0.1.13...v0.2.0) (2025-10-14)
 
 ### ✨ Features
