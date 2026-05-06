@@ -62,7 +62,7 @@ cp .env.example .env
 - `ENVIRONMENT`: Set to `development` or `production`
 - `A2A_AGENT_URL`: Agent server URL (default: `http://localhost:8080`)
 - `A2A_AGENT_CLIENT_PROVIDER`: LLM provider (e.g., `deepseek`)
-- `A2A_AGENT_CLIENT_MODEL`: Model to use (e.g., `deepseek/deepseek-chat`)
+- `A2A_AGENT_CLIENT_MODEL`: Model to use (e.g., `deepseek/deepseek-v4-flash`)
 - `A2A_AGENT_CLIENT_BASE_URL`: Inference service URL (default: `http://inference-gateway:8080/v1`)
 
 ### 2. Start the Services
