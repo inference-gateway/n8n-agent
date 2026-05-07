@@ -5,30 +5,17 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### n8n-agent
-**Version**: 0.2.1  
+**Version**: 0.2.2  
 **Description**: A2A agent server specialized in generating and automating n8n workflows
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
 
 ## Agent Capabilities
-
-
-
 - **Streaming**: ✅ Real-time response streaming supported
-
-
 - **Push Notifications**: ❌ Server-sent events not supported
-
-
 - **State History**: ❌ State transition history not tracked
 
-
-
 ## AI Configuration
-
-
-
-
 
 **System Prompt**: You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
 
@@ -98,17 +85,11 @@ IMPORTANT: You must ALWAYS use create_artifact for workflows. Never return full 
 Your automation solutions should be maintainable, efficient, and production-ready.
 
 
-
 **Configuration:**
-
-
-
 
 ## Skills
 
-
 This agent provides 2 skills:
-
 
 ### search_n8n_docs
 - **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
@@ -116,52 +97,35 @@ This agent provides 2 skills:
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
 
-
 ### validate_n8n_workflow
 - **Description**: Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
 - **Tags**: validation, workflow, n8n, yaml, json
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
 
-
-
-
 ## Server Configuration
 
 **Port**: 8080
-
 **Debug Mode**: ❌ Disabled
-
-
-
 **Authentication**: ❌ Not required
-
 
 ## API Endpoints
 
 The agent exposes the following HTTP endpoints:
 
 - `GET /.well-known/agent-card.json` - Agent metadata and capabilities
-- `POST /skills/{skill_name}` - Execute a specific skill
-- `GET /skills/{skill_name}/stream` - Stream skill execution results
+- `GET /health` - Health check endpoint
+- `POST /a2a` - JSON-RPC endpoint for all A2A operations (skill execution, streaming, etc.)
 
 ## Environment Setup
 
 ### Required Environment Variables
 
 Key environment variables you'll need to configure:
-
-
-
-- `PORT` - Server port (default: 8080)
+- `PORT` - Server port (configured: 8080)
 
 ### Development Environment
-
-
 **Flox Environment**: ✅ Configured for reproducible development setup
-
-
-
 
 ## Usage
 
@@ -178,7 +142,6 @@ go run main.go
 task run
 ```
 
-
 ### Communicating with the Agent
 
 The agent implements the A2A protocol and can be communicated with via HTTP requests:
@@ -186,32 +149,18 @@ The agent implements the A2A protocol and can be communicated with via HTTP requ
 ```bash
 # Get agent information
 curl http://localhost:8080/.well-known/agent-card.json
-
-
-
-# Execute search_n8n_docs skill
-curl -X POST http://localhost:8080/skills/search_n8n_docs \
-  -H "Content-Type: application/json" \
-  -d '{"input": "your_input_here"}'
-
-# Execute validate_n8n_workflow skill
-curl -X POST http://localhost:8080/skills/validate_n8n_workflow \
-  -H "Content-Type: application/json" \
-  -d '{"input": "your_input_here"}'
-
-
 ```
 
-## Deployment
+Refer to the main README.md for specific skill execution examples and input schemas.
 
+## Deployment
 
 **Deployment Type**: Manual
 - Build and run the agent binary directly
 - Use provided Dockerfile for containerized deployment
 
-
-
 ### Docker Deployment
+
 ```bash
 # Build image
 docker build -t n8n-agent .
@@ -220,26 +169,21 @@ docker build -t n8n-agent .
 docker run -p 8080:8080 n8n-agent
 ```
 
-
 ## Development
 
 ### Project Structure
 
 ```
 .
-├── main.go              # Server entry point
-├── skills/              # Business logic skills
-
-│   └── search_n8n_docs.go   # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
-
-│   └── validate_n8n_workflow.go   # Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
-
-├── .well-known/         # Agent configuration
-│   └── agent-card.json  # Agent metadata
-├── go.mod               # Go module definition
-└── README.md            # Project documentation
+├── main.go                       # Server entry point
+├── skills/                       # Business logic skills
+│   └── search_n8n_docs.go        # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+│   └── validate_n8n_workflow.go  # Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
+├── .well-known/                  # Agent configuration
+│   └── agent-card.json           # Agent metadata
+├── go.mod                        # Go module definition
+└── README.md                     # Project documentation
 ```
-
 
 ### Testing
 
@@ -252,7 +196,6 @@ go test ./...
 task test:coverage
 ```
 
-
 ## Contributing
 
 1. Implement business logic in skill files (replace TODO placeholders)
@@ -263,7 +206,7 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.2.1 with the following configuration:
+This agent was generated using ADL CLI v0.2.2 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent

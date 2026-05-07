@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2](https://github.com/inference-gateway/n8n-agent/compare/v0.2.1...v0.2.2) (2026-05-07)
+
+### ♻️ Improvements
+
+* Rename all instances of deepseek-chat to deepseek-v4-flash ([01a5997](https://github.com/inference-gateway/n8n-agent/commit/01a59975a8cef2c7660cdd146eb9c5431d1b4592))
+
+### 👷 CI
+
+* **deps:** Bump github actions to latest ([dac7d86](https://github.com/inference-gateway/n8n-agent/commit/dac7d8611809c6588882d1c962582bf986db5ac4))
+* Update golangci-lint installation script to use the latest version ([833967f](https://github.com/inference-gateway/n8n-agent/commit/833967f68b0a98fadc4f86772ab4e88e3cb063b5))
+
+### 🔧 Miscellaneous
+
+* Update task installation method in CI and CD workflows ([7f216e5](https://github.com/inference-gateway/n8n-agent/commit/7f216e5fd51ca3079a9d3a2b1eb7a3416fa6e7a7))
+
 ## [0.2.1](https://github.com/inference-gateway/n8n-agent/compare/v0.2.0...v0.2.1) (2025-10-20)
 
 ### 🔧 Miscellaneous
