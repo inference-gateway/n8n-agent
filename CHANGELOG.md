@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3](https://github.com/inference-gateway/n8n-agent/compare/v0.2.2...v0.2.3) (2026-05-19)
+
+### ♻️ Improvements
+
+* **ci:** Remove reviewers so the CODEOWNERS will be used ([4b32d3d](https://github.com/inference-gateway/n8n-agent/commit/4b32d3d61f3cdd253c3cdb429fda4249ad2a662d))
+* Migrate to ADL CLI v0.30.7 (apiVersion adl.inference-gateway.com/v1) ([b876459](https://github.com/inference-gateway/n8n-agent/commit/b87645943fd2d476ca5d49778ad3e761662eb425))
+* Update system prompt ([43b8fca](https://github.com/inference-gateway/n8n-agent/commit/43b8fca01afaec8d335c639bc1ed60f608350c8d))
+
+### 👷 CI
+
+* **dependabot:** Add dependabot to help with dependecies upgrades ([8f12d50](https://github.com/inference-gateway/n8n-agent/commit/8f12d5025221e0997ed55e07d93006232c90677c))
+* **deps:** Bump deno to v2.7.14 ([48bc416](https://github.com/inference-gateway/n8n-agent/commit/48bc4167a9de70e9457aa03a4502e840e3e514b1))
+* **deps:** Bump peter-evans/create-pull-request to latest ([065f3a0](https://github.com/inference-gateway/n8n-agent/commit/065f3a0aedf76d3b5e007ccee5a33562f29ec5b8))
+* Enable display report for Claude Code action ([ee7c646](https://github.com/inference-gateway/n8n-agent/commit/ee7c6467c62d60e67a9acf26ca128f9714f75ea1))
+* Update actions/checkout to version 6.0.2 in CD and Claude workflows ([a2abaf7](https://github.com/inference-gateway/n8n-agent/commit/a2abaf74a59743ab9514199191a948fc2f6230ad))
+* Update workflow configurations for Claude Code and N8N documentation ([bfa5953](https://github.com/inference-gateway/n8n-agent/commit/bfa5953b0e5c512a2c7d8f12a97c99149ca54a3d))
+
+### 📚 Documentation
+
+* Update N8N node documentation ([9261267](https://github.com/inference-gateway/n8n-agent/commit/9261267032cbb70cd3e59ba7a54c943c3d18541c))
+* Update N8N Node Documentation ([#19](https://github.com/inference-gateway/n8n-agent/issues/19)) ([02c9215](https://github.com/inference-gateway/n8n-agent/commit/02c921565fbb2097fb26ae20c7b017bcb01ea893))
+
+### 🔧 Miscellaneous
+
+* Remove outdated issue templates for bug reports, feature requests, and refactor requests ([f834438](https://github.com/inference-gateway/n8n-agent/commit/f83443886021860daaff6f84b433db20f043bfd5))
+
 ## [0.2.2](https://github.com/inference-gateway/n8n-agent/compare/v0.2.1...v0.2.2) (2026-05-07)
 
 ### ♻️ Improvements
