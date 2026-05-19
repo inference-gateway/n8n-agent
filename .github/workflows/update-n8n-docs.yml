@@ -20,9 +20,9 @@ jobs:
           persist-credentials: false
       
       - name: Setup Deno
-        uses: denoland/setup-deno@v2
+        uses: denoland/setup-deno@v2.0.4
         with:
-          deno-version: v2.5.2
+          deno-version: v2.7.14
       
       - name: Clone n8n repository
         run: |
