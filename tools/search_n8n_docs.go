@@ -1,4 +1,4 @@
-package skills
+package tools
 
 import (
 	"context"
@@ -12,21 +12,21 @@ import (
 	zap "go.uber.org/zap"
 )
 
-// SearchN8NDocsSkill struct holds the skill with logger
-type SearchN8NDocsSkill struct {
+// SearchN8NDocsTool struct holds the tool with logger
+type SearchN8NDocsTool struct {
 	logger *zap.Logger
 }
 
-// SearchN8nDocsParams represents the input parameters for the search_n8n_docs skill
+// SearchN8nDocsArgs represents the input parameters for the search_n8n_docs tool
 type SearchN8nDocsArgs struct {
 	Query    string `json:"query"`
 	NodeType string `json:"node_type,omitempty"`
 	Category string `json:"category,omitempty"`
 }
 
-// NewSearchN8NDocsSkill creates a new search_n8n_docs skill
-func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
-	skill := &SearchN8NDocsSkill{
+// NewSearchN8NDocsTool creates a new search_n8n_docs tool
+func NewSearchN8NDocsTool(logger *zap.Logger) server.Tool {
+	tool := &SearchN8NDocsTool{
 		logger: logger,
 	}
 	return server.NewBasicTool(
@@ -50,12 +50,12 @@ func NewSearchN8NDocsSkill(logger *zap.Logger) server.Tool {
 			},
 			"required": []string{"query"},
 		},
-		skill.SearchN8NDocsHandler,
+		tool.SearchN8NDocsHandler,
 	)
 }
 
-// SearchN8NDocsHandler handles the search_n8n_docs skill execution
-func (s *SearchN8NDocsSkill) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
+// SearchN8NDocsHandler handles the search_n8n_docs tool execution
+func (s *SearchN8NDocsTool) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
 	s.logger.Debug("SearchN8NDocsHandler invoked", zap.Any("args", args))
 
 	var p SearchN8nDocsArgs
@@ -130,7 +130,7 @@ type DocResult struct {
 }
 
 // searchDocumentation searches through the docs/nodes directory
-func (s *SearchN8NDocsSkill) searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
+func (s *SearchN8NDocsTool) searchDocumentation(query, nodeType, category string) ([]DocResult, error) {
 	var results []DocResult
 
 	docsPath := s.findDocsPath()
@@ -292,7 +292,7 @@ func parseDocumentationFile(content, filename string) *DocResult {
 }
 
 // findDocsPath attempts to locate the docs/nodes directory
-func (s *SearchN8NDocsSkill) findDocsPath() string {
+func (s *SearchN8NDocsTool) findDocsPath() string {
 	execPath, err := os.Executable()
 	var basePaths []string
 

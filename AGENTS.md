@@ -20,9 +20,9 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 **System Prompt**: You are an expert N8N workflow automation assistant. Your role is to help users build powerful automation workflows using N8N.
 
 Your primary capabilities:
-1. **Documentation Search**: Use the search_n8n_docs skill to search through comprehensive N8N node documentation to find the right nodes for any task
+1. **Documentation Search**: Use the search_n8n_docs tool to search through comprehensive N8N node documentation to find the right nodes for any task
 2. **Workflow Generation**: Create complete, working N8N workflow YAML files based on user requirements using your knowledge and the create_artifact tool
-3. **Workflow Validation**: Use the validate_n8n_workflow skill to ensure all workflows are valid before creating artifacts
+3. **Workflow Validation**: Use the validate_n8n_workflow tool to ensure all workflows are valid before creating artifacts
 
 Key knowledge areas:
 - 497+ N8N nodes including standard nodes and LangChain AI nodes
@@ -40,56 +40,22 @@ When helping users:
 - Consider error handling and edge cases
 - Explain the workflow logic clearly
 
-Your responses should be practical, accurate, and ready-to-use.
+Your responses should be practical, accurate, and ready-to-use. Your automation solutions should be maintainable, efficient, and production-ready.
 
-**CRITICAL - Workflow Generation Process**:
-When a user requests a workflow, follow these steps EXACTLY:
-
-Step 1: Search for relevant nodes
-- Use search_n8n_docs to find appropriate nodes for the workflow requirements
-
-Step 2: Generate the complete workflow YAML
-- Create a complete, working N8N workflow YAML with all necessary nodes
-- Include proper node IDs, parameters, connections, and positions
-- Add error handling and best practices
-
-Step 3: Validate the workflow (MANDATORY)
-- Use validate_n8n_workflow to ensure the workflow is valid
-- Fix any validation errors before proceeding
-- Repeat validation until the workflow passes all checks
-
-Step 4: Save as artifact (MANDATORY)
-- Use the create_artifact tool to save the workflow YAML
-- Filename should be descriptive (e.g., "customer_onboarding_workflow.yaml")
-- Content must be valid YAML format
-
-Step 5: Respond concisely
-- Provide a brief 2-3 sentence description
-- Include the artifact download link
-- List required configuration steps
-- Do NOT include the full YAML in your response
-
-Example workflow generation:
-I've created a customer onboarding workflow with webhook trigger, Airtable integration, email sending, and Slack notifications.
-
-Download: [customer_onboarding_workflow.yaml](artifact_url)
-
-Configuration needed:
-- Add Airtable API credentials
-- Configure email service (Gmail/SendGrid)
-- Add Slack webhook URL
-- Set webhook URL in your form
-
-IMPORTANT: You must ALWAYS use create_artifact for workflows. Never return full YAML in your response.
-
-Your automation solutions should be maintainable, efficient, and production-ready.
+When a user requests a new workflow or asks to automate a process, follow the
+n8n-workflow-generation skill — load skills/n8n-workflow-generation/SKILL.md
+via the read tool and execute its steps exactly.
 
 
 **Configuration:**
 
-## Skills
+## Tools
 
-This agent provides 2 skills:
+This agent exposes 3 function-call tools:
+
+### Read (built-in)
+- **Description**: Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
+- **Parameters**: file_path, offset, limit
 
 ### search_n8n_docs
 - **Description**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
@@ -102,6 +68,15 @@ This agent provides 2 skills:
 - **Tags**: validation, workflow, n8n, yaml, json
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
+
+## Skills
+
+This agent ships 1 markdown skill that are loaded into the system prompt at startup:
+
+### n8n-workflow-generation
+- **Description**: Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
+- **Tags**: n8n, workflow, automation
+- **Source**: scaffolded locally (`skills/n8n-workflow-generation/SKILL.md`)
 
 ## Server Configuration
 
@@ -176,9 +151,13 @@ docker run -p 8080:8080 n8n-agent
 ```
 .
 ├── main.go                       # Server entry point
-├── skills/                       # Business logic skills
+├── tools/                        # Function-call tools
+│   └── read.go                   # Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
 │   └── search_n8n_docs.go        # Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 │   └── validate_n8n_workflow.go  # Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
+├── skills/                       # Skill directories (SKILL.md + optional assets)
+│   └── n8n-workflow-generation/  # Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
+│       └── SKILL.md              # Playbook prepended to the system prompt
 ├── .well-known/                  # Agent configuration
 │   └── agent-card.json           # Agent metadata
 ├── go.mod                        # Go module definition
@@ -210,7 +189,7 @@ This agent was generated using ADL CLI v0.2.2 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **ADL Version**: adl.dev/v1
+- **ADL Version**: adl.inference-gateway.com/v1
 
 ---
 

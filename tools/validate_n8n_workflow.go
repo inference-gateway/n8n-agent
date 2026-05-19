@@ -1,4 +1,4 @@
-package skills
+package tools
 
 import (
 	"context"
@@ -12,12 +12,12 @@ import (
 	yaml "gopkg.in/yaml.v3"
 )
 
-// ValidateN8NWorkflowSkill struct holds the skill with logger
-type ValidateN8NWorkflowSkill struct {
+// ValidateN8NWorkflowTool struct holds the tool with logger
+type ValidateN8NWorkflowTool struct {
 	logger *zap.Logger
 }
 
-// ValidateN8nWorkflowArgs represents the input parameters for the validate_n8n_workflow skill
+// ValidateN8nWorkflowArgs represents the input parameters for the validate_n8n_workflow tool
 type ValidateN8nWorkflowArgs struct {
 	WorkflowContent string `json:"workflow_content"`
 	Format          string `json:"format,omitempty"`
@@ -56,9 +56,9 @@ type ValidationResult struct {
 	Warnings []string `json:"warnings,omitempty"`
 }
 
-// NewValidateN8NWorkflowSkill creates a new validate_n8n_workflow skill
-func NewValidateN8NWorkflowSkill(logger *zap.Logger) server.Tool {
-	skill := &ValidateN8NWorkflowSkill{
+// NewValidateN8NWorkflowTool creates a new validate_n8n_workflow tool
+func NewValidateN8NWorkflowTool(logger *zap.Logger) server.Tool {
+	tool := &ValidateN8NWorkflowTool{
 		logger: logger,
 	}
 	return server.NewBasicTool(
@@ -80,12 +80,12 @@ func NewValidateN8NWorkflowSkill(logger *zap.Logger) server.Tool {
 			},
 			"required": []string{"workflow_content"},
 		},
-		skill.ValidateN8NWorkflowHandler,
+		tool.ValidateN8NWorkflowHandler,
 	)
 }
 
-// ValidateN8NWorkflowHandler handles the validate_n8n_workflow skill execution
-func (s *ValidateN8NWorkflowSkill) ValidateN8NWorkflowHandler(ctx context.Context, args map[string]any) (string, error) {
+// ValidateN8NWorkflowHandler handles the validate_n8n_workflow tool execution
+func (s *ValidateN8NWorkflowTool) ValidateN8NWorkflowHandler(ctx context.Context, args map[string]any) (string, error) {
 	s.logger.Debug("ValidateN8NWorkflowHandler invoked", zap.Any("args", args))
 
 	var p ValidateN8nWorkflowArgs
@@ -153,7 +153,7 @@ func (s *ValidateN8NWorkflowSkill) ValidateN8NWorkflowHandler(ctx context.Contex
 }
 
 // validateWorkflow validates the N8N workflow content
-func (s *ValidateN8NWorkflowSkill) validateWorkflow(content, format string) (*ValidationResult, error) {
+func (s *ValidateN8NWorkflowTool) validateWorkflow(content, format string) (*ValidationResult, error) {
 	result := &ValidationResult{
 		Valid:    true,
 		Errors:   []string{},
@@ -196,7 +196,7 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflow(content, format string) (*Va
 }
 
 // detectFormat attempts to detect the format of the workflow content
-func (s *ValidateN8NWorkflowSkill) detectFormat(content, requestedFormat string) string {
+func (s *ValidateN8NWorkflowTool) detectFormat(content, requestedFormat string) string {
 	if requestedFormat != "auto" {
 		return requestedFormat
 	}
@@ -225,7 +225,7 @@ func (s *ValidateN8NWorkflowSkill) detectFormat(content, requestedFormat string)
 }
 
 // validateWorkflowStructure validates the basic workflow structure
-func (s *ValidateN8NWorkflowSkill) validateWorkflowStructure(workflow *N8NWorkflow, result *ValidationResult) {
+func (s *ValidateN8NWorkflowTool) validateWorkflowStructure(workflow *N8NWorkflow, result *ValidationResult) {
 	if len(workflow.Nodes) == 0 {
 		result.Valid = false
 		result.Errors = append(result.Errors, "Workflow must contain at least one node")
@@ -238,7 +238,7 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflowStructure(workflow *N8NWorkfl
 }
 
 // validateNodes validates all nodes in the workflow
-func (s *ValidateN8NWorkflowSkill) validateNodes(workflow *N8NWorkflow, result *ValidationResult) {
+func (s *ValidateN8NWorkflowTool) validateNodes(workflow *N8NWorkflow, result *ValidationResult) {
 	nodeIDs := make(map[string]bool)
 	validNodeTypePattern := regexp.MustCompile(`^(n8n-nodes-base\.|@n8n/n8n-nodes-langchain\.)[\w]+$`)
 
@@ -290,7 +290,7 @@ func (s *ValidateN8NWorkflowSkill) validateNodes(workflow *N8NWorkflow, result *
 }
 
 // validateConnections validates connections between nodes
-func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, result *ValidationResult) {
+func (s *ValidateN8NWorkflowTool) validateConnections(workflow *N8NWorkflow, result *ValidationResult) {
 	nodeIDs := make(map[string]bool)
 	for _, node := range workflow.Nodes {
 		if node.ID != "" {
@@ -348,7 +348,7 @@ func (s *ValidateN8NWorkflowSkill) validateConnections(workflow *N8NWorkflow, re
 }
 
 // validateWorkflowLogic validates the logical structure of the workflow
-func (s *ValidateN8NWorkflowSkill) validateWorkflowLogic(workflow *N8NWorkflow, result *ValidationResult) {
+func (s *ValidateN8NWorkflowTool) validateWorkflowLogic(workflow *N8NWorkflow, result *ValidationResult) {
 	triggerNodes := 0
 
 	for _, node := range workflow.Nodes {
@@ -368,7 +368,7 @@ func (s *ValidateN8NWorkflowSkill) validateWorkflowLogic(workflow *N8NWorkflow, 
 }
 
 // isTriggerNode checks if a node type is a trigger node
-func (s *ValidateN8NWorkflowSkill) isTriggerNode(nodeType string) bool {
+func (s *ValidateN8NWorkflowTool) isTriggerNode(nodeType string) bool {
 	triggerPatterns := []string{
 		"trigger",
 		"webhook",

@@ -1,4 +1,4 @@
-package skills
+package tools
 
 import (
 	"context"
@@ -10,7 +10,7 @@ import (
 
 func TestSearchN8NDocsHandler(t *testing.T) {
 	logger := zap.NewNop()
-	skill := &SearchN8NDocsSkill{
+	tool := &SearchN8NDocsTool{
 		logger: logger,
 	}
 
@@ -79,7 +79,7 @@ func TestSearchN8NDocsHandler(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result, err := skill.SearchN8NDocsHandler(context.Background(), tt.args)
+			result, err := tool.SearchN8NDocsHandler(context.Background(), tt.args)
 
 			if (err != nil) != tt.wantErr {
 				t.Errorf("SearchN8NDocsHandler() error = %v, wantErr %v", err, tt.wantErr)
@@ -97,11 +97,11 @@ func TestSearchN8NDocsHandler(t *testing.T) {
 
 func TestSearchDocumentation(t *testing.T) {
 	logger := zap.NewNop()
-	skill := &SearchN8NDocsSkill{
+	tool := &SearchN8NDocsTool{
 		logger: logger,
 	}
 
-	results, err := skill.searchDocumentation("webhook", "", "")
+	results, err := tool.searchDocumentation("webhook", "", "")
 	if err != nil {
 		t.Fatalf("searchDocumentation() unexpected error: %v", err)
 	}
@@ -128,7 +128,7 @@ func TestSearchDocumentation(t *testing.T) {
 		t.Logf("Note: Found webhook-related nodes but not exact webhook.md in top results")
 	}
 
-	results, err = skill.searchDocumentation("", "", "trigger")
+	results, err = tool.searchDocumentation("", "", "trigger")
 	if err != nil {
 		t.Fatalf("searchDocumentation() unexpected error with category filter: %v", err)
 	}
@@ -137,7 +137,7 @@ func TestSearchDocumentation(t *testing.T) {
 		t.Error("searchDocumentation() expected results for category 'trigger'")
 	}
 
-	results, err = skill.searchDocumentation("trigger", "", "")
+	results, err = tool.searchDocumentation("trigger", "", "")
 	if err != nil {
 		t.Fatalf("searchDocumentation() unexpected error: %v", err)
 	}

@@ -3,9 +3,9 @@
 # Files listed here typically contain implementations that users have completed.
 #
 # Patterns supported:
-# - Exact file names: skills/agent_skill.go
+# - Exact file names: tools/agent_tool.go
 # - Wildcards: *.go
-# - Directory patterns: skills/*
+# - Directory patterns: tools/*
 # - Directories: build/
 # - Comments: lines starting with #
 
@@ -19,5 +19,8 @@ Taskfile.yml
 Dockerfile
 .flox/env/manifest.toml
 
-skills/search_n8n_docs.go
-skills/validate_n8n_workflow.go
+tools/search_n8n_docs.go
+tools/search_n8n_docs_test.go
+tools/validate_n8n_workflow.go
+tools/validate_n8n_workflow_test.go
+skills/n8n-workflow-generation/

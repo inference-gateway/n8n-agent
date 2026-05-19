@@ -1,4 +1,4 @@
-package skills
+package tools
 
 import (
 	"context"
@@ -10,7 +10,7 @@ import (
 
 func TestValidateN8NWorkflowHandler(t *testing.T) {
 	logger := zap.NewNop()
-	skill := &ValidateN8NWorkflowSkill{logger: logger}
+	tool := &ValidateN8NWorkflowTool{logger: logger}
 
 	tests := []struct {
 		name           string
@@ -258,7 +258,7 @@ nodes:
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result, err := skill.ValidateN8NWorkflowHandler(context.Background(), tt.args)
+			result, err := tool.ValidateN8NWorkflowHandler(context.Background(), tt.args)
 
 			if tt.expectError {
 				if err == nil {
@@ -289,7 +289,7 @@ nodes:
 
 func TestDetectFormat(t *testing.T) {
 	logger := zap.NewNop()
-	skill := &ValidateN8NWorkflowSkill{logger: logger}
+	tool := &ValidateN8NWorkflowTool{logger: logger}
 
 	tests := []struct {
 		name            string
@@ -331,7 +331,7 @@ func TestDetectFormat(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := skill.detectFormat(tt.content, tt.requestedFormat)
+			result := tool.detectFormat(tt.content, tt.requestedFormat)
 			if result != tt.expected {
 				t.Errorf("expected %q, got %q", tt.expected, result)
 			}
@@ -341,7 +341,7 @@ func TestDetectFormat(t *testing.T) {
 
 func TestIsTriggerNode(t *testing.T) {
 	logger := zap.NewNop()
-	skill := &ValidateN8NWorkflowSkill{logger: logger}
+	tool := &ValidateN8NWorkflowTool{logger: logger}
 
 	tests := []struct {
 		name     string
@@ -358,7 +358,7 @@ func TestIsTriggerNode(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := skill.isTriggerNode(tt.nodeType)
+			result := tool.isTriggerNode(tt.nodeType)
 			if result != tt.expected {
 				t.Errorf("expected %v for %q, got %v", tt.expected, tt.nodeType, result)
 			}

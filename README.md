@@ -1,6 +1,7 @@
 <div align="center">
 
 # N8N-Agent
+
 [![CI](https://github.com/inference-gateway/n8n-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/n8n-agent/actions/workflows/ci.yml)
 [![Go Version](https://img.shields.io/badge/Go-1.25.0+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
@@ -23,12 +24,22 @@ docker build -t n8n-agent .
 docker run -p 8080:8080 n8n-agent
 ```
 
+## Quick Install
+
+Add this agent to your Inference Gateway CLI:
+
+```bash
+infer agents add n8n-agent http://localhost:8080 \
+  --oci ghcr.io/inference-gateway/n8n-agent:latest \
+  --run
+```
+
 ## Features
 
 - ✅ A2A protocol compliant
 - ✅ AI-powered capabilities
 - ✅ Streaming support
-- ✅ Production ready
+- ✅ Enterprise-ready
 - ✅ Minimal dependencies
 
 ## Endpoints
@@ -37,16 +48,35 @@ docker run -p 8080:8080 n8n-agent
 - `GET /health` - Health check endpoint
 - `POST /a2a` - A2A protocol endpoint
 
-## Available Skills
+## Available Tools
 
-| Skill | Description | Parameters |
-|-------|-------------|------------|
-| `search_n8n_docs` | Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns |category, node_type, query |
-| `validate_n8n_workflow` | Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts |format, workflow_content |
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `Read` | Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand. | file_path, offset, limit |
+| `search_n8n_docs` | Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns | category, node_type, query |
+| `validate_n8n_workflow` | Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts | format, workflow_content |
+
+## Skills (loaded into the system prompt)
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| `n8n-workflow-generation` | Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact. | bare scaffold (`skills/n8n-workflow-generation.md`) |
 
 ## Configuration
 
 Configure the agent via environment variables:
+
+### Custom Configuration
+
+The following custom configuration variables are available. Defaults are
+derived from `spec.config.*` in `agent.yaml`; the env vars below override
+them at runtime.
+
+| Category | Variable | Default |
+|----------|----------|---------|
+| **Tools** | `TOOLS_READ_ENABLED` | `true` |
+
+### Environment Variables
 
 | Category | Variable | Description | Default |
 |----------|----------|-------------|---------|
@@ -78,20 +108,20 @@ Configure the agent via environment variables:
 | **Storage** | `A2A_QUEUE_URL` | Redis connection URL (when using Redis) | - |
 | **Storage** | `A2A_QUEUE_MAX_SIZE` | Maximum queue size | `100` |
 | **Storage** | `A2A_QUEUE_CLEANUP_INTERVAL` | Task cleanup interval | `30s` |
-| **Artifacts** | `ARTIFACTS_ENABLE` | Enable artifacts support | `false` |
-| **Artifacts** | `ARTIFACTS_SERVER_HOST` | Artifacts server host | `localhost` |
-| **Artifacts** | `ARTIFACTS_SERVER_PORT` | Artifacts server port | `8081` |
-| **Artifacts** | `ARTIFACTS_STORAGE_PROVIDER` | Storage backend (`filesystem` or `minio`) | `filesystem` |
-| **Artifacts** | `ARTIFACTS_STORAGE_BASE_PATH` | Base path for filesystem storage | `./artifacts` |
-| **Artifacts** | `ARTIFACTS_STORAGE_BASE_URL` | Override base URL for direct downloads | (auto-generated) |
-| **Artifacts** | `ARTIFACTS_STORAGE_ENDPOINT` | MinIO/S3 endpoint URL | - |
-| **Artifacts** | `ARTIFACTS_STORAGE_ACCESS_KEY` | MinIO/S3 access key | - |
-| **Artifacts** | `ARTIFACTS_STORAGE_SECRET_KEY` | MinIO/S3 secret key | - |
-| **Artifacts** | `ARTIFACTS_STORAGE_BUCKET_NAME` | MinIO/S3 bucket name | `artifacts` |
-| **Artifacts** | `ARTIFACTS_STORAGE_USE_SSL` | Use SSL for MinIO/S3 connections | `true` |
-| **Artifacts** | `ARTIFACTS_RETENTION_MAX_ARTIFACTS` | Max artifacts per task (0 = unlimited) | `5` |
-| **Artifacts** | `ARTIFACTS_RETENTION_MAX_AGE` | Max artifact age (0 = no age limit) | `168h` |
-| **Artifacts** | `ARTIFACTS_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `24h` |
+| **Artifacts** | `A2A_ARTIFACTS_ENABLE` | Enable artifacts support | `false` |
+| **Artifacts** | `A2A_ARTIFACTS_SERVER_HOST` | Artifacts server host | `localhost` |
+| **Artifacts** | `A2A_ARTIFACTS_SERVER_PORT` | Artifacts server port | `8081` |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_PROVIDER` | Storage backend (`filesystem` or `minio`) | `filesystem` |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_BASE_PATH` | Base path for filesystem storage | `./artifacts` |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_BASE_URL` | Override base URL for direct downloads | (auto-generated) |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_ENDPOINT` | MinIO/S3 endpoint URL | - |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_ACCESS_KEY` | MinIO/S3 access key | - |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_SECRET_KEY` | MinIO/S3 secret key | - |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_BUCKET_NAME` | MinIO/S3 bucket name | `artifacts` |
+| **Artifacts** | `A2A_ARTIFACTS_STORAGE_USE_SSL` | Use SSL for MinIO/S3 connections | `true` |
+| **Artifacts** | `A2A_ARTIFACTS_RETENTION_MAX_ARTIFACTS` | Max artifacts per task (0 = unlimited) | `5` |
+| **Artifacts** | `A2A_ARTIFACTS_RETENTION_MAX_AGE` | Max artifact age (0 = no age limit) | `168h` |
+| **Artifacts** | `A2A_ARTIFACTS_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `24h` |
 | **Authentication** | `A2A_AUTH_ENABLE` | Enable OIDC authentication | `false` |
 
 ## Development
@@ -148,7 +178,8 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.2.0`)
+
+- `VERSION` - Agent version (default: `0.2.2`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 

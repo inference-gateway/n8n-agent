@@ -10,7 +10,7 @@ n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](http
 
 ### ADL-Generated Structure
 
-The codebase is generated using ADL CLI 0.23.11 and follows a strict generation pattern:
+The codebase is generated using ADL CLI 0.30.7 and follows a strict generation pattern:
 - **Generated Files**: Marked with `DO NOT EDIT` headers - manual changes will be overwritten
 - **Configuration Source**: `agent.yaml` - defines agent capabilities, skills, and metadata
 - **Server Implementation**: Built on the ADK (Agent Development Kit) framework from `github.com/inference-gateway/adk`
@@ -72,16 +72,33 @@ The agent uses OpenAI-compatible LLM client. Configure with:
 
 ## Adding New Functionality
 
-### Skills Implementation
-The following skills are currently defined:
+### Tools (function-call)
+The following tools are currently defined:
+- **Read** (built-in): Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
 - **search_n8n_docs**: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
 - **validate_n8n_workflow**: Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
 
-To modify skills:
-1. Update `agent.yaml` with skill definitions
+To modify tools:
+1. Update `agent.yaml` `spec.tools` with tool definitions
 2. Run `task generate` to regenerate the codebase
-3. Implement skill logic in generated skill files (look for TODO placeholders)
-4. Write tests for each skill
+3. Implement tool logic in the generated `tools/` files (look for TODO placeholders)
+4. Write tests for each tool
+
+### Skills (markdown system-prompt playbooks)
+The following skills are currently shipped with the agent:
+- **n8n-workflow-generation** (bare scaffold): Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
+
+Each skill lives in its own directory at `skills/<id>/SKILL.md` and is
+loaded into the system prompt at startup. Bare skills can ship arbitrary
+bundled assets (scripts, templates, resources) alongside `SKILL.md` -
+the whole `skills/<id>/` directory is protected by `.adl-ignore` against
+regeneration overwrites. To modify skills:
+1. Update `agent.yaml` `spec.skills` with skill definitions
+2. Run `task generate` (registry skills are re-fetched; bare skill
+   directories are preserved when listed in `.adl-ignore`)
+3. For bare skills, edit `skills/<id>/SKILL.md` directly - frontmatter
+   (`name`/`description`/`tags`) shows up on the agent card. Drop helper
+   scripts or templates next to it (e.g. `skills/<id>/scripts/foo.py`).
 
 ### Modifying Agent Behavior
 
@@ -99,7 +116,7 @@ When implementing tests:
 
 ## Environment Management
 The project includes Flox environment configuration (`.flox/env/manifest.toml`) providing:
-- Go 1.25.0
+- Go 1.26.2
 - golangci-lint (linter)
 - go-task (Task runner)
 - Docker
@@ -111,7 +128,7 @@ Activate with: `flox activate` (if Flox is installed)
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate
-- **ADL Version**: Ensure ADL CLI 0.23.11 or compatible version for regeneration
+- **ADL Version**: Ensure ADL CLI 0.30.7 or compatible version for regeneration
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips
