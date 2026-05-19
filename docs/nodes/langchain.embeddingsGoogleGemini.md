@@ -16,7 +16,7 @@ nodes:
     name: Embeddings Google Gemini
     parameters:
       notice: ""
-      modelName: "models/text-embedding-004" # The model which will generate the embeddings. <a href="https://developers.generativeai.google/api/rest/generativelanguage/models/list">Learn more</a>.
+      modelName: "models/gemini-embedding-001" # The model which will generate the embeddings. <a href="https://developers.generativeai.google/api/rest/generativelanguage/models/list">Learn more</a>.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.embeddingsGoogleGemini
 ```
@@ -33,7 +33,7 @@ nodes:
 
 - **Name**: `modelName`
 - **Type**: `options`
-- **Default**: `"models/text-embedding-004"`
+- **Default**: `"models/gemini-embedding-001"`
 - **Description**: The model which will generate the embeddings. <a href="https://developers.generativeai.google/api/rest/generativelanguage/models/list">Learn more</a>.
 
 

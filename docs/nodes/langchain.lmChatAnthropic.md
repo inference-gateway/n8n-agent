@@ -17,8 +17,18 @@ nodes:
     parameters:
       model: "{
 					mode: 'list',
-					value: 'claude-sonnet-4-20250514',
-					cachedResultName: 'Claude 4 Sonnet',
+					value: 'claude-sonnet-4-5-20250929',
+					cachedResultName: 'Claude Sonnet 4.5',
+				}" # The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+      model: "{
+					mode: 'list',
+					value: 'claude-sonnet-4-6',
+					cachedResultName: 'Claude Sonnet 4.6',
+				}" # The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+      model: "{
+					mode: 'list',
+					value: 'claude-sonnet-4-6',
+					cachedResultName: 'Claude Sonnet 4.6',
 				}" # The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
       options: # Additional options to add
         maxTokensToSample: "DEFAULT_MAX_TOKENS" # The maximum number of tokens to generate in the completion
@@ -32,7 +42,23 @@ nodes:
 
 - **Name**: `model`
 - **Type**: `resourceLocator`
-- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: 'claude-sonnet-4-20250514',\n\t\t\t\t\tcachedResultName: 'Claude 4 Sonnet',\n\t\t\t\t}"`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: 'claude-sonnet-4-5-20250929',\n\t\t\t\t\tcachedResultName: 'Claude Sonnet 4.5',\n\t\t\t\t}"`
+- **Description**: The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+- **Placeholder**: Select a model...
+
+### Model
+
+- **Name**: `model`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: 'claude-sonnet-4-6',\n\t\t\t\t\tcachedResultName: 'Claude Sonnet 4.6',\n\t\t\t\t}"`
+- **Description**: The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+- **Placeholder**: Select a model...
+
+### Model
+
+- **Name**: `model`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: 'claude-sonnet-4-6',\n\t\t\t\t\tcachedResultName: 'Claude Sonnet 4.6',\n\t\t\t\t}"`
 - **Description**: The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
 - **Placeholder**: Select a model...
 

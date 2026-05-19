@@ -15,6 +15,8 @@ nodes:
   - id: ${unique-node-id}
     name: Bitbucket Trigger
     parameters:
+      authentication: "password"
+      authentication: "accessToken"
       resource: "workspace"
       workspace: "" # The repository of which to listen to the events. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
       events: [] # The events to listen to. Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
@@ -25,6 +27,18 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"password"`
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"accessToken"`
 
 ### Resource
 

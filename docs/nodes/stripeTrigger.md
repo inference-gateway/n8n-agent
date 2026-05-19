@@ -36,7 +36,7 @@ nodes:
 - **Type**: `string`
 - **Default**: `""`
 - **Description**: The API version to use for requests. It controls the format and structure of the incoming event payloads that Stripe sends to your webhook. If empty, Stripe will use the default API version set in your account at the time, which may lead to event processing issues if the API version changes in the future.
-- **Placeholder**: 2025-05-28.basil
+- **Placeholder**: 2026-01-28.clover
 
 
 ## Node Information

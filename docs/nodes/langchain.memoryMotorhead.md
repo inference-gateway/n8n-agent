@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Motorhead
     parameters:
+      deprecationNotice: ""
       sessionId: ""
       sessionId: "={{ $json.sessionId }}" # The key to use to store the memory
     position: [x, y]  # Canvas position coordinates
@@ -22,6 +23,12 @@ nodes:
 ```
 
 ## Parameters
+
+### The Motorhead project is no longer maintained. This node is deprecated and will be removed in a future version.
+
+- **Name**: `deprecationNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Session ID
 

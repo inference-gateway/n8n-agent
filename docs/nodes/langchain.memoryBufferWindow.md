@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Simple Memory
     parameters:
+      scalingNotice: ""
       sessionKey: "chat_history" # The key to use to store the memory in the workflow data
       sessionKey: "={{ $json.sessionId }}" # The key to use to store the memory
     position: [x, y]  # Canvas position coordinates
@@ -22,6 +23,12 @@ nodes:
 ```
 
 ## Parameters
+
+### This node stores memory locally in the n8n instance. It is not compatible with Queue Mode or Multi-Main setups, as memory will not be shared across workers. For production use with scaling, consider using an external memory store such as Redis, Postgres, or another persistent memory node.
+
+- **Name**: `scalingNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Session Key
 

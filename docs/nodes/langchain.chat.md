@@ -1,8 +1,8 @@
-# Respond to Chat
+# Chat
 
 ## Description
 
-Send a message to a chat
+Send a message into the chat
 
 **Version**: 1
 
@@ -13,12 +13,14 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Respond to Chat
+    name: Chat
     parameters:
       generalNotice: ""
+      operation: "send"
       message: ""
-      options:
-        memoryConnection: false
+      options: {}
+      options: {}
+      options: {}
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.chat
 ```
@@ -30,6 +32,12 @@ nodes:
 - **Name**: `generalNotice`
 - **Type**: `notice`
 - **Default**: `""`
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"send"`
 
 ### Message
 
@@ -44,19 +52,25 @@ nodes:
 - **Default**: `"{}"`
 - **Placeholder**: Add Option
 
-**Options:**
+### Options
 
-#### Add Memory Input Connection
-- **Name**: `memoryConnection`
-- **Type**: `boolean`
-- **Default**: `false`
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Option
 
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Option
 
 
 ## Node Information
 
 - **Node Type**: `@n8n/n8n-nodes-langchain.chat`
-- **Display Name**: Respond to Chat
+- **Display Name**: Chat
 - **Internal Name**: `chat`
 - **Package**: `@n8n/n8n-nodes-langchain`
 - **Category**: AI/LangChain

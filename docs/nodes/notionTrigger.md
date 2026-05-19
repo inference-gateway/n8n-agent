@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Notion Trigger
     parameters:
+      authentication: "apiKey"
       event: "pageAddedToDatabase"
       notionNotice: ""
       databaseId: "{ mode: 'list', value: '' }" # The Notion Database to operate on
@@ -25,13 +26,19 @@ nodes:
 
 ## Parameters
 
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiKey"`
+
 ### Event
 
 - **Name**: `event`
 - **Type**: `options`
 - **Default**: `"pageAddedToDatabase"`
 
-### In Notion, make sure to <a href="https://www.notion.so/help/add-and-manage-connections-with-the-api" target="_blank">add your connection</a> to the pages you want to access.
+### In Notion, make sure to <a href="https://www.notion.com/help/add-and-manage-connections-with-the-api" target="_blank">add your connection</a> to the pages you want to access.
 
 - **Name**: `notionNotice`
 - **Type**: `notice`

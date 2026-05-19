@@ -15,20 +15,14 @@ nodes:
   - id: ${unique-node-id}
     name: Google Gemini Chat Model
     parameters:
-      modelName: "models/gemini-2.5-flash" # The model which will generate the completion. <a href="https://developers.generativeai.google/api/rest/generativelanguage/models/list">Learn more</a>.
+      # No parameters available
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatGoogleGemini
 ```
 
 ## Parameters
 
-### Model
-
-- **Name**: `modelName`
-- **Type**: `options`
-- **Default**: `"models/gemini-2.5-flash"`
-- **Description**: The model which will generate the completion. <a href="https://developers.generativeai.google/api/rest/generativelanguage/models/list">Learn more</a>.
-
+This node has no configurable parameters.
 
 ## Node Information
 

@@ -17,9 +17,9 @@ nodes:
     parameters:
       events: [] # Specifies under which conditions an execution should happen:
 				<ul>
-					<li><b>Active Workflow Updated</b>: Triggers when this workflow is updated</li>
+					<li><b>Published Workflow Updated</b>: Triggers when workflow version is published from a published state (workflow was already published)</li>
 					<li><b>Instance Started</b>:  Triggers when this n8n instance is started or re-started</li>
-					<li><b>Workflow Activated</b>: Triggers when this workflow is activated</li>
+					<li><b>Workflow Published</b>: Triggers when workflow version is published from an unpublished state (workflow was unpublished)</li>
 				</ul>
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.n8nTrigger
@@ -34,9 +34,9 @@ nodes:
 - **Default**: `"[]"`
 - **Description**: Specifies under which conditions an execution should happen:
 				<ul>
-					<li><b>Active Workflow Updated</b>: Triggers when this workflow is updated</li>
+					<li><b>Published Workflow Updated</b>: Triggers when workflow version is published from a published state (workflow was already published)</li>
 					<li><b>Instance Started</b>:  Triggers when this n8n instance is started or re-started</li>
-					<li><b>Workflow Activated</b>: Triggers when this workflow is activated</li>
+					<li><b>Workflow Published</b>: Triggers when workflow version is published from an unpublished state (workflow was unpublished)</li>
 				</ul>
 
 

@@ -16,7 +16,9 @@ nodes:
     name: Microsoft SQL
     parameters:
       operation: "insert" # Execute an SQL query
-      query: "" # The SQL query to execute
+      query: "" # The SQL query to execute. You can use n8n expressions and $1, $2, $3, etc to refer to the 'Query Parameters' set in options below.
+      options: # Comma-separated list of values to use as query parameters. Reference them in the query as $1, $2, $3, etc. You can drag values from the input panel on the left.
+        queryReplacement: "" # Comma-separated list of values to use as query parameters. Reference them in the query as $1, $2, $3, etc. You can drag values from the input panel on the left.
       table: "" # Name of the table in which to insert data to
       columns: "" # Comma-separated list of the properties which should used as columns for the new rows
       table: "" # Name of the table in which to update data in
@@ -42,8 +44,25 @@ nodes:
 - **Name**: `query`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: The SQL query to execute
-- **Placeholder**: SELECT id, name FROM product WHERE id < 40
+- **Description**: The SQL query to execute. You can use n8n expressions and $1, $2, $3, etc to refer to the 'Query Parameters' set in options below.
+- **Placeholder**: SELECT id, name FROM product WHERE quantity > $1 AND price <= $2
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Comma-separated list of values to use as query parameters. Reference them in the query as $1, $2, $3, etc. You can drag values from the input panel on the left.
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Query Parameters
+- **Name**: `queryReplacement`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Comma-separated list of values to use as query parameters. Reference them in the query as $1, $2, $3, etc. You can drag values from the input panel on the left.
+
 
 ### Table
 

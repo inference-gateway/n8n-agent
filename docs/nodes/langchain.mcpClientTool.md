@@ -2,7 +2,7 @@
 
 ## Description
 
-Connect tools from an MCP Server
+Connect to a custom MCP server
 
 **Version**: 1
 
@@ -17,6 +17,7 @@ nodes:
     parameters:
       sseEndpoint: "" # SSE Endpoint of your MCP server
       endpointUrl: "" # Endpoint of your MCP server
+      authentication: "none" # The way to authenticate with your endpoint
       authentication: "none" # The way to authenticate with your endpoint
       credentials: ""
       include: "all" # How to select the tools you want to be exposed to the AI Agent
@@ -45,6 +46,13 @@ nodes:
 - **Default**: `""`
 - **Description**: Endpoint of your MCP server
 - **Placeholder**: e.g. https://my-mcp-server.ai/mcp
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"none"`
+- **Description**: The way to authenticate with your endpoint
 
 ### Authentication
 

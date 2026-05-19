@@ -32,8 +32,10 @@ nodes:
       binaryData: true # The text content of the file to upload
       binaryPropertyName: "data"
       fileContent: "" # The text content of the file to upload
+      options: {}
       path: "/" # Path of directory to list contents of
       recursive: false # Whether to return object representing all directories / objects recursively found within SFTP server
+      options: {}
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.ftp
 ```
@@ -169,6 +171,13 @@ nodes:
 - **Default**: `""`
 - **Description**: The text content of the file to upload
 
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Field
+
 ### Path
 
 - **Name**: `path`
@@ -183,6 +192,13 @@ nodes:
 - **Type**: `boolean`
 - **Default**: `false`
 - **Description**: Whether to return object representing all directories / objects recursively found within SFTP server
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Placeholder**: Add Field
 
 
 ## Node Information

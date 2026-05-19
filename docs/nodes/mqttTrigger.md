@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: MQTT Trigger
     parameters:
-      topics: "" # Topics to subscribe to, multiple can be defined with comma. Wildcard characters are supported (+ - for single level and # - for multi level). By default all subscription used QoS=0. To set a different QoS, write the QoS desired after the topic preceded by a colom. For Example: topicA:1,topicB:2
+      topics: "" # Topics to subscribe to, multiple can be defined with comma. Wildcard characters are supported (+ - for single level and # - for multi level). By default all subscription used QoS=0. To set a different QoS, write the QoS desired after the topic preceded by a colon. For Example: topicA:1,topicB:2
       options: # Whether to try parse the message to an object
         jsonParseBody: false # Whether to try parse the message to an object
         onlyMessage: false # Whether to return only the message property
@@ -31,7 +31,7 @@ nodes:
 - **Name**: `topics`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: Topics to subscribe to, multiple can be defined with comma. Wildcard characters are supported (+ - for single level and # - for multi level). By default all subscription used QoS=0. To set a different QoS, write the QoS desired after the topic preceded by a colom. For Example: topicA:1,topicB:2
+- **Description**: Topics to subscribe to, multiple can be defined with comma. Wildcard characters are supported (+ - for single level and # - for multi level). By default all subscription used QoS=0. To set a different QoS, write the QoS desired after the topic preceded by a colon. For Example: topicA:1,topicB:2
 
 ### Options
 

@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 500 n8n nodes, generated from the official n8n repository.
+Documentation for 521 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (500)
+## Available Nodes (521)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -35,7 +35,6 @@ nodes:
 - [APITemplate.io](./apiTemplateIo.md) (`n8n-nodes-base.apiTemplateIo`) - Consume the APITemplate.io API
 - [Asana](./asana.md) (`n8n-nodes-base.asana`) - Consume Asana REST API
 - [Asana Trigger](./asanaTrigger.md) (`n8n-nodes-base.asanaTrigger`) - Starts the workflow when Asana events occur.
-- [Automizy](./automizy.md) (`n8n-nodes-base.automizy`) - Consume Automizy API
 - [Autopilot](./autopilot.md) (`n8n-nodes-base.autopilot`) - Consume Autopilot API
 - [Autopilot Trigger](./autopilotTrigger.md) (`n8n-nodes-base.autopilotTrigger`) - Handle Autopilot events via webhooks
 - [AWS Certificate Manager](./awsCertificateManager.md) (`n8n-nodes-base.awsCertificateManager`) - Sends data to AWS Certificate Manager
@@ -70,6 +69,7 @@ nodes:
 - [Calendly Trigger](./calendlyTrigger.md) (`n8n-nodes-base.calendlyTrigger`) - Starts the workflow when Calendly events occur
 - [Chargebee](./chargebee.md) (`n8n-nodes-base.chargebee`) - Retrieve data from Chargebee API
 - [Chargebee Trigger](./chargebeeTrigger.md) (`n8n-nodes-base.chargebeeTrigger`) - Starts the workflow when Chargebee events occur
+- [Check Credential Status](./dynamicCredentialCheck.md) (`n8n-nodes-base.dynamicCredentialCheck`) - Checks whether the triggering user has the required Dynamic credential configure...
 - [CircleCI](./circleCi.md) (`n8n-nodes-base.circleCi`) - Consume CircleCI API
 - [Clearbit](./clearbit.md) (`n8n-nodes-base.clearbit`) - Consume Clearbit API
 - [ClickUp](./clickUp.md) (`n8n-nodes-base.clickUp`) - Consume ClickUp API (Beta)
@@ -93,14 +93,14 @@ nodes:
 - [Cortex](./cortex.md) (`n8n-nodes-base.cortex`) - Apply the Cortex analyzer/responder on the given entity
 - [CrateDB](./crateDb.md) (`n8n-nodes-base.crateDb`) - Add and update data in CrateDB
 - [Cron](./cron.md) (`n8n-nodes-base.cron`) - Triggers the workflow at a specific time
-- [crowd.dev](./crowdDev.md) (`n8n-nodes-base.crowdDev`) - crowd.dev is an open-source suite of community and data tools built to unlock co...
-- [crowd.dev Trigger](./crowdDevTrigger.md) (`n8n-nodes-base.crowdDevTrigger`) - Starts the workflow when crowd.dev events occur.
-- [Crypto](./crypto.md) (`n8n-nodes-base.crypto`) - Provide cryptographic utilities
+- [Currents](./currents.md) (`n8n-nodes-base.currents`) - Interact with the Currents API for test orchestration and analytics
+- [Currents Trigger](./currentsTrigger.md) (`n8n-nodes-base.currentsTrigger`) - Starts the workflow when Currents events occur
 - [Customer Datastore (n8n training)](./n8nTrainingCustomerDatastore.md) (`n8n-nodes-base.n8nTrainingCustomerDatastore`) - Dummy node used for n8n training
 - [Customer Messenger (n8n training)](./n8nTrainingCustomerMessenger.md) (`n8n-nodes-base.n8nTrainingCustomerMessenger`) - Dummy node used for n8n training
 - [Customer.io](./customerIo.md) (`n8n-nodes-base.customerIo`) - Consume Customer.io API
 - [Customer.io Trigger](./customerIoTrigger.md) (`n8n-nodes-base.customerIoTrigger`) - Starts the workflow on a Customer.io update (Beta)
 - [Data table](./dataTable.md) (`n8n-nodes-base.dataTable`) - Permanently save data across workflow executions in a table
+- [Databricks](./databricks.md) (`n8n-nodes-base.databricks`) - Interact with Databricks API
 - [DebugHelper](./debugHelper.md) (`n8n-nodes-base.debugHelper`) - Causes problems intentionally and generates useful data for debugging
 - [DeepL](./deepL.md) (`n8n-nodes-base.deepL`) - Translate data using DeepL
 - [Demio](./demio.md) (`n8n-nodes-base.demio`) - Consume the Demio API
@@ -197,13 +197,12 @@ nodes:
 - [Jina AI](./jinaAi.md) (`n8n-nodes-base.jinaAi`) - Interact with Jina AI API
 - [Jira Software](./jira.md) (`n8n-nodes-base.jira`) - Consume Jira Software API
 - [Jira Trigger](./jiraTrigger.md) (`n8n-nodes-base.jiraTrigger`) - Starts the workflow when Jira events occur
-- [JotForm Trigger](./jotFormTrigger.md) (`n8n-nodes-base.jotFormTrigger`) - Handle JotForm events via webhooks
+- [Jotform Trigger](./jotFormTrigger.md) (`n8n-nodes-base.jotFormTrigger`) - Handle Jotform events via webhooks
 - [JWT](./jwt.md) (`n8n-nodes-base.jwt`) - JWT
 - [Kafka](./kafka.md) (`n8n-nodes-base.kafka`) - Sends messages to a Kafka topic
 - [Kafka Trigger](./kafkaTrigger.md) (`n8n-nodes-base.kafkaTrigger`) - Consume messages from a Kafka topic
 - [Keap](./keap.md) (`n8n-nodes-base.keap`) - Consume Keap API
 - [Keap Trigger](./keapTrigger.md) (`n8n-nodes-base.keapTrigger`) - Starts the workflow when Infusionsoft events occur
-- [Kitemaker](./kitemaker.md) (`n8n-nodes-base.kitemaker`) - Consume the Kitemaker GraphQL API
 - [KoBoToolbox](./koBoToolbox.md) (`n8n-nodes-base.koBoToolbox`) - Work with KoBoToolbox forms and submissions
 - [KoBoToolbox Trigger](./koBoToolboxTrigger.md) (`n8n-nodes-base.koBoToolboxTrigger`) - Process KoBoToolbox submissions
 - [Ldap](./ldap.md) (`n8n-nodes-base.ldap`) - Interact with LDAP servers
@@ -217,6 +216,7 @@ nodes:
 - [Local File Trigger](./localFileTrigger.md) (`n8n-nodes-base.localFileTrigger`) - Triggers a workflow on file system changes
 - [LoneScale](./loneScale.md) (`n8n-nodes-base.loneScale`) - Create List, add / delete items
 - [LoneScale Trigger](./loneScaleTrigger.md) (`n8n-nodes-base.loneScaleTrigger`) - Trigger LoneScale Workflow
+- [Loop Over Items (Split in Batches)](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Magento 2](./magento2.md) (`n8n-nodes-base.magento2`) - Consume Magento API
 - [Mailcheck](./mailcheck.md) (`n8n-nodes-base.mailcheck`) - Consume Mailcheck API
 - [Mailchimp](./mailchimp.md) (`n8n-nodes-base.mailchimp`) - Consume Mailchimp API
@@ -232,6 +232,7 @@ nodes:
 - [Mautic](./mautic.md) (`n8n-nodes-base.mautic`) - Consume Mautic API
 - [Mautic Trigger](./mauticTrigger.md) (`n8n-nodes-base.mauticTrigger`) - Handle Mautic events via webhooks
 - [Medium](./medium.md) (`n8n-nodes-base.medium`) - Consume Medium API
+- [Message an n8n Agent](./messageAnAgent.md) (`n8n-nodes-base.messageAnAgent`) - Send a message to a n8n agent
 - [MessageBird](./messageBird.md) (`n8n-nodes-base.messageBird`) - Sends SMS via MessageBird
 - [Metabase](./metabase.md) (`n8n-nodes-base.metabase`) - Use the Metabase API
 - [Microsoft Dynamics CRM](./microsoftDynamicsCrm.md) (`n8n-nodes-base.microsoftDynamicsCrm`) - Consume Microsoft Dynamics CRM API
@@ -263,7 +264,6 @@ nodes:
 - [Netscaler ADC](./citrixAdc.md) (`n8n-nodes-base.citrixAdc`) - Consume Netscaler ADC API
 - [Nextcloud](./nextCloud.md) (`n8n-nodes-base.nextCloud`) - Access data on Nextcloud
 - [No Operation, do nothing](./noOp.md) (`n8n-nodes-base.noOp`) - No Operation
-- [NocoDB](./nocoDb.md) (`n8n-nodes-base.nocoDb`) - Read, update, write and delete data from NocoDB
 - [Notion Trigger](./notionTrigger.md) (`n8n-nodes-base.notionTrigger`) - Starts the workflow when Notion events occur
 - [Npm](./npm.md) (`n8n-nodes-base.npm`) - Consume NPM registry API
 - [Odoo](./odoo.md) (`n8n-nodes-base.odoo`) - Consume Odoo API
@@ -280,10 +280,9 @@ nodes:
 - [PagerDuty](./pagerDuty.md) (`n8n-nodes-base.pagerDuty`) - Consume PagerDuty API
 - [PayPal](./payPal.md) (`n8n-nodes-base.payPal`) - Consume PayPal API
 - [PayPal Trigger](./payPalTrigger.md) (`n8n-nodes-base.payPalTrigger`) - Handle PayPal events via webhooks
-- [Perplexity](./perplexity.md) (`n8n-nodes-base.perplexity`) - Interact with the Perplexity API to generate AI responses with citations
+- [Perplexity](./perplexity.md) (`n8n-nodes-base.perplexity`) - AI-powered answer engine that provides accurate, trusted, and real-time answers ...
 - [Phantombuster](./phantombuster.md) (`n8n-nodes-base.phantombuster`) - Consume Phantombuster API
 - [Philips Hue](./philipsHue.md) (`n8n-nodes-base.philipsHue`) - Consume Philips Hue API
-- [Pipedrive](./pipedrive.md) (`n8n-nodes-base.pipedrive`) - Create and edit data in Pipedrive
 - [Pipedrive Trigger](./pipedriveTrigger.md) (`n8n-nodes-base.pipedriveTrigger`) - Starts the workflow when Pipedrive events occur
 - [Plivo](./plivo.md) (`n8n-nodes-base.plivo`) - Send SMS/MMS messages or make phone calls
 - [PostBin](./postBin.md) (`n8n-nodes-base.postBin`) - Consume PostBin API
@@ -335,14 +334,11 @@ nodes:
 - [Slack Trigger](./slackTrigger.md) (`n8n-nodes-base.slackTrigger`) - Handle Slack events via webhooks
 - [Snowflake](./snowflake.md) (`n8n-nodes-base.snowflake`) - Get, add and update data in Snowflake
 - [Sort](./sort.md) (`n8n-nodes-base.sort`) - Change items order
-- [Split In Batches](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Split Out](./splitOut.md) (`n8n-nodes-base.splitOut`) - Turn a list inside item(s) into separate items
-- [Spontit](./spontit.md) (`n8n-nodes-base.spontit`) - Consume Spontit API
 - [Spotify](./spotify.md) (`n8n-nodes-base.spotify`) - Access public song data via the Spotify API
 - [SSE Trigger](./sseTrigger.md) (`n8n-nodes-base.sseTrigger`) - Triggers the workflow when Server-Sent Events occur
 - [SSH](./ssh.md) (`n8n-nodes-base.ssh`) - Execute commands via SSH
 - [Stackby](./stackby.md) (`n8n-nodes-base.stackby`) - Read, write, and delete data in Stackby
-- [Start](./start.md) (`n8n-nodes-base.start`) - Starts the workflow execution from this node
 - [Sticky Note](./stickyNote.md) (`n8n-nodes-base.stickyNote`) - Make your workflow easier to understand
 - [Stop and Error](./stopAndError.md) (`n8n-nodes-base.stopAndError`) - Throw an error in the workflow
 - [Storyblok](./storyblok.md) (`n8n-nodes-base.storyblok`) - Consume Storyblok API
@@ -365,6 +361,7 @@ nodes:
 - [TimescaleDB](./timescaleDb.md) (`n8n-nodes-base.timescaleDb`) - Add and update data in TimescaleDB
 - [Toggl Trigger](./togglTrigger.md) (`n8n-nodes-base.togglTrigger`) - Starts the workflow when Toggl events occur
 - [TOTP](./totp.md) (`n8n-nodes-base.totp`) - Generate a time-based one-time password
+- [Track Time Saved](./timeSaved.md) (`n8n-nodes-base.timeSaved`) - Dynamically track time saved based on the workflow’s execution path and the numb...
 - [TravisCI](./travisCi.md) (`n8n-nodes-base.travisCi`) - Consume TravisCI API
 - [Trello](./trello.md) (`n8n-nodes-base.trello`) - Create, change and delete boards and cards
 - [Trello Trigger](./trelloTrigger.md) (`n8n-nodes-base.trelloTrigger`) - Starts the workflow when Trello events occur
@@ -415,9 +412,12 @@ nodes:
 - [Agent](./langchain.Agent.md) (`@n8n/n8n-nodes-langchain.Agent`) - Agent - LangChain AI Node
 - [AgentTool](./langchain.AgentTool.md) (`@n8n/n8n-nodes-langchain.AgentTool`) - AgentTool - LangChain AI Node
 - [AgentToolV2](./langchain.AgentToolV2.md) (`@n8n/n8n-nodes-langchain.AgentToolV2`) - AgentToolV2 - LangChain AI Node
+- [AgentToolV3](./langchain.AgentToolV3.md) (`@n8n/n8n-nodes-langchain.AgentToolV3`) - AgentToolV3 - LangChain AI Node
 - [AgentV1](./langchain.AgentV1.md) (`@n8n/n8n-nodes-langchain.AgentV1`) - AgentV1 - LangChain AI Node
 - [AgentV2](./langchain.AgentV2.md) (`@n8n/n8n-nodes-langchain.AgentV2`) - AgentV2 - LangChain AI Node
 - [AgentV3](./langchain.AgentV3.md) (`@n8n/n8n-nodes-langchain.AgentV3`) - AgentV3 - LangChain AI Node
+- [Alibaba Cloud Chat Model](./langchain.lmChatAlibabaCloud.md) (`@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`) - For advanced usage with an AI chain
+- [AlibabaCloud](./langchain.AlibabaCloud.md) (`@n8n/n8n-nodes-langchain.AlibabaCloud`) - AlibabaCloud - LangChain AI Node
 - [Anthropic](./langchain.Anthropic.md) (`@n8n/n8n-nodes-langchain.Anthropic`) - Anthropic - LangChain AI Node
 - [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
 - [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
@@ -430,9 +430,13 @@ nodes:
 - [ChainSummarizationV1](./langchain.ChainSummarizationV1.md) (`@n8n/n8n-nodes-langchain.ChainSummarizationV1`) - ChainSummarizationV1 - LangChain AI Node
 - [ChainSummarizationV2](./langchain.ChainSummarizationV2.md) (`@n8n/n8n-nodes-langchain.ChainSummarizationV2`) - ChainSummarizationV2 - LangChain AI Node
 - [Character Text Splitter](./langchain.textSplitterCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter`) - Split text into chunks by characters
+- [Chat](./langchain.chat.md) (`@n8n/n8n-nodes-langchain.chat`) - Send a message into the chat
 - [Chat Memory Manager](./langchain.memoryManager.md) (`@n8n/n8n-nodes-langchain.memoryManager`) - Manage chat messages memory and use it in the workflow
 - [Chat Messages Retriever](./langchain.memoryChatRetriever.md) (`@n8n/n8n-nodes-langchain.memoryChatRetriever`) - Retrieve chat messages from memory and use them in the workflow
 - [Chat Trigger](./langchain.chatTrigger.md) (`@n8n/n8n-nodes-langchain.chatTrigger`) - Runs the workflow when an n8n generated webchat is submitted
+- [ChatHubVectorStorePGVector](./langchain.ChatHubVectorStorePGVector.md) (`@n8n/n8n-nodes-langchain.ChatHubVectorStorePGVector`) - ChatHubVectorStorePGVector - LangChain AI Node
+- [ChatHubVectorStorePinecone](./langchain.ChatHubVectorStorePinecone.md) (`@n8n/n8n-nodes-langchain.ChatHubVectorStorePinecone`) - ChatHubVectorStorePinecone - LangChain AI Node
+- [ChatHubVectorStoreQdrant](./langchain.ChatHubVectorStoreQdrant.md) (`@n8n/n8n-nodes-langchain.ChatHubVectorStoreQdrant`) - ChatHubVectorStoreQdrant - LangChain AI Node
 - [Code Tool](./langchain.toolCode.md) (`@n8n/n8n-nodes-langchain.toolCode`) - Write a tool in JS or Python
 - [Cohere Chat Model](./langchain.lmChatCohere.md) (`@n8n/n8n-nodes-langchain.lmChatCohere`) - For advanced usage with an AI chain
 - [Cohere Model](./langchain.lmCohere.md) (`@n8n/n8n-nodes-langchain.lmCohere`) - Language Model Cohere
@@ -445,14 +449,19 @@ nodes:
 - [Embeddings Google Gemini](./langchain.embeddingsGoogleGemini.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleGemini`) - Use Google Gemini Embeddings
 - [Embeddings Google Vertex](./langchain.embeddingsGoogleVertex.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleVertex`) - Use Google Vertex Embeddings
 - [Embeddings Hugging Face Inference](./langchain.embeddingsHuggingFaceInference.md) (`@n8n/n8n-nodes-langchain.embeddingsHuggingFaceInference`) - Use HuggingFace Inference Embeddings
+- [Embeddings Lemonade](./langchain.embeddingsLemonade.md) (`@n8n/n8n-nodes-langchain.embeddingsLemonade`) - Use Lemonade Embeddings
 - [Embeddings Mistral Cloud](./langchain.embeddingsMistralCloud.md) (`@n8n/n8n-nodes-langchain.embeddingsMistralCloud`) - Use Embeddings Mistral Cloud
 - [Embeddings Ollama](./langchain.embeddingsOllama.md) (`@n8n/n8n-nodes-langchain.embeddingsOllama`) - Use Ollama Embeddings
 - [Embeddings OpenAI](./langchain.embeddingsOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsOpenAi`) - Use Embeddings OpenAI
+- [ExtendedPGVectorStore](./langchain.ExtendedPGVectorStore.md) (`@n8n/n8n-nodes-langchain.ExtendedPGVectorStore`) - ExtendedPGVectorStore - LangChain AI Node
 - [GitHub Document Loader](./langchain.documentGithubLoader.md) (`@n8n/n8n-nodes-langchain.documentGithubLoader`) - Use GitHub data as input to this chain
 - [Google Gemini Chat Model](./langchain.lmChatGoogleGemini.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleGemini`) - Chat Model Google Gemini
 - [Google Vertex Chat Model](./langchain.lmChatGoogleVertex.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleVertex`) - Chat Model Google Vertex
 - [GoogleGemini](./langchain.GoogleGemini.md) (`@n8n/n8n-nodes-langchain.GoogleGemini`) - GoogleGemini - LangChain AI Node
 - [Groq Chat Model](./langchain.lmChatGroq.md) (`@n8n/n8n-nodes-langchain.lmChatGroq`) - Language Model Groq
+- [Guardrails](./langchain.Guardrails.md) (`@n8n/n8n-nodes-langchain.Guardrails`) - Guardrails - LangChain AI Node
+- [GuardrailsV1](./langchain.GuardrailsV1.md) (`@n8n/n8n-nodes-langchain.GuardrailsV1`) - GuardrailsV1 - LangChain AI Node
+- [GuardrailsV2](./langchain.GuardrailsV2.md) (`@n8n/n8n-nodes-langchain.GuardrailsV2`) - GuardrailsV2 - LangChain AI Node
 - [HTTP Request Tool](./langchain.toolHttpRequest.md) (`@n8n/n8n-nodes-langchain.toolHttpRequest`) - Makes an HTTP request and returns the response data
 - [Hugging Face Inference Model](./langchain.lmOpenHuggingFaceInference.md) (`@n8n/n8n-nodes-langchain.lmOpenHuggingFaceInference`) - Language Model HuggingFaceInference
 - [In Memory Vector Store Insert](./langchain.vectorStoreInMemoryInsert.md) (`@n8n/n8n-nodes-langchain.vectorStoreInMemoryInsert`) - Insert data into an in-memory vector store
@@ -461,14 +470,24 @@ nodes:
 - [Item List Output Parser](./langchain.outputParserItemList.md) (`@n8n/n8n-nodes-langchain.outputParserItemList`) - Return the results as separate items
 - [JSON Input Loader](./langchain.documentJsonInputLoader.md) (`@n8n/n8n-nodes-langchain.documentJsonInputLoader`) - Use JSON data from a previous step in the workflow
 - [LangChain Code](./langchain.code.md) (`@n8n/n8n-nodes-langchain.code`) - LangChain Code Node
+- [Lemonade Chat Model](./langchain.lmChatLemonade.md) (`@n8n/n8n-nodes-langchain.lmChatLemonade`) - Language Model Lemonade Chat
+- [Lemonade Model](./langchain.lmLemonade.md) (`@n8n/n8n-nodes-langchain.lmLemonade`) - Language Model Lemonade
 - [Manual Chat Trigger](./langchain.manualChatTrigger.md) (`@n8n/n8n-nodes-langchain.manualChatTrigger`) - Runs the flow on new manual chat message
-- [MCP Client Tool](./langchain.mcpClientTool.md) (`@n8n/n8n-nodes-langchain.mcpClientTool`) - Connect tools from an MCP Server
+- [MCP Client](./langchain.mcpClient.md) (`@n8n/n8n-nodes-langchain.mcpClient`) - Standalone MCP Client
+- [MCP Client Tool](./langchain.mcpClientTool.md) (`@n8n/n8n-nodes-langchain.mcpClientTool`) - Connect to a custom MCP server
+- [MCP Registry Client (internal)](./langchain.mcpRegistryClientTool.md) (`@n8n/n8n-nodes-langchain.mcpRegistryClientTool`) - Runtime backing for MCP registry-derived nodes
 - [MCP Server Trigger](./langchain.mcpTrigger.md) (`@n8n/n8n-nodes-langchain.mcpTrigger`) - Expose n8n tools as an MCP Server endpoint
+- [Microsoft Agent 365 Trigger](./langchain.microsoftAgent365Trigger.md) (`@n8n/n8n-nodes-langchain.microsoftAgent365Trigger`) - Trigger for Microsoft Agent 365
+- [MiniMax](./langchain.MiniMax.md) (`@n8n/n8n-nodes-langchain.MiniMax`) - MiniMax - LangChain AI Node
+- [MiniMax Chat Model](./langchain.lmChatMinimax.md) (`@n8n/n8n-nodes-langchain.lmChatMinimax`) - For advanced usage with an AI chain
 - [Mistral Cloud Chat Model](./langchain.lmChatMistralCloud.md) (`@n8n/n8n-nodes-langchain.lmChatMistralCloud`) - For advanced usage with an AI chain
 - [Model Selector](./langchain.modelSelector.md) (`@n8n/n8n-nodes-langchain.modelSelector`) - Use this node to select one of the connected models to this node based on workfl...
 - [MongoDB Chat Memory](./langchain.memoryMongoDbChat.md) (`@n8n/n8n-nodes-langchain.memoryMongoDbChat`) - Stores the chat history in MongoDB collection.
+- [Moonshot](./langchain.Moonshot.md) (`@n8n/n8n-nodes-langchain.Moonshot`) - Moonshot - LangChain AI Node
+- [Moonshot Kimi Chat Model](./langchain.lmChatMoonshot.md) (`@n8n/n8n-nodes-langchain.lmChatMoonshot`) - For advanced usage with an AI chain
 - [Motorhead](./langchain.memoryMotorhead.md) (`@n8n/n8n-nodes-langchain.memoryMotorhead`) - Use Motorhead Memory
 - [MultiQuery Retriever](./langchain.retrieverMultiQuery.md) (`@n8n/n8n-nodes-langchain.retrieverMultiQuery`) - Automates prompt tuning, generates diverse queries and expands document pool for...
+- [NVIDIA Nemotron Chat Model](./langchain.lmChatNvidia.md) (`@n8n/n8n-nodes-langchain.lmChatNvidia`) - NVIDIA Nemotron models from build.nvidia.com or self-hosted NIM
 - [Ollama](./langchain.Ollama.md) (`@n8n/n8n-nodes-langchain.Ollama`) - Ollama - LangChain AI Node
 - [Ollama Chat Model](./langchain.lmChatOllama.md) (`@n8n/n8n-nodes-langchain.lmChatOllama`) - Language Model Ollama
 - [Ollama Model](./langchain.lmOllama.md) (`@n8n/n8n-nodes-langchain.lmOllama`) - Language Model Ollama
@@ -476,6 +495,8 @@ nodes:
 - [OpenAI Assistant](./langchain.openAiAssistant.md) (`@n8n/n8n-nodes-langchain.openAiAssistant`) - Utilizes Assistant API from Open AI.
 - [OpenAI Chat Model](./langchain.lmChatOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatOpenAi`) - For advanced usage with an AI chain
 - [OpenAI Model](./langchain.lmOpenAi.md) (`@n8n/n8n-nodes-langchain.lmOpenAi`) - For advanced usage with an AI chain
+- [OpenAiV1](./langchain.OpenAiV1.md) (`@n8n/n8n-nodes-langchain.OpenAiV1`) - OpenAiV1 - LangChain AI Node
+- [OpenAiV2](./langchain.OpenAiV2.md) (`@n8n/n8n-nodes-langchain.OpenAiV2`) - OpenAiV2 - LangChain AI Node
 - [OpenRouter Chat Model](./langchain.lmChatOpenRouter.md) (`@n8n/n8n-nodes-langchain.lmChatOpenRouter`) - For advanced usage with an AI chain
 - [Pinecone: Insert](./langchain.vectorStorePineconeInsert.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeInsert`) - Insert data into Pinecone Vector Store index
 - [Pinecone: Load](./langchain.vectorStorePineconeLoad.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeLoad`) - Load data from Pinecone Vector Store index
@@ -484,7 +505,6 @@ nodes:
 - [Recursive Character Text Splitter](./langchain.textSplitterRecursiveCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter`) - Split text into chunks by characters recursively, recommended for most use cases
 - [Redis Chat Memory](./langchain.memoryRedisChat.md) (`@n8n/n8n-nodes-langchain.memoryRedisChat`) - Stores the chat history in Redis.
 - [Reranker Cohere](./langchain.rerankerCohere.md) (`@n8n/n8n-nodes-langchain.rerankerCohere`) - Use Cohere Reranker to reorder documents after retrieval from a vector store by ...
-- [Respond to Chat](./langchain.chat.md) (`@n8n/n8n-nodes-langchain.chat`) - Send a message to a chat
 - [SearXNG](./langchain.toolSearXng.md) (`@n8n/n8n-nodes-langchain.toolSearXng`) - Search in SearXNG
 - [Sentiment Analysis](./langchain.sentimentAnalysis.md) (`@n8n/n8n-nodes-langchain.sentimentAnalysis`) - Analyze the sentiment of your text
 - [SerpApi (Google Search)](./langchain.toolSerpApi.md) (`@n8n/n8n-nodes-langchain.toolSerpApi`) - Search in Google using SerpAPI
@@ -495,16 +515,17 @@ nodes:
 - [Text Classifier](./langchain.textClassifier.md) (`@n8n/n8n-nodes-langchain.textClassifier`) - Classify your text into distinct categories
 - [Think Tool](./langchain.toolThink.md) (`@n8n/n8n-nodes-langchain.toolThink`) - Invite the AI agent to do some thinking
 - [Token Splitter](./langchain.textSplitterTokenSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterTokenSplitter`) - Split text into chunks by tokens
-- [Tool Executor](./langchain.toolExecutor.md) (`@n8n/n8n-nodes-langchain.toolExecutor`) - Parameters to pass to the tool as JSON or string
+- [Tool Executor](./langchain.toolExecutor.md) (`@n8n/n8n-nodes-langchain.toolExecutor`) - Key-value pairs, where key is the name of the tool name and value is the paramet...
 - [ToolWorkflow](./langchain.ToolWorkflow.md) (`@n8n/n8n-nodes-langchain.ToolWorkflow`) - ToolWorkflow - LangChain AI Node
 - [ToolWorkflowV1](./langchain.ToolWorkflowV1.md) (`@n8n/n8n-nodes-langchain.ToolWorkflowV1`) - ToolWorkflowV1 - LangChain AI Node
 - [ToolWorkflowV2](./langchain.ToolWorkflowV2.md) (`@n8n/n8n-nodes-langchain.ToolWorkflowV2`) - ToolWorkflowV2 - LangChain AI Node
 - [Vector Store Question Answer Tool](./langchain.toolVectorStore.md) (`@n8n/n8n-nodes-langchain.toolVectorStore`) - Answer questions with a vector store
 - [Vector Store Retriever](./langchain.retrieverVectorStore.md) (`@n8n/n8n-nodes-langchain.retrieverVectorStore`) - Use a Vector Store as Retriever
+- [VectorStoreAzureAISearch](./langchain.VectorStoreAzureAISearch.md) (`@n8n/n8n-nodes-langchain.VectorStoreAzureAISearch`) - VectorStoreAzureAISearch - LangChain AI Node
+- [VectorStoreChromaDB](./langchain.VectorStoreChromaDB.md) (`@n8n/n8n-nodes-langchain.VectorStoreChromaDB`) - VectorStoreChromaDB - LangChain AI Node
 - [VectorStoreInMemory](./langchain.VectorStoreInMemory.md) (`@n8n/n8n-nodes-langchain.VectorStoreInMemory`) - VectorStoreInMemory - LangChain AI Node
 - [VectorStoreMilvus](./langchain.VectorStoreMilvus.md) (`@n8n/n8n-nodes-langchain.VectorStoreMilvus`) - VectorStoreMilvus - LangChain AI Node
 - [VectorStoreMongoDBAtlas](./langchain.VectorStoreMongoDBAtlas.md) (`@n8n/n8n-nodes-langchain.VectorStoreMongoDBAtlas`) - VectorStoreMongoDBAtlas - LangChain AI Node
-- [VectorStorePGVector](./langchain.VectorStorePGVector.md) (`@n8n/n8n-nodes-langchain.VectorStorePGVector`) - VectorStorePGVector - LangChain AI Node
 - [VectorStorePinecone](./langchain.VectorStorePinecone.md) (`@n8n/n8n-nodes-langchain.VectorStorePinecone`) - VectorStorePinecone - LangChain AI Node
 - [VectorStoreQdrant](./langchain.VectorStoreQdrant.md) (`@n8n/n8n-nodes-langchain.VectorStoreQdrant`) - VectorStoreQdrant - LangChain AI Node
 - [VectorStoreRedis](./langchain.VectorStoreRedis.md) (`@n8n/n8n-nodes-langchain.VectorStoreRedis`) - VectorStoreRedis - LangChain AI Node
@@ -536,8 +557,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 500
-- **Generated**: 2025-10-14T20:02:10.304Z
+- **Nodes Documented**: 521
+- **Generated**: 2026-05-19T22:33:39.354Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

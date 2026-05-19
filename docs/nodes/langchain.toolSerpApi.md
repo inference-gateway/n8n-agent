@@ -15,14 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: SerpApi (Google Search)
     parameters:
-      # No parameters available
+      oldVersionNotice: ""
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.toolSerpApi
 ```
 
 ## Parameters
 
-This node has no configurable parameters.
+### This node is deprecated and will not be updated in the future. Please use the official verified community node instead.
+
+- **Name**: `oldVersionNotice`
+- **Type**: `notice`
+- **Default**: `""`
+
 
 ## Node Information
 

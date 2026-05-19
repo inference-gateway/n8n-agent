@@ -18,7 +18,8 @@ nodes:
       operation: "border" # Returns image information like resolution
       dataPropertyName: "data" # Name of the binary property in which the image data can be found
       operations: {} # The operations to perform
-      options: # File name to set in binary data
+      options: # The name of the output field that will contain the file data
+        destinationKey: "data" # The name of the output field that will contain the file data
         fileName: "" # File name to set in binary data
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.editImage
@@ -53,10 +54,16 @@ nodes:
 - **Name**: `options`
 - **Type**: `collection`
 - **Default**: `"{}"`
-- **Description**: File name to set in binary data
+- **Description**: The name of the output field that will contain the file data
 - **Placeholder**: Add option
 
 **Options:**
+
+#### Destination Output Field
+- **Name**: `destinationKey`
+- **Type**: `string`
+- **Default**: `"data"`
+- **Description**: The name of the output field that will contain the file data
 
 #### File Name
 - **Name**: `fileName`
