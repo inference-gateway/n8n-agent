@@ -17,16 +17,15 @@ nodes:
     parameters:
       topic: "" # Name of the queue of topic to consume from
       groupId: "" # ID of the consumer group
+      resolveOffset: "onCompletion" # Select on which condition the offsets should be resolved. In the manual mode, when execution started by clicking on Execute Workflow or Execute Step button, offsets are always resolved immediately after message received.
+      allowedStatuses: "['success']"
       useSchemaRegistry: false # Whether to use Confluent Schema Registry
       schemaRegistryUrl: "" # URL of the schema registry
-      options: # Whether to allow sending message to a previously non exisiting topic
-        allowAutoTopicCreation: false # Whether to allow sending message to a previously non exisiting topic
+      options: # Whether to allow sending message to a previously non-existing topic
+        allowAutoTopicCreation: false # Whether to allow sending message to a previously non-existing topic
         autoCommitThreshold: "0" # The consumer will commit offsets after resolving a given number of messages
         autoCommitInterval: "0" # The consumer will commit offsets after a given period, for example, five seconds
-        heartbeatInterval: "3000" # Heartbeats are used to ensure that the consumer's session stays active
-        maxInFlightRequests: "1" # The maximum number of unacknowledged requests the client will send on a single connection
-        fromBeginning: true # Whether to read message from beginning
-        jsonParseMessage: false # Whether to try to parse the message to an object
+        batchSize: "1" # Number of messages to process in each batch, when set to 1, message-by-message processing is enabled
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.kafkaTrigger
 ```
@@ -49,6 +48,19 @@ nodes:
 - **Description**: ID of the consumer group
 - **Placeholder**: n8n-kafka
 
+### Resolve Offset
+
+- **Name**: `resolveOffset`
+- **Type**: `options`
+- **Default**: `"onCompletion"`
+- **Description**: Select on which condition the offsets should be resolved. In the manual mode, when execution started by clicking on Execute Workflow or Execute Step button, offsets are always resolved immediately after message received.
+
+### Allowed Statuses
+
+- **Name**: `allowedStatuses`
+- **Type**: `multiOptions`
+- **Default**: `"['success']"`
+
 ### Use Schema Registry
 
 - **Name**: `useSchemaRegistry`
@@ -69,7 +81,7 @@ nodes:
 - **Name**: `options`
 - **Type**: `collection`
 - **Default**: `"{}"`
-- **Description**: Whether to allow sending message to a previously non exisiting topic
+- **Description**: Whether to allow sending message to a previously non-existing topic
 - **Placeholder**: Add option
 
 **Options:**
@@ -78,7 +90,7 @@ nodes:
 - **Name**: `allowAutoTopicCreation`
 - **Type**: `boolean`
 - **Default**: `false`
-- **Description**: Whether to allow sending message to a previously non exisiting topic
+- **Description**: Whether to allow sending message to a previously non-existing topic
 
 #### Auto Commit Threshold
 - **Name**: `autoCommitThreshold`
@@ -92,29 +104,11 @@ nodes:
 - **Default**: `"0"`
 - **Description**: The consumer will commit offsets after a given period, for example, five seconds
 
-#### Heartbeat Interval
-- **Name**: `heartbeatInterval`
-- **Type**: `number`
-- **Default**: `"3000"`
-- **Description**: Heartbeats are used to ensure that the consumer's session stays active
-
-#### Max Number of Requests
-- **Name**: `maxInFlightRequests`
+#### Batch Size
+- **Name**: `batchSize`
 - **Type**: `number`
 - **Default**: `"1"`
-- **Description**: The maximum number of unacknowledged requests the client will send on a single connection
-
-#### Read Messages From Beginning
-- **Name**: `fromBeginning`
-- **Type**: `boolean`
-- **Default**: `true`
-- **Description**: Whether to read message from beginning
-
-#### JSON Parse Message
-- **Name**: `jsonParseMessage`
-- **Type**: `boolean`
-- **Default**: `false`
-- **Description**: Whether to try to parse the message to an object
+- **Description**: Number of messages to process in each batch, when set to 1, message-by-message processing is enabled
 
 
 

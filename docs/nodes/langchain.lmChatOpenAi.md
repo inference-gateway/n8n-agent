@@ -15,10 +15,11 @@ nodes:
   - id: ${unique-node-id}
     name: OpenAI Chat Model
     parameters:
+      model: "gpt-5-mini" # The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
+      model: "{ mode: 'list', value: 'gpt-5-mini' }" # The model. Choose from the list, or specify an ID.
       notice: ""
-      model: "gpt-4o-mini" # The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
-      model: "{ mode: 'list', value: 'gpt-4.1-mini' }" # The model. Choose from the list, or specify an ID.
-      notice: ""
+      responsesApiEnabled: true # Whether to use the Responses API to generate the response. <a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/#use-responses-api">Learn more</a>.
+      builtInTools: {} # High level guidance for the amount of context window space to use for the search
       options: {} # Additional options to add
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatOpenAi
@@ -26,24 +27,18 @@ nodes:
 
 ## Parameters
 
-### If using JSON response format, you must include word "json" in the prompt in your chain or agent. Also, make sure to select latest models released post November 2023.
-
-- **Name**: `notice`
-- **Type**: `notice`
-- **Default**: `""`
-
 ### Model
 
 - **Name**: `model`
 - **Type**: `options`
-- **Default**: `"gpt-4o-mini"`
+- **Default**: `"gpt-5-mini"`
 - **Description**: The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
 
 ### Model
 
 - **Name**: `model`
 - **Type**: `resourceLocator`
-- **Default**: `"{ mode: 'list', value: 'gpt-4.1-mini' }"`
+- **Default**: `"{ mode: 'list', value: 'gpt-5-mini' }"`
 - **Description**: The model. Choose from the list, or specify an ID.
 - **Placeholder**: Select a model...
 
@@ -52,6 +47,21 @@ nodes:
 - **Name**: `notice`
 - **Type**: `notice`
 - **Default**: `""`
+
+### Use Responses API
+
+- **Name**: `responsesApiEnabled`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to use the Responses API to generate the response. <a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/#use-responses-api">Learn more</a>.
+
+### Built-in Tools
+
+- **Name**: `builtInTools`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: High level guidance for the amount of context window space to use for the search
+- **Placeholder**: Add Built-in Tool
 
 ### Options
 

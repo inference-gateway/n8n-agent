@@ -16,7 +16,6 @@ nodes:
     name: Calendly Trigger
     parameters:
       authentication: "apiKey"
-      deprecationNotice: ""
       scope: "user" # Triggers the webhook for all subscribed events within the organization
       events: [] # Receive notifications when a new Calendly event is created
     position: [x, y]  # Canvas position coordinates
@@ -30,12 +29,6 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"apiKey"`
-
-### Action required: Calendly will discontinue API Key authentication on May 31, 2025. Update node to use OAuth2 authentication now to ensure your workflows continue to work.
-
-- **Name**: `deprecationNotice`
-- **Type**: `notice`
-- **Default**: `""`
 
 ### Scope
 

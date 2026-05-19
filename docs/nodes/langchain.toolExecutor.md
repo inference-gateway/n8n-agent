@@ -2,7 +2,7 @@
 
 ## Description
 
-Parameters to pass to the tool as JSON or string
+Key-value pairs, where key is the name of the tool name and value is the parameters to pass to the tool
 
 **Version**: 1
 
@@ -15,8 +15,9 @@ nodes:
   - id: ${unique-node-id}
     name: Tool Executor
     parameters:
-      query: {} # Parameters to pass to the tool as JSON or string
+      query: {} # Key-value pairs, where key is the name of the tool name and value is the parameters to pass to the tool
       toolName: "" # Name of the tool to execute if the connected tool is a toolkit
+      node: "" # Name of the node that is being executed
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.toolExecutor
 ```
@@ -28,7 +29,7 @@ nodes:
 - **Name**: `query`
 - **Type**: `json`
 - **Default**: `"{}"`
-- **Description**: Parameters to pass to the tool as JSON or string
+- **Description**: Key-value pairs, where key is the name of the tool name and value is the parameters to pass to the tool
 
 ### Tool Name
 
@@ -36,6 +37,13 @@ nodes:
 - **Type**: `string`
 - **Default**: `""`
 - **Description**: Name of the tool to execute if the connected tool is a toolkit
+
+### Node
+
+- **Name**: `node`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Name of the node that is being executed
 
 
 ## Node Information

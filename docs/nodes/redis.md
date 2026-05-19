@@ -27,6 +27,8 @@ nodes:
       ttl: "60" # Number of seconds before key expiration
       keyPattern: "" # The key pattern for the keys to return
       getValues: true # Whether to get the value of matching keys
+      list: "" # Name of the list in Redis
+      list: "" # Name of the list in Redis
       key: "" # Name of the key to set in Redis
       value: "" # The value to write in Redis
       keyType: "automatic" # Tries to figure out the type automatically depending on the data
@@ -133,6 +135,20 @@ nodes:
 - **Type**: `boolean`
 - **Default**: `true`
 - **Description**: Whether to get the value of matching keys
+
+### List
+
+- **Name**: `list`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Name of the list in Redis
+
+### List
+
+- **Name**: `list`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Name of the list in Redis
 
 ### Key
 

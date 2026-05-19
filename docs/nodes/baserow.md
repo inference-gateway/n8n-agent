@@ -15,13 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Baserow
     parameters:
+      authentication: "usernamePassword"
       resource: "row"
-      operation: "getAll" # Create a row
+      operation: "getAll" # Create up to 200 rows in one request
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.baserow
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"usernamePassword"`
 
 ### Resource
 
@@ -34,7 +41,7 @@ nodes:
 - **Name**: `operation`
 - **Type**: `options`
 - **Default**: `"getAll"`
-- **Description**: Create a row
+- **Description**: Create up to 200 rows in one request
 
 
 ## Node Information

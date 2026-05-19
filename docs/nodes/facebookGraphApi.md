@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Facebook Graph API
     parameters:
+      authType: "accessToken" # The authentication method to use
       hostUrl: "graph.facebook.com" # The Host URL of the request. Almost all requests are passed to the graph.facebook.com host URL. The single exception is video uploads, which use graph-video.facebook.com.
       httpRequestMethod: "GET" # The HTTP Method to be used for the request
       graphApiVersion: "" # The version of the Graph API to be used in the request
@@ -29,6 +30,13 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authType`
+- **Type**: `options`
+- **Default**: `"accessToken"`
+- **Description**: The authentication method to use
 
 ### Host URL
 

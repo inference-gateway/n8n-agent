@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Sticky Note
     parameters:
-      content: "## I'm a note \n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)"
+      content: "## I'm a note \n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/components/sticky-notes/)"
       height: "160"
       width: "240"
       color: "1"
@@ -29,7 +29,7 @@ nodes:
 
 - **Name**: `content`
 - **Type**: `string`
-- **Default**: `"## I'm a note \\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)"`
+- **Default**: `"## I'm a note \\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/components/sticky-notes/)"`
 
 ### Height
 

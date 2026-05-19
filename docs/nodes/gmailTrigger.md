@@ -18,6 +18,7 @@ nodes:
       authentication: "oAuth2"
       event: "messageReceived"
       simple: true # Whether to return a simplified version of the response instead of the raw data
+      maxResults: "10" # Maximum number of emails to fetch each time the node polls for new messages. If more emails arrive between polls, the remaining ones will be picked up in subsequent polls.
       filters: # Whether to include messages from SPAM and TRASH in the results
         includeSpamTrash: false # Whether to include messages from SPAM and TRASH in the results
         includeDrafts: false # Whether to include email drafts in the results
@@ -48,6 +49,13 @@ nodes:
 - **Type**: `boolean`
 - **Default**: `true`
 - **Description**: Whether to return a simplified version of the response instead of the raw data
+
+### Max Emails per Poll
+
+- **Name**: `maxResults`
+- **Type**: `number`
+- **Default**: `"10"`
+- **Description**: Maximum number of emails to fetch each time the node polls for new messages. If more emails arrive between polls, the remaining ones will be picked up in subsequent polls.
 
 ### Filters
 

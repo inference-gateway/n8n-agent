@@ -1,8 +1,8 @@
-# JotForm Trigger
+# Jotform Trigger
 
 ## Description
 
-Handle JotForm events via webhooks
+Handle Jotform events via webhooks
 
 **Version**: 1
 
@@ -13,7 +13,7 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: JotForm Trigger
+    name: Jotform Trigger
     parameters:
       form: "" # Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
       resolveData: true # By default does the webhook-data use internal keys instead of the names. If this option gets activated, it will resolve the keys automatically to the actual names.
@@ -49,7 +49,7 @@ nodes:
 ## Node Information
 
 - **Node Type**: `n8n-nodes-base.jotFormTrigger`
-- **Display Name**: JotForm Trigger
+- **Display Name**: Jotform Trigger
 - **Internal Name**: `jotFormTrigger`
 - **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository

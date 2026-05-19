@@ -2,7 +2,7 @@
 
 ## Description
 
-Interact with the Perplexity API to generate AI responses with citations
+AI-powered answer engine that provides accurate, trusted, and real-time answers to any question. Supports chat completions, agent responses, web search, and embeddings.
 
 **Version**: 1
 
@@ -16,6 +16,7 @@ nodes:
     name: Perplexity
     parameters:
       resource: "chat"
+      resource: "chat" # Create responses using the Agent API with third-party models, presets, tools, and structured outputs
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.perplexity
 ```
@@ -27,6 +28,13 @@ nodes:
 - **Name**: `resource`
 - **Type**: `hidden`
 - **Default**: `"chat"`
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"chat"`
+- **Description**: Create responses using the Agent API with third-party models, presets, tools, and structured outputs
 
 
 ## Node Information

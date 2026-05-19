@@ -24,7 +24,7 @@ nodes:
 
 ## Parameters
 
-### This workflow will run on the schedule you define here once you <a data-key="activate">activate</a> it.<br><br>For testing, you can also trigger it manually: by going back to the canvas and clicking \'execute workflow\'
+### This workflow will run on the schedule you define here once you publish it.<br><br>For testing, you can also trigger it manually: by going back to the canvas and clicking 'execute workflow'
 
 - **Name**: `notice`
 - **Type**: `notice`

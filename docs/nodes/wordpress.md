@@ -15,12 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Wordpress
     parameters:
+      authType: "basicAuth" # The authentication method to use
       resource: "post"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.wordpress
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authType`
+- **Type**: `options`
+- **Default**: `"basicAuth"`
+- **Description**: The authentication method to use
 
 ### Resource
 

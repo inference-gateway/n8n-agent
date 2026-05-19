@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Facebook Trigger
     parameters:
+      authType: "accessToken" # The authentication method to use
       appId: "" # Facebook APP ID
       whatsappBusinessAccountNotice: ""
       object: "user" # Get updates about Ad Account
@@ -26,6 +27,13 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authType`
+- **Type**: `options`
+- **Default**: `"accessToken"`
+- **Description**: The authentication method to use
 
 ### APP ID
 

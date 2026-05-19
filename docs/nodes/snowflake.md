@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Snowflake
     parameters:
+      authentication: "credentials"
       operation: "insert" # Execute an SQL query
       query: "" # The SQL query to execute
       table: "" # Name of the table in which to insert data to
@@ -27,6 +28,12 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"credentials"`
 
 ### Operation
 

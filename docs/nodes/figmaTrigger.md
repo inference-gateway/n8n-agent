@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Figma Trigger (Beta)
     parameters:
+      authentication: "accessToken"
       teamId: "" # Trigger will monitor this Figma Team for changes. Team ID can be found in the URL of a Figma Team page when viewed in a web browser: figma.com/files/team/{TEAM-ID}/.
       triggerOn: "" # Triggers when someone comments on a file
     position: [x, y]  # Canvas position coordinates
@@ -22,6 +23,12 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"accessToken"`
 
 ### Team ID
 

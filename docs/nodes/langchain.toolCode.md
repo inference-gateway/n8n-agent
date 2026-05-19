@@ -21,7 +21,7 @@ nodes:
       description: ""
       language: "javaScript"
       jsCode: "// Example: convert the incoming query to uppercase and return it\nreturn query.toUpperCase()" # E.g. Converts any text to uppercase
-      pythonCode: "# Example: convert the incoming query to uppercase and return it\nreturn query.upper()" # E.g. Converts any text to uppercase
+      pythonCode: "# Example: convert the incoming query to uppercase and return it\nreturn _query.upper()" # E.g. Converts any text to uppercase
       specifyInputSchema: false # Whether to specify the schema for the function. This would require the LLM to provide the input in the correct format and would validate it against the schema.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.toolCode
@@ -74,7 +74,7 @@ nodes:
 
 - **Name**: `pythonCode`
 - **Type**: `string`
-- **Default**: `"# Example: convert the incoming query to uppercase and return it\\nreturn query.upper()"`
+- **Default**: `"# Example: convert the incoming query to uppercase and return it\\nreturn _query.upper()"`
 - **Description**: E.g. Converts any text to uppercase
 
 ### Specify Input Schema
