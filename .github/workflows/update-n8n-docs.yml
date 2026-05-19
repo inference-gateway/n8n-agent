@@ -100,8 +100,6 @@ jobs:
             documentation
             automated
             n8n
-          assignees: ${{ github.actor }}
-          reviewers: ${{ github.actor }}
       
       - name: Summary
         if: always()
