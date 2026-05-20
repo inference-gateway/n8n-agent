@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.4](https://github.com/inference-gateway/n8n-agent/compare/v0.2.3...v0.2.4) (2026-05-20)
+
+### 👷 CI
+
+* **deps:** Update installation steps for golangci-lint and task in workflows ([04d2dcf](https://github.com/inference-gateway/n8n-agent/commit/04d2dcf6c2e8504905710577594aea000dfc4465))
+
+### 🔧 Miscellaneous
+
+* **deps:** Bump ADL CLI to version 0.30.10 ([5800958](https://github.com/inference-gateway/n8n-agent/commit/58009587b2e26836076071299dd9d85d81e286ae))
+* **deps:** Bump ADL CLI to version 0.30.9 ([95ad7b1](https://github.com/inference-gateway/n8n-agent/commit/95ad7b1f47b4229116529d4600c73c4eb370fa5d))
+* Run task generate ([ce29d27](https://github.com/inference-gateway/n8n-agent/commit/ce29d277d5ca930186c8a123b388fd53389a1be9))
+
 ## [0.2.3](https://github.com/inference-gateway/n8n-agent/compare/v0.2.2...v0.2.3) (2026-05-19)
 
 ### ♻️ Improvements
