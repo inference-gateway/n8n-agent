@@ -109,6 +109,7 @@ spec:
   server:
     port: 8080
     debug: false
+    scheme: http
   language:
     go:
       module: github.com/inference-gateway/n8n-agent
@@ -120,8 +121,18 @@ spec:
     url: https://github.com/inference-gateway/n8n-agent
     github_app: true
     issue_templates: false
-  sandbox:
-    flox:
-      enabled: true
+    dependabot: true
+    ci: true
+    cd: true
   artifacts:
     enabled: true
+  development:
+    sandbox:
+      flox:
+        enabled: true
+      devcontainer:
+        enabled: false
+      dockerCompose:
+        enabled: false
+    ai:
+      enabled: true
