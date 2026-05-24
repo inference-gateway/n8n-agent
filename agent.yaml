@@ -114,6 +114,9 @@ spec:
     go:
       module: github.com/inference-gateway/n8n-agent
       version: "1.26.2"
+      vendor:
+        deps: []
+        devdeps: []
   acronyms:
     - n8n
   scm:
@@ -145,3 +148,4 @@ spec:
         enabled: false
       opencode:
         enabled: false
+    deps: []
