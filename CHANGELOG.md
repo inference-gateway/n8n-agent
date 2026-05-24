@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.5](https://github.com/inference-gateway/n8n-agent/compare/v0.2.4...v0.2.5) (2026-05-24)
+
+### ♻️ Improvements
+
+* **Taskfile:** Remove explicit flags from generate command ([fcaa279](https://github.com/inference-gateway/n8n-agent/commit/fcaa279dd5b1d757c314ba32594bc2c360746098))
+
+### 👷 CI
+
+* **deps:** Update claude-code-action to version 1.0.130 ([46cf586](https://github.com/inference-gateway/n8n-agent/commit/46cf5862c6e86d64156a45089df0efaec24f8a3d))
+
+### 🔧 Miscellaneous
+
+* **adl:** Generate the missing parts ([0b4f006](https://github.com/inference-gateway/n8n-agent/commit/0b4f006ce459f20281b26cc532446956668417da))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.33.1 ([077e7b0](https://github.com/inference-gateway/n8n-agent/commit/077e7b095b33c4632d15c77e56cc2d91cf6f9c9f))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.33.1 ([#25](https://github.com/inference-gateway/n8n-agent/issues/25)) ([3bd2012](https://github.com/inference-gateway/n8n-agent/commit/3bd201223b5b9cadedb00f1b66fbf23197ddec4d))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.36.0 ([7184c9f](https://github.com/inference-gateway/n8n-agent/commit/7184c9f6078f2485e527bde36b02f9970e61704d))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.36.0 ([#34](https://github.com/inference-gateway/n8n-agent/issues/34)) ([5db207f](https://github.com/inference-gateway/n8n-agent/commit/5db207ff7763d1225e2835decf537f9e2b1b0e62))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.38.1 ([4eb7909](https://github.com/inference-gateway/n8n-agent/commit/4eb7909dbc4242bbd8d9d6086ef67a027380d1bc))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.38.1 ([#41](https://github.com/inference-gateway/n8n-agent/issues/41)) ([69eccf7](https://github.com/inference-gateway/n8n-agent/commit/69eccf70ad70b96d7346b15eb2a7833ff94de60c))
+* Apply suggestions from code review ([a5a0b5e](https://github.com/inference-gateway/n8n-agent/commit/a5a0b5ee6fbc45937281a7896808524a775d154f))
+* **dependabot:** Update golang and ubuntu version ignore rules in dependabot configuration ([1622ad4](https://github.com/inference-gateway/n8n-agent/commit/1622ad46390624bade88761ed6d98cb4dae28117))
+* **deps:** Add ignore rule for golang dependency in dependabot configuration ([8e0c80e](https://github.com/inference-gateway/n8n-agent/commit/8e0c80e179188e691d373c08d6c5153c3e45e541))
+* **deps:** Bump ADL CLI to v0.31.0 ([#24](https://github.com/inference-gateway/n8n-agent/issues/24)) ([a939f62](https://github.com/inference-gateway/n8n-agent/commit/a939f621ae7e2ffe6510bf0b9fa440da4a7662ef))
+* **deps:** Bump ADL CLI to v0.34.0 ([#27](https://github.com/inference-gateway/n8n-agent/issues/27)) ([959c3bc](https://github.com/inference-gateway/n8n-agent/commit/959c3bc46653e18e95b1c220d4b99ae5c510fcaf))
+* **deps:** Bump ADL CLI to v0.34.1 ([#31](https://github.com/inference-gateway/n8n-agent/issues/31)) ([e6f4652](https://github.com/inference-gateway/n8n-agent/commit/e6f4652521ce011d266134b4b9411728a288a286))
+* **deps:** Bump ADL CLI to v0.34.2 ([#33](https://github.com/inference-gateway/n8n-agent/issues/33)) ([e0f051d](https://github.com/inference-gateway/n8n-agent/commit/e0f051d1d0ac49e279627b337996c85c7ec6162c))
+* **deps:** Bump ADL CLI to v0.36.1 ([#35](https://github.com/inference-gateway/n8n-agent/issues/35)) ([8fc2e70](https://github.com/inference-gateway/n8n-agent/commit/8fc2e709c3e0e914b1a70608907f438fc8a76d9e))
+* **deps:** Bump ADL CLI to v0.36.2 ([#38](https://github.com/inference-gateway/n8n-agent/issues/38)) ([ebdd80f](https://github.com/inference-gateway/n8n-agent/commit/ebdd80f08688748567ee9debce209057d81ae5c4))
+* **deps:** Bump ADL CLI to v0.36.4 ([#39](https://github.com/inference-gateway/n8n-agent/issues/39)) ([e623d97](https://github.com/inference-gateway/n8n-agent/commit/e623d972bc470e6d19509fa05d953216cdabfa47))
+* **deps:** Bump ADL CLI to v0.38.1 ([#40](https://github.com/inference-gateway/n8n-agent/issues/40)) ([ed712fe](https://github.com/inference-gateway/n8n-agent/commit/ed712fed4c6d76f8f10892c8fd0110b1c341d82f))
+* **deps:** Bump ADL CLI to v0.39.0 ([#42](https://github.com/inference-gateway/n8n-agent/issues/42)) ([7c990e5](https://github.com/inference-gateway/n8n-agent/commit/7c990e5a488a7e7b078e274bf38fbb5b19f6ab61))
+* **deps:** Bump ADL CLI to v0.39.1 ([#43](https://github.com/inference-gateway/n8n-agent/issues/43)) ([9ff4356](https://github.com/inference-gateway/n8n-agent/commit/9ff4356785cae20295c72098fa9d250c895ad598))
+* **deps:** Bump ADL CLI v0.30.10 -> v0.31.0 ([6fb3c10](https://github.com/inference-gateway/n8n-agent/commit/6fb3c10b83d4ada3c4a2f24956f059a741052916))
+* **deps:** Bump ADL CLI v0.31.0 -> v0.34.0 ([a439527](https://github.com/inference-gateway/n8n-agent/commit/a439527c7cb8474876ee169d12eec22df8cbb844))
+* **deps:** Bump ADL CLI v0.34.0 -> v0.34.1 ([93fd334](https://github.com/inference-gateway/n8n-agent/commit/93fd3342e8d0ef28e0c226c67595b2b2b1b261cf))
+* **deps:** Bump ADL CLI v0.34.1 -> v0.34.2 ([fd23cfa](https://github.com/inference-gateway/n8n-agent/commit/fd23cfa56ea2a50488b1dfb68a797e804df7b423))
+* **deps:** Bump ADL CLI v0.34.2 -> v0.36.1 ([0417f22](https://github.com/inference-gateway/n8n-agent/commit/0417f22ce74677b862eae422489015227a2e86fa))
+* **deps:** Bump ADL CLI v0.36.1 -> v0.36.2 ([4361bb2](https://github.com/inference-gateway/n8n-agent/commit/4361bb2f28f5f3eafbae7e16567a8d87a43ab131))
+* **deps:** Bump ADL CLI v0.36.2 -> v0.36.4 ([585e9ef](https://github.com/inference-gateway/n8n-agent/commit/585e9eff52ef47e26193a95cf7eb9183d407810b))
+* **deps:** Bump ADL CLI v0.36.4 -> v0.38.1 ([8fad867](https://github.com/inference-gateway/n8n-agent/commit/8fad8677354a20d5fe4aafdb5b56cf3cff9bf7bb))
+* **deps:** Bump ADL CLI v0.38.1 -> v0.39.0 ([80bea85](https://github.com/inference-gateway/n8n-agent/commit/80bea85d5b3acad59d5068228d1023f8d3a362d1))
+* **deps:** Bump ADL CLI v0.39.0 -> v0.39.1 ([d57c119](https://github.com/inference-gateway/n8n-agent/commit/d57c11997b0c7df6e5b1f14a9003cd20bb0b79ba))
+* **deps:** bump github.com/inference-gateway/adk ([bed444c](https://github.com/inference-gateway/n8n-agent/commit/bed444c5bcfefda199e9a9d538666c39e2996c04))
+* **deps:** bump github.com/inference-gateway/adk from 0.18.3 to 0.18.4 in the gomod group across 1 directory ([#23](https://github.com/inference-gateway/n8n-agent/issues/23)) ([86688b6](https://github.com/inference-gateway/n8n-agent/commit/86688b6a1ee0e1a5d7edd94fbac7fb81eddaea90))
+* **deps:** bump the github-actions group with 2 updates ([b400cae](https://github.com/inference-gateway/n8n-agent/commit/b400cae959db20acfc54b8295734aa419d06a139))
+* **deps:** Bump the github-actions group with 2 updates ([#32](https://github.com/inference-gateway/n8n-agent/issues/32)) ([2ea6d31](https://github.com/inference-gateway/n8n-agent/commit/2ea6d31a694c9681fb2f9c0557a9e32884188ab0))
+* **license:** Update license to Apache 2.0 ([ec2f2d1](https://github.com/inference-gateway/n8n-agent/commit/ec2f2d100b572742a0a85fc9145c178e060ae0f3))
+
 ## [0.2.4](https://github.com/inference-gateway/n8n-agent/compare/v0.2.3...v0.2.4) (2026-05-20)
 
 ### 👷 CI
