@@ -12,7 +12,7 @@ tags:
 ## When to use
 
 Apply this skill whenever the user asks you to build, generate, scaffold, or
-automate an n8n workflow — phrasings like "create a workflow that…",
+automate an n8n workflow - phrasings like "create a workflow that…",
 "automate X with n8n", "I need a flow that does Y", or a description of a
 trigger plus one or more actions. The skill produces a complete, validated
 workflow YAML and saves it as an artifact for download.
@@ -21,14 +21,14 @@ workflow YAML and saves it as an artifact for download.
 
 Execute these steps in order. Do not skip steps 3 or 4.
 
-### Step 1 — Search for relevant nodes
+### Step 1 - Search for relevant nodes
 
 Call `search_n8n_docs` for each capability the workflow needs (trigger,
 integrations, transformations, output). Use the `node_type` and `category`
 filters to narrow results when the request mentions a specific service or
 when you only need triggers vs. actions.
 
-### Step 2 — Draft the workflow YAML
+### Step 2 - Draft the workflow YAML
 
 Compose a complete n8n workflow YAML with:
 
@@ -39,17 +39,17 @@ Compose a complete n8n workflow YAML with:
 - `connections`: list every link between nodes by their `id`s, with
   `sourceIndex` and `targetIndex`.
 
-Bias toward including a trigger node (webhook, schedule, manual, …) — without
+Bias toward including a trigger node (webhook, schedule, manual, …) - without
 one the workflow cannot run automatically.
 
-### Step 3 — Validate (mandatory)
+### Step 3 - Validate (mandatory)
 
 Call `validate_n8n_workflow` with the drafted YAML. If the result is INVALID,
 fix every reported error and re-run validation. Repeat until the validator
 returns `VALID`. Treat warnings as informational unless the user asked for a
 production-grade flow, in which case address them too.
 
-### Step 4 — Save the artifact (mandatory)
+### Step 4 - Save the artifact (mandatory)
 
 Once validation passes, call `create_artifact` with:
 
@@ -57,10 +57,10 @@ Once validation passes, call `create_artifact` with:
   (e.g. `customer_onboarding_workflow.yaml`).
 - The validated YAML as content.
 
-Never inline the full YAML in the chat response — it always goes through
+Never inline the full YAML in the chat response - it always goes through
 `create_artifact`.
 
-### Step 5 — Respond concisely
+### Step 5 - Respond concisely
 
 Reply with:
 
@@ -73,9 +73,9 @@ Reply with:
 
 This skill orchestrates three tools, in this order:
 
-1. `search_n8n_docs` — discover the right node types and parameters.
-2. `validate_n8n_workflow` — schema check before persistence.
-3. `create_artifact` — built-in tool that persists the YAML for download.
+1. `search_n8n_docs` - discover the right node types and parameters.
+2. `validate_n8n_workflow` - schema check before persistence.
+3. `create_artifact` - built-in tool that persists the YAML for download.
 
 ## Example response
 
