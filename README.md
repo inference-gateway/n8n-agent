@@ -1,9 +1,10 @@
 <div align="center">
 
-# N8N-Agent
+# N8n-Agent
 
 [![CI](https://github.com/inference-gateway/n8n-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/n8n-agent/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/Go-1.25.0+-00ADD8?style=flat&logo=go)](https://golang.org)
+[![Go Report Card](https://img.shields.io/badge/Go%20Report%20Card-A+-brightgreen?style=flat&logo=go&logoColor=white)](https://goreportcard.com/report/github.com/inference-gateway/n8n-agent)
+[![Go Version](https://img.shields.io/badge/Go-1.26.2+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -15,14 +16,31 @@ A enterprise-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/a
 
 ## Quick Start
 
+The generated binary is a CLI. `start` boots the A2A server; `--help` and
+`--version` work as you'd expect.
+
 ```bash
 # Run the agent
-go run .
+go run . start
+
+# Or build and invoke the CLI directly
+task build
+./bin/n8n-agent --help
+./bin/n8n-agent --version
+./bin/n8n-agent start
 
 # Or with Docker
 docker build -t n8n-agent .
 docker run -p 8080:8080 n8n-agent
 ```
+
+### CLI
+
+| Command | Description |
+|---------|-------------|
+| `n8n-agent start` | Start the A2A server (blocks until SIGINT/SIGTERM) |
+| `n8n-agent --help` | Show top-level help (and per-subcommand with `<cmd> --help`) |
+| `n8n-agent --version` | Print the embedded version and exit |
 
 ## Quick Install
 
@@ -143,6 +161,24 @@ task lint
 task fmt
 ```
 
+### Adding Dependencies
+
+The generator owns the baseline toolchain pins (SDK, server framework,
+logging, CLI, sandbox utilities). To extend the project without forking
+the templates, declare extras in `agent.yaml` — every empty list below
+is rendered by `adl init --defaults` precisely so it's discoverable:
+
+| Where | Purpose | Example entry | Rendered into |
+|-------|---------|---------------|---------------|
+| `spec.language.go.vendor.deps` | Runtime Go modules | `github.com/stretchr/testify@v1.10.0` | `go.mod` `require` block |
+| `spec.language.go.vendor.devdeps` | Executable dev tools (Go 1.24 `tool` directive) | `golang.org/x/tools/cmd/stringer@v0.20.0` | `go.mod` `tool` directive |
+| `spec.development.deps` | Cross-cutting sandbox tools (not tied to one language) | `kubectl@1.31.0`, `terraform@1.9.5`, `deno@2.1.4` | Flox `manifest.toml` / devcontainer feature |
+
+Entries use the `<package>@<version>` form. Built-in pins always win on
+conflict; the generator prints a warning and skips the user entry when
+shadowing is attempted. After editing `agent.yaml`, re-run `task generate`
+to refresh the manifests.
+
 ### Debugging
 
 Use the [A2A Debugger](https://github.com/inference-gateway/a2a-debugger) to test and debug your A2A agent during development. It provides a web interface for sending requests to your agent and inspecting responses, making it easier to troubleshoot issues and validate your implementation.
@@ -179,7 +215,7 @@ docker build \
 
 **Available Build Arguments:**
 
-- `VERSION` - Agent version (default: `0.2.3`)
+- `VERSION` - Agent version (default: `0.2.4`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 

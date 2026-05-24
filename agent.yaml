@@ -148,4 +148,5 @@ spec:
         enabled: false
       opencode:
         enabled: false
-    deps: []
+    deps:
+      - deno@^2.7.14

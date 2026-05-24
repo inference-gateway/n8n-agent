@@ -5,7 +5,7 @@
 FROM golang:1.26.2-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.3"
+ARG VERSION="0.2.4"
 ARG AGENT_NAME="n8n-agent"
 ARG AGENT_DESCRIPTION="A2A agent server specialized in generating and automating n8n workflows"
 
@@ -69,5 +69,5 @@ EXPOSE 8080
 # Set environment variables
 ENV A2A_SERVER_PORT=8080
 
-# Run the application
-CMD ["./main"]
+# Run the application (binary is a CLI; `start` boots the A2A server)
+CMD ["./main", "start"]

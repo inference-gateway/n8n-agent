@@ -13,11 +13,9 @@
 # my-custom-file.go
 # config/secrets.yaml
 
-README.md
 Taskfile.yml
 .gitattributes
 Dockerfile
-.flox/env/manifest.toml
 
 tools/search_n8n_docs.go
 tools/search_n8n_docs_test.go
