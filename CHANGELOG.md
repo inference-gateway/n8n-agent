@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.7](https://github.com/inference-gateway/n8n-agent/compare/v0.2.6...v0.2.7) (2026-05-26)
+
+### 🔧 Miscellaneous
+
+* **deps:** Bump ADL CLI to v0.39.3 ([#45](https://github.com/inference-gateway/n8n-agent/issues/45)) ([9bd5fa6](https://github.com/inference-gateway/n8n-agent/commit/9bd5fa6858993278188628832d6054fb72e362a6))
+* **deps:** Bump ADL CLI v0.39.2 -> v0.39.3 ([b918a34](https://github.com/inference-gateway/n8n-agent/commit/b918a348cddd9875bbd8245ec19d84ee70b7d901))
+* **deps:** Bump dev dependecies ([299dfe1](https://github.com/inference-gateway/n8n-agent/commit/299dfe14fa5c2836b5f575277bcec15173da9fee))
+* Replace em dash with regular dash ([9b21fd7](https://github.com/inference-gateway/n8n-agent/commit/9b21fd7fee48599e7246c2445dfd473048e9b035))
+
 ## [0.2.6](https://github.com/inference-gateway/n8n-agent/compare/v0.2.5...v0.2.6) (2026-05-24)
 
 ### 🔧 Miscellaneous
