@@ -4,7 +4,7 @@
     "schema-version": "1.12.0",
     "install": {
       "adl": {
-        "flake": "github:inference-gateway/adl-cli/v0.39.3"
+        "flake": "github:inference-gateway/adl-cli/v0.40.0"
       },
       "claude-code": {
         "pkg-path": "claude-code",
@@ -877,12 +877,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/f66aed3292e4934e8543daacd6c1713f82e9eaa0?narHash=sha256-0zhCZNsVu0DknpCysfIrVk6%2BRpvHdhCde2NayJFmJJk%3D",
+      "locked-url": "github:inference-gateway/adl-cli/530c8e97fd1369a3b4c833650608a8f3ba4132f4?narHash=sha256-K3XphLo0cjYj9zAZlQHJ6fFXzgK/SU%2BZ%2BxOLio6IEos%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.aarch64-darwin.default",
-      "derivation": "/nix/store/gw27vxcr4hplkwpdkh9yjasgv0hgvi4v-adl-0.39.3.drv",
+      "derivation": "/nix/store/6sz6bpfnqm0gsxxsq11nxr876b8mqwdw-adl-0.40.0.drv",
       "outputs": {
-        "out": "/nix/store/0x7y100ily1vvpvb80ga2zrachi7dynj-adl-0.39.3"
+        "out": "/nix/store/5svzhkd6cc54jdg431ch09gpd2v2a5j8-adl-0.40.0"
       },
       "output-names": [
         "out"
@@ -893,9 +893,9 @@
       "requested-outputs-to-install": [],
       "package-system": "aarch64-darwin",
       "system": "aarch64-darwin",
-      "name": "adl-0.39.3",
+      "name": "adl-0.40.0",
       "pname": "adl",
-      "version": "0.39.3",
+      "version": "0.40.0",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
@@ -906,12 +906,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/f66aed3292e4934e8543daacd6c1713f82e9eaa0?narHash=sha256-0zhCZNsVu0DknpCysfIrVk6%2BRpvHdhCde2NayJFmJJk%3D",
+      "locked-url": "github:inference-gateway/adl-cli/530c8e97fd1369a3b4c833650608a8f3ba4132f4?narHash=sha256-K3XphLo0cjYj9zAZlQHJ6fFXzgK/SU%2BZ%2BxOLio6IEos%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.aarch64-linux.default",
-      "derivation": "/nix/store/f2avm1cq8rsl128hmvs3lb4k8llwh4sx-adl-0.39.3.drv",
+      "derivation": "/nix/store/ph5sg4cnvbk6bk0sa5pm7jg7bk0a6x5n-adl-0.40.0.drv",
       "outputs": {
-        "out": "/nix/store/9k6h4wlwwpkwbgicyzi6525hj3lmm65m-adl-0.39.3"
+        "out": "/nix/store/4rxm4m6liyv4lqanjvnx8kgxrqlxm6fa-adl-0.40.0"
       },
       "output-names": [
         "out"
@@ -922,9 +922,9 @@
       "requested-outputs-to-install": [],
       "package-system": "aarch64-linux",
       "system": "aarch64-linux",
-      "name": "adl-0.39.3",
+      "name": "adl-0.40.0",
       "pname": "adl",
-      "version": "0.39.3",
+      "version": "0.40.0",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
@@ -935,12 +935,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/f66aed3292e4934e8543daacd6c1713f82e9eaa0?narHash=sha256-0zhCZNsVu0DknpCysfIrVk6%2BRpvHdhCde2NayJFmJJk%3D",
+      "locked-url": "github:inference-gateway/adl-cli/530c8e97fd1369a3b4c833650608a8f3ba4132f4?narHash=sha256-K3XphLo0cjYj9zAZlQHJ6fFXzgK/SU%2BZ%2BxOLio6IEos%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.x86_64-darwin.default",
-      "derivation": "/nix/store/ybak3vhgyykmpr7zy306ks1bw1sbap1s-adl-0.39.3.drv",
+      "derivation": "/nix/store/3njz4x2alw9xpv3mprvwac0wgw9mr82a-adl-0.40.0.drv",
       "outputs": {
-        "out": "/nix/store/gbx65lz6zk23vl5iqmgx0x9md9nkzx75-adl-0.39.3"
+        "out": "/nix/store/d8idm3h8vnhppnw9ca97q7awprs6gkrl-adl-0.40.0"
       },
       "output-names": [
         "out"
@@ -951,9 +951,9 @@
       "requested-outputs-to-install": [],
       "package-system": "x86_64-darwin",
       "system": "x86_64-darwin",
-      "name": "adl-0.39.3",
+      "name": "adl-0.40.0",
       "pname": "adl",
-      "version": "0.39.3",
+      "version": "0.40.0",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
@@ -964,12 +964,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/f66aed3292e4934e8543daacd6c1713f82e9eaa0?narHash=sha256-0zhCZNsVu0DknpCysfIrVk6%2BRpvHdhCde2NayJFmJJk%3D",
+      "locked-url": "github:inference-gateway/adl-cli/530c8e97fd1369a3b4c833650608a8f3ba4132f4?narHash=sha256-K3XphLo0cjYj9zAZlQHJ6fFXzgK/SU%2BZ%2BxOLio6IEos%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.x86_64-linux.default",
-      "derivation": "/nix/store/d5xsixfakak7q3lbgs7lqx75friq1glc-adl-0.39.3.drv",
+      "derivation": "/nix/store/f79z4rpv99zk742gs4qrc3skj8qkkzp0-adl-0.40.0.drv",
       "outputs": {
-        "out": "/nix/store/k10p97q81yck6yc834c1kikpqg8hbh3j-adl-0.39.3"
+        "out": "/nix/store/f22k5q7bb1aifhv3k89s0p3ynhn0qn8g-adl-0.40.0"
       },
       "output-names": [
         "out"
@@ -980,9 +980,9 @@
       "requested-outputs-to-install": [],
       "package-system": "x86_64-linux",
       "system": "x86_64-linux",
-      "name": "adl-0.39.3",
+      "name": "adl-0.40.0",
       "pname": "adl",
-      "version": "0.39.3",
+      "version": "0.40.0",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
