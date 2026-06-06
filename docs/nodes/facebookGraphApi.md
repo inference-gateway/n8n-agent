@@ -22,8 +22,8 @@ nodes:
       node: "" # The node on which to operate. A node is an individual object with a unique ID. For example, there are many User node objects, each with a unique ID representing a person on Facebook.
       edge: "" # Edge of the node on which to operate. Edges represent collections of objects which are attached to the node.
       allowUnauthorizedCerts: false # Whether to connect even if SSL certificate validation is not possible
-      sendBinaryData: false # Whether binary data should be sent as body
-      binaryPropertyName: "" # For Form-Data Multipart, they can be provided in the format: <code>"sendKey1:binaryProperty1,sendKey2:binaryProperty2</code>
+      sendBinaryData: false # Whether to upload binary data as multipart/form-data
+      binaryPropertyName: "" # For Form-Data Multipart, multiple files can be provided in the format: <code>sendKey1:binaryProperty1,sendKey2:binaryProperty2</code>
       options: {} # The list of fields to request in the GET request
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.facebookGraphApi
@@ -87,14 +87,14 @@ nodes:
 - **Name**: `sendBinaryData`
 - **Type**: `boolean`
 - **Default**: `false`
-- **Description**: Whether binary data should be sent as body
+- **Description**: Whether to upload binary data as multipart/form-data
 
 ### Input Binary Field
 
 - **Name**: `binaryPropertyName`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: For Form-Data Multipart, they can be provided in the format: <code>"sendKey1:binaryProperty1,sendKey2:binaryProperty2</code>
+- **Description**: For Form-Data Multipart, multiple files can be provided in the format: <code>sendKey1:binaryProperty1,sendKey2:binaryProperty2</code>
 - **Placeholder**: file:data
 
 ### Options

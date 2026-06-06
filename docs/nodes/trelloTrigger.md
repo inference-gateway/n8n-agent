@@ -15,12 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Trello Trigger
     parameters:
+      authentication: "apiKey"
       id: "" # ID of the model of which to subscribe to events
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.trelloTrigger
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiKey"`
 
 ### Model ID
 

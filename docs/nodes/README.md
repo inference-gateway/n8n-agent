@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 521 n8n nodes, generated from the official n8n repository.
+Documentation for 522 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (521)
+## Available Nodes (522)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -69,7 +69,7 @@ nodes:
 - [Calendly Trigger](./calendlyTrigger.md) (`n8n-nodes-base.calendlyTrigger`) - Starts the workflow when Calendly events occur
 - [Chargebee](./chargebee.md) (`n8n-nodes-base.chargebee`) - Retrieve data from Chargebee API
 - [Chargebee Trigger](./chargebeeTrigger.md) (`n8n-nodes-base.chargebeeTrigger`) - Starts the workflow when Chargebee events occur
-- [Check Credential Status](./dynamicCredentialCheck.md) (`n8n-nodes-base.dynamicCredentialCheck`) - Checks whether the triggering user has the required Dynamic credential configure...
+- [Check Credential Status](./dynamicCredentialCheck.md) (`n8n-nodes-base.dynamicCredentialCheck`) - Checks whether the triggering user has the required Private credential configure...
 - [CircleCI](./circleCi.md) (`n8n-nodes-base.circleCi`) - Consume CircleCI API
 - [Clearbit](./clearbit.md) (`n8n-nodes-base.clearbit`) - Consume Clearbit API
 - [ClickUp](./clickUp.md) (`n8n-nodes-base.clickUp`) - Consume ClickUp API (Beta)
@@ -266,7 +266,6 @@ nodes:
 - [No Operation, do nothing](./noOp.md) (`n8n-nodes-base.noOp`) - No Operation
 - [Notion Trigger](./notionTrigger.md) (`n8n-nodes-base.notionTrigger`) - Starts the workflow when Notion events occur
 - [Npm](./npm.md) (`n8n-nodes-base.npm`) - Consume NPM registry API
-- [Odoo](./odoo.md) (`n8n-nodes-base.odoo`) - Consume Odoo API
 - [Okta](./okta.md) (`n8n-nodes-base.okta`) - Use the Okta API
 - [One Simple API](./oneSimpleApi.md) (`n8n-nodes-base.oneSimpleApi`) - A toolbox of no-code utilities
 - [Onfleet](./onfleet.md) (`n8n-nodes-base.onfleet`) - Consume Onfleet API
@@ -453,6 +452,7 @@ nodes:
 - [Embeddings Mistral Cloud](./langchain.embeddingsMistralCloud.md) (`@n8n/n8n-nodes-langchain.embeddingsMistralCloud`) - Use Embeddings Mistral Cloud
 - [Embeddings Ollama](./langchain.embeddingsOllama.md) (`@n8n/n8n-nodes-langchain.embeddingsOllama`) - Use Ollama Embeddings
 - [Embeddings OpenAI](./langchain.embeddingsOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsOpenAi`) - Use Embeddings OpenAI
+- [Embeddings Oracle Database](./langchain.embeddingsOracleDb.md) (`@n8n/n8n-nodes-langchain.embeddingsOracleDb`) - Use ONNX Embeddings
 - [ExtendedPGVectorStore](./langchain.ExtendedPGVectorStore.md) (`@n8n/n8n-nodes-langchain.ExtendedPGVectorStore`) - ExtendedPGVectorStore - LangChain AI Node
 - [GitHub Document Loader](./langchain.documentGithubLoader.md) (`@n8n/n8n-nodes-langchain.documentGithubLoader`) - Use GitHub data as input to this chain
 - [Google Gemini Chat Model](./langchain.lmChatGoogleGemini.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleGemini`) - Chat Model Google Gemini
@@ -474,7 +474,7 @@ nodes:
 - [Lemonade Model](./langchain.lmLemonade.md) (`@n8n/n8n-nodes-langchain.lmLemonade`) - Language Model Lemonade
 - [Manual Chat Trigger](./langchain.manualChatTrigger.md) (`@n8n/n8n-nodes-langchain.manualChatTrigger`) - Runs the flow on new manual chat message
 - [MCP Client](./langchain.mcpClient.md) (`@n8n/n8n-nodes-langchain.mcpClient`) - Standalone MCP Client
-- [MCP Client Tool](./langchain.mcpClientTool.md) (`@n8n/n8n-nodes-langchain.mcpClientTool`) - Connect to a custom MCP server
+- [MCP Client Tool](./langchain.mcpClientTool.md) (`@n8n/n8n-nodes-langchain.mcpClientTool`) - Connect tools from an MCP Server
 - [MCP Registry Client (internal)](./langchain.mcpRegistryClientTool.md) (`@n8n/n8n-nodes-langchain.mcpRegistryClientTool`) - Runtime backing for MCP registry-derived nodes
 - [MCP Server Trigger](./langchain.mcpTrigger.md) (`@n8n/n8n-nodes-langchain.mcpTrigger`) - Expose n8n tools as an MCP Server endpoint
 - [Microsoft Agent 365 Trigger](./langchain.microsoftAgent365Trigger.md) (`@n8n/n8n-nodes-langchain.microsoftAgent365Trigger`) - Trigger for Microsoft Agent 365
@@ -526,6 +526,7 @@ nodes:
 - [VectorStoreInMemory](./langchain.VectorStoreInMemory.md) (`@n8n/n8n-nodes-langchain.VectorStoreInMemory`) - VectorStoreInMemory - LangChain AI Node
 - [VectorStoreMilvus](./langchain.VectorStoreMilvus.md) (`@n8n/n8n-nodes-langchain.VectorStoreMilvus`) - VectorStoreMilvus - LangChain AI Node
 - [VectorStoreMongoDBAtlas](./langchain.VectorStoreMongoDBAtlas.md) (`@n8n/n8n-nodes-langchain.VectorStoreMongoDBAtlas`) - VectorStoreMongoDBAtlas - LangChain AI Node
+- [VectorStoreOracleDB](./langchain.VectorStoreOracleDB.md) (`@n8n/n8n-nodes-langchain.VectorStoreOracleDB`) - VectorStoreOracleDB - LangChain AI Node
 - [VectorStorePinecone](./langchain.VectorStorePinecone.md) (`@n8n/n8n-nodes-langchain.VectorStorePinecone`) - VectorStorePinecone - LangChain AI Node
 - [VectorStoreQdrant](./langchain.VectorStoreQdrant.md) (`@n8n/n8n-nodes-langchain.VectorStoreQdrant`) - VectorStoreQdrant - LangChain AI Node
 - [VectorStoreRedis](./langchain.VectorStoreRedis.md) (`@n8n/n8n-nodes-langchain.VectorStoreRedis`) - VectorStoreRedis - LangChain AI Node
@@ -557,8 +558,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 521
-- **Generated**: 2026-05-19T22:33:39.354Z
+- **Nodes Documented**: 522
+- **Generated**: 2026-06-06T16:45:14.606Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

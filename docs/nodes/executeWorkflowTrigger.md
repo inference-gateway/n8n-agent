@@ -19,6 +19,7 @@ nodes:
       notice: ""
       outdatedVersionWarning: ""
       ${JSON_EXAMPLE}_notice: ""
+      returnOutput: "lastRunOnly" # Choose what to send back when the last node ran multiple times (for example, after a Loop Over Items)
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.executeWorkflowTrigger
 ```
@@ -49,6 +50,13 @@ nodes:
 - **Name**: `${JSON_EXAMPLE}_notice`
 - **Type**: `notice`
 - **Default**: `""`
+
+### Items to Return
+
+- **Name**: `returnOutput`
+- **Type**: `options`
+- **Default**: `"lastRunOnly"`
+- **Description**: Choose what to send back when the last node ran multiple times (for example, after a Loop Over Items)
 
 
 ## Node Information

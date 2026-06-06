@@ -15,12 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Gumroad Trigger
     parameters:
+      authentication: "accessToken"
       resource: "" # When subscribed to this resource, you will be notified of cancellations of the user's subscribers
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.gumroadTrigger
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"accessToken"`
 
 ### Resource
 
