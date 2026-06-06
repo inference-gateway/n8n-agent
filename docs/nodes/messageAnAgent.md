@@ -15,9 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Message an n8n Agent
     parameters:
-      publishedAgentNotice: ""
       agentId: "{ mode: 'list', value: '' }" # The agent to send the message to
       message: "" # The message to send to the agent
+      useStructuredOutput: false # Whether to constrain the agent response to a JSON Schema you provide. The conforming object is returned on the "structuredOutput" field.
+      outputSchema: "{
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string",
+      "description": "The result of the task"
+    }
+  },
+  "required": ["result"]
+}" # The JSON Schema that the agent response must conform to
+      structuredOutputNotice: ""
       advanced: # Reuse an agent session to keep memory across runs. Leave empty to start a fresh session per execution.
         sessionId: "" # Reuse an agent session to keep memory across runs. Leave empty to start a fresh session per execution.
     position: [x, y]  # Canvas position coordinates
@@ -25,12 +36,6 @@ nodes:
 ```
 
 ## Parameters
-
-### Create an n8n agent <a href="/new-agent" target="_blank">here</a>. Only published agents are listed below.
-
-- **Name**: `publishedAgentNotice`
-- **Type**: `notice`
-- **Default**: `""`
 
 ### Agent
 
@@ -46,6 +51,26 @@ nodes:
 - **Type**: `string`
 - **Default**: `""`
 - **Description**: The message to send to the agent
+
+### Require Specific Output Format
+
+- **Name**: `useStructuredOutput`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to constrain the agent response to a JSON Schema you provide. The conforming object is returned on the "structuredOutput" field.
+
+### Output Schema
+
+- **Name**: `outputSchema`
+- **Type**: `json`
+- **Default**: `"{\n  \"type\": \"object\",\n  \"properties\": {\n    \"result\": {\n      \"type\": \"string\",\n      \"description\": \"The result of the task\"\n    }\n  },\n  \"required\": [\"result\"]\n}"`
+- **Description**: The JSON Schema that the agent response must conform to
+
+### Structured output is enforced by the model provider. For best results across providers, mark every property as required. Some providers reject optional fields or advanced keywords (e.g. OpenAI and xAI), and a few do not support structured output at all (e.g. DeepSeek).
+
+- **Name**: `structuredOutputNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Advanced
 

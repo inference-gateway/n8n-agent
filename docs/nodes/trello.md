@@ -15,12 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Trello
     parameters:
+      authentication: "apiKey"
       resource: "card"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.trello
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiKey"`
 
 ### Resource
 

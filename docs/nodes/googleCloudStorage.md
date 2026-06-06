@@ -15,12 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Google Cloud Storage
     parameters:
+      authentication: "oAuth2"
       resource: "bucket"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.googleCloudStorage
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
 
 ### Resource
 

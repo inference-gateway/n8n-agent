@@ -2,7 +2,7 @@
 
 ## Description
 
-Connect to a custom MCP server
+Connect tools from an MCP Server
 
 **Version**: 1
 
