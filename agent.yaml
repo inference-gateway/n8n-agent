@@ -113,7 +113,7 @@ spec:
   language:
     go:
       module: github.com/inference-gateway/n8n-agent
-      version: "1.26.2"
+      version: "1.26.4"
       vendor:
         deps: []
         devdeps: []
