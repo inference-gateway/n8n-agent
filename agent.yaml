@@ -2,7 +2,8 @@ apiVersion: adl.inference-gateway.com/v1
 kind: Agent
 metadata:
   name: n8n-agent
-  description: A2A agent server specialized in generating and automating n8n workflows
+  description:
+    A2A agent server specialized in generating and automating n8n workflows
   version: 0.2.7
 spec:
   capabilities:
@@ -49,7 +50,9 @@ spec:
     - id: read
     - id: search_n8n_docs
       name: search_n8n_docs
-      description: Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns
+      description:
+        Search through N8N node documentation to find relevant information about
+        specific nodes, their parameters, and usage patterns
       tags:
         - documentation
         - search
@@ -59,20 +62,27 @@ spec:
         properties:
           query:
             type: string
-            description: Search query to find relevant N8N nodes or documentation
+            description:
+              Search query to find relevant N8N nodes or documentation
           node_type:
             type: string
-            description: Optional filter by specific node type (e.g., "webhook", "http", "database")
+            description:
+              Optional filter by specific node type (e.g., "webhook", "http",
+              "database")
           category:
             type: string
-            description: Optional filter by category (e.g., "trigger", "action", "langchain")
+            description:
+              Optional filter by category (e.g., "trigger", "action",
+              "langchain")
         required:
           - query
       inject:
         - logger
     - id: validate_n8n_workflow
       name: validate_n8n_workflow
-      description: Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
+      description:
+        Validate N8N workflow YAML/JSON to ensure it follows the correct schema
+        and has all required attributes before creating artifacts
       tags:
         - validation
         - workflow
@@ -84,14 +94,17 @@ spec:
         properties:
           workflow_content:
             type: string
-            description: The complete N8N workflow content to validate (YAML or JSON format)
+            description:
+              The complete N8N workflow content to validate (YAML or JSON
+              format)
           format:
             type: string
             enum:
               - yaml
               - json
               - auto
-            description: The format of the workflow content (auto-detect if not specified)
+            description:
+              The format of the workflow content (auto-detect if not specified)
             default: "auto"
         required:
           - workflow_content
@@ -101,7 +114,11 @@ spec:
     - id: n8n-workflow-generation
       bare: true
       name: n8n-workflow-generation
-      description: "Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact."
+      description:
+        "Use this when the user requests a new n8n workflow or asks to automate
+        a process. Searches relevant nodes with search_n8n_docs, drafts the
+        workflow YAML, validates it with validate_n8n_workflow, then saves it
+        via create_artifact."
       tags:
         - n8n
         - workflow
@@ -134,13 +151,17 @@ spec:
     pages:
       - title: Setup
         path: docs/setup.md
-        description: Install, build, and run the n8n-agent locally or with Docker.
+        description:
+          Install, build, and run the n8n-agent locally or with Docker.
       - title: Configuration
         path: docs/configuration.md
-        description: Environment variables for the LLM provider, artifacts, and tools.
+        description:
+          Environment variables for the LLM provider, artifacts, and tools.
       - title: Usage
         path: docs/usage.md
-        description: Submit tasks, generate and validate n8n workflows, and collect artifacts.
+        description:
+          Submit tasks, generate and validate n8n workflows, and collect
+          artifacts.
   server:
     port: 8080
     debug: false
@@ -162,6 +183,8 @@ spec:
     dependabot: true
     ci: true
     cd: true
+    app_id_secret: RELEASER_APP_ID
+    app_private_key_secret: RELEASER_APP_PRIVATE_KEY
   artifacts:
     enabled: true
   development:
@@ -176,8 +199,12 @@ spec:
       orchestrators:
         claudecode:
           enabled: true
+          appIdSecret: CLAUDE_APP_ID
+          appPrivateKeySecret: CLAUDE_APP_PRIVATE_KEY
         infer:
           enabled: true
+          appIdSecret: INFER_APP_ID
+          appPrivateKeySecret: INFER_APP_PRIVATE_KEY
         codex:
           enabled: false
         gemini:
