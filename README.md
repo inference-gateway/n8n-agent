@@ -74,11 +74,25 @@ infer agents add n8n-agent http://localhost:8080 \
 | `search_n8n_docs` | Search through N8N node documentation to find relevant information about specific nodes, their parameters, and usage patterns | category, node_type, query |
 | `validate_n8n_workflow` | Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts | format, workflow_content |
 
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| Generate a workflow from a plain-English request | Ask for "a workflow that posts new Airtable records to a Slack channel" and the agent searches the relevant n8n nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, and returns it as a downloadable artifact ready to import into n8n. |
+| Look up n8n node documentation | Ask "which parameters does the HTTP Request node take?" and the agent uses search_n8n_docs to query its 520+ node documentation set (standard and LangChain AI nodes), answering with accurate node types, categories, and parameters. |
+| Validate an existing workflow | Paste an n8n workflow in YAML or JSON and the agent runs validate_n8n_workflow to check it against the schema, confirm required attributes, and report errors and warnings before you import it. |
+| Scaffold a scheduled automation | Describe a trigger plus actions - for example "every morning fetch new RSS items and email a digest" - and the agent selects an appropriate trigger node, wires the actions and connections, and produces a ready-to-run workflow with follow-up configuration notes. |
+
 ## Skills (loaded into the system prompt)
 
 | Skill | Description | Source |
 |-------|-------------|--------|
 | `n8n-workflow-generation` | Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact. | bare scaffold (`skills/n8n-workflow-generation.md`) |
+
+## Documentation
+- [Setup](docs/setup.md)
+- [Configuration](docs/configuration.md)
+- [Usage](docs/usage.md)
 
 ## Configuration
 
