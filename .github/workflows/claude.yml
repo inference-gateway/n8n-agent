@@ -60,7 +60,7 @@ jobs:
           fetch-depth: 1
 
       - name: Set up Go
-        uses: actions/setup-go@v6.5.0
+        uses: actions/setup-go@v7.0.0
         with:
           go-version-file: 'go.mod'
           cache: true
@@ -129,7 +129,7 @@ jobs:
 
       - name: Run Claude Code
         id: claude
-        uses: anthropics/claude-code-action@v1.0.174
+        uses: anthropics/claude-code-action@v1.0.175
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
