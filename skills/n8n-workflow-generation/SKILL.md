@@ -44,10 +44,12 @@ one the workflow cannot run automatically.
 
 ### Step 3 - Validate (mandatory)
 
-Call `validate_n8n_workflow` with the drafted YAML. If the result is INVALID,
-fix every reported error and re-run validation. Repeat until the validator
-returns `VALID`. Treat warnings as informational unless the user asked for a
-production-grade flow, in which case address them too.
+Follow the **n8n-workflow-validation** skill - load
+`skills/n8n-workflow-validation/SKILL.md` via the Read tool and run it against
+the drafted workflow. It calls `validate_n8n_workflow`, fixes every reported
+error, and re-validates until the result is `VALID`. Do not advance to Step 4
+until validation passes. Treat warnings as informational unless the user asked
+for a production-grade flow, in which case address them too.
 
 ### Step 4 - Save the artifact (mandatory)
 

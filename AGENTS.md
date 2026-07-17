@@ -46,6 +46,13 @@ When a user requests a new workflow or asks to automate a process, follow the
 n8n-workflow-generation skill - load skills/n8n-workflow-generation/SKILL.md
 via the read tool and execute its steps exactly.
 
+Before saving any workflow with create_artifact you MUST validate it by
+following the n8n-workflow-validation skill - load
+skills/n8n-workflow-validation/SKILL.md via the read tool. Call
+validate_n8n_workflow, fix every reported error, and re-validate until the
+result is VALID. Never create an artifact from an unvalidated or invalid
+workflow, and only consider the task complete once validation passes.
+
 
 **Configuration:**
 
@@ -71,12 +78,17 @@ This agent exposes 3 function-call tools:
 
 ## Skills
 
-This agent ships 1 markdown skill that are loaded into the system prompt at startup:
+This agent ships 2 markdown skills that are loaded into the system prompt at startup:
 
 ### n8n-workflow-generation
 - **Description**: Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
 - **Tags**: n8n, workflow, automation
 - **Source**: scaffolded locally (`skills/n8n-workflow-generation/SKILL.md`)
+
+### n8n-workflow-validation
+- **Description**: Use this to validate an n8n workflow before saving it as an artifact, or whenever a user asks to check, lint, or validate an existing workflow. Runs validate_n8n_workflow, fixes every reported error, and re-validates until the workflow is VALID. Validation is mandatory before create_artifact.
+- **Tags**: n8n, workflow, validation, yaml, json
+- **Source**: scaffolded locally (`skills/n8n-workflow-validation/SKILL.md`)
 
 ## Server Configuration
 
@@ -157,6 +169,8 @@ docker run -p 8080:8080 n8n-agent
 │   └── validate_n8n_workflow.go  # Validate N8N workflow YAML/JSON to ensure it follows the correct schema and has all required attributes before creating artifacts
 ├── skills/                       # Skill directories (SKILL.md + optional assets)
 │   └── n8n-workflow-generation/  # Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
+│       └── SKILL.md              # Playbook prepended to the system prompt
+│   └── n8n-workflow-validation/  # Use this to validate an n8n workflow before saving it as an artifact, or whenever a user asks to check, lint, or validate an existing workflow. Runs validate_n8n_workflow, fixes every reported error, and re-validates until the workflow is VALID. Validation is mandatory before create_artifact.
 │       └── SKILL.md              # Playbook prepended to the system prompt
 ├── .well-known/                  # Agent configuration
 │   └── agent-card.json           # Agent metadata
