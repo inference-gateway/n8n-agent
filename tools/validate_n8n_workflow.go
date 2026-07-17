@@ -86,6 +86,8 @@ func NewValidateN8NWorkflowTool(logger *zap.Logger) server.Tool {
 
 // ValidateN8NWorkflowHandler handles the validate_n8n_workflow tool execution
 func (s *ValidateN8NWorkflowTool) ValidateN8NWorkflowHandler(ctx context.Context, args map[string]any) (string, error) {
+	span := startToolSpan(ctx, "validate_n8n_workflow")
+	defer span.End()
 	s.logger.Debug("ValidateN8NWorkflowHandler invoked", zap.Any("args", args))
 
 	var p ValidateN8nWorkflowArgs
