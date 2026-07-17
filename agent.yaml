@@ -46,6 +46,13 @@ spec:
       When a user requests a new workflow or asks to automate a process, follow the
       n8n-workflow-generation skill - load skills/n8n-workflow-generation/SKILL.md
       via the read tool and execute its steps exactly.
+
+      Before saving any workflow with create_artifact you MUST validate it by
+      following the n8n-workflow-validation skill - load
+      skills/n8n-workflow-validation/SKILL.md via the read tool. Call
+      validate_n8n_workflow, fix every reported error, and re-validate until the
+      result is VALID. Never create an artifact from an unvalidated or invalid
+      workflow, and only consider the task complete once validation passes.
   tools:
     - id: read
     - id: search_n8n_docs
@@ -123,6 +130,21 @@ spec:
         - n8n
         - workflow
         - automation
+    - id: n8n-workflow-validation
+      bare: true
+      name: n8n-workflow-validation
+      description:
+        "Use this to validate an n8n workflow before saving it as an artifact,
+        or whenever a user asks to check, lint, or validate an existing
+        workflow. Runs validate_n8n_workflow, fixes every reported error, and
+        re-validates until the workflow is VALID. Validation is mandatory before
+        create_artifact."
+      tags:
+        - n8n
+        - workflow
+        - validation
+        - yaml
+        - json
   examples:
     - title: Generate a workflow from a plain-English request
       description: >-
