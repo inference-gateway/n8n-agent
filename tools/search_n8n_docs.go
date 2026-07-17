@@ -56,6 +56,8 @@ func NewSearchN8NDocsTool(logger *zap.Logger) server.Tool {
 
 // SearchN8NDocsHandler handles the search_n8n_docs tool execution
 func (s *SearchN8NDocsTool) SearchN8NDocsHandler(ctx context.Context, args map[string]any) (string, error) {
+	span := startToolSpan(ctx, "search_n8n_docs")
+	defer span.End()
 	s.logger.Debug("SearchN8NDocsHandler invoked", zap.Any("args", args))
 
 	var p SearchN8nDocsArgs
