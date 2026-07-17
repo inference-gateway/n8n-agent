@@ -185,6 +185,13 @@ spec:
     cd: true
     app_id_secret: RELEASER_APP_ID
     app_private_key_secret: RELEASER_APP_PRIVATE_KEY
+  telemetry:
+    enabled: true
+    metrics:
+      exporter:
+        prometheus:
+          host: ""
+          port: 9464
   artifacts:
     enabled: true
   development:
