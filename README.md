@@ -86,8 +86,8 @@ infer agents add n8n-agent http://localhost:8080 \
 
 | Skill | Description | Source |
 |-------|-------------|--------|
-| `n8n-workflow-generation` | Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact. | bare scaffold (`skills/n8n-workflow-generation.md`) |
-| `n8n-workflow-validation` | Use this to validate an n8n workflow before saving it as an artifact, or whenever a user asks to check, lint, or validate an existing workflow. Runs validate_n8n_workflow, fixes every reported error, and re-validates until the workflow is VALID. Validation is mandatory before create_artifact. | bare scaffold (`skills/n8n-workflow-validation.md`) |
+| `n8n-workflow-generation` | Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact. | bare scaffold (`.agents/skills/n8n-workflow-generation/SKILL.md`) |
+| `n8n-workflow-validation` | Use this to validate an n8n workflow before saving it as an artifact, or whenever a user asks to check, lint, or validate an existing workflow. Runs validate_n8n_workflow, fixes every reported error, and re-validates until the workflow is VALID. Validation is mandatory before create_artifact. | bare scaffold (`.agents/skills/n8n-workflow-validation/SKILL.md`) |
 
 ## Documentation
 - [Setup](docs/setup.md)

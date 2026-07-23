@@ -10,7 +10,7 @@ n8n-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](http
 
 ### ADL-Generated Structure
 
-The codebase is generated using ADL CLI 0.52.0 and follows a strict generation pattern:
+The codebase is generated using ADL CLI 0.54.0 and follows a strict generation pattern:
 - **Generated Files**: Marked with `DO NOT EDIT` headers - manual changes will be overwritten
 - **Configuration Source**: `agent.yaml` - defines agent capabilities, skills, and metadata
 - **Server Implementation**: Built on the ADK (Agent Development Kit) framework from `github.com/inference-gateway/adk`
@@ -90,17 +90,19 @@ The following skills are currently shipped with the agent:
 - **n8n-workflow-generation** (bare scaffold): Use this when the user requests a new n8n workflow or asks to automate a process. Searches relevant nodes with search_n8n_docs, drafts the workflow YAML, validates it with validate_n8n_workflow, then saves it via create_artifact.
 - **n8n-workflow-validation** (bare scaffold): Use this to validate an n8n workflow before saving it as an artifact, or whenever a user asks to check, lint, or validate an existing workflow. Runs validate_n8n_workflow, fixes every reported error, and re-validates until the workflow is VALID. Validation is mandatory before create_artifact.
 
-Each skill lives in its own directory at `skills/<id>/SKILL.md` and is
-loaded into the system prompt at startup. Bare skills can ship arbitrary
+Each skill lives in its own directory at `.agents/skills/<id>/SKILL.md`
+and is loaded into the system prompt at startup. A generated `.claude/skills`
+-> `../.agents/skills` symlink makes the same tree readable as `.claude/skills/<id>/SKILL.md`,
+so Claude Code picks these skills up directly. Bare skills can ship arbitrary
 bundled assets (scripts, templates, resources) alongside `SKILL.md` -
-the whole `skills/<id>/` directory is protected by `.adl-ignore` against
+the whole `.agents/skills/<id>/` directory is protected by `.adl-ignore` against
 regeneration overwrites. To modify skills:
 1. Update `agent.yaml` `spec.skills` with skill definitions
 2. Run `task generate` (registry skills are re-fetched; bare skill
    directories are preserved when listed in `.adl-ignore`)
-3. For bare skills, edit `skills/<id>/SKILL.md` directly - frontmatter
+3. For bare skills, edit `.agents/skills/<id>/SKILL.md` directly - frontmatter
    (`name`/`description`/`tags`) shows up on the agent card. Drop helper
-   scripts or templates next to it (e.g. `skills/<id>/scripts/foo.py`).
+   scripts or templates next to it (e.g. `.agents/skills/<id>/scripts/foo.py`).
 
 ### Modifying Agent Behavior
 
@@ -125,7 +127,7 @@ When implementing tests:
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate
-- **ADL Version**: Ensure ADL CLI 0.52.0 or compatible version for regeneration
+- **ADL Version**: Ensure ADL CLI 0.54.0 or compatible version for regeneration
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips

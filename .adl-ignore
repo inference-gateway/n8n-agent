@@ -21,5 +21,5 @@ tools/search_n8n_docs.go
 tools/search_n8n_docs_test.go
 tools/validate_n8n_workflow.go
 tools/validate_n8n_workflow_test.go
-skills/n8n-workflow-generation/
-skills/n8n-workflow-validation/
+.agents/skills/n8n-workflow-generation/
+.agents/skills/n8n-workflow-validation/

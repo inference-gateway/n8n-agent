@@ -45,7 +45,7 @@ one the workflow cannot run automatically.
 ### Step 3 - Validate (mandatory)
 
 Follow the **n8n-workflow-validation** skill - load
-`skills/n8n-workflow-validation/SKILL.md` via the Read tool and run it against
+`.agents/skills/n8n-workflow-validation/SKILL.md` via the Read tool and run it against
 the drafted workflow. It calls `validate_n8n_workflow`, fixes every reported
 error, and re-validates until the result is `VALID`. Do not advance to Step 4
 until validation passes. Treat warnings as informational unless the user asked
