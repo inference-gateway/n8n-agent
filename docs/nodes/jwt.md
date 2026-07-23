@@ -25,6 +25,7 @@ nodes:
         notBefore: "0" # The time before which the JWT must not be accepted for processing
         subject: "" # Identifies the principal that is the subject of the JWT
       claimsJson: "{\n  "my_field_1": "value 1",\n  "my_field_2": "value 2"\n}\n" # Claims to add to the token in JSON format
+      headerClaims: {} # Custom claims to add to the JWT header, such as a certificate thumbprint (x5t) or key ID (kid). These are merged with the auto-generated header, and values set here take precedence. Useful for building Microsoft Entra certificate client assertions.
       token: "" # The token to verify or decode
       options: {} # Whether to return the complete decoded token with information about the header and signature or just the payload
     position: [x, y]  # Canvas position coordinates
@@ -99,6 +100,13 @@ nodes:
 - **Type**: `json`
 - **Default**: `"{\\n  \"my_field_1\": \"value 1\",\\n  \"my_field_2\": \"value 2\"\\n}\\n"`
 - **Description**: Claims to add to the token in JSON format
+
+### Header Claims (JSON)
+
+- **Name**: `headerClaims`
+- **Type**: `json`
+- **Default**: `"{}"`
+- **Description**: Custom claims to add to the JWT header, such as a certificate thumbprint (x5t) or key ID (kid). These are merged with the auto-generated header, and values set here take precedence. Useful for building Microsoft Entra certificate client assertions.
 
 ### Token
 

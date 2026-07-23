@@ -15,14 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft OneDrive Trigger
     parameters:
-      # No parameters available
+      authentication: "microsoftOneDriveOAuth2Api" # Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Files.ReadWrite.All) on the credential.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftOneDriveTrigger
 ```
 
 ## Parameters
 
-This node has no configurable parameters.
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftOneDriveOAuth2Api"`
+- **Description**: Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Files.ReadWrite.All) on the credential.
+
 
 ## Node Information
 

@@ -15,7 +15,8 @@ nodes:
   - id: ${unique-node-id}
     name: MCP Server Trigger
     parameters:
-      authentication: "none" # The way to authenticate
+      authentication: "none" # Require user to give consent to use their n8n account
+      requireExecuteAccess: true # Whether the triggering user must also have permission to execute the workflow in the project it belongs to
       path: "" # The base path for this MCP server
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.mcpTrigger
@@ -28,7 +29,14 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"none"`
-- **Description**: The way to authenticate
+- **Description**: Require user to give consent to use their n8n account
+
+### Require Workflow Execute Permission
+
+- **Name**: `requireExecuteAccess`
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether the triggering user must also have permission to execute the workflow in the project it belongs to
 
 ### Path
 

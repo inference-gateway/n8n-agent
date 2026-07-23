@@ -20,7 +20,7 @@ nodes:
       message: "" # The message to be sent
       jsonParameters: false
       useSchemaRegistry: false # Whether to use Confluent Schema Registry
-      schemaRegistryUrl: "" # URL of the schema registry
+      schemaRegistryUrl: "" # URL of the schema registry. Only used when no Schema Registry credential is selected.
       useKey: false # Whether to use a message key
       key: "" # The message key
       eventName: "" # Namespace and Name of Schema in Schema Registry (namespace.name)
@@ -76,7 +76,7 @@ nodes:
 - **Name**: `schemaRegistryUrl`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: URL of the schema registry
+- **Description**: URL of the schema registry. Only used when no Schema Registry credential is selected.
 - **Placeholder**: https://schema-registry-domain:8081
 
 ### Use Key

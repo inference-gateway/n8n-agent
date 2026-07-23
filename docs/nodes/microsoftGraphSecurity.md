@@ -15,12 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft Graph Security
     parameters:
+      authentication: "microsoftGraphSecurityOAuth2Api" # Generic Microsoft Graph credential. It must have the SecurityEvents.ReadWrite.All offline_access scope with Entra admin consent.
       resource: "secureScore"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftGraphSecurity
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftGraphSecurityOAuth2Api"`
+- **Description**: Generic Microsoft Graph credential. It must have the SecurityEvents.ReadWrite.All offline_access scope with Entra admin consent.
 
 ### Resource
 

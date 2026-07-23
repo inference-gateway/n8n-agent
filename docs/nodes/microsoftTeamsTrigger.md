@@ -15,7 +15,9 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft Teams Trigger
     parameters:
+      authentication: "microsoftTeamsOAuth2Api" # Generic Microsoft Graph credential. Add the Teams change-notification scopes (e.g. ChannelMessage.Read.All, Chat.Read, Subscription.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
       event: "newChannelMessage" # A new channel is created
+      chatTriggerServicePrincipalNotice: ""
       watchAllTeams: false # Whether to watch for the event in all the available teams
       teamId: "{
 					mode: 'list',
@@ -37,12 +39,25 @@ nodes:
 
 ## Parameters
 
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftTeamsOAuth2Api"`
+- **Description**: Generic Microsoft Graph credential. Add the Teams change-notification scopes (e.g. ChannelMessage.Read.All, Chat.Read, Subscription.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
+
 ### Trigger On
 
 - **Name**: `event`
 - **Type**: `options`
 - **Default**: `"newChannelMessage"`
 - **Description**: A new channel is created
+
+### Chat triggers (New Chat, New Chat Message) are not available with the Service Principal credential. App-only Microsoft Graph cannot subscribe to the chats of a signed-in user; use an OAuth2 credential for chat triggers.
+
+- **Name**: `chatTriggerServicePrincipalNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Watch All Teams
 

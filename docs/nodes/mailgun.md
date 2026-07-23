@@ -19,6 +19,9 @@ nodes:
       toEmail: "" # Email address of the recipient. Multiple ones can be separated by comma.
       ccEmail: "" # Cc Email address of the recipient. Multiple ones can be separated by comma.
       bccEmail: "" # Bcc Email address of the recipient. Multiple ones can be separated by comma.
+      replyTo: "" # Reply-To header. Recipients will use this address when replying.
+      customHeaders: {} # Arbitrary email headers. Enter only the header name (e.g. X-Custom-Header); the h: prefix is added automatically.
+      tags: "" # Tags for segmentation and analytics (comma-separated). Sent as o:tag.
       subject: "" # Subject line of the email
       text: "" # Plain text message of email
       html: "" # HTML text message of email
@@ -58,6 +61,30 @@ nodes:
 - **Type**: `string`
 - **Default**: `""`
 - **Description**: Bcc Email address of the recipient. Multiple ones can be separated by comma.
+
+### Reply-To
+
+- **Name**: `replyTo`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Reply-To header. Recipients will use this address when replying.
+- **Placeholder**: reply@example.com
+
+### Custom Headers
+
+- **Name**: `customHeaders`
+- **Type**: `fixedCollection`
+- **Default**: `"{}"`
+- **Description**: Arbitrary email headers. Enter only the header name (e.g. X-Custom-Header); the h: prefix is added automatically.
+- **Placeholder**: Add Header
+
+### Tags
+
+- **Name**: `tags`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Tags for segmentation and analytics (comma-separated). Sent as o:tag.
+- **Placeholder**: tag1, tag2
 
 ### Subject
 

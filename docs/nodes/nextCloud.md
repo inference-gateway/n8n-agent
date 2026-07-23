@@ -32,7 +32,7 @@ nodes:
       fileContent: "" # The text content of the file to upload
       binaryPropertyName: "data"
       path: "" # The file path of the file to share. Has to contain the full path. The path should start with "/".
-      shareType: "0" # The share permissions to set
+      shareType: "0" # Generates an internal Nextcloud URL (not a public share). Uses the file/folder ID from a PROPFIND call. The output is { link: "..." }. Do not use with shareWith fields.
       circleId: "" # The ID of the circle to share with
       email: "" # The Email address to share with
       groupId: "" # The ID of the group to share with
@@ -184,7 +184,7 @@ nodes:
 - **Name**: `shareType`
 - **Type**: `options`
 - **Default**: `"0"`
-- **Description**: The share permissions to set
+- **Description**: Generates an internal Nextcloud URL (not a public share). Uses the file/folder ID from a PROPFIND call. The output is { link: "..." }. Do not use with shareWith fields.
 
 ### Circle ID
 

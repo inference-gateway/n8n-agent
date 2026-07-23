@@ -15,12 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft To Do
     parameters:
+      authentication: "microsoftToDoOAuth2Api" # Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Tasks.ReadWrite) on the credential.
       resource: "task"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftToDo
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftToDoOAuth2Api"`
+- **Description**: Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Tasks.ReadWrite) on the credential.
 
 ### Resource
 

@@ -17,6 +17,11 @@ nodes:
     parameters:
       resource: "chat"
       operation: "postMessage" # Post a message to a channel or a direct message
+      operation: "get" # Retrieve a list of subscriptions
+      operation: "messages" # Retrieve a list of messages
+      roomId: "" # The room identifier
+      returnAll: false # Whether to return all results or only up to a given limit
+      limit: "50" # Max number of results to return
       channel: "" # The channel name with the prefix in front of it
       text: "" # The text of the message to send, is optional because of attachments
       jsonParameters: false
@@ -59,6 +64,41 @@ nodes:
 - **Type**: `options`
 - **Default**: `"postMessage"`
 - **Description**: Post a message to a channel or a direct message
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"get"`
+- **Description**: Retrieve a list of subscriptions
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
+- **Default**: `"messages"`
+- **Description**: Retrieve a list of messages
+
+### Room ID
+
+- **Name**: `roomId`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The room identifier
+
+### Return All
+
+- **Name**: `returnAll`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return all results or only up to a given limit
+
+### Limit
+
+- **Name**: `limit`
+- **Type**: `number`
+- **Default**: `"50"`
+- **Description**: Max number of results to return
 
 ### Channel
 

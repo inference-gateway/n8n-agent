@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 522 n8n nodes, generated from the official n8n repository.
+Documentation for 521 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (522)
+## Available Nodes (521)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -66,10 +66,9 @@ nodes:
 - [Brevo Trigger](./sendInBlueApi.md) (`n8n-nodes-base.sendInBlueApi`) - Starts the workflow when Brevo events occur
 - [Bubble](./bubble.md) (`n8n-nodes-base.bubble`) - Consume the Bubble Data API
 - [Cal.com Trigger](./calTrigger.md) (`n8n-nodes-base.calTrigger`) - Handle Cal.com events via webhooks
-- [Calendly Trigger](./calendlyTrigger.md) (`n8n-nodes-base.calendlyTrigger`) - Starts the workflow when Calendly events occur
 - [Chargebee](./chargebee.md) (`n8n-nodes-base.chargebee`) - Retrieve data from Chargebee API
 - [Chargebee Trigger](./chargebeeTrigger.md) (`n8n-nodes-base.chargebeeTrigger`) - Starts the workflow when Chargebee events occur
-- [Check Credential Status](./dynamicCredentialCheck.md) (`n8n-nodes-base.dynamicCredentialCheck`) - Checks whether the triggering user has the required Private credential configure...
+- [Check Credential Status](./dynamicCredentialCheck.md) (`n8n-nodes-base.dynamicCredentialCheck`) - Checks whether the triggering user has the required end-user credential configur...
 - [CircleCI](./circleCi.md) (`n8n-nodes-base.circleCi`) - Consume CircleCI API
 - [Clearbit](./clearbit.md) (`n8n-nodes-base.clearbit`) - Consume Clearbit API
 - [ClickUp](./clickUp.md) (`n8n-nodes-base.clickUp`) - Consume ClickUp API (Beta)
@@ -214,9 +213,8 @@ nodes:
 - [LingvaNex](./lingvaNex.md) (`n8n-nodes-base.lingvaNex`) - Consume LingvaNex API
 - [LinkedIn](./linkedIn.md) (`n8n-nodes-base.linkedIn`) - Consume LinkedIn API
 - [Local File Trigger](./localFileTrigger.md) (`n8n-nodes-base.localFileTrigger`) - Triggers a workflow on file system changes
-- [LoneScale](./loneScale.md) (`n8n-nodes-base.loneScale`) - Create List, add / delete items
+- [LoneScale](./loneScale.md) (`n8n-nodes-base.loneScale`) - Enrich and source contacts, search companies, and manage lists
 - [LoneScale Trigger](./loneScaleTrigger.md) (`n8n-nodes-base.loneScaleTrigger`) - Trigger LoneScale Workflow
-- [Loop Over Items (Split in Batches)](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Magento 2](./magento2.md) (`n8n-nodes-base.magento2`) - Consume Magento API
 - [Mailcheck](./mailcheck.md) (`n8n-nodes-base.mailcheck`) - Consume Mailcheck API
 - [Mailchimp](./mailchimp.md) (`n8n-nodes-base.mailchimp`) - Consume Mailchimp API
@@ -232,16 +230,15 @@ nodes:
 - [Mautic](./mautic.md) (`n8n-nodes-base.mautic`) - Consume Mautic API
 - [Mautic Trigger](./mauticTrigger.md) (`n8n-nodes-base.mauticTrigger`) - Handle Mautic events via webhooks
 - [Medium](./medium.md) (`n8n-nodes-base.medium`) - Consume Medium API
-- [Message an n8n Agent](./messageAnAgent.md) (`n8n-nodes-base.messageAnAgent`) - Send a message to a n8n agent
 - [MessageBird](./messageBird.md) (`n8n-nodes-base.messageBird`) - Sends SMS via MessageBird
 - [Metabase](./metabase.md) (`n8n-nodes-base.metabase`) - Use the Metabase API
 - [Microsoft Dynamics CRM](./microsoftDynamicsCrm.md) (`n8n-nodes-base.microsoftDynamicsCrm`) - Consume Microsoft Dynamics CRM API
 - [Microsoft Entra ID](./microsoftEntra.md) (`n8n-nodes-base.microsoftEntra`) - Interact with Microsoft Entra ID API
+- [Microsoft Excel (SharePoint)](./microsoftExcelSharePoint.md) (`n8n-nodes-base.microsoftExcelSharePoint`) - Read and write Excel workbooks stored in SharePoint document libraries
 - [Microsoft Graph Security](./microsoftGraphSecurity.md) (`n8n-nodes-base.microsoftGraphSecurity`) - Consume the Microsoft Graph Security API
 - [Microsoft OneDrive](./microsoftOneDrive.md) (`n8n-nodes-base.microsoftOneDrive`) - Consume Microsoft OneDrive API
 - [Microsoft OneDrive Trigger](./microsoftOneDriveTrigger.md) (`n8n-nodes-base.microsoftOneDriveTrigger`) - Trigger for Microsoft OneDrive API.
 - [Microsoft Outlook Trigger](./microsoftOutlookTrigger.md) (`n8n-nodes-base.microsoftOutlookTrigger`) - Fetches emails from Microsoft Outlook and starts the workflow on specified polli...
-- [Microsoft SharePoint](./microsoftSharePoint.md) (`n8n-nodes-base.microsoftSharePoint`) - Interact with Microsoft SharePoint API
 - [Microsoft SQL](./microsoftSql.md) (`n8n-nodes-base.microsoftSql`) - Get, add and update data in Microsoft SQL
 - [Microsoft Teams Trigger](./microsoftTeamsTrigger.md) (`n8n-nodes-base.microsoftTeamsTrigger`) - Triggers workflows in n8n based on events from Microsoft Teams, such as new mess...
 - [Microsoft To Do](./microsoftToDo.md) (`n8n-nodes-base.microsoftToDo`) - Consume Microsoft To Do API.
@@ -333,6 +330,7 @@ nodes:
 - [Slack Trigger](./slackTrigger.md) (`n8n-nodes-base.slackTrigger`) - Handle Slack events via webhooks
 - [Snowflake](./snowflake.md) (`n8n-nodes-base.snowflake`) - Get, add and update data in Snowflake
 - [Sort](./sort.md) (`n8n-nodes-base.sort`) - Change items order
+- [Split In Batches](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Split Out](./splitOut.md) (`n8n-nodes-base.splitOut`) - Turn a list inside item(s) into separate items
 - [Spotify](./spotify.md) (`n8n-nodes-base.spotify`) - Access public song data via the Spotify API
 - [SSE Trigger](./sseTrigger.md) (`n8n-nodes-base.sseTrigger`) - Triggers the workflow when Server-Sent Events occur
@@ -415,7 +413,6 @@ nodes:
 - [AgentV1](./langchain.AgentV1.md) (`@n8n/n8n-nodes-langchain.AgentV1`) - AgentV1 - LangChain AI Node
 - [AgentV2](./langchain.AgentV2.md) (`@n8n/n8n-nodes-langchain.AgentV2`) - AgentV2 - LangChain AI Node
 - [AgentV3](./langchain.AgentV3.md) (`@n8n/n8n-nodes-langchain.AgentV3`) - AgentV3 - LangChain AI Node
-- [Alibaba Cloud Chat Model](./langchain.lmChatAlibabaCloud.md) (`@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`) - For advanced usage with an AI chain
 - [AlibabaCloud](./langchain.AlibabaCloud.md) (`@n8n/n8n-nodes-langchain.AlibabaCloud`) - AlibabaCloud - LangChain AI Node
 - [Anthropic](./langchain.Anthropic.md) (`@n8n/n8n-nodes-langchain.Anthropic`) - Anthropic - LangChain AI Node
 - [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
@@ -488,6 +485,7 @@ nodes:
 - [Motorhead](./langchain.memoryMotorhead.md) (`@n8n/n8n-nodes-langchain.memoryMotorhead`) - Use Motorhead Memory
 - [MultiQuery Retriever](./langchain.retrieverMultiQuery.md) (`@n8n/n8n-nodes-langchain.retrieverMultiQuery`) - Automates prompt tuning, generates diverse queries and expands document pool for...
 - [NVIDIA Nemotron Chat Model](./langchain.lmChatNvidia.md) (`@n8n/n8n-nodes-langchain.lmChatNvidia`) - NVIDIA Nemotron models from build.nvidia.com or self-hosted NIM
+- [NVIDIA Nemotron Embeddings](./langchain.embeddingsNvidia.md) (`@n8n/n8n-nodes-langchain.embeddingsNvidia`) - Use NVIDIA NeMo Retriever embedding models from build.nvidia.com or a self-hoste...
 - [Ollama](./langchain.Ollama.md) (`@n8n/n8n-nodes-langchain.Ollama`) - Ollama - LangChain AI Node
 - [Ollama Chat Model](./langchain.lmChatOllama.md) (`@n8n/n8n-nodes-langchain.lmChatOllama`) - Language Model Ollama
 - [Ollama Model](./langchain.lmOllama.md) (`@n8n/n8n-nodes-langchain.lmOllama`) - Language Model Ollama
@@ -502,6 +500,7 @@ nodes:
 - [Pinecone: Load](./langchain.vectorStorePineconeLoad.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeLoad`) - Load data from Pinecone Vector Store index
 - [Postgres Chat Memory](./langchain.memoryPostgresChat.md) (`@n8n/n8n-nodes-langchain.memoryPostgresChat`) - Stores the chat history in Postgres table.
 - [Question and Answer Chain](./langchain.chainRetrievalQa.md) (`@n8n/n8n-nodes-langchain.chainRetrievalQa`) - Answer questions about retrieved documents
+- [Qwen Cloud Chat Model](./langchain.lmChatAlibabaCloud.md) (`@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`) - For advanced usage with an AI chain
 - [Recursive Character Text Splitter](./langchain.textSplitterRecursiveCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter`) - Split text into chunks by characters recursively, recommended for most use cases
 - [Redis Chat Memory](./langchain.memoryRedisChat.md) (`@n8n/n8n-nodes-langchain.memoryRedisChat`) - Stores the chat history in Redis.
 - [Reranker Cohere](./langchain.rerankerCohere.md) (`@n8n/n8n-nodes-langchain.rerankerCohere`) - Use Cohere Reranker to reorder documents after retrieval from a vector store by ...
@@ -558,8 +557,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 522
-- **Generated**: 2026-06-06T16:45:14.606Z
+- **Nodes Documented**: 521
+- **Generated**: 2026-07-23T15:46:34.370Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

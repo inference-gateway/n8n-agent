@@ -64,6 +64,8 @@ nodes:
       file: "" # Photo to send. Pass a file_id to send a photo that exists on the Telegram servers (recommended), an HTTP URL for Telegram to get a photo from the Internet.
       file: "" # Sticker to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), an HTTP URL for Telegram to get a .webp file from the Internet.
       file: "" # Video file to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), an HTTP URL for Telegram to get a file from the Internet.
+      richFormat: "html" # Which formatting syntax the rich message content uses
+      richMessageText: "" # Content of the rich message, written in the selected Markdown or HTML syntax. Supports headings, lists, tables, block quotes, media, collapsible blocks and more.
       replyMarkup: "none" # Additional interface options
       forceReply: # Whether to show reply interface to the user, as if they manually selected the bot‘s message and tapped ’Reply
         force_reply: false # Whether to show reply interface to the user, as if they manually selected the bot‘s message and tapped ’Reply
@@ -78,6 +80,11 @@ nodes:
         remove_keyboard: false # Whether to request clients to remove the custom keyboard
         selective: false # Whether to force reply from specific users only
       additionalFields: {} # Whether to include the phrase “This message was sent automatically with n8n” to the end of the message
+      draftId: "1" # Unique identifier of the message draft; must be non-zero. Updates streamed with the same draft ID are animated.
+      text: "" # Text of the message draft, 0-4096 characters
+      additionalFields: # The unique identifier of the forum topic
+        message_thread_id: "0" # The unique identifier of the forum topic
+      additionalFields: {} # Whether to send the message silently. Users will receive a notification with no sound.
       chatId: "" # Unique identifier for the target chat or username of the target channel (in the format @channelusername). To find your chat ID ask @get_id_bot.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.telegram
@@ -434,6 +441,20 @@ nodes:
 - **Default**: `""`
 - **Description**: Video file to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), an HTTP URL for Telegram to get a file from the Internet.
 
+### Format
+
+- **Name**: `richFormat`
+- **Type**: `options`
+- **Default**: `"html"`
+- **Description**: Which formatting syntax the rich message content uses
+
+### Rich Message
+
+- **Name**: `richMessageText`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Content of the rich message, written in the selected Markdown or HTML syntax. Supports headings, lists, tables, block quotes, media, collapsible blocks and more.
+
 ### Reply Markup
 
 - **Name**: `replyMarkup`
@@ -538,6 +559,45 @@ nodes:
 - **Type**: `collection`
 - **Default**: `"{}"`
 - **Description**: Whether to include the phrase “This message was sent automatically with n8n” to the end of the message
+- **Placeholder**: Add Field
+
+### Draft ID
+
+- **Name**: `draftId`
+- **Type**: `number`
+- **Default**: `"1"`
+- **Description**: Unique identifier of the message draft; must be non-zero. Updates streamed with the same draft ID are animated.
+
+### Text
+
+- **Name**: `text`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Text of the message draft, 0-4096 characters
+
+### Additional Fields
+
+- **Name**: `additionalFields`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: The unique identifier of the forum topic
+- **Placeholder**: Add Field
+
+**Options:**
+
+#### Message Thread ID
+- **Name**: `message_thread_id`
+- **Type**: `number`
+- **Default**: `"0"`
+- **Description**: The unique identifier of the forum topic
+
+
+### Additional Fields
+
+- **Name**: `additionalFields`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to send the message silently. Users will receive a notification with no sound.
 - **Placeholder**: Add Field
 
 ### Chat ID

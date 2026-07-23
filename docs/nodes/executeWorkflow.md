@@ -30,6 +30,7 @@ nodes:
 					value: null,
 				}"
       mode: "once" # Pass all items into a single execution of the sub-workflow
+      eachModeDeprecationNotice: ""
       options: # Whether the main workflow should wait for the sub-workflow to complete its execution before proceeding
         waitForSubWorkflow: true # Whether the main workflow should wait for the sub-workflow to complete its execution before proceeding
     position: [x, y]  # Canvas position coordinates
@@ -118,6 +119,12 @@ nodes:
 - **Type**: `options`
 - **Default**: `"once"`
 - **Description**: Pass all items into a single execution of the sub-workflow
+
+### "Run once for each item" is deprecated and will be removed in a future version. To run the sub-workflow once per item, add a "Loop Over Items" node before this node and use "Run once with all items".
+
+- **Name**: `eachModeDeprecationNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Options
 

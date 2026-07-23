@@ -36,7 +36,7 @@ nodes:
       additionalFields: # The new track's position in the playlist
         position: "0" # The new track's position in the playlist
       query: "" # The keyword term to search for
-      operation: "track" # Get a track by its URI or ID
+      operation: "get" # Get a track by its URI or ID
       id: "" # The track's Spotify URI or ID
       query: "" # The keyword term to search for
       operation: "getLikedTracks" # Get the user's liked tracks
@@ -218,7 +218,7 @@ nodes:
 
 - **Name**: `operation`
 - **Type**: `options`
-- **Default**: `"track"`
+- **Default**: `"get"`
 - **Description**: Get a track by its URI or ID
 
 ### Track ID

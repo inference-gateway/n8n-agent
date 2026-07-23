@@ -20,7 +20,7 @@ nodes:
       resolveOffset: "onCompletion" # Select on which condition the offsets should be resolved. In the manual mode, when execution started by clicking on Execute Workflow or Execute Step button, offsets are always resolved immediately after message received.
       allowedStatuses: "['success']"
       useSchemaRegistry: false # Whether to use Confluent Schema Registry
-      schemaRegistryUrl: "" # URL of the schema registry
+      schemaRegistryUrl: "" # URL of the schema registry. Only used when no Schema Registry credential is selected.
       options: # Whether to allow sending message to a previously non-existing topic
         allowAutoTopicCreation: false # Whether to allow sending message to a previously non-existing topic
         autoCommitThreshold: "0" # The consumer will commit offsets after resolving a given number of messages
@@ -73,7 +73,7 @@ nodes:
 - **Name**: `schemaRegistryUrl`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: URL of the schema registry
+- **Description**: URL of the schema registry. Only used when no Schema Registry credential is selected.
 - **Placeholder**: https://schema-registry-domain:8081
 
 ### Options

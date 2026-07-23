@@ -15,12 +15,27 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft Outlook Trigger
     parameters:
+      authentication: "microsoftOutlookOAuth2Api" # App-only access via a Microsoft Entra app registration. Choose which mailbox to act on under "Mailbox".
+      servicePrincipalNotice: ""
       event: "messageReceived"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftOutlookTrigger
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftOutlookOAuth2Api"`
+- **Description**: App-only access via a Microsoft Entra app registration. Choose which mailbox to act on under "Mailbox".
+
+### Unless restricted by an Application Access Policy (Exchange Online New-ApplicationAccessPolicy), the Mail.Read application permission lets this app read any mailbox in the tenant
+
+- **Name**: `servicePrincipalNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Trigger On
 

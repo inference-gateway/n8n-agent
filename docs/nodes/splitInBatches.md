@@ -1,10 +1,10 @@
-# Loop Over Items (Split in Batches)
+# Split In Batches
 
 ## Description
 
 Split data into batches and iterate over each batch
 
-**Version**: 3
+**Version**: 2
 
 ## n8n-cli Configuration
 
@@ -13,12 +13,12 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Loop Over Items (Split in Batches)
+    name: Split In Batches
     parameters:
       splitInBatchesNotice: ""
-      batchSize: "1" # The number of items to return with each call
-      options: # Whether the node starts again from the beginning of the input items. This will treat incoming data as a new set rather than continuing with the previous items.
-        reset: false # Whether the node starts again from the beginning of the input items. This will treat incoming data as a new set rather than continuing with the previous items.
+      batchSize: "10" # The number of items to return with each call
+      options: # Whether the node will be reset and so with the current input-data newly initialized
+        reset: false # Whether the node will be reset and so with the current input-data newly initialized
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.splitInBatches
 ```
@@ -35,7 +35,7 @@ nodes:
 
 - **Name**: `batchSize`
 - **Type**: `number`
-- **Default**: `"1"`
+- **Default**: `"10"`
 - **Description**: The number of items to return with each call
 
 ### Options
@@ -43,7 +43,7 @@ nodes:
 - **Name**: `options`
 - **Type**: `collection`
 - **Default**: `"{}"`
-- **Description**: Whether the node starts again from the beginning of the input items. This will treat incoming data as a new set rather than continuing with the previous items.
+- **Description**: Whether the node will be reset and so with the current input-data newly initialized
 - **Placeholder**: Add option
 
 **Options:**
@@ -52,14 +52,14 @@ nodes:
 - **Name**: `reset`
 - **Type**: `boolean`
 - **Default**: `false`
-- **Description**: Whether the node starts again from the beginning of the input items. This will treat incoming data as a new set rather than continuing with the previous items.
+- **Description**: Whether the node will be reset and so with the current input-data newly initialized
 
 
 
 ## Node Information
 
 - **Node Type**: `n8n-nodes-base.splitInBatches`
-- **Display Name**: Loop Over Items (Split in Batches)
+- **Display Name**: Split In Batches
 - **Internal Name**: `splitInBatches`
 - **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository
@@ -67,8 +67,8 @@ nodes:
 ## Resources
 
 - [Official N8N Documentation](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.splitinbatches/) - Complete parameter reference
-- [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/SplitInBatches/v3/SplitInBatchesV3.node.ts) - TypeScript implementation
+- [Source Code](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/SplitInBatches/v2/SplitInBatchesV2.node.ts) - TypeScript implementation
 - [n8n-cli Documentation](https://github.com/edenreich/n8n-cli) - Workflow configuration format
 
 ---
-*Generated automatically from n8n 3 source code*
+*Generated automatically from n8n 2 source code*

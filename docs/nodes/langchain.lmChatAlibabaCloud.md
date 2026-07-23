@@ -1,4 +1,4 @@
-# Alibaba Cloud Chat Model
+# Qwen Cloud Chat Model
 
 ## Description
 
@@ -13,10 +13,10 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Alibaba Cloud Chat Model
+    name: Qwen Cloud Chat Model
     parameters:
       notice: ""
-      model: "qwen-plus" # The model which will generate the completion. <a href="https://www.alibabacloud.com/help/en/model-studio/getting-started/models">Learn more</a>.
+      model: "qwen-plus" # The model which will generate the completion. <a href="https://www.qwencloud.com/models">Learn more</a>.
       options: # Additional options to add
         frequencyPenalty: "0" # Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim
         maxTokens: "-1" # The maximum number of tokens to generate in the completion. The limit depends on the selected model.
@@ -37,7 +37,7 @@ nodes:
 - **Name**: `model`
 - **Type**: `options`
 - **Default**: `"qwen-plus"`
-- **Description**: The model which will generate the completion. <a href="https://www.alibabacloud.com/help/en/model-studio/getting-started/models">Learn more</a>.
+- **Description**: The model which will generate the completion. <a href="https://www.qwencloud.com/models">Learn more</a>.
 
 ### Options
 
@@ -66,7 +66,7 @@ nodes:
 ## Node Information
 
 - **Node Type**: `@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`
-- **Display Name**: Alibaba Cloud Chat Model
+- **Display Name**: Qwen Cloud Chat Model
 - **Internal Name**: `lmChatAlibabaCloud`
 - **Package**: `@n8n/n8n-nodes-langchain`
 - **Category**: AI/LangChain

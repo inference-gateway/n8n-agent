@@ -23,6 +23,7 @@ nodes:
 						},
 					],
 				}" # Number of seconds between each workflow trigger
+      skipDurableScheduler: false # Whether to run this trigger through the legacy in-memory scheduler instead of the durable scheduler
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.scheduleTrigger
 ```
@@ -42,6 +43,13 @@ nodes:
 - **Default**: `"{\n\t\t\t\t\tinterval: [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tfield: 'days',\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t}"`
 - **Description**: Number of seconds between each workflow trigger
 - **Placeholder**: Add Rule
+
+### Skip Durable Scheduler
+
+- **Name**: `skipDurableScheduler`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to run this trigger through the legacy in-memory scheduler instead of the durable scheduler
 
 
 ## Node Information

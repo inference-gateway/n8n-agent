@@ -21,6 +21,10 @@ nodes:
       options: # Additional options to add
         maxTokensToSample: "2000" # The maximum number of tokens to generate in the completion
         temperature: "0.7" # Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
+        topP: "1" # Controls diversity via nucleus sampling: 0.5 means half of all likelihood-weighted options are considered. We generally recommend altering this or temperature but not both.
+        maxRetries: "2" # Maximum number of retries to attempt when a request fails
+        timeout: "60000" # Maximum amount of time a request is allowed to take in milliseconds. Increase this for long generations; set to 0 to disable.
+        additionalModelRequestFields: {} # Model-family-specific inference parameters passed through as JSON (e.g. Claude <code>top_k</code>/<code>thinking</code>, Nova <code>inferenceConfig</code>/<code>reasoningConfig</code>, Cohere penalties). See the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">AWS model parameters docs</a>.
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatAwsBedrock
 ```
@@ -69,6 +73,30 @@ nodes:
 - **Type**: `number`
 - **Default**: `"0.7"`
 - **Description**: Controls randomness: Lowering results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive.
+
+#### Top P
+- **Name**: `topP`
+- **Type**: `number`
+- **Default**: `"1"`
+- **Description**: Controls diversity via nucleus sampling: 0.5 means half of all likelihood-weighted options are considered. We generally recommend altering this or temperature but not both.
+
+#### Max Retries
+- **Name**: `maxRetries`
+- **Type**: `number`
+- **Default**: `"2"`
+- **Description**: Maximum number of retries to attempt when a request fails
+
+#### Timeout
+- **Name**: `timeout`
+- **Type**: `number`
+- **Default**: `"60000"`
+- **Description**: Maximum amount of time a request is allowed to take in milliseconds. Increase this for long generations; set to 0 to disable.
+
+#### Additional Model Request Fields
+- **Name**: `additionalModelRequestFields`
+- **Type**: `json`
+- **Default**: `"{}"`
+- **Description**: Model-family-specific inference parameters passed through as JSON (e.g. Claude <code>top_k</code>/<code>thinking</code>, Nova <code>inferenceConfig</code>/<code>reasoningConfig</code>, Cohere penalties). See the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">AWS model parameters docs</a>.
 
 
 

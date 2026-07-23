@@ -112,6 +112,8 @@ nodes:
       limit: "50" # Max number of results to return
       returnAll: false # Whether to return all results or only up to a given limit
       limit: "50" # Max number of results to return
+      returnAll: false # Whether to return all results or only up to a given limit
+      limit: "50" # Max number of results to return
       getUserIssuesFilters: # Return only issues in which a specific user was mentioned
         mentioned: "" # Return only issues in which a specific user was mentioned
         labels: "" # Return only issues with the given labels. Multiple labels can be separated by comma.
@@ -711,6 +713,20 @@ nodes:
 - **Default**: `""`
 - **Description**: The email address of the invited user
 - **Placeholder**: name@email.com
+
+### Return All
+
+- **Name**: `returnAll`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return all results or only up to a given limit
+
+### Limit
+
+- **Name**: `limit`
+- **Type**: `number`
+- **Default**: `"50"`
+- **Description**: Max number of results to return
 
 ### Return All
 
