@@ -5,7 +5,7 @@
 FROM golang:1.26.4-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.4"
+ARG VERSION="0.3.2"
 ARG AGENT_NAME="n8n-agent"
 ARG AGENT_DESCRIPTION="A2A agent server specialized in generating and automating n8n workflows"
 
