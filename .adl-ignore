@@ -17,6 +17,15 @@ Taskfile.yml
 .gitattributes
 Dockerfile
 
+# Forked generator-owned files. The adl-cli template hardcodes dependency
+# version pins that are not derivable from agent.yaml, so a blind regenerate
+# reverts bumps applied here by Dependabot / manual commits. Protect them so
+# `task generate` keeps the bumps intact (see issue #98):
+#   - infer.yml:      infer-action pin (Dependabot #88 -> v0.34.x)
+#   - manifest.toml:  claude-code CLI pin (commit fe599c3)
+.github/workflows/infer.yml
+.flox/env/manifest.toml
+
 tools/search_n8n_docs.go
 tools/search_n8n_docs_test.go
 tools/validate_n8n_workflow.go
