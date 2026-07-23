@@ -55,7 +55,7 @@ COPY --from=builder /app/.well-known ./.well-known
 COPY --from=builder /app/docs ./docs
 
 # Copy skills directory so loadSkillsManifest can read SKILL.md at runtime
-COPY --from=builder /app/skills ./skills
+COPY --from=builder /app/.agents/skills ./.agents/skills
 
 # Change ownership to agent user
 RUN chown -R agent:a2a /app
