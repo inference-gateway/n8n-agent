@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.3](https://github.com/inference-gateway/n8n-agent/compare/v0.3.2...v0.3.3) (2026-07-23)
+
+### 🔧 Miscellaneous
+
+* **adl:** protect infer.yml and flox manifest from regenerate ([#99](https://github.com/inference-gateway/n8n-agent/issues/99)) ([35df1e5](https://github.com/inference-gateway/n8n-agent/commit/35df1e5581dc02b6d8d0cdadc334e03993960044)), closes [#98](https://github.com/inference-gateway/n8n-agent/issues/98)
+* **deps:** bump ADL CLI to v0.55.0 ([#100](https://github.com/inference-gateway/n8n-agent/issues/100)) ([14c4240](https://github.com/inference-gateway/n8n-agent/commit/14c4240a5e457bc0be6e0cda9732e18122a273cd))
+
 ## [0.3.2](https://github.com/inference-gateway/n8n-agent/compare/v0.3.1...v0.3.2) (2026-07-23)
 
 ### 🐛 Bug Fixes
