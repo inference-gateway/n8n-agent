@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1](https://github.com/inference-gateway/n8n-agent/compare/v0.3.0...v0.3.1) (2026-07-23)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.54.0 ([#93](https://github.com/inference-gateway/n8n-agent/issues/93)) ([6fe360a](https://github.com/inference-gateway/n8n-agent/commit/6fe360ac7d63663c8487e478ffc765f6a53b101c))
+* **deps:** bump ADL CLI to v0.54.0 ([#94](https://github.com/inference-gateway/n8n-agent/issues/94)) ([9e2de94](https://github.com/inference-gateway/n8n-agent/commit/9e2de947d893e052d3a39a71fd6745affbf8a40c))
+* **deps:** bump the github-actions group with 3 updates ([#96](https://github.com/inference-gateway/n8n-agent/issues/96)) ([1ab2842](https://github.com/inference-gateway/n8n-agent/commit/1ab28423271a8545cd76d3f0de2a1a89db9009f7))
+* **deps:** bump the gomod group with 2 updates ([#95](https://github.com/inference-gateway/n8n-agent/issues/95)) ([0a8a612](https://github.com/inference-gateway/n8n-agent/commit/0a8a612e8743b435ee136b8893fc0b9933d04d07))
+
 ## [0.3.0](https://github.com/inference-gateway/n8n-agent/compare/v0.2.7...v0.3.0) (2026-07-17)
 
 ### ✨ Features

@@ -169,7 +169,7 @@ docker build \
 
 **Available Build Arguments:**
 
-- `VERSION` - Agent version (default: `0.3.0`)
+- `VERSION` - Agent version (default: `0.3.1`)
 - `AGENT_NAME` - Agent name (default: `n8n-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server specialized in generating and automating n8n workflows`)
 
