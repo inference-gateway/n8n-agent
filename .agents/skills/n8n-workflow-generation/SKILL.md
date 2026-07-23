@@ -9,44 +9,85 @@ tags:
 
 # n8n-workflow-generation
 
-TODO: Describe when and how the agent should use this skill. Lead with an
-action-oriented "Use this when…" sentence so the model can decide whether
-to apply it. The full body of this file is prepended to the system prompt
-at runtime.
-
 ## When to use
 
-Describe the user intents or task shapes that should trigger this skill.
-Be concrete - list the kinds of requests, signals, or context that map to
-this playbook.
+Apply this skill whenever the user asks you to build, generate, scaffold, or
+automate an n8n workflow - phrasings like "create a workflow that…",
+"automate X with n8n", "I need a flow that does Y", or a description of a
+trigger plus one or more actions. The skill produces a complete, validated
+workflow YAML and saves it as an artifact for download.
 
 ## Workflow
 
-1. ...
-2. ...
-3. ...
+Execute these steps in order. Do not skip steps 3 or 4.
+
+### Step 1 - Search for relevant nodes
+
+Call `search_n8n_docs` for each capability the workflow needs (trigger,
+integrations, transformations, output). Use the `node_type` and `category`
+filters to narrow results when the request mentions a specific service or
+when you only need triggers vs. actions.
+
+### Step 2 - Draft the workflow YAML
+
+Compose a complete n8n workflow YAML with:
+
+- `name`: a descriptive workflow name.
+- `nodes`: one entry per node, each with `id`, `name`, `type` (must match
+  `n8n-nodes-base.*` or `@n8n/n8n-nodes-langchain.*`), `parameters`
+  (use `{}` when none are needed), and `position` as `[x, y]`.
+- `connections`: list every link between nodes by their `id`s, with
+  `sourceIndex` and `targetIndex`.
+
+Bias toward including a trigger node (webhook, schedule, manual, …) - without
+one the workflow cannot run automatically.
+
+### Step 3 - Validate (mandatory)
+
+Follow the **n8n-workflow-validation** skill - load
+`.agents/skills/n8n-workflow-validation/SKILL.md` via the Read tool and run it against
+the drafted workflow. It calls `validate_n8n_workflow`, fixes every reported
+error, and re-validates until the result is `VALID`. Do not advance to Step 4
+until validation passes. Treat warnings as informational unless the user asked
+for a production-grade flow, in which case address them too.
+
+### Step 4 - Save the artifact (mandatory)
+
+Once validation passes, call `create_artifact` with:
+
+- A descriptive filename ending in `.yaml`
+  (e.g. `customer_onboarding_workflow.yaml`).
+- The validated YAML as content.
+
+Never inline the full YAML in the chat response - it always goes through
+`create_artifact`.
+
+### Step 5 - Respond concisely
+
+Reply with:
+
+1. A 2–3 sentence summary of what the workflow does.
+2. The artifact download link.
+3. A short bulleted list of follow-up configuration the user must do
+   (credentials, webhook URLs, environment variables, etc.).
 
 ## Tools
 
-List the tools this skill expects to call (declared under `spec.tools` in
-the ADL manifest), and the order in which they're typically invoked.
+This skill orchestrates three tools, in this order:
 
-## Bundled assets
+1. `search_n8n_docs` - discover the right node types and parameters.
+2. `validate_n8n_workflow` - schema check before persistence.
+3. `create_artifact` - built-in tool that persists the YAML for download.
 
-This skill lives in its own directory under `.agents/skills/n8n-workflow-generation/`
-(also reachable as `.claude/skills/n8n-workflow-generation/` via the generated
-`.claude/skills` -> `../.agents/skills` symlink). You can ship arbitrary scripts, templates, or
-reference material alongside `SKILL.md` - the `.adl-ignore` file protects
-the whole directory from being clobbered on regeneration. Suggested layout:
+## Example response
 
-```
-.agents/skills/n8n-workflow-generation/
-├── SKILL.md          # this file
-├── scripts/          # optional helper scripts (Python, shell, etc.)
-├── templates/        # optional file templates the agent can fill in
-└── resources/        # optional static reference material
-```
-
-Reference bundled files by relative path from `SKILL.md` (e.g.
-`scripts/triage.py`, `templates/report.md`) so the agent can locate them
-at runtime.
+> I've created a customer onboarding workflow with a webhook trigger,
+> Airtable lookup, welcome email, and Slack notification.
+>
+> Download: [customer_onboarding_workflow.yaml](artifact_url)
+>
+> Configuration needed:
+> - Add Airtable API credentials
+> - Configure the email service (Gmail/SendGrid)
+> - Add a Slack webhook URL
+> - Point your form at the webhook URL emitted by n8n
