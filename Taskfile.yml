@@ -6,7 +6,7 @@ version: '3'
 
 vars:
   APP_NAME: n8n-agent
-  VERSION: 0.2.4
+  VERSION: 0.3.2
 
 tasks:
   validate:
