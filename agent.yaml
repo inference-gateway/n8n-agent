@@ -4,7 +4,7 @@ metadata:
   name: n8n-agent
   description:
     A2A agent server specialized in generating and automating n8n workflows
-  version: 0.3.1
+  version: 0.3.2
 spec:
   capabilities:
     streaming: true

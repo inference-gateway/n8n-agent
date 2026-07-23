@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.2](https://github.com/inference-gateway/n8n-agent/compare/v0.3.1...v0.3.2) (2026-07-23)
+
+### 🐛 Bug Fixes
+
+* copy skills from .agents/skills ([#97](https://github.com/inference-gateway/n8n-agent/issues/97)) ([50519e1](https://github.com/inference-gateway/n8n-agent/commit/50519e1350cf43b1a01f846a84b8c32e78b541fd)), references [#133](https://github.com/inference-gateway/n8n-agent/issues/133) [#308](https://github.com/inference-gateway/n8n-agent/issues/308)
+
 ## [0.3.1](https://github.com/inference-gateway/n8n-agent/compare/v0.3.0...v0.3.1) (2026-07-23)
 
 ### 🔧 Miscellaneous
