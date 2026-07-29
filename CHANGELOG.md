@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.4](https://github.com/inference-gateway/n8n-agent/compare/v0.3.3...v0.3.4) (2026-07-29)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.57.0 ([#106](https://github.com/inference-gateway/n8n-agent/issues/106)) ([054c6f9](https://github.com/inference-gateway/n8n-agent/commit/054c6f9e2a36aeb0cadae2a4f3797907489e2b7e))
+* **deps:** bump ADL CLI to v0.56.0 ([#102](https://github.com/inference-gateway/n8n-agent/issues/102)) ([7435d51](https://github.com/inference-gateway/n8n-agent/commit/7435d5124ddb7360f5789d7a15cf62d0b29a295b))
+* **deps:** bump ADL CLI to v0.57.0 ([#104](https://github.com/inference-gateway/n8n-agent/issues/104)) ([3a6c48d](https://github.com/inference-gateway/n8n-agent/commit/3a6c48d148612962c6d4856a8ba7d38d99376455))
+* **deps:** bump ADL CLI to v0.57.1 ([#107](https://github.com/inference-gateway/n8n-agent/issues/107)) ([05a1803](https://github.com/inference-gateway/n8n-agent/commit/05a18039c51807f841f22cf74266bc3f6d28ae02))
+* **deps:** bump anthropics/claude-code-action from 1.0.181 to 1.0.183 in the github-actions group ([#103](https://github.com/inference-gateway/n8n-agent/issues/103)) ([5d21ca3](https://github.com/inference-gateway/n8n-agent/commit/5d21ca3faccce0688711518c5b0bf2f65eaa1d9d))
+* **deps:** bump docker/login-action from 4.4.0 to 4.5.0 in the github-actions group ([#101](https://github.com/inference-gateway/n8n-agent/issues/101)) ([4ab15a1](https://github.com/inference-gateway/n8n-agent/commit/4ab15a1872f409184bb8b0845e63286d3c5a5d5d))
+* **deps:** bump docker/login-action from 4.5.2 to 4.6.0 in the github-actions group ([#105](https://github.com/inference-gateway/n8n-agent/issues/105)) ([c52fc36](https://github.com/inference-gateway/n8n-agent/commit/c52fc36409ac2204377cc5c35aca3f29d3ae7d45))
+
 ## [0.3.3](https://github.com/inference-gateway/n8n-agent/compare/v0.3.2...v0.3.3) (2026-07-23)
 
 ### 🔧 Miscellaneous
