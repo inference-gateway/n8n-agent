@@ -22,7 +22,7 @@ built-in `create_artifact` tool, so artifact storage must be enabled.
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `A2A_ARTIFACTS_ENABLE` | Enable artifacts support | `false` |
+| `A2A_ARTIFACTS_ENABLED` | Enable artifacts support | `false` |
 | `A2A_ARTIFACTS_STORAGE_PROVIDER` | `filesystem` or `minio` | `filesystem` |
 | `A2A_ARTIFACTS_STORAGE_BASE_PATH` | Base path for filesystem storage | `./artifacts` |
 
