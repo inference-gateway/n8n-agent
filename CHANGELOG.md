@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.5](https://github.com/inference-gateway/n8n-agent/compare/v0.3.4...v0.3.5) (2026-08-05)
+
+### 👷 CI
+
+* remove deprecated ollama-api-key input ([#112](https://github.com/inference-gateway/n8n-agent/issues/112)) ([4f12119](https://github.com/inference-gateway/n8n-agent/commit/4f1211967bbc76fbe3946bdac03ed8c0c852d5f5))
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.57.2 ([#108](https://github.com/inference-gateway/n8n-agent/issues/108)) ([51e69a0](https://github.com/inference-gateway/n8n-agent/commit/51e69a02904918e0946b6e3e968daff052dd9aae))
+* **deps:** bump ADL CLI to v0.58.0 ([#110](https://github.com/inference-gateway/n8n-agent/issues/110)) ([99f18bf](https://github.com/inference-gateway/n8n-agent/commit/99f18bf7cc363f9bd4294c4406cd4beaabba73e2))
+* **deps:** bump ADL CLI to v0.58.1 ([#111](https://github.com/inference-gateway/n8n-agent/issues/111)) ([c212a37](https://github.com/inference-gateway/n8n-agent/commit/c212a37607c8ede5e8a80fbb22d18ed10d85cc9c))
+* **deps:** bump ADL CLI to v0.59.0 ([#114](https://github.com/inference-gateway/n8n-agent/issues/114)) ([3f71d54](https://github.com/inference-gateway/n8n-agent/commit/3f71d547e7d7a2c250a28f3280999a59fcebb9d9))
+* **docs:** update artifact configuration variable name to A2A_ARTIFACTS_ENABLED ([1f8c677](https://github.com/inference-gateway/n8n-agent/commit/1f8c67797f10aea79fd576850a438d4d366917ca))
+
 ## [0.3.4](https://github.com/inference-gateway/n8n-agent/compare/v0.3.3...v0.3.4) (2026-07-29)
 
 ### 🔧 Miscellaneous
