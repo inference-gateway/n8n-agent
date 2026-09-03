@@ -7,7 +7,7 @@ server that generates and validates n8n workflows.
 
 - An API key for an OpenAI-compatible LLM provider (`openai`, `anthropic`,
   `azure`, `ollama`, or `deepseek`).
-- Go 1.26.4+ - only needed to build from source.
+- Go 1.26.7+ - only needed to build from source.
 - Docker - optional, for the container image.
 
 ## Run from source
