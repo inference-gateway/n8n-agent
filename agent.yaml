@@ -219,12 +219,6 @@ spec:
           port: 9464
   artifacts:
     enabled: true
-  # Peer-dependency pins re-applied after every `adl generate`: the generator
-  # rewrites go.mod from this manifest and resolves indirect deps via the
-  # ADK, which would otherwise revert dependabot bumps (e.g. the grpc
-  # security fix in v1.83.1). `go mod tidy` and `go fmt ./...` mirror the
-  # CLI's default post-generation commands, which custom hooks replace.
-  # Keep the version in sync when dependabot bumps it again.
   hooks:
     post:
       - go get google.golang.org/grpc@v1.83.1
