@@ -4,7 +4,7 @@ metadata:
   name: n8n-agent
   description:
     A2A agent server specialized in generating and automating n8n workflows
-  version: 0.3.6
+  version: 0.3.7
 spec:
   capabilities:
     streaming: true
@@ -194,7 +194,7 @@ spec:
   language:
     go:
       module: github.com/inference-gateway/n8n-agent
-      version: "1.26.4"
+      version: "1.26.7"
       vendor:
         deps: []
         devdeps: []

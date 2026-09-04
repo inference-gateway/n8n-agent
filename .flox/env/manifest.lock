@@ -4,7 +4,7 @@
     "schema-version": "1.13.0",
     "install": {
       "adl": {
-        "flake": "github:inference-gateway/adl-cli/v0.62.3"
+        "flake": "github:inference-gateway/adl-cli/v0.62.8"
       },
       "claude-code": {
         "pkg-path": "claude-code",
@@ -27,7 +27,7 @@
       },
       "go": {
         "pkg-path": "go",
-        "version": "1.26.4"
+        "version": "1.26.7"
       },
       "go-task": {
         "pkg-path": "go-task",
@@ -106,36 +106,6 @@
         "out": "/nix/store/fm203s00j5ignfgr4f05p2fc7ppmhfy0-claude-code-2.1.201"
       },
       "system": "aarch64-linux",
-      "group": "common",
-      "priority": 5
-    },
-    {
-      "attr_path": "claude-code",
-      "broken": false,
-      "derivation": "/nix/store/94k99z7q71qjfhf0h1524c9i14b5a8jm-claude-code-2.1.201.drv",
-      "description": "Agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster",
-      "install_id": "claude-code",
-      "license": "Unfree",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "claude-code-2.1.201",
-      "pname": "claude-code",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:00.518525Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": true,
-      "version": "2.1.201",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/23hm04zk9nn86835a2985p7a5pfd62bb-claude-code-2.1.201"
-      },
-      "system": "x86_64-darwin",
       "group": "common",
       "priority": 5
     },
@@ -226,36 +196,6 @@
         "out": "/nix/store/7fs6z1z7vyf85v36fb12yj68ghjyp324-docker-29.6.0"
       },
       "system": "aarch64-linux",
-      "group": "common",
-      "priority": 5
-    },
-    {
-      "attr_path": "docker",
-      "broken": false,
-      "derivation": "/nix/store/ilx35vgj3ni2hnvyq362wmbvbfd9wcrf-docker-29.6.0.drv",
-      "description": "Open source project to pack, ship and run any application as a lightweight container",
-      "install_id": "docker",
-      "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "docker-29.6.0",
-      "pname": "docker",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:00.887390Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "29.6.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/b9gj1ignx5npa9rnzs19wj9lpr573fjz-docker-29.6.0"
-      },
-      "system": "x86_64-darwin",
       "group": "common",
       "priority": 5
     },
@@ -355,37 +295,6 @@
     {
       "attr_path": "git",
       "broken": false,
-      "derivation": "/nix/store/dbxkqx6x4irzb4jd65110qkxwm40548v-git-2.54.0.drv",
-      "description": "Distributed version control system",
-      "install_id": "git",
-      "license": "GPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "git-2.54.0",
-      "pname": "git",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:01.623127Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.54.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "doc": "/nix/store/zakmjh312hmg2yslsyqmnw8lb8dgmyyk-git-2.54.0-doc",
-        "out": "/nix/store/x671lak90qvcxgc5irp4xv5zdbaym2yr-git-2.54.0"
-      },
-      "system": "x86_64-darwin",
-      "group": "common",
-      "priority": 5
-    },
-    {
-      "attr_path": "git",
-      "broken": false,
       "derivation": "/nix/store/214n5nb1k4qzynzgw7xpsp4fp19vni8i-git-2.54.0.drv",
       "description": "Distributed version control system",
       "install_id": "git",
@@ -472,36 +381,6 @@
         "out": "/nix/store/cp9nkcbc9gpx527n258c2bglhc4b82w5-go-task-3.48.0"
       },
       "system": "aarch64-linux",
-      "group": "common",
-      "priority": 5
-    },
-    {
-      "attr_path": "go-task",
-      "broken": false,
-      "derivation": "/nix/store/gfazdxcl13yxiamx60xa9x8wqx57fnr9-go-task-3.48.0.drv",
-      "description": "Task runner / simpler Make alternative written in Go",
-      "install_id": "go-task",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "go-task-3.48.0",
-      "pname": "go-task",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:01.863255Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "3.48.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/q7mxf9b9kcphb3lxrzn4mqazb9nrvlnz-go-task-3.48.0"
-      },
-      "system": "x86_64-darwin",
       "group": "common",
       "priority": 5
     },
@@ -598,36 +477,6 @@
     {
       "attr_path": "golangci-lint",
       "broken": false,
-      "derivation": "/nix/store/58n129msqj1vm9msnhhchg53v55rd6vn-golangci-lint-2.12.2.drv",
-      "description": "Fast linters Runner for Go",
-      "install_id": "golangci-lint",
-      "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "golangci-lint-2.12.2",
-      "pname": "golangci-lint",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:01.919169Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.12.2",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/w8c3i6vmxnnj0xixvjsa9lva3rcd2rvs-golangci-lint-2.12.2"
-      },
-      "system": "x86_64-darwin",
-      "group": "common",
-      "priority": 5
-    },
-    {
-      "attr_path": "golangci-lint",
-      "broken": false,
       "derivation": "/nix/store/hzpb89z905j3d9l2wjwi0j6cjjim9lv0-golangci-lint-2.12.2.drv",
       "description": "Fast linters Runner for Go",
       "install_id": "golangci-lint",
@@ -658,28 +507,29 @@
     {
       "attr_path": "deno",
       "broken": false,
-      "derivation": "/nix/store/xpnxyrnkrs12dkvcilfm2v3mpw2ib4rw-deno-2.8.3.drv",
+      "derivation": "/nix/store/36ygdpm922v1fay4ycbd1aaggzg1bzfi-deno-2.9.5.drv",
       "description": "Secure runtime for JavaScript and TypeScript",
       "install_id": "deno",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "deno-2.8.3",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "deno-2.9.5",
       "pname": "deno",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T03:12:55.432766Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T04:57:31.509344Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2.8.3",
+      "version": "2.9.5",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "denort": "/nix/store/5ncpxa4d7bn5zn33c1n4qxryhncgbwh0-deno-2.8.3-denort",
-        "out": "/nix/store/zq1cxx67gva9baj53yf8is0yjmpcj371-deno-2.8.3"
+        "denort": "/nix/store/ci5jh3b5yr2dz36q8qb9qs4za2nkkgz3-deno-2.9.5-denort",
+        "libdenort": "/nix/store/lcxc1mm8hz5i9jhdpv0cb233nxf9r64g-deno-2.9.5-libdenort",
+        "out": "/nix/store/94pdxnq7cfdymzmr19144spl0rp34mjg-deno-2.9.5"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -688,28 +538,29 @@
     {
       "attr_path": "deno",
       "broken": false,
-      "derivation": "/nix/store/y0vvc0cd38778hbf0ywncxhrss1x6zip-deno-2.8.3.drv",
+      "derivation": "/nix/store/ijic3lqy8wpj2zzaa2ypys003sjif4l4-deno-2.9.5.drv",
       "description": "Secure runtime for JavaScript and TypeScript",
       "install_id": "deno",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "deno-2.8.3",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "deno-2.9.5",
       "pname": "deno",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T03:41:22.126765Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T05:29:11.739002Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2.8.3",
+      "version": "2.9.5",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "denort": "/nix/store/wh5i15db84ih5ig8m8ljcv8q4k46gpww-deno-2.8.3-denort",
-        "out": "/nix/store/g90vsyh5mh7m7yaaw3vhwrzxmw7q0h1y-deno-2.8.3"
+        "denort": "/nix/store/2h16nirjr5ddd2bz7vxd19q0lawl5cd3-deno-2.9.5-denort",
+        "libdenort": "/nix/store/8hn63ayil0mk81a7mim21qh4155n3r6j-deno-2.9.5-libdenort",
+        "out": "/nix/store/8rzh2fpa3lwqzx9iiz07qbk3b7lsjniw-deno-2.9.5"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -718,58 +569,29 @@
     {
       "attr_path": "deno",
       "broken": false,
-      "derivation": "/nix/store/kfyb8yprsacv0mwzi2syki6avgwhjqzs-deno-2.8.3.drv",
+      "derivation": "/nix/store/j9dvqrffwjww156ia2qjyb6nynxmwl8m-deno-2.9.5.drv",
       "description": "Secure runtime for JavaScript and TypeScript",
       "install_id": "deno",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "deno-2.8.3",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "deno-2.9.5",
       "pname": "deno",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:00.802443Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T06:05:41.749312Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2.8.3",
+      "version": "2.9.5",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "denort": "/nix/store/ghijk6dx8dsm4s56qdr5f5vfxaacl8dw-deno-2.8.3-denort",
-        "out": "/nix/store/3mvc0dm4lkas8a9sxngabyd74hkba5dg-deno-2.8.3"
-      },
-      "system": "x86_64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "deno",
-      "broken": false,
-      "derivation": "/nix/store/2crm2nakkbbaxrkcr190dkpzjbzjldyd-deno-2.8.3.drv",
-      "description": "Secure runtime for JavaScript and TypeScript",
-      "install_id": "deno",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "deno-2.8.3",
-      "pname": "deno",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:40:24.805539Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.8.3",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "denort": "/nix/store/hykbc8gsraqslf7n3lh9p9562k0p96iv-deno-2.8.3-denort",
-        "out": "/nix/store/kms7faqqhch9njpyixcci2k501pdvj0w-deno-2.8.3"
+        "denort": "/nix/store/180ds5dqaynm1k7c1j6s5lwlak943z9k-deno-2.9.5-denort",
+        "libdenort": "/nix/store/3m3rdq6vl231165fycmk5rjc48anrzxi-deno-2.9.5-libdenort",
+        "out": "/nix/store/7hk2ax3hgs4152cdqsqcq4lfq1a2kla6-deno-2.9.5"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -778,28 +600,27 @@
     {
       "attr_path": "go",
       "broken": false,
-      "derivation": "/nix/store/0j94l4ngkz3fppqd0wxqsvjwri4fny1y-go-1.26.4.drv",
+      "derivation": "/nix/store/w6w7pzbrnk1j01afyzxjhiwirql5lq6m-go-1.26.7.drv",
       "description": "Go Programming language",
       "install_id": "go",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "go-1.26.4",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "go-1.26.7",
       "pname": "go",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T03:12:56.227877Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T04:57:32.337809Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "1.26.4",
+      "version": "1.26.7",
       "outputs_to_install": [
-        "out",
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/kyai650rrywrzflnwda9mbk2c2j9w68r-go-1.26.4"
+        "out": "/nix/store/jdgrfinlrf89z3wdfa6ipr1chpny5v11-go-1.26.7"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -808,27 +629,27 @@
     {
       "attr_path": "go",
       "broken": false,
-      "derivation": "/nix/store/a402qx3ryvfilga56w29z0izz6jgi7gi-go-1.26.4.drv",
+      "derivation": "/nix/store/0ki6ha0r6iqi6wkzqxjam67pbdzpsfr4-go-1.26.7.drv",
       "description": "Go Programming language",
       "install_id": "go",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "go-1.26.4",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "go-1.26.7",
       "pname": "go",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T03:41:23.896640Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T05:29:13.579885Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "1.26.4",
+      "version": "1.26.7",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/lgcj27hrbanbc93xm9zdrldds7b1jrw8-go-1.26.4"
+        "out": "/nix/store/zbm0p3qbd92i7gj78rxajka9yvdrin7p-go-1.26.7"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -837,56 +658,27 @@
     {
       "attr_path": "go",
       "broken": false,
-      "derivation": "/nix/store/0lvbzgq250sass3jyxxvpamk09gcnym3-go-1.26.4.drv",
+      "derivation": "/nix/store/ra2z8ff739aawml2iirfz76g7gxv9i8g-go-1.26.7.drv",
       "description": "Go Programming language",
       "install_id": "go",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "go-1.26.4",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "name": "go-1.26.7",
       "pname": "go",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:09:01.839364Z",
+      "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+      "rev_count": 1066106,
+      "rev_date": "2026-09-02T02:38:36Z",
+      "scrape_date": "2026-09-04T06:05:43.806198Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "1.26.4",
+      "version": "1.26.7",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/h0z6ghmi3cihlbm163d72xs9p9nn04a1-go-1.26.4"
-      },
-      "system": "x86_64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "go",
-      "broken": false,
-      "derivation": "/nix/store/z0b6qhv17xys7hfpnxmk0vm31nc3pxdf-go-1.26.4.drv",
-      "description": "Go Programming language",
-      "install_id": "go",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=d407951447dcd00442e97087bf374aad70c04cea",
-      "name": "go-1.26.4",
-      "pname": "go",
-      "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-      "rev_count": 1027867,
-      "rev_date": "2026-07-05T04:06:12Z",
-      "scrape_date": "2026-07-06T04:40:26.718134Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.26.4",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/gb0njhqswlc5n127ikgyikvq39r40l6f-go-1.26.4"
+        "out": "/nix/store/i77g9dmcd399rmxk8688qfr4g2wzgk37-go-1.26.7"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -954,35 +746,6 @@
       "install_id": "infer",
       "locked-url": "github:inference-gateway/cli/ecfb36c957f8cdf7488b5fea7994ffb262fa80a1?narHash=sha256-YLezqMOhcgriR6sKYanEJGyuSjHX8aIMVzD9CxTCmaU%3D",
       "flake-description": "Inference Gateway CLI - infer",
-      "locked-flake-attr-path": "packages.x86_64-darwin.default",
-      "derivation": "/nix/store/fv5fxslaqdzabvz71grc5wwqjb0sf9mj-infer-0.154.0.drv",
-      "outputs": {
-        "out": "/nix/store/np1j08pfpsyfcpifc5q4mf9pnbbky4zh-infer-0.154.0"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "x86_64-darwin",
-      "system": "x86_64-darwin",
-      "name": "infer-0.154.0",
-      "pname": "infer",
-      "version": "0.154.0",
-      "description": "Command-line interface for the Inference Gateway - AI model interaction manager",
-      "licenses": [
-        "MIT"
-      ],
-      "broken": false,
-      "unfree": false,
-      "priority": 5
-    },
-    {
-      "install_id": "infer",
-      "locked-url": "github:inference-gateway/cli/ecfb36c957f8cdf7488b5fea7994ffb262fa80a1?narHash=sha256-YLezqMOhcgriR6sKYanEJGyuSjHX8aIMVzD9CxTCmaU%3D",
-      "flake-description": "Inference Gateway CLI - infer",
       "locked-flake-attr-path": "packages.x86_64-linux.default",
       "derivation": "/nix/store/56jn78avmlqbkl38nf1h9gimv3q3qzda-infer-0.154.0.drv",
       "outputs": {
@@ -1010,12 +773,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/3a16182e1d8d53026d859a631052b9d47047f2a5?narHash=sha256-Z03ylDUm7srpoUMtIYJLlZgOXKDDNPnre2KNxPXYl7o%3D",
+      "locked-url": "github:inference-gateway/adl-cli/3b6215dff0ec5e634ad06d428437a42a5cadd2a4?narHash=sha256-jY0S6ylL2zbmHvNvkDgaHXVjJ06qHzXzJpV8r6uD4hk%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.aarch64-darwin.default",
-      "derivation": "/nix/store/ayhkc3sxmmwh5hs0n11cgqnlhag5rwjp-adl-0.62.3.drv",
+      "derivation": "/nix/store/kk5iydbz6lfw8zniga1kxf2f7xr437v0-adl-0.62.8.drv",
       "outputs": {
-        "out": "/nix/store/93vwhffbxfvn7blifdax9a9dz151ia43-adl-0.62.3"
+        "out": "/nix/store/zzfcq6simgshw3s5pf6q8l1dvwdmndiz-adl-0.62.8"
       },
       "output-names": [
         "out"
@@ -1026,9 +789,9 @@
       "requested-outputs-to-install": [],
       "package-system": "aarch64-darwin",
       "system": "aarch64-darwin",
-      "name": "adl-0.62.3",
+      "name": "adl-0.62.8",
       "pname": "adl",
-      "version": "0.62.3",
+      "version": "0.62.8",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
@@ -1039,12 +802,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/3a16182e1d8d53026d859a631052b9d47047f2a5?narHash=sha256-Z03ylDUm7srpoUMtIYJLlZgOXKDDNPnre2KNxPXYl7o%3D",
+      "locked-url": "github:inference-gateway/adl-cli/3b6215dff0ec5e634ad06d428437a42a5cadd2a4?narHash=sha256-jY0S6ylL2zbmHvNvkDgaHXVjJ06qHzXzJpV8r6uD4hk%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.aarch64-linux.default",
-      "derivation": "/nix/store/1s0dbl2fihglwcih6kdigsgjbfqrmwwy-adl-0.62.3.drv",
+      "derivation": "/nix/store/irm465q987b8wy1557fhq1z029w3m27l-adl-0.62.8.drv",
       "outputs": {
-        "out": "/nix/store/qvwij9bywjb6jbpiy1lhmqshlgaxl74m-adl-0.62.3"
+        "out": "/nix/store/z8hrma0w4m2xl10jcsdgxgmmfrnbdwj1-adl-0.62.8"
       },
       "output-names": [
         "out"
@@ -1055,9 +818,9 @@
       "requested-outputs-to-install": [],
       "package-system": "aarch64-linux",
       "system": "aarch64-linux",
-      "name": "adl-0.62.3",
+      "name": "adl-0.62.8",
       "pname": "adl",
-      "version": "0.62.3",
+      "version": "0.62.8",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
@@ -1068,41 +831,12 @@
     },
     {
       "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/3a16182e1d8d53026d859a631052b9d47047f2a5?narHash=sha256-Z03ylDUm7srpoUMtIYJLlZgOXKDDNPnre2KNxPXYl7o%3D",
-      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
-      "locked-flake-attr-path": "packages.x86_64-darwin.default",
-      "derivation": "/nix/store/ry874p26f44pvp8r13xnwzf5s9yayws1-adl-0.62.3.drv",
-      "outputs": {
-        "out": "/nix/store/ffjpif7rz4yywvvpgqz81mpx16bn1b5i-adl-0.62.3"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "x86_64-darwin",
-      "system": "x86_64-darwin",
-      "name": "adl-0.62.3",
-      "pname": "adl",
-      "version": "0.62.3",
-      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
-      "licenses": [
-        "MIT"
-      ],
-      "broken": false,
-      "unfree": false,
-      "priority": 5
-    },
-    {
-      "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/3a16182e1d8d53026d859a631052b9d47047f2a5?narHash=sha256-Z03ylDUm7srpoUMtIYJLlZgOXKDDNPnre2KNxPXYl7o%3D",
+      "locked-url": "github:inference-gateway/adl-cli/3b6215dff0ec5e634ad06d428437a42a5cadd2a4?narHash=sha256-jY0S6ylL2zbmHvNvkDgaHXVjJ06qHzXzJpV8r6uD4hk%3D",
       "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
       "locked-flake-attr-path": "packages.x86_64-linux.default",
-      "derivation": "/nix/store/1x2p3hv4pb1pnb2zd7lf98k2q7ha2k20-adl-0.62.3.drv",
+      "derivation": "/nix/store/x5ph95ij4s5bq1jm86x6m6py0kdamxhh-adl-0.62.8.drv",
       "outputs": {
-        "out": "/nix/store/gyvs9wz0x0ml7ws9d8maf7lajjgm83q7-adl-0.62.3"
+        "out": "/nix/store/nqn6z1vvk79qj3i61ah4cq9amv4yc56l-adl-0.62.8"
       },
       "output-names": [
         "out"
@@ -1113,9 +847,9 @@
       "requested-outputs-to-install": [],
       "package-system": "x86_64-linux",
       "system": "x86_64-linux",
-      "name": "adl-0.62.3",
+      "name": "adl-0.62.8",
       "pname": "adl",
-      "version": "0.62.3",
+      "version": "0.62.8",
       "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
