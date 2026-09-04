@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.7](https://github.com/inference-gateway/n8n-agent/compare/v0.3.6...v0.3.7) (2026-09-04)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.60.2 ([#117](https://github.com/inference-gateway/n8n-agent/issues/117)) ([33b8283](https://github.com/inference-gateway/n8n-agent/commit/33b82837eda86d899ae9eef59f19684e44c844e0))
+* **deps:** bump ADL CLI to v0.60.3 ([#118](https://github.com/inference-gateway/n8n-agent/issues/118)) ([b982752](https://github.com/inference-gateway/n8n-agent/commit/b98275238ea4daca2d82b533d04e61d74935fabf))
+* **deps:** bump ADL CLI to v0.60.4 ([#120](https://github.com/inference-gateway/n8n-agent/issues/120)) ([3bce66e](https://github.com/inference-gateway/n8n-agent/commit/3bce66e7b1b156494597884dcf160da7ff9a568c))
+* **deps:** bump ADL CLI to v0.60.5 ([#121](https://github.com/inference-gateway/n8n-agent/issues/121)) ([97b16ea](https://github.com/inference-gateway/n8n-agent/commit/97b16eafd9ccb996d3b95ab7e866ad186140f900))
+* **deps:** bump ADL CLI to v0.61.1 ([#122](https://github.com/inference-gateway/n8n-agent/issues/122)) ([5c0003a](https://github.com/inference-gateway/n8n-agent/commit/5c0003aca082fa8009df3dd2c82c1926811caa04))
+* **deps:** bump ADL CLI to v0.61.3 ([#123](https://github.com/inference-gateway/n8n-agent/issues/123)) ([79dd706](https://github.com/inference-gateway/n8n-agent/commit/79dd706d284ca534331233451b236907a72c7b8e))
+* **deps:** bump ADL CLI to v0.61.4 ([#125](https://github.com/inference-gateway/n8n-agent/issues/125)) ([cd3faf5](https://github.com/inference-gateway/n8n-agent/commit/cd3faf55333fd7fde49d3122b50fe7ccc3e6e581))
+* **deps:** bump ADL CLI to v0.62.1 ([#126](https://github.com/inference-gateway/n8n-agent/issues/126)) ([87ed223](https://github.com/inference-gateway/n8n-agent/commit/87ed223090f1e6d56a76f1c3cb33c0d6e3c6d157))
+* **deps:** bump ADL CLI to v0.62.2 ([#128](https://github.com/inference-gateway/n8n-agent/issues/128)) ([8b5e362](https://github.com/inference-gateway/n8n-agent/commit/8b5e362ded609c97f55ae0007d0851a3403d2b57))
+* **deps:** bump ADL CLI to v0.62.3 ([#130](https://github.com/inference-gateway/n8n-agent/issues/130)) ([28a6254](https://github.com/inference-gateway/n8n-agent/commit/28a62549c00d8ca6b2ddf1f2640a726468fdfe8e))
+* **deps:** bump ADL CLI to v0.62.5 ([#135](https://github.com/inference-gateway/n8n-agent/issues/135)) ([c2e86b9](https://github.com/inference-gateway/n8n-agent/commit/c2e86b9347f3805b9572a7ffe72b47876aea64b1))
+* **deps:** bump ADL CLI to v0.62.8 ([#137](https://github.com/inference-gateway/n8n-agent/issues/137)) ([cf0f98f](https://github.com/inference-gateway/n8n-agent/commit/cf0f98f941fa601f2b43fb3c9c559d69486acb14))
+* **deps:** bump go toolchain to 1.26.7 and pin explicitly ([#136](https://github.com/inference-gateway/n8n-agent/issues/136)) ([c2ec62d](https://github.com/inference-gateway/n8n-agent/commit/c2ec62d7a47ed73f0dc0546b8f4f4462c69e9d04)), closes [#134](https://github.com/inference-gateway/n8n-agent/issues/134)
+
 ## [0.3.6](https://github.com/inference-gateway/n8n-agent/compare/v0.3.5...v0.3.6) (2026-08-07)
 
 ### 🔧 Miscellaneous
