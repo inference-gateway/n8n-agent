@@ -19,6 +19,7 @@ nodes:
       event: "pageAddedToDatabase"
       notionNotice: ""
       databaseId: "{ mode: 'list', value: '' }" # The Notion Database to operate on
+      dataSourceId: "{ mode: 'list', value: '' }" # The Notion Data Source to operate on
       simple: true # Whether to return a simplified version of the response instead of the raw data
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.notionTrigger
@@ -51,6 +52,14 @@ nodes:
 - **Default**: `"{ mode: 'list', value: '' }"`
 - **Description**: The Notion Database to operate on
 - **Placeholder**: Select a Database...
+
+### Data Source
+
+- **Name**: `dataSourceId`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: The Notion Data Source to operate on
+- **Placeholder**: Select a Data Source...
 
 ### Simplify
 

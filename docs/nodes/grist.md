@@ -15,14 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: Grist
     parameters:
-      # No parameters available
+      authentication: "apiKey"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.grist
 ```
 
 ## Parameters
 
-This node has no configurable parameters.
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"apiKey"`
+
 
 ## Node Information
 

@@ -16,6 +16,7 @@ nodes:
     name: Jira Software
     parameters:
       jiraVersion: "cloud"
+      site: "{ mode: 'list', value: '' }" # The Jira site to use. Can be left empty when the service account has access to exactly one site.
       resource: "issue" # Creates an issue or, where the option to create subtasks is enabled in Jira, a subtask
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.jira
@@ -28,6 +29,14 @@ nodes:
 - **Name**: `jiraVersion`
 - **Type**: `options`
 - **Default**: `"cloud"`
+
+### Site
+
+- **Name**: `site`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: '' }"`
+- **Description**: The Jira site to use. Can be left empty when the service account has access to exactly one site.
+- **Placeholder**: e.g. https://your-site.atlassian.net
 
 ### Resource
 

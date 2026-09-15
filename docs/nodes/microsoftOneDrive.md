@@ -15,12 +15,20 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft OneDrive
     parameters:
+      authentication: "microsoftOneDriveOAuth2Api" # Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Files.ReadWrite.All) on the credential.
       resource: "file"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.microsoftOneDrive
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"microsoftOneDriveOAuth2Api"`
+- **Description**: Generic Microsoft Graph credential. Enable the scopes this node needs (e.g. Files.ReadWrite.All) on the credential.
 
 ### Resource
 

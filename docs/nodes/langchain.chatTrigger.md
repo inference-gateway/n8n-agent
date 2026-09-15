@@ -20,6 +20,7 @@ nodes:
       hostedChatNotice: ""
       embeddedChatNotice: ""
       authentication: "none" # Simple username and password (the same one for all users)
+      requireExecuteAccess: false # Whether the triggering user must also have permission to execute the workflow in the project it belongs to
       initialMessages: "Hi there! 👋\nMy name is Nathan. How can I assist you today?" # Default messages shown at the start of the chat, one per line
       availableInChat: false # Whether to make the agent available in n8n Chat Hub for n8n instance users to chat with
       availableInChatNotice: ""
@@ -71,6 +72,13 @@ nodes:
 - **Type**: `options`
 - **Default**: `"none"`
 - **Description**: Simple username and password (the same one for all users)
+
+### Require Workflow Execute Permission
+
+- **Name**: `requireExecuteAccess`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether the triggering user must also have permission to execute the workflow in the project it belongs to
 
 ### Initial Message(s)
 

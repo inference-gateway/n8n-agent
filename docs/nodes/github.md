@@ -41,6 +41,7 @@ nodes:
 					value: '',
 				}" # The git reference for the workflow dispatch (branch, tag, or commit SHA)
       inputs: {} # JSON object with input parameters for the workflow
+      options: {} # Whether to limit how long to wait for the webhook to be called before the execution resumes
       filePath: "" # The file path of the file. Has to contain the full path.
       filePath: "" # The path of the folder to list
       binaryData: false # Whether the data to upload should be taken from binary field
@@ -108,6 +109,8 @@ nodes:
       limit: "50" # Max number of results to return
       organization: "" # The GitHub organization that the user is being invited to
       email: "" # The email address of the invited user
+      returnAll: false # Whether to return all results or only up to a given limit
+      limit: "50" # Max number of results to return
       returnAll: false # Whether to return all results or only up to a given limit
       limit: "50" # Max number of results to return
       returnAll: false # Whether to return all results or only up to a given limit
@@ -239,6 +242,14 @@ nodes:
 - **Type**: `json`
 - **Default**: `"{}"`
 - **Description**: JSON object with input parameters for the workflow
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to limit how long to wait for the webhook to be called before the execution resumes
+- **Placeholder**: Add option
 
 ### File Path
 
@@ -711,6 +722,20 @@ nodes:
 - **Default**: `""`
 - **Description**: The email address of the invited user
 - **Placeholder**: name@email.com
+
+### Return All
+
+- **Name**: `returnAll`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return all results or only up to a given limit
+
+### Limit
+
+- **Name**: `limit`
+- **Type**: `number`
+- **Default**: `"50"`
+- **Description**: Max number of results to return
 
 ### Return All
 
