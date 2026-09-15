@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.9](https://github.com/inference-gateway/n8n-agent/compare/v0.3.8...v0.3.9) (2026-09-15)
+
+### 👷 CI
+
+* **docs:** create the n8n docs PR with the maintainer app token ([#153](https://github.com/inference-gateway/n8n-agent/issues/153)) ([8786f15](https://github.com/inference-gateway/n8n-agent/commit/8786f15a6413eb99460b4b5b465ce986f9248e32))
+
+### 📚 Documentation
+
+* Update N8N Node Documentation ([#154](https://github.com/inference-gateway/n8n-agent/issues/154)) ([6299ea8](https://github.com/inference-gateway/n8n-agent/commit/6299ea8cb05f72dfe22de7eef74640fdb5845039))
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.63.2 ([#149](https://github.com/inference-gateway/n8n-agent/issues/149)) ([a4f00ca](https://github.com/inference-gateway/n8n-agent/commit/a4f00cab434efe22767d7856c85b9608b0cee7de))
+* **deps:** bump ADL CLI to v0.63.3 ([#150](https://github.com/inference-gateway/n8n-agent/issues/150)) ([c69bae0](https://github.com/inference-gateway/n8n-agent/commit/c69bae0e6696fd97237c5b452cf98b823950da27))
+* **deps:** bump inference-gateway/adk to v0.27.0 ([#151](https://github.com/inference-gateway/n8n-agent/issues/151)) ([b09b65c](https://github.com/inference-gateway/n8n-agent/commit/b09b65c2277e9c8982ad28bdd31f8084c7c83b07))
+* update agent.yaml to modify post hooks ([a360788](https://github.com/inference-gateway/n8n-agent/commit/a3607884a58584179918338e9f39a748d6467ef5))
+
 ## [0.3.8](https://github.com/inference-gateway/n8n-agent/compare/v0.3.7...v0.3.8) (2026-09-15)
 
 ### 🔧 Miscellaneous
