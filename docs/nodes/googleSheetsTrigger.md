@@ -28,7 +28,7 @@ nodes:
 ### Authentication
 
 - **Name**: `authentication`
-- **Type**: `hidden`
+- **Type**: `options`
 - **Default**: `"triggerOAuth2"`
 
 ### Trigger On

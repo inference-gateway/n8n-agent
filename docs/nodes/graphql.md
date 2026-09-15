@@ -15,7 +15,8 @@ nodes:
   - id: ${unique-node-id}
     name: GraphQL
     parameters:
-      authentication: "none" # The way to authenticate
+      authentication: "none" # We've already implemented auth for many services so that you don't have to set it up manually
+      nodeCredentialType: ""
       requestMethod: "POST" # The underlying HTTP request method to use
       endpoint: "" # The GraphQL endpoint
       allowUnauthorizedCerts: false # Whether to download the response even if SSL certificate validation is not possible
@@ -38,7 +39,13 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"none"`
-- **Description**: The way to authenticate
+- **Description**: We've already implemented auth for many services so that you don't have to set it up manually
+
+### Credential Type
+
+- **Name**: `nodeCredentialType`
+- **Type**: `credentialsSelect`
+- **Default**: `""`
 
 ### HTTP Request Method
 

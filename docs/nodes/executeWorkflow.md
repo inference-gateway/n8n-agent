@@ -18,6 +18,7 @@ nodes:
       operation: "call_workflow"
       outdatedVersionWarning: ""
       source: "database" # Load the workflow from the database by ID
+      sourceDeprecationNotice: ""
       source: "database" # Load the workflow from the database by ID
       workflowId: "" # Note on using an expression here: if this node is set to run once with all items, they will all be sent to the <em>same</em> workflow. That workflow's ID will be calculated by evaluating the expression for the <strong>first input item</strong>.
       workflowId: ""
@@ -30,6 +31,7 @@ nodes:
 					value: null,
 				}"
       mode: "once" # Pass all items into a single execution of the sub-workflow
+      eachModeDeprecationNotice: ""
       options: # Whether the main workflow should wait for the sub-workflow to complete its execution before proceeding
         waitForSubWorkflow: true # Whether the main workflow should wait for the sub-workflow to complete its execution before proceeding
     position: [x, y]  # Canvas position coordinates
@@ -56,6 +58,12 @@ nodes:
 - **Type**: `options`
 - **Default**: `"database"`
 - **Description**: Load the workflow from the database by ID
+
+### The "Local File" and "URL" sources are deprecated and will be removed in a future version. Import the workflow into this n8n instance and use the "Database" source, or paste its JSON into the "Parameter" source instead.
+
+- **Name**: `sourceDeprecationNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Source
 
@@ -118,6 +126,12 @@ nodes:
 - **Type**: `options`
 - **Default**: `"once"`
 - **Description**: Pass all items into a single execution of the sub-workflow
+
+### "Run once for each item" is deprecated and will be removed in a future version. To run the sub-workflow once per item, add a "Loop Over Items" node before this node and use "Run once with all items".
+
+- **Name**: `eachModeDeprecationNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Options
 

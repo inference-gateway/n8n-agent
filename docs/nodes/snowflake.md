@@ -17,7 +17,9 @@ nodes:
     parameters:
       authentication: "credentials"
       operation: "insert" # Execute an SQL query
-      query: "" # The SQL query to execute
+      query: "" # The SQL query to execute. Use ? (bound in order) or :1, :2, :3 to refer to the 'Query Parameters' set in the options below.
+      options: # Comma-separated list of the values you want to use as query parameters. You can drag the values from the input panel on the left.
+        queryReplacement: "" # Comma-separated list of the values you want to use as query parameters. You can drag the values from the input panel on the left.
       table: "" # Name of the table in which to insert data to
       columns: "" # Comma-separated list of the properties which should used as columns for the new rows
       table: "" # Name of the table in which to update data in
@@ -47,8 +49,25 @@ nodes:
 - **Name**: `query`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: The SQL query to execute
+- **Description**: The SQL query to execute. Use ? (bound in order) or :1, :2, :3 to refer to the 'Query Parameters' set in the options below.
 - **Placeholder**: SELECT id, name FROM product WHERE id < 40
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Comma-separated list of the values you want to use as query parameters. You can drag the values from the input panel on the left.
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Query Parameters
+- **Name**: `queryReplacement`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: Comma-separated list of the values you want to use as query parameters. You can drag the values from the input panel on the left.
+
 
 ### Table
 

@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Salesforce Trigger
     parameters:
+      authentication: "oAuth2" # OAuth Authorization Flow
       triggerOn: "" # Which Salesforce event should trigger the node
       customObject: "" # Name of the custom object. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
     position: [x, y]  # Canvas position coordinates
@@ -22,6 +23,13 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
+- **Description**: OAuth Authorization Flow
 
 ### Trigger On
 

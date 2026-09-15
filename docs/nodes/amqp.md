@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: AMQP Sender
     parameters:
-      sink: "" # Name of the queue of topic to publish to
+      sink: "" # Name of the queue or topic to publish to
       headerParametersJson: "" # Header parameters as JSON (flat object). Sent as application_properties in amqp-message meta info.
       options: # Will be used to pass to the RHEA Backend as container_id
         containerId: "" # Will be used to pass to the RHEA Backend as container_id
@@ -34,7 +34,7 @@ nodes:
 - **Name**: `sink`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: Name of the queue of topic to publish to
+- **Description**: Name of the queue or topic to publish to
 - **Placeholder**: e.g. topic://sourcename.something
 
 ### Headers

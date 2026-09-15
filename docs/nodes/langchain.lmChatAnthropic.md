@@ -30,8 +30,14 @@ nodes:
 					value: 'claude-sonnet-4-6',
 					cachedResultName: 'Claude Sonnet 4.6',
 				}" # The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+      model: "{
+					mode: 'list',
+					value: 'claude-sonnet-5',
+					cachedResultName: 'Claude Sonnet 5',
+				}" # The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
       options: # Additional options to add
         maxTokensToSample: "DEFAULT_MAX_TOKENS" # The maximum number of tokens to generate in the completion
+      promptCachingNotice: ""
     position: [x, y]  # Canvas position coordinates
     type: @n8n/n8n-nodes-langchain.lmChatAnthropic
 ```
@@ -62,6 +68,14 @@ nodes:
 - **Description**: The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
 - **Placeholder**: Select a model...
 
+### Model
+
+- **Name**: `model`
+- **Type**: `resourceLocator`
+- **Default**: `"{\n\t\t\t\t\tmode: 'list',\n\t\t\t\t\tvalue: 'claude-sonnet-5',\n\t\t\t\t\tcachedResultName: 'Claude Sonnet 5',\n\t\t\t\t}"`
+- **Description**: The model. Choose from the list, or specify an ID. <a href="https://docs.anthropic.com/claude/docs/models-overview">Learn more</a>.
+- **Placeholder**: Select a model...
+
 ### Options
 
 - **Name**: `options`
@@ -78,6 +92,12 @@ nodes:
 - **Default**: `"DEFAULT_MAX_TOKENS"`
 - **Description**: The maximum number of tokens to generate in the completion
 
+
+### Cache reads and writes are billed at different rates than regular input tokens, so reported prompt/total tokens are only an approximation of actual billable usage
+
+- **Name**: `promptCachingNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 
 ## Node Information

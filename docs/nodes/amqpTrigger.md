@@ -2,7 +2,7 @@
 
 ## Description
 
-Listens to AMQP 1.0 Messages
+Listens to AMQP 1.0 messages
 
 **Version**: 1
 
@@ -15,11 +15,11 @@ nodes:
   - id: ${unique-node-id}
     name: AMQP Trigger
     parameters:
-      sink: "" # Name of the queue of topic to listen to
+      sink: "" # Name of the queue or topic to listen to
       clientname: "" # Leave empty for non-durable topic subscriptions or queues
       subscription: "" # Leave empty for non-durable topic subscriptions or queues
-      options: # Will be used to pass to the RHEA Backend as container_id
-        containerId: "" # Will be used to pass to the RHEA Backend as container_id
+      options: # Will be passed to the RHEA backend as container_id
+        containerId: "" # Will be passed to the RHEA backend as container_id
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.amqpTrigger
 ```
@@ -31,10 +31,10 @@ nodes:
 - **Name**: `sink`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: Name of the queue of topic to listen to
+- **Description**: Name of the queue or topic to listen to
 - **Placeholder**: topic://sourcename.something
 
-### Clientname
+### Client Name
 
 - **Name**: `clientname`
 - **Type**: `string`
@@ -55,7 +55,7 @@ nodes:
 - **Name**: `options`
 - **Type**: `collection`
 - **Default**: `"{}"`
-- **Description**: Will be used to pass to the RHEA Backend as container_id
+- **Description**: Will be passed to the RHEA backend as container_id
 - **Placeholder**: Add option
 
 **Options:**
@@ -64,7 +64,7 @@ nodes:
 - **Name**: `containerId`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: Will be used to pass to the RHEA Backend as container_id
+- **Description**: Will be passed to the RHEA backend as container_id
 
 
 
