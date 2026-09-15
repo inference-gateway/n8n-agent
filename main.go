@@ -34,7 +34,7 @@ import (
 // via `-ldflags "-X 'main.Version=...'"` (see Dockerfile). They default
 // to the values declared in the ADL.
 var (
-	Version          = "0.3.7"
+	Version          = "0.3.8"
 	AgentName        = "n8n-agent"
 	AgentDescription = "A2A agent server specialized in generating and automating n8n workflows"
 )

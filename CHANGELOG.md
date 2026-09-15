@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.8](https://github.com/inference-gateway/n8n-agent/compare/v0.3.7...v0.3.8) (2026-09-15)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.63.0 ([#144](https://github.com/inference-gateway/n8n-agent/issues/144)) ([37b9f7c](https://github.com/inference-gateway/n8n-agent/commit/37b9f7c291a33bf2a8a62cdeff6abd6e67c1fe08))
+* **deps:** bump ADL CLI to v0.62.10 ([#141](https://github.com/inference-gateway/n8n-agent/issues/141)) ([4e93b30](https://github.com/inference-gateway/n8n-agent/commit/4e93b30794a5b2bcf4f9978749e270806cb041fb))
+* **deps:** bump ADL CLI to v0.62.12 ([#142](https://github.com/inference-gateway/n8n-agent/issues/142)) ([cfbf0b5](https://github.com/inference-gateway/n8n-agent/commit/cfbf0b56b8c3b71dc56af16cef6bdd007e1ee7a7))
+* **deps:** bump ADL CLI to v0.62.9 ([#140](https://github.com/inference-gateway/n8n-agent/issues/140)) ([8eeb38e](https://github.com/inference-gateway/n8n-agent/commit/8eeb38e1ae86a3fa85f53d494f720c70c4079432))
+* **deps:** bump ADL CLI to v0.63.0 ([#145](https://github.com/inference-gateway/n8n-agent/issues/145)) ([c7ddc37](https://github.com/inference-gateway/n8n-agent/commit/c7ddc37db0239e8d120bfee05c18465b97de4bf6))
+* **deps:** bump ADL CLI to v0.63.1 ([#146](https://github.com/inference-gateway/n8n-agent/issues/146)) ([9cc78c8](https://github.com/inference-gateway/n8n-agent/commit/9cc78c81ca48bce486d1f5bd5c5b3cb22509817a))
+* **deps:** bump google.golang.org/grpc from 1.83.0 to 1.83.1 ([#131](https://github.com/inference-gateway/n8n-agent/issues/131)) ([9bacc8c](https://github.com/inference-gateway/n8n-agent/commit/9bacc8c2a87cc22a3c41e87145921465d4ffd52b))
+* sync generated project with ADL manifest ([#143](https://github.com/inference-gateway/n8n-agent/issues/143)) ([a6d9f9a](https://github.com/inference-gateway/n8n-agent/commit/a6d9f9ad5516eca9c0b07cabf0fd1bb129efc952))
+
 ## [0.3.7](https://github.com/inference-gateway/n8n-agent/compare/v0.3.6...v0.3.7) (2026-09-04)
 
 ### 🔧 Miscellaneous
