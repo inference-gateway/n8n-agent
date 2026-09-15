@@ -223,9 +223,7 @@ spec:
     enabled: true
   hooks:
     post:
-      - go get google.golang.org/grpc@v1.83.1
       - go mod tidy
-      - go fmt ./...
   development:
     sandbox:
       flox:
