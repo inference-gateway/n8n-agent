@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Line
     parameters:
-      notice: ""
+      deprecationNotice: ""
       resource: "notification"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.line
@@ -23,9 +23,9 @@ nodes:
 
 ## Parameters
 
-### End of service: LINE Notify will be discontinued from April 1st 2025, You can find more information <a href="https://notify-bot.line.me/closing-announce" target="_blank">here</a>
+### This node is deprecated. LINE Notify was discontinued on April 1st 2025, so this node no longer sends notifications. You can find more information <a href="https://notify-bot.line.me/closing-announce" target="_blank">here</a>
 
-- **Name**: `notice`
+- **Name**: `deprecationNotice`
 - **Type**: `notice`
 - **Default**: `""`
 

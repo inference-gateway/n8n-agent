@@ -2,7 +2,7 @@
 
 ## Description
 
-Checks whether the triggering user has the required Private credential configured. Routes to "Ready" or "Not Ready" and returns auth URLs when the credential is missing.
+Checks whether the triggering user has the required end-user credential configured. Routes to "Ready" or "Not Ready" and returns auth URLs when the credential is missing.
 
 **Version**: 1
 
