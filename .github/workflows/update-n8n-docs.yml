@@ -89,7 +89,7 @@ jobs:
             - Generated on: ${{ github.event.repository.updated_at }}
 
             This is an automated update from the N8N documentation generator.
-          title: "docs: Update N8N Node Documentation"
+          title: "docs: update N8N Node Documentation"
           body: |
             ## 📚 N8N Documentation Update
 
