@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 519 n8n nodes, generated from the official n8n repository.
+Documentation for 522 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (519)
+## Available Nodes (522)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -98,6 +98,7 @@ nodes:
 - [Customer.io Trigger](./customerIoTrigger.md) (`n8n-nodes-base.customerIoTrigger`) - Starts the workflow on a Customer.io update (Beta)
 - [Data table](./dataTable.md) (`n8n-nodes-base.dataTable`) - Permanently save data across workflow executions in a table
 - [Databricks](./databricks.md) (`n8n-nodes-base.databricks`) - Interact with Databricks API
+- [Databricks Trigger](./databricksTrigger.md) (`n8n-nodes-base.databricksTrigger`) - Starts the workflow when Databricks job runs or pipeline updates change state
 - [DebugHelper](./debugHelper.md) (`n8n-nodes-base.debugHelper`) - Causes problems intentionally and generates useful data for debugging
 - [DeepL](./deepL.md) (`n8n-nodes-base.deepL`) - Translate data using DeepL
 - [Demio](./demio.md) (`n8n-nodes-base.demio`) - Consume the Demio API
@@ -212,6 +213,7 @@ nodes:
 - [Local File Trigger](./localFileTrigger.md) (`n8n-nodes-base.localFileTrigger`) - Triggers a workflow on file system changes
 - [LoneScale](./loneScale.md) (`n8n-nodes-base.loneScale`) - Enrich and source contacts, search companies, and manage lists
 - [LoneScale Trigger](./loneScaleTrigger.md) (`n8n-nodes-base.loneScaleTrigger`) - Trigger LoneScale Workflow
+- [Loop Over Items (Split in Batches)](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Magento 2](./magento2.md) (`n8n-nodes-base.magento2`) - Consume Magento API
 - [Mailcheck](./mailcheck.md) (`n8n-nodes-base.mailcheck`) - Consume Mailcheck API
 - [Mailchimp](./mailchimp.md) (`n8n-nodes-base.mailchimp`) - Consume Mailchimp API
@@ -327,7 +329,6 @@ nodes:
 - [Slack Trigger](./slackTrigger.md) (`n8n-nodes-base.slackTrigger`) - Handle Slack events via webhooks
 - [Snowflake](./snowflake.md) (`n8n-nodes-base.snowflake`) - Get, add and update data in Snowflake
 - [Sort](./sort.md) (`n8n-nodes-base.sort`) - Change items order
-- [Split In Batches](./splitInBatches.md) (`n8n-nodes-base.splitInBatches`) - Split data into batches and iterate over each batch
 - [Split Out](./splitOut.md) (`n8n-nodes-base.splitOut`) - Turn a list inside item(s) into separate items
 - [Spotify](./spotify.md) (`n8n-nodes-base.spotify`) - Access public song data via the Spotify API
 - [SSE Trigger](./sseTrigger.md) (`n8n-nodes-base.sseTrigger`) - Triggers the workflow when Server-Sent Events occur
@@ -440,6 +441,7 @@ nodes:
 - [Embeddings AWS Bedrock](./langchain.embeddingsAwsBedrock.md) (`@n8n/n8n-nodes-langchain.embeddingsAwsBedrock`) - Use Embeddings AWS Bedrock
 - [Embeddings Azure OpenAI](./langchain.embeddingsAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`) - Use Embeddings Azure OpenAI
 - [Embeddings Cohere](./langchain.embeddingsCohere.md) (`@n8n/n8n-nodes-langchain.embeddingsCohere`) - Use Cohere Embeddings
+- [Embeddings Databricks](./langchain.embeddingsDatabricks.md) (`@n8n/n8n-nodes-langchain.embeddingsDatabricks`) - Use Databricks Embeddings
 - [Embeddings Google Gemini](./langchain.embeddingsGoogleGemini.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleGemini`) - Use Google Gemini Embeddings
 - [Embeddings Google Vertex](./langchain.embeddingsGoogleVertex.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleVertex`) - Use Google Vertex Embeddings
 - [Embeddings Hugging Face Inference](./langchain.embeddingsHuggingFaceInference.md) (`@n8n/n8n-nodes-langchain.embeddingsHuggingFaceInference`) - Use HuggingFace Inference Embeddings
@@ -520,6 +522,7 @@ nodes:
 - [Vector Store Retriever](./langchain.retrieverVectorStore.md) (`@n8n/n8n-nodes-langchain.retrieverVectorStore`) - Use a Vector Store as Retriever
 - [VectorStoreAzureAISearch](./langchain.VectorStoreAzureAISearch.md) (`@n8n/n8n-nodes-langchain.VectorStoreAzureAISearch`) - VectorStoreAzureAISearch - LangChain AI Node
 - [VectorStoreChromaDB](./langchain.VectorStoreChromaDB.md) (`@n8n/n8n-nodes-langchain.VectorStoreChromaDB`) - VectorStoreChromaDB - LangChain AI Node
+- [VectorStoreDatabricks](./langchain.VectorStoreDatabricks.md) (`@n8n/n8n-nodes-langchain.VectorStoreDatabricks`) - VectorStoreDatabricks - LangChain AI Node
 - [VectorStoreInMemory](./langchain.VectorStoreInMemory.md) (`@n8n/n8n-nodes-langchain.VectorStoreInMemory`) - VectorStoreInMemory - LangChain AI Node
 - [VectorStoreMilvus](./langchain.VectorStoreMilvus.md) (`@n8n/n8n-nodes-langchain.VectorStoreMilvus`) - VectorStoreMilvus - LangChain AI Node
 - [VectorStoreMongoDBAtlas](./langchain.VectorStoreMongoDBAtlas.md) (`@n8n/n8n-nodes-langchain.VectorStoreMongoDBAtlas`) - VectorStoreMongoDBAtlas - LangChain AI Node
@@ -555,8 +558,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 519
-- **Generated**: 2026-09-15T23:47:48.088Z
+- **Nodes Documented**: 522
+- **Generated**: 2026-09-25T13:07:20.234Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

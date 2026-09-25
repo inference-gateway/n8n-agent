@@ -15,19 +15,12 @@ nodes:
   - id: ${unique-node-id}
     name: Databricks
     parameters:
-      authentication: "accessToken"
       resource: "databricksSql" # Execute SQL queries on data warehouses. <a href="https://docs.databricks.com/sql/index.html" target="_blank">Learn more</a>.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.databricks
 ```
 
 ## Parameters
-
-### Authentication
-
-- **Name**: `authentication`
-- **Type**: `options`
-- **Default**: `"accessToken"`
 
 ### Resource
 
