@@ -26,10 +26,6 @@ nodes:
       workflowJson: "\n\n\n" # The workflow JSON code to execute
       workflowUrl: "" # The URL from which to load the workflow from
       executeWorkflowNotice: ""
-      workflowInputs: "{
-					mappingMode: 'defineBelow',
-					value: null,
-				}"
       mode: "once" # Pass all items into a single execution of the sub-workflow
       eachModeDeprecationNotice: ""
       options: # Whether the main workflow should wait for the sub-workflow to complete its execution before proceeding
@@ -113,12 +109,6 @@ nodes:
 - **Name**: `executeWorkflowNotice`
 - **Type**: `notice`
 - **Default**: `""`
-
-### Workflow Inputs
-
-- **Name**: `workflowInputs`
-- **Type**: `resourceMapper`
-- **Default**: `"{\n\t\t\t\t\tmappingMode: 'defineBelow',\n\t\t\t\t\tvalue: null,\n\t\t\t\t}"`
 
 ### Mode
 

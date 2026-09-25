@@ -16,7 +16,6 @@ nodes:
     name: Qwen Cloud Chat Model
     parameters:
       notice: ""
-      model: "qwen-plus" # The model which will generate the completion. <a href="https://www.qwencloud.com/models">Learn more</a>.
       options: # Additional options to add
         frequencyPenalty: "0" # Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim
         maxTokens: "-1" # The maximum number of tokens to generate in the completion. The limit depends on the selected model.
@@ -31,13 +30,6 @@ nodes:
 - **Name**: `notice`
 - **Type**: `notice`
 - **Default**: `""`
-
-### Model
-
-- **Name**: `model`
-- **Type**: `options`
-- **Default**: `"qwen-plus"`
-- **Description**: The model which will generate the completion. <a href="https://www.qwencloud.com/models">Learn more</a>.
 
 ### Options
 

@@ -17,6 +17,7 @@ nodes:
     parameters:
       model: "MiniMax-M2.7" # The model which will generate the completion. <a href="https://platform.minimax.io/docs/api-reference/text-openai-api">Learn more</a>.
       model: "MiniMax-M3" # The model which will generate the completion. <a href="https://platform.minimax.io/docs/api-reference/text-openai-api">Learn more</a>.
+      model: "{ mode: 'list', value: 'MiniMax-M3' }" # The model which will generate the completion. <a href="https://platform.minimax.io/docs/api-reference/text-openai-api">Learn more</a>.
       options: # Additional options to add
         hideThinking: true # Whether to strip chain-of-thought reasoning from the response, returning only the final answer
         maxTokens: "-1" # The maximum number of tokens to generate in the completion. The limit depends on the selected model.
@@ -43,6 +44,14 @@ nodes:
 - **Type**: `options`
 - **Default**: `"MiniMax-M3"`
 - **Description**: The model which will generate the completion. <a href="https://platform.minimax.io/docs/api-reference/text-openai-api">Learn more</a>.
+
+### Model
+
+- **Name**: `model`
+- **Type**: `resourceLocator`
+- **Default**: `"{ mode: 'list', value: 'MiniMax-M3' }"`
+- **Description**: The model which will generate the completion. <a href="https://platform.minimax.io/docs/api-reference/text-openai-api">Learn more</a>.
+- **Placeholder**: e.g. MiniMax-M3
 
 ### Options
 
