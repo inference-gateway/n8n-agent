@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.14](https://github.com/inference-gateway/n8n-agent/compare/v0.3.13...v0.3.14) (2026-10-01)
+
+### 📚 Documentation
+
+* Update N8N Node Documentation ([#159](https://github.com/inference-gateway/n8n-agent/issues/159)) ([3263e8e](https://github.com/inference-gateway/n8n-agent/commit/3263e8ef403bef5874d0d63b44080891895dcbc1))
+
+### 🔧 Miscellaneous
+
+* change title case in N8N documentation update ([7991c2e](https://github.com/inference-gateway/n8n-agent/commit/7991c2e75444361056959d841fe6719de2da8ea6))
+* **deps:** bump ADL CLI to v0.64.2 ([#160](https://github.com/inference-gateway/n8n-agent/issues/160)) ([bad9415](https://github.com/inference-gateway/n8n-agent/commit/bad941576fb15b195f4032da95ab74aeb416caaa))
+* **deps:** bump ADL CLI to v0.64.4 ([#163](https://github.com/inference-gateway/n8n-agent/issues/163)) ([4e64134](https://github.com/inference-gateway/n8n-agent/commit/4e641342eef10cddca32919f2339b460f00cb42d))
+
 ## [0.3.13](https://github.com/inference-gateway/n8n-agent/compare/v0.3.12...v0.3.13) (2026-09-25)
 
 ### 🔧 Miscellaneous
