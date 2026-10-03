@@ -2,15 +2,12 @@
 	"name": "n8n-agent",
 	"version": "0.3.14",
 	"description": "A2A agent server specialized in generating and automating n8n workflows",
-	"protocolVersion": "0.3.0",
-	"url": "",
-	"preferredTransport": "JSONRPC",
+	"supportedInterfaces": [{"protocolBinding":"JSONRPC","protocolVersion":"1.0","url":""}],
 	"defaultInputModes": ["text"],
 	"defaultOutputModes": ["text"],
 	"capabilities": {
 		"streaming": true,
-		"pushNotifications": false,
-		"stateTransitionHistory": false
+		"pushNotifications": false
 	},
 	"skills": [
 		{
