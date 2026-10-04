@@ -9,7 +9,6 @@ spec:
   capabilities:
     streaming: true
     pushNotifications: false
-    stateTransitionHistory: false
   config:
     tools:
       read:
@@ -194,7 +193,7 @@ spec:
   language:
     go:
       module: github.com/inference-gateway/n8n-agent
-      version: "1.26.7"
+      version: "1.26.8"
       vendor:
         deps: []
         devdeps: []
