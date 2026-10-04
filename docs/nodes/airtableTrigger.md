@@ -23,7 +23,7 @@ nodes:
       downloadFieldNames: "" # Name of the fields of type 'attachment' that should be downloaded. Multiple ones can be defined separated by comma. Case sensitive.
       additionalFields: # Fields to be included in the response. Multiple ones can be set separated by comma. Example: <code>name, id</code>. By default just the trigger field will be included.
         fields: "" # Fields to be included in the response. Multiple ones can be set separated by comma. Example: <code>name, id</code>. By default just the trigger field will be included.
-        formula: "" # Formulas may involve functions, numeric operations, logical operations, and text operations that operate on fields. More info <a href="https://support.airtable.com/hc/en-us/articles/203255215-Formula-Field-Reference">here</a>.
+        formula: "" # Formulas may involve functions, numeric operations, logical operations, and text operations that operate on fields. More info <a href="https://support.airtable.com/articles/7330071120-airtable-formula-field-functions-reference">here</a>.
         viewId: "" # The name or ID of a view in the table. If set, only the records in that view will be returned.
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.airtableTrigger
@@ -93,7 +93,7 @@ nodes:
 - **Name**: `formula`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: Formulas may involve functions, numeric operations, logical operations, and text operations that operate on fields. More info <a href="https://support.airtable.com/hc/en-us/articles/203255215-Formula-Field-Reference">here</a>.
+- **Description**: Formulas may involve functions, numeric operations, logical operations, and text operations that operate on fields. More info <a href="https://support.airtable.com/articles/7330071120-airtable-formula-field-functions-reference">here</a>.
 
 #### View ID
 - **Name**: `viewId`
