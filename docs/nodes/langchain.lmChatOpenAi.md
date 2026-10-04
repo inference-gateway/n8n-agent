@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: OpenAI Chat Model
     parameters:
-      model: "gpt-5-mini" # The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
+      model: "gpt-5-mini" # The model which will generate the completion. <a href="https://developers.openai.com/api/docs/models">Learn more</a>.
       model: "{ mode: 'list', value: 'gpt-5-mini' }" # The model. Choose from the list, or specify an ID.
       notice: ""
       responsesApiEnabled: true # Whether to use the Responses API to generate the response. <a href="https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/#use-responses-api">Learn more</a>.
@@ -32,7 +32,7 @@ nodes:
 - **Name**: `model`
 - **Type**: `options`
 - **Default**: `"gpt-5-mini"`
-- **Description**: The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
+- **Description**: The model which will generate the completion. <a href="https://developers.openai.com/api/docs/models">Learn more</a>.
 
 ### Model
 

@@ -1,4 +1,4 @@
-# Azure OpenAI Chat Model
+# Azure AI Foundry Chat Model
 
 ## Description
 
@@ -13,7 +13,7 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Azure OpenAI Chat Model
+    name: Azure AI Foundry Chat Model
     parameters:
       # No parameters available
     position: [x, y]  # Canvas position coordinates
@@ -27,7 +27,7 @@ This node has no configurable parameters.
 ## Node Information
 
 - **Node Type**: `@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`
-- **Display Name**: Azure OpenAI Chat Model
+- **Display Name**: Azure AI Foundry Chat Model
 - **Internal Name**: `lmChatAzureOpenAi`
 - **Package**: `@n8n/n8n-nodes-langchain`
 - **Category**: AI/LangChain

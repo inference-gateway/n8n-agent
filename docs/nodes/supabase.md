@@ -15,14 +15,35 @@ nodes:
   - id: ${unique-node-id}
     name: Supabase
     parameters:
+      authentication: "secretKey"
+      resource: "row"
+      projectRef: "" # Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
       useCustomSchema: false # Whether to use a database schema different from the default "public" schema (requires schema exposure in the <a href="https://supabase.com/docs/guides/api/using-custom-schemas?queryGroups=language&language=curl#exposing-custom-schemas">Supabase API</a>)
       schema: "public" # Name of database schema to use for table
-      resource: "row"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.supabase
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"secretKey"`
+
+### Resource
+
+- **Name**: `resource`
+- **Type**: `options`
+- **Default**: `"row"`
+
+### Project Name or ID
+
+- **Name**: `projectRef`
+- **Type**: `options`
+- **Default**: `""`
+- **Description**: Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
 
 ### Use Custom Schema
 
@@ -37,12 +58,6 @@ nodes:
 - **Type**: `string`
 - **Default**: `"public"`
 - **Description**: Name of database schema to use for table
-
-### Resource
-
-- **Name**: `resource`
-- **Type**: `options`
-- **Default**: `"row"`
 
 
 ## Node Information

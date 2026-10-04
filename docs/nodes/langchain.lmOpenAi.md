@@ -16,7 +16,7 @@ nodes:
     name: OpenAI Model
     parameters:
       deprecated: ""
-      model: "{ mode: 'list', value: 'gpt-3.5-turbo-instruct' }" # The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
+      model: "{ mode: 'list', value: 'gpt-3.5-turbo-instruct' }" # The model which will generate the completion. <a href="https://developers.openai.com/api/docs/models">Learn more</a>.
       notice: ""
       options: # Additional options to add
         baseURL: "https://api.openai.com/v1" # Override the default base URL for the API
@@ -44,7 +44,7 @@ nodes:
 - **Name**: `model`
 - **Type**: `resourceLocator`
 - **Default**: `"{ mode: 'list', value: 'gpt-3.5-turbo-instruct' }"`
-- **Description**: The model which will generate the completion. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>.
+- **Description**: The model which will generate the completion. <a href="https://developers.openai.com/api/docs/models">Learn more</a>.
 
 ### When using non OpenAI models via Base URL override, not all models might be chat-compatible or support other features, like tools calling or JSON response format.
 

@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 522 n8n nodes, generated from the official n8n repository.
+Documentation for 523 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (522)
+## Available Nodes (523)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -239,6 +239,7 @@ nodes:
 - [Microsoft OneDrive](./microsoftOneDrive.md) (`n8n-nodes-base.microsoftOneDrive`) - Consume Microsoft OneDrive API
 - [Microsoft OneDrive Trigger](./microsoftOneDriveTrigger.md) (`n8n-nodes-base.microsoftOneDriveTrigger`) - Trigger for Microsoft OneDrive API.
 - [Microsoft Outlook Trigger](./microsoftOutlookTrigger.md) (`n8n-nodes-base.microsoftOutlookTrigger`) - Fetches emails from Microsoft Outlook and starts the workflow on specified polli...
+- [Microsoft SharePoint Trigger](./microsoftSharePointTrigger.md) (`n8n-nodes-base.microsoftSharePointTrigger`) - Starts a workflow when a file or list item changes in Microsoft SharePoint
 - [Microsoft SQL](./microsoftSql.md) (`n8n-nodes-base.microsoftSql`) - Get, add and update data in Microsoft SQL
 - [Microsoft Teams Trigger](./microsoftTeamsTrigger.md) (`n8n-nodes-base.microsoftTeamsTrigger`) - Triggers workflows in n8n based on events from Microsoft Teams, such as new mess...
 - [Microsoft To Do](./microsoftToDo.md) (`n8n-nodes-base.microsoftToDo`) - Consume Microsoft To Do API.
@@ -416,7 +417,7 @@ nodes:
 - [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
 - [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
 - [AWS Bedrock Chat Model](./langchain.lmChatAwsBedrock.md) (`@n8n/n8n-nodes-langchain.lmChatAwsBedrock`) - Language Model AWS Bedrock
-- [Azure OpenAI Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
+- [Azure AI Foundry Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
 - [Basic LLM Chain](./langchain.chainLlm.md) (`@n8n/n8n-nodes-langchain.chainLlm`) - A simple chain to prompt a large language model
 - [Binary Input Loader](./langchain.documentBinaryInputLoader.md) (`@n8n/n8n-nodes-langchain.documentBinaryInputLoader`) - Use binary data from a previous step in the workflow
 - [Calculator](./langchain.toolCalculator.md) (`@n8n/n8n-nodes-langchain.toolCalculator`) - Make it easier for AI agents to perform arithmetic
@@ -558,8 +559,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 522
-- **Generated**: 2026-09-25T13:07:20.234Z
+- **Nodes Documented**: 523
+- **Generated**: 2026-10-04T00:53:12.757Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

@@ -18,8 +18,8 @@ nodes:
       mode: "existing"
       name: ""
       instructions: "" # How the Assistant and model should behave or respond
-      model: "gpt-3.5-turbo-1106" # The model which will be used to power the assistant. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>. The Retrieval tool requires gpt-3.5-turbo-1106 and gpt-4-1106-preview models.
-      assistantId: "" # The assistant to use. <a href="https://beta.openai.com/docs/assistants/overview">Learn more</a>.
+      model: "gpt-3.5-turbo-1106" # The model which will be used to power the assistant. <a href="https://developers.openai.com/api/docs/models">Learn more</a>. The Retrieval tool requires gpt-3.5-turbo-1106 and gpt-4-1106-preview models.
+      assistantId: "" # The assistant to use. <a href="https://developers.openai.com/api/docs/assistants/migration">Learn more</a>.
       text: "={{ $json.chat_input }}"
       text: "={{ $json.chatInput }}"
       nativeTools: []
@@ -59,14 +59,14 @@ nodes:
 - **Name**: `model`
 - **Type**: `options`
 - **Default**: `"gpt-3.5-turbo-1106"`
-- **Description**: The model which will be used to power the assistant. <a href="https://beta.openai.com/docs/models/overview">Learn more</a>. The Retrieval tool requires gpt-3.5-turbo-1106 and gpt-4-1106-preview models.
+- **Description**: The model which will be used to power the assistant. <a href="https://developers.openai.com/api/docs/models">Learn more</a>. The Retrieval tool requires gpt-3.5-turbo-1106 and gpt-4-1106-preview models.
 
 ### Assistant
 
 - **Name**: `assistantId`
 - **Type**: `options`
 - **Default**: `""`
-- **Description**: The assistant to use. <a href="https://beta.openai.com/docs/assistants/overview">Learn more</a>.
+- **Description**: The assistant to use. <a href="https://developers.openai.com/api/docs/assistants/migration">Learn more</a>.
 
 ### Text
 

@@ -15,14 +15,19 @@ nodes:
   - id: ${unique-node-id}
     name: No Operation, do nothing
     parameters:
-      # No parameters available
+      emptyGroupAnchor: false
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.noOp
 ```
 
 ## Parameters
 
-This node has no configurable parameters.
+### Empty Group Anchor
+
+- **Name**: `emptyGroupAnchor`
+- **Type**: `hidden`
+- **Default**: `false`
+
 
 ## Node Information
 
