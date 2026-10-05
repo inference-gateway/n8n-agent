@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.17](https://github.com/inference-gateway/n8n-agent/compare/v0.3.16...v0.3.17) (2026-10-05)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.67.1 ([#170](https://github.com/inference-gateway/n8n-agent/issues/170)) ([d2a875b](https://github.com/inference-gateway/n8n-agent/commit/d2a875b160eba4122891e767229724678a6afb7b))
+* **deps:** bump the gomod group across 1 directory with 2 updates ([#169](https://github.com/inference-gateway/n8n-agent/issues/169)) ([682c5c0](https://github.com/inference-gateway/n8n-agent/commit/682c5c0203c0965fec05f8066d294f65e8410282))
+
 ## [0.3.16](https://github.com/inference-gateway/n8n-agent/compare/v0.3.15...v0.3.16) (2026-10-05)
 
 ### 🔧 Miscellaneous
