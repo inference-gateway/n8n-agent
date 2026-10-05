@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.16](https://github.com/inference-gateway/n8n-agent/compare/v0.3.15...v0.3.16) (2026-10-05)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.67.0 ([#168](https://github.com/inference-gateway/n8n-agent/issues/168)) ([eeb7003](https://github.com/inference-gateway/n8n-agent/commit/eeb70039b4b4c828322ffd6099881a48f337e510))
+
 ## [0.3.15](https://github.com/inference-gateway/n8n-agent/compare/v0.3.14...v0.3.15) (2026-10-04)
 
 ### 📚 Documentation
