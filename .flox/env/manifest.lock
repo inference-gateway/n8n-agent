@@ -4,7 +4,7 @@
     "schema-version": "1.15.0",
     "install": {
       "adl": {
-        "flake": "github:inference-gateway/adl-cli/v0.68.0"
+        "flake": "github:inference-gateway/adl-cli/v0.68.1"
       },
       "claude-code": {
         "pkg-path": "claude-code",
@@ -49,192 +49,6 @@
     "options": {}
   },
   "packages": [
-    {
-      "attr_path": "deno",
-      "broken": false,
-      "derivation": "/nix/store/dkwa70by66pv79248402mcndva3ykrw3-deno-2.9.7.drv",
-      "description": "Secure runtime for JavaScript and TypeScript",
-      "install_id": "deno",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "deno-2.9.7",
-      "pname": "deno",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T04:59:39.861106Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.9.7",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "denort": "/nix/store/l377ncs4dsdmfr36yjkvxk4lqsk6hfqr-deno-2.9.7-denort",
-        "libdenort": "/nix/store/zzq283zwa8hs1i9xfshwviffmbzqizhi-deno-2.9.7-libdenort",
-        "out": "/nix/store/4jixsxbkgx6wv22kx7s4nnpp4fbmy65l-deno-2.9.7"
-      },
-      "system": "aarch64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "deno",
-      "broken": false,
-      "derivation": "/nix/store/w5qjys9b39hbfilql3cx4jvnmanrxj8x-deno-2.9.7.drv",
-      "description": "Secure runtime for JavaScript and TypeScript",
-      "install_id": "deno",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "deno-2.9.7",
-      "pname": "deno",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T05:33:08.989133Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.9.7",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "denort": "/nix/store/1v2vnwkksgxhsbwhn00rjsn2gbiq8l9v-deno-2.9.7-denort",
-        "libdenort": "/nix/store/sp1c5a36z1kfnszdkacyr873f8yw25qm-deno-2.9.7-libdenort",
-        "out": "/nix/store/q56058iwni5cb6m7rwy76dqdbnwfvbk9-deno-2.9.7"
-      },
-      "system": "aarch64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "deno",
-      "broken": false,
-      "derivation": "/nix/store/vb81nwrqzxx5ihm93a0nbr7alb5g6321-deno-2.9.7.drv",
-      "description": "Secure runtime for JavaScript and TypeScript",
-      "install_id": "deno",
-      "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "deno-2.9.7",
-      "pname": "deno",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T06:09:42.362059Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "2.9.7",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "denort": "/nix/store/m0c2qmm4dbkj812q22g0ic88a24lh4xj-deno-2.9.7-denort",
-        "libdenort": "/nix/store/k7y3nh2c3ym5hn53k3zgn8jbm29jr351-deno-2.9.7-libdenort",
-        "out": "/nix/store/q4f99ywwv55mlmqllaly912qi5jzf19g-deno-2.9.7"
-      },
-      "system": "x86_64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "go",
-      "broken": false,
-      "derivation": "/nix/store/hw9s3y4ggwn2mnr4dpnlr3pzlq6pfc3d-go-1.26.8.drv",
-      "description": "Go Programming language",
-      "install_id": "go",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "go-1.26.8",
-      "pname": "go",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T04:59:41.159239Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.26.8",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/isqxa82c7f65sbhi51npr0547yz87bh5-go-1.26.8"
-      },
-      "system": "aarch64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "go",
-      "broken": false,
-      "derivation": "/nix/store/mvzy81jgrz380qa717xzvl3k8a978shb-go-1.26.8.drv",
-      "description": "Go Programming language",
-      "install_id": "go",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "go-1.26.8",
-      "pname": "go",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T05:33:11.003350Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.26.8",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/3677bfwiaibp0fs0dxijmn8bsmkx31vx-go-1.26.8"
-      },
-      "system": "aarch64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "go",
-      "broken": false,
-      "derivation": "/nix/store/x0zllw4xw2cdql7jvzqdjhibgavvl7d9-go-1.26.8.drv",
-      "description": "Go Programming language",
-      "install_id": "go",
-      "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "name": "go-1.26.8",
-      "pname": "go",
-      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "rev_count": 1083223,
-      "rev_date": "2026-10-01T02:47:39Z",
-      "scrape_date": "2026-10-02T06:09:44.595100Z",
-      "stabilities": [
-        "staging",
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.26.8",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/iqq9yz2yrcrzsn52h3vkkz72i92h1zds-go-1.26.8"
-      },
-      "system": "x86_64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
     {
       "attr_path": "claude-code",
       "broken": false,
@@ -679,90 +493,189 @@
       "priority": 5
     },
     {
-      "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/332e22bd0cedc2a1dacda9f00a6336210a551137?narHash=sha256-o0JQub2fpsi9sH%2Bs14IIhiOnGJhWAXQNSUNrARQXOwg%3D",
-      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
-      "locked-flake-attr-path": "packages.aarch64-darwin.default",
-      "derivation": "/nix/store/yzwcrcc15x5pvjwg2vai02ixyn6rd8an-adl-0.68.0.drv",
+      "attr_path": "deno",
+      "broken": false,
+      "derivation": "/nix/store/dkwa70by66pv79248402mcndva3ykrw3-deno-2.9.7.drv",
+      "description": "Secure runtime for JavaScript and TypeScript",
+      "install_id": "deno",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "deno-2.9.7",
+      "pname": "deno",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T04:59:39.861106Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.9.7",
+      "outputs_to_install": [
+        "out"
+      ],
       "outputs": {
-        "out": "/nix/store/jcamg2a6zm89zmg7cs0ddk7zwc9qv2in-adl-0.68.0"
+        "denort": "/nix/store/l377ncs4dsdmfr36yjkvxk4lqsk6hfqr-deno-2.9.7-denort",
+        "libdenort": "/nix/store/zzq283zwa8hs1i9xfshwviffmbzqizhi-deno-2.9.7-libdenort",
+        "out": "/nix/store/4jixsxbkgx6wv22kx7s4nnpp4fbmy65l-deno-2.9.7"
       },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "aarch64-darwin",
       "system": "aarch64-darwin",
-      "name": "adl-0.68.0",
-      "pname": "adl",
-      "version": "0.68.0",
-      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
-      "licenses": [
-        "MIT"
-      ],
-      "broken": false,
-      "unfree": false,
+      "group": "toplevel",
       "priority": 5
     },
     {
-      "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/332e22bd0cedc2a1dacda9f00a6336210a551137?narHash=sha256-o0JQub2fpsi9sH%2Bs14IIhiOnGJhWAXQNSUNrARQXOwg%3D",
-      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
-      "locked-flake-attr-path": "packages.aarch64-linux.default",
-      "derivation": "/nix/store/fffi2lh3dif10rn9jvnwbfbkmwrq6l2h-adl-0.68.0.drv",
+      "attr_path": "deno",
+      "broken": false,
+      "derivation": "/nix/store/w5qjys9b39hbfilql3cx4jvnmanrxj8x-deno-2.9.7.drv",
+      "description": "Secure runtime for JavaScript and TypeScript",
+      "install_id": "deno",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "deno-2.9.7",
+      "pname": "deno",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T05:33:08.989133Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.9.7",
+      "outputs_to_install": [
+        "out"
+      ],
       "outputs": {
-        "out": "/nix/store/55f7w68d2jbln5sqshv1a0kxk9rrva1h-adl-0.68.0"
+        "denort": "/nix/store/1v2vnwkksgxhsbwhn00rjsn2gbiq8l9v-deno-2.9.7-denort",
+        "libdenort": "/nix/store/sp1c5a36z1kfnszdkacyr873f8yw25qm-deno-2.9.7-libdenort",
+        "out": "/nix/store/q56058iwni5cb6m7rwy76dqdbnwfvbk9-deno-2.9.7"
       },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "aarch64-linux",
       "system": "aarch64-linux",
-      "name": "adl-0.68.0",
-      "pname": "adl",
-      "version": "0.68.0",
-      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
-      "licenses": [
-        "MIT"
-      ],
-      "broken": false,
-      "unfree": false,
+      "group": "toplevel",
       "priority": 5
     },
     {
-      "install_id": "adl",
-      "locked-url": "github:inference-gateway/adl-cli/332e22bd0cedc2a1dacda9f00a6336210a551137?narHash=sha256-o0JQub2fpsi9sH%2Bs14IIhiOnGJhWAXQNSUNrARQXOwg%3D",
-      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
-      "locked-flake-attr-path": "packages.x86_64-linux.default",
-      "derivation": "/nix/store/8pf9fh3xas03s5jzd097yyc4lqyv395f-adl-0.68.0.drv",
-      "outputs": {
-        "out": "/nix/store/9if6a2693ficybnlp31ilsmh8xsq8jxs-adl-0.68.0"
-      },
-      "output-names": [
-        "out"
-      ],
-      "outputs-to-install": [
-        "out"
-      ],
-      "requested-outputs-to-install": [],
-      "package-system": "x86_64-linux",
-      "system": "x86_64-linux",
-      "name": "adl-0.68.0",
-      "pname": "adl",
-      "version": "0.68.0",
-      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
-      "licenses": [
-        "MIT"
-      ],
+      "attr_path": "deno",
       "broken": false,
+      "derivation": "/nix/store/vb81nwrqzxx5ihm93a0nbr7alb5g6321-deno-2.9.7.drv",
+      "description": "Secure runtime for JavaScript and TypeScript",
+      "install_id": "deno",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "deno-2.9.7",
+      "pname": "deno",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T06:09:42.362059Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
       "unfree": false,
+      "version": "2.9.7",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "denort": "/nix/store/m0c2qmm4dbkj812q22g0ic88a24lh4xj-deno-2.9.7-denort",
+        "libdenort": "/nix/store/k7y3nh2c3ym5hn53k3zgn8jbm29jr351-deno-2.9.7-libdenort",
+        "out": "/nix/store/q4f99ywwv55mlmqllaly912qi5jzf19g-deno-2.9.7"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "go",
+      "broken": false,
+      "derivation": "/nix/store/hw9s3y4ggwn2mnr4dpnlr3pzlq6pfc3d-go-1.26.8.drv",
+      "description": "Go Programming language",
+      "install_id": "go",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "go-1.26.8",
+      "pname": "go",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T04:59:41.159239Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.26.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/isqxa82c7f65sbhi51npr0547yz87bh5-go-1.26.8"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "go",
+      "broken": false,
+      "derivation": "/nix/store/mvzy81jgrz380qa717xzvl3k8a978shb-go-1.26.8.drv",
+      "description": "Go Programming language",
+      "install_id": "go",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "go-1.26.8",
+      "pname": "go",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T05:33:11.003350Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.26.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3677bfwiaibp0fs0dxijmn8bsmkx31vx-go-1.26.8"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "go",
+      "broken": false,
+      "derivation": "/nix/store/x0zllw4xw2cdql7jvzqdjhibgavvl7d9-go-1.26.8.drv",
+      "description": "Go Programming language",
+      "install_id": "go",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "name": "go-1.26.8",
+      "pname": "go",
+      "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "rev_count": 1083223,
+      "rev_date": "2026-10-01T02:47:39Z",
+      "scrape_date": "2026-10-02T06:09:44.595100Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.26.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/iqq9yz2yrcrzsn52h3vkkz72i92h1zds-go-1.26.8"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
       "priority": 5
     },
     {
@@ -845,6 +758,93 @@
       "pname": "infer",
       "version": "0.229.0",
       "description": "Command-line interface for the Inference Gateway - AI model interaction manager",
+      "licenses": [
+        "MIT"
+      ],
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "adl",
+      "locked-url": "github:inference-gateway/adl-cli/2fa929b206c211745d9d0da8eec75224b0773b88?narHash=sha256-J7niUTcQh6o%2BJksGvfCLdf0oqywvqg1FOUQSH7fz6vI%3D",
+      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
+      "locked-flake-attr-path": "packages.aarch64-darwin.default",
+      "derivation": "/nix/store/sl8x6wr3mgaglhxwic6qs125nzhfzc45-adl-0.68.1.drv",
+      "outputs": {
+        "out": "/nix/store/2xg2jg6dq7g25fsssjy8d1mnjd0lhq1f-adl-0.68.1"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-darwin",
+      "system": "aarch64-darwin",
+      "name": "adl-0.68.1",
+      "pname": "adl",
+      "version": "0.68.1",
+      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
+      "licenses": [
+        "MIT"
+      ],
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "adl",
+      "locked-url": "github:inference-gateway/adl-cli/2fa929b206c211745d9d0da8eec75224b0773b88?narHash=sha256-J7niUTcQh6o%2BJksGvfCLdf0oqywvqg1FOUQSH7fz6vI%3D",
+      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
+      "locked-flake-attr-path": "packages.aarch64-linux.default",
+      "derivation": "/nix/store/dhnjgc3zkia291zyykb114265h10px6h-adl-0.68.1.drv",
+      "outputs": {
+        "out": "/nix/store/f4ya4lkx8fkvn56p4j4z9hwwanida2b5-adl-0.68.1"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "aarch64-linux",
+      "system": "aarch64-linux",
+      "name": "adl-0.68.1",
+      "pname": "adl",
+      "version": "0.68.1",
+      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
+      "licenses": [
+        "MIT"
+      ],
+      "broken": false,
+      "unfree": false,
+      "priority": 5
+    },
+    {
+      "install_id": "adl",
+      "locked-url": "github:inference-gateway/adl-cli/2fa929b206c211745d9d0da8eec75224b0773b88?narHash=sha256-J7niUTcQh6o%2BJksGvfCLdf0oqywvqg1FOUQSH7fz6vI%3D",
+      "flake-description": "ADL CLI - Generate enterprise-ready A2A agents from YAML",
+      "locked-flake-attr-path": "packages.x86_64-linux.default",
+      "derivation": "/nix/store/2x5n0a7vaz8z9pmqghssdmcmfg53cxk5-adl-0.68.1.drv",
+      "outputs": {
+        "out": "/nix/store/aw18vi2f9h6krdwcyk5nvx381a2i3n6z-adl-0.68.1"
+      },
+      "output-names": [
+        "out"
+      ],
+      "outputs-to-install": [
+        "out"
+      ],
+      "requested-outputs-to-install": [],
+      "package-system": "x86_64-linux",
+      "system": "x86_64-linux",
+      "name": "adl-0.68.1",
+      "pname": "adl",
+      "version": "0.68.1",
+      "description": "Generate enterprise-ready A2A agents from YAML Agent Definition Language files",
       "licenses": [
         "MIT"
       ],
