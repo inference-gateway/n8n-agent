@@ -1,8 +1,8 @@
-# Embeddings Azure OpenAI
+# Microsoft Foundry Embeddings
 
 ## Description
 
-Use Embeddings Azure OpenAI
+Use Microsoft Foundry Embeddings
 
 **Version**: 1
 
@@ -13,8 +13,9 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Embeddings Azure OpenAI
+    name: Microsoft Foundry Embeddings
     parameters:
+      authentication: "API_KEY_AUTH"
       model: "" # The name of the model(deployment) to use
       options: # Additional options to add
         batchSize: "512" # Maximum number of documents to send in each request
@@ -25,6 +26,12 @@ nodes:
 ```
 
 ## Parameters
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"API_KEY_AUTH"`
 
 ### Model (Deployment) Name
 
@@ -66,7 +73,7 @@ nodes:
 ## Node Information
 
 - **Node Type**: `@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`
-- **Display Name**: Embeddings Azure OpenAI
+- **Display Name**: Microsoft Foundry Embeddings
 - **Internal Name**: `embeddingsAzureOpenAi`
 - **Package**: `@n8n/n8n-nodes-langchain`
 - **Category**: AI/LangChain

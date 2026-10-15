@@ -17,6 +17,7 @@ nodes:
     parameters:
       inputText: "" # Use an expression to reference data in previous nodes or enter static text
       categories: {} # Category to add
+      confidenceScoresNotice: ""
       options: # What to do with items that don’t match the categories exactly
         multiClass: false
     position: [x, y]  # Canvas position coordinates
@@ -39,6 +40,12 @@ nodes:
 - **Default**: `"{}"`
 - **Description**: Category to add
 - **Placeholder**: Add Category
+
+### Confidence scores are estimates from the model, not measured probabilities. They can change between runs, so treat them as a rough signal, not a threshold.
+
+- **Name**: `confidenceScoresNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Options
 
