@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.20](https://github.com/inference-gateway/n8n-agent/compare/v0.3.19...v0.3.20) (2026-10-15)
+
+### 📚 Documentation
+
+* update N8N Node Documentation ([#177](https://github.com/inference-gateway/n8n-agent/issues/177)) ([b5e9102](https://github.com/inference-gateway/n8n-agent/commit/b5e9102e8bb98f700091e00ba80154c1064a9e0b))
+
+### 🔧 Miscellaneous
+
+* **deps:** bump actions/create-github-app-token from 3.2.0 to 3.3.0 in the github-actions group across 1 directory ([#176](https://github.com/inference-gateway/n8n-agent/issues/176)) ([9218e4d](https://github.com/inference-gateway/n8n-agent/commit/9218e4dff55d59ec9e054aab36557c4dcac05b2e))
+* **deps:** bump ADL CLI to v0.67.4 ([#175](https://github.com/inference-gateway/n8n-agent/issues/175)) ([eb18b4e](https://github.com/inference-gateway/n8n-agent/commit/eb18b4eb3a9fc7b4da26c92b9783a73cd80156e8))
+* **deps:** bump ADL CLI to v0.68.0 ([#178](https://github.com/inference-gateway/n8n-agent/issues/178)) ([32c6fb2](https://github.com/inference-gateway/n8n-agent/commit/32c6fb262f3e2bec21c636577175693736c329e2))
+
 ## [0.3.19](https://github.com/inference-gateway/n8n-agent/compare/v0.3.18...v0.3.19) (2026-10-08)
 
 ### 🔧 Miscellaneous
