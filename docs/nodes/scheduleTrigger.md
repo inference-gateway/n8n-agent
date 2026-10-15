@@ -25,7 +25,6 @@ nodes:
 				}" # Number of seconds between each workflow trigger
       misfirePolicy: "skip"
       misfireGraceSeconds: "0" # How late an execution may start before it counts as missed. Set to 0 to use the instance setting.
-      skipDurableScheduler: false # Whether to run this trigger through the legacy in-memory scheduler instead of the durable scheduler
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.scheduleTrigger
 ```
@@ -58,13 +57,6 @@ nodes:
 - **Type**: `number`
 - **Default**: `"0"`
 - **Description**: How late an execution may start before it counts as missed. Set to 0 to use the instance setting.
-
-### Skip Durable Scheduler
-
-- **Name**: `skipDurableScheduler`
-- **Type**: `boolean`
-- **Default**: `false`
-- **Description**: Whether to run this trigger through the legacy in-memory scheduler instead of the durable scheduler
 
 
 ## Node Information

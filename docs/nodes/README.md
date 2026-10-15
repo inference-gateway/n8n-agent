@@ -247,7 +247,6 @@ nodes:
 - [MISP](./misp.md) (`n8n-nodes-base.misp`) - Consume the MISP API
 - [Mistral AI](./mistralAi.md) (`n8n-nodes-base.mistralAi`) - Consume Mistral AI API
 - [Mocean](./mocean.md) (`n8n-nodes-base.mocean`) - Send SMS and voice messages via Mocean
-- [Monday.com](./mondayCom.md) (`n8n-nodes-base.mondayCom`) - Consume Monday.com API
 - [MongoDB](./mongoDb.md) (`n8n-nodes-base.mongoDb`) - Find, insert and update documents in MongoDB
 - [Monica CRM](./monicaCrm.md) (`n8n-nodes-base.monicaCrm`) - Consume the Monica CRM API
 - [MQTT](./mqtt.md) (`n8n-nodes-base.mqtt`) - Push messages to MQTT
@@ -417,7 +416,6 @@ nodes:
 - [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
 - [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
 - [AWS Bedrock Chat Model](./langchain.lmChatAwsBedrock.md) (`@n8n/n8n-nodes-langchain.lmChatAwsBedrock`) - Language Model AWS Bedrock
-- [Azure AI Foundry Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
 - [Basic LLM Chain](./langchain.chainLlm.md) (`@n8n/n8n-nodes-langchain.chainLlm`) - A simple chain to prompt a large language model
 - [Binary Input Loader](./langchain.documentBinaryInputLoader.md) (`@n8n/n8n-nodes-langchain.documentBinaryInputLoader`) - Use binary data from a previous step in the workflow
 - [Calculator](./langchain.toolCalculator.md) (`@n8n/n8n-nodes-langchain.toolCalculator`) - Make it easier for AI agents to perform arithmetic
@@ -436,11 +434,11 @@ nodes:
 - [Cohere Chat Model](./langchain.lmChatCohere.md) (`@n8n/n8n-nodes-langchain.lmChatCohere`) - For advanced usage with an AI chain
 - [Cohere Model](./langchain.lmCohere.md) (`@n8n/n8n-nodes-langchain.lmCohere`) - Language Model Cohere
 - [Contextual Compression Retriever](./langchain.retrieverContextualCompression.md) (`@n8n/n8n-nodes-langchain.retrieverContextualCompression`) - Enhances document similarity search by contextual compression.
+- [Databricks AI Agent](./langchain.databricksAiAgent.md) (`@n8n/n8n-nodes-langchain.databricksAiAgent`) - An AI agent that exports its runs to MLflow Tracing in Databricks
 - [Databricks Chat Model](./langchain.lmChatDatabricks.md) (`@n8n/n8n-nodes-langchain.lmChatDatabricks`) - For advanced usage with an AI chain
 - [DeepSeek Chat Model](./langchain.lmChatDeepSeek.md) (`@n8n/n8n-nodes-langchain.lmChatDeepSeek`) - For advanced usage with an AI chain
 - [Default Data Loader](./langchain.documentDefaultDataLoader.md) (`@n8n/n8n-nodes-langchain.documentDefaultDataLoader`) - Load data from previous step in the workflow
 - [Embeddings AWS Bedrock](./langchain.embeddingsAwsBedrock.md) (`@n8n/n8n-nodes-langchain.embeddingsAwsBedrock`) - Use Embeddings AWS Bedrock
-- [Embeddings Azure OpenAI](./langchain.embeddingsAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`) - Use Embeddings Azure OpenAI
 - [Embeddings Cohere](./langchain.embeddingsCohere.md) (`@n8n/n8n-nodes-langchain.embeddingsCohere`) - Use Cohere Embeddings
 - [Embeddings Databricks](./langchain.embeddingsDatabricks.md) (`@n8n/n8n-nodes-langchain.embeddingsDatabricks`) - Use Databricks Embeddings
 - [Embeddings Google Gemini](./langchain.embeddingsGoogleGemini.md) (`@n8n/n8n-nodes-langchain.embeddingsGoogleGemini`) - Use Google Gemini Embeddings
@@ -476,6 +474,8 @@ nodes:
 - [MCP Registry Client (internal)](./langchain.mcpRegistryClientTool.md) (`@n8n/n8n-nodes-langchain.mcpRegistryClientTool`) - Runtime backing for MCP registry-derived nodes
 - [MCP Server Trigger](./langchain.mcpTrigger.md) (`@n8n/n8n-nodes-langchain.mcpTrigger`) - Expose n8n tools as an MCP Server endpoint
 - [Microsoft Agent 365 Trigger](./langchain.microsoftAgent365Trigger.md) (`@n8n/n8n-nodes-langchain.microsoftAgent365Trigger`) - Trigger for Microsoft Agent 365
+- [Microsoft Foundry Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
+- [Microsoft Foundry Embeddings](./langchain.embeddingsAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`) - Use Microsoft Foundry Embeddings
 - [MiniMax](./langchain.MiniMax.md) (`@n8n/n8n-nodes-langchain.MiniMax`) - MiniMax - LangChain AI Node
 - [MiniMax Chat Model](./langchain.lmChatMinimax.md) (`@n8n/n8n-nodes-langchain.lmChatMinimax`) - For advanced usage with an AI chain
 - [Mistral Cloud Chat Model](./langchain.lmChatMistralCloud.md) (`@n8n/n8n-nodes-langchain.lmChatMistralCloud`) - For advanced usage with an AI chain
@@ -560,7 +560,7 @@ nodes:
 ## Generation Stats
 
 - **Nodes Documented**: 523
-- **Generated**: 2026-10-04T00:53:12.757Z
+- **Generated**: 2026-10-15T15:42:04.079Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*
