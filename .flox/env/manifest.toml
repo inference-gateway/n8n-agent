@@ -3,7 +3,7 @@ schema-version = "1.15.0"
 [install]
 adl.flake = "github:inference-gateway/adl-cli/v0.68.7"
 go.pkg-path = "go"
-go.version = "1.26.8"
+go.version = "1.27.3"
 
 golangci-lint.pkg-path = "golangci-lint"
 golangci-lint.version = "^2.15.0"
@@ -33,7 +33,7 @@ infer.flake = "github:inference-gateway/cli/v0.259.0"
 # package is exposed under a different attribute path in Nixpkgs you may
 # need to add it under .adl-ignore and hand-author the override.
 deno.pkg-path = "deno"
-deno.version = "^2.7.14"
+deno.version = "^2.9.8"
 
 [hook]
 on-activate = '''
