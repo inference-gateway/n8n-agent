@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.21](https://github.com/inference-gateway/n8n-agent/compare/v0.3.20...v0.3.21) (2026-11-15)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI to v0.68.1 ([#179](https://github.com/inference-gateway/n8n-agent/issues/179)) ([f8d03b9](https://github.com/inference-gateway/n8n-agent/commit/f8d03b952289ff38d8b62ee5b2ffbaa6d66f0e3e))
+* **deps:** bump ADL CLI to v0.68.2 ([#182](https://github.com/inference-gateway/n8n-agent/issues/182)) ([958398d](https://github.com/inference-gateway/n8n-agent/commit/958398d727a0593034c4a747d10f5a3f0d5d568a))
+* **deps:** bump ADL CLI to v0.68.3 ([#184](https://github.com/inference-gateway/n8n-agent/issues/184)) ([a2972bd](https://github.com/inference-gateway/n8n-agent/commit/a2972bd574e8a8bf7c34c2d91ec74204dfe7707c))
+* **deps:** bump ADL CLI to v0.68.4 ([#187](https://github.com/inference-gateway/n8n-agent/issues/187)) ([0ce92ce](https://github.com/inference-gateway/n8n-agent/commit/0ce92ce6c701572f0a6c0b118175e7b7f2d8956c))
+* **deps:** bump ADL CLI to v0.68.5 ([#189](https://github.com/inference-gateway/n8n-agent/issues/189)) ([ea8cac2](https://github.com/inference-gateway/n8n-agent/commit/ea8cac2e657c1287dcc0eb4e3b7423c8a22a87f7))
+* **deps:** bump ADL CLI to v0.68.7 ([#191](https://github.com/inference-gateway/n8n-agent/issues/191)) ([b7143d0](https://github.com/inference-gateway/n8n-agent/commit/b7143d0587788071c7792eaf0cf5de2b92701ae6))
+* **deps:** bump ADL CLI to v0.68.8 ([#194](https://github.com/inference-gateway/n8n-agent/issues/194)) ([ad1d8e8](https://github.com/inference-gateway/n8n-agent/commit/ad1d8e835f069eada7c42500ec9ad4cb379fd714))
+* **deps:** bump flox dependencies to latest ([#193](https://github.com/inference-gateway/n8n-agent/issues/193)) ([69b5e65](https://github.com/inference-gateway/n8n-agent/commit/69b5e65ef3b73f53e5e4a0bc5755cdf2d5c377ca))
+* **deps:** bump github.com/go-jose/go-jose/v4 from 4.1.5 to 4.1.6 ([#185](https://github.com/inference-gateway/n8n-agent/issues/185)) ([365b8df](https://github.com/inference-gateway/n8n-agent/commit/365b8dfc3cd6faebfc30faafd5af4dd0eb8d5147))
+* **deps:** bump peter-evans/create-pull-request from 8.1.1 to 8.1.3 in the github-actions group across 1 directory ([#192](https://github.com/inference-gateway/n8n-agent/issues/192)) ([e9d1a06](https://github.com/inference-gateway/n8n-agent/commit/e9d1a06de2ccbf0612e0694b273c7ce0a7d9e4ce))
+* remove CLAUDE.md file ([#180](https://github.com/inference-gateway/n8n-agent/issues/180)) ([95287c6](https://github.com/inference-gateway/n8n-agent/commit/95287c6f15397315a9cd4e013d39ee91183f206c))
+
 ## [0.3.20](https://github.com/inference-gateway/n8n-agent/compare/v0.3.19...v0.3.20) (2026-10-15)
 
 ### 📚 Documentation
