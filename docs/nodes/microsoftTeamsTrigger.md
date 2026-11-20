@@ -15,7 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Microsoft Teams Trigger
     parameters:
-      authentication: "microsoftTeamsOAuth2Api" # Generic Microsoft Graph credential. Add the Teams change-notification scopes (e.g. ChannelMessage.Read.All, Chat.Read, Subscription.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
+      authentication: "microsoftTeamsOAuth2Api" # Generic Microsoft Graph credential. Add the Teams change-notification scopes (Team.ReadBasic.All, Channel.ReadBasic.All, Chat.Read, ChannelMessage.Read.All, TeamMember.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
       event: "newChannelMessage" # A new channel is created
       chatTriggerServicePrincipalNotice: ""
       watchAllTeams: false # Whether to watch for the event in all the available teams
@@ -44,7 +44,7 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"microsoftTeamsOAuth2Api"`
-- **Description**: Generic Microsoft Graph credential. Add the Teams change-notification scopes (e.g. ChannelMessage.Read.All, Chat.Read, Subscription.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
+- **Description**: Generic Microsoft Graph credential. Add the Teams change-notification scopes (Team.ReadBasic.All, Channel.ReadBasic.All, Chat.Read, ChannelMessage.Read.All, TeamMember.Read.All) and grant admin consent on the credential. See the docs for the full scope string.
 
 ### Trigger On
 

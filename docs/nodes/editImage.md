@@ -15,6 +15,7 @@ nodes:
   - id: ${unique-node-id}
     name: Edit Image
     parameters:
+      legacyVersionNotice: ""
       operation: "border" # Returns image information like resolution
       dataPropertyName: "data" # Name of the binary property in which the image data can be found
       operations: {} # The operations to perform
@@ -26,6 +27,12 @@ nodes:
 ```
 
 ## Parameters
+
+### This node version is deprecated. Upgrade to version 2. Image output can look different because version 2 uses a different processing library.
+
+- **Name**: `legacyVersionNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Operation
 

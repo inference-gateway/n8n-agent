@@ -17,6 +17,7 @@ nodes:
     parameters:
       authentication: "none" # Require user to give consent to use their n8n account
       requireExecuteAccess: true # Whether the triggering user must also have permission to execute the workflow in the project it belongs to
+      trustedSource: "DEFAULT_TRUSTED_SOURCE_ID" # The identity provider whose access tokens can call this MCP server
       includeUserInOutput: true # Whether to include the calling user's ID, email and name in the trigger output and in the request the connected tools receive
       path: "" # The base path for this MCP server
       instructions: "" # Sent to MCP clients when they connect. Clients that support server instructions typically add them to the model's system prompt — use for guidance that spans multiple tools, such as tool-choice rules or multi-step workflows.
@@ -39,6 +40,13 @@ nodes:
 - **Type**: `boolean`
 - **Default**: `true`
 - **Description**: Whether the triggering user must also have permission to execute the workflow in the project it belongs to
+
+### Trusted Source Name or ID
+
+- **Name**: `trustedSource`
+- **Type**: `options`
+- **Default**: `"DEFAULT_TRUSTED_SOURCE_ID"`
+- **Description**: The identity provider whose access tokens can call this MCP server
 
 ### Include User in Output
 

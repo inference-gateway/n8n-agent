@@ -15,7 +15,6 @@ nodes:
   - id: ${unique-node-id}
     name: Function Item
     parameters:
-      notice: ""
       functionCode: "// Code here will run once per input item.
 // More info and help: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.functionitem/
 // Tip: You can use luxon for dates and $jmespath for querying JSON structures
@@ -32,12 +31,6 @@ return item;" # The JavaScript code to execute for each item
 ```
 
 ## Parameters
-
-### A newer version of this node type is available, called the ‘Code’ node
-
-- **Name**: `notice`
-- **Type**: `notice`
-- **Default**: `""`
 
 ### JavaScript Code
 

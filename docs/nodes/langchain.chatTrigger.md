@@ -21,6 +21,7 @@ nodes:
       embeddedChatNotice: ""
       authentication: "none" # Simple username and password (the same one for all users)
       requireExecuteAccess: false # Whether the triggering user must also have permission to execute the workflow in the project it belongs to
+      trustedSource: "DEFAULT_TRUSTED_SOURCE_ID" # The identity provider the visitor signs in with
       initialMessages: "Hi there! 👋\nMy name is Nathan. How can I assist you today?" # Default messages shown at the start of the chat, one per line
       availableInChat: false # Whether to make the agent available in n8n Chat Hub for n8n instance users to chat with
       availableInChatNotice: ""
@@ -79,6 +80,13 @@ nodes:
 - **Type**: `boolean`
 - **Default**: `false`
 - **Description**: Whether the triggering user must also have permission to execute the workflow in the project it belongs to
+
+### Trusted Source Name or ID
+
+- **Name**: `trustedSource`
+- **Type**: `options`
+- **Default**: `"DEFAULT_TRUSTED_SOURCE_ID"`
+- **Description**: The identity provider the visitor signs in with
 
 ### Initial Message(s)
 

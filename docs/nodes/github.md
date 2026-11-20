@@ -24,6 +24,7 @@ nodes:
       operation: "getRepositories" # Returns the repositories of a user
       operation: "create" # Creates a new release
       operation: "create" # Creates a new review
+      operation: "createOrUpdate" # Create or update a repository secret
       operation: "dispatch" # Disable a workflow
       webhookNotice: ""
       owner: "{ mode: 'list', value: '' }"
@@ -41,6 +42,8 @@ nodes:
 					value: '',
 				}" # The git reference for the workflow dispatch (branch, tag, or commit SHA)
       inputs: {} # JSON object with input parameters for the workflow
+      options: # Whether to return the workflow run ID, API URL, and GitHub URL. Leave this option off on GitHub Enterprise Server. Version 3.21 and later return run details without it.
+        returnRunDetails: false # Whether to return the workflow run ID, API URL, and GitHub URL. Leave this option off on GitHub Enterprise Server. Version 3.21 and later return run details without it.
       options: {} # Whether to limit how long to wait for the webhook to be called before the execution resumes
       filePath: "" # The file path of the file. Has to contain the full path.
       filePath: "" # The path of the folder to list
@@ -105,6 +108,8 @@ nodes:
       additionalFields: # The SHA of the commit that needs a review, if different from the latest
         commitId: "" # The SHA of the commit that needs a review, if different from the latest
       body: "" # The body of the review
+      secretName: "" # The name of the secret. Must contain only alphanumeric characters ([a-z], [A-Z], [0-9]) or underscores (_). Spaces are not allowed. Must not start with GITHUB_ or a number.
+      secretValue: "" # The value of the secret. This will be encrypted before being stored.
       returnAll: false # Whether to return all results or only up to a given limit
       limit: "50" # Max number of results to return
       organization: "" # The GitHub organization that the user is being invited to
@@ -190,6 +195,13 @@ nodes:
 
 - **Name**: `operation`
 - **Type**: `options`
+- **Default**: `"createOrUpdate"`
+- **Description**: Create or update a repository secret
+
+### Operation
+
+- **Name**: `operation`
+- **Type**: `options`
 - **Default**: `"dispatch"`
 - **Description**: Disable a workflow
 
@@ -242,6 +254,23 @@ nodes:
 - **Type**: `json`
 - **Default**: `"{}"`
 - **Description**: JSON object with input parameters for the workflow
+
+### Options
+
+- **Name**: `options`
+- **Type**: `collection`
+- **Default**: `"{}"`
+- **Description**: Whether to return the workflow run ID, API URL, and GitHub URL. Leave this option off on GitHub Enterprise Server. Version 3.21 and later return run details without it.
+- **Placeholder**: Add option
+
+**Options:**
+
+#### Return Run Details
+- **Name**: `returnRunDetails`
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to return the workflow run ID, API URL, and GitHub URL. Leave this option off on GitHub Enterprise Server. Version 3.21 and later return run details without it.
+
 
 ### Options
 
@@ -693,6 +722,21 @@ nodes:
 - **Type**: `string`
 - **Default**: `""`
 - **Description**: The body of the review
+
+### Secret Name
+
+- **Name**: `secretName`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The name of the secret. Must contain only alphanumeric characters ([a-z], [A-Z], [0-9]) or underscores (_). Spaces are not allowed. Must not start with GITHUB_ or a number.
+- **Placeholder**: MY_SECRET_NAME
+
+### Secret Value
+
+- **Name**: `secretValue`
+- **Type**: `string`
+- **Default**: `""`
+- **Description**: The value of the secret. This will be encrypted before being stored.
 
 ### Return All
 

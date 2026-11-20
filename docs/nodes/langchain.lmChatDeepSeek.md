@@ -16,7 +16,6 @@ nodes:
     name: DeepSeek Chat Model
     parameters:
       notice: ""
-      model: "deepseek-chat" # The model which will generate the completion. <a href="https://api-docs.deepseek.com/quick_start/pricing">Learn more</a>.
       options: # Additional options to add
         frequencyPenalty: "0" # Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim
         maxTokens: "-1" # The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 32,768).
@@ -31,13 +30,6 @@ nodes:
 - **Name**: `notice`
 - **Type**: `notice`
 - **Default**: `""`
-
-### Model
-
-- **Name**: `model`
-- **Type**: `options`
-- **Default**: `"deepseek-chat"`
-- **Description**: The model which will generate the completion. <a href="https://api-docs.deepseek.com/quick_start/pricing">Learn more</a>.
 
 ### Options
 

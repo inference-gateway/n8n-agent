@@ -16,7 +16,7 @@ nodes:
     name: MCP Client
     parameters:
       endpointUrl: "" # The URL of the MCP server to connect to
-      authentication: "none" # The way to authenticate with your endpoint
+      authentication: "none" # Use a generic OAuth2 API credential. It has no Resource URL field. If your server needs one, use MCP OAuth2.
       credentials: ""
       tool: "{ mode: 'list', value: '' }" # The tool to use
       inputMode: "manual" # Manually specify the input data for each tool parameter
@@ -47,7 +47,7 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"none"`
-- **Description**: The way to authenticate with your endpoint
+- **Description**: Use a generic OAuth2 API credential. It has no Resource URL field. If your server needs one, use MCP OAuth2.
 
 ### Credentials
 

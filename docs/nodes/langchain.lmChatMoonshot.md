@@ -2,7 +2,7 @@
 
 ## Description
 
-For advanced usage with an AI chain
+Run Kimi models, with optional response-format settings
 
 **Version**: 1
 
