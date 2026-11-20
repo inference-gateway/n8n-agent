@@ -16,6 +16,8 @@ nodes:
     name: Zendesk Trigger
     parameters:
       authentication: "apiToken"
+      authentication: "oAuth2"
+      apiTokenRetirementNotice: ""
       service: "support"
       options: {} # The fields to return the values of. Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.
       conditions: {} # The condition to set
@@ -30,6 +32,18 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"apiToken"`
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
+
+### Zendesk is retiring API token authentication. Switch this node to OAuth2. <a href="https://developer.zendesk.com/documentation/authentication/oauth-migration/#migration-timeline" target="_blank">Learn more about OAuth migration (Zendesk)</a>
+
+- **Name**: `apiTokenRetirementNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Service
 

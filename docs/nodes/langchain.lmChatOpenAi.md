@@ -2,7 +2,7 @@
 
 ## Description
 
-For advanced usage with an AI chain
+Run GPT models, with optional Responses API for web search, file search, and code execution
 
 **Version**: 1
 

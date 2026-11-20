@@ -2,7 +2,7 @@
 
 ## Description
 
-Language Model Anthropic
+Run Claude models, with optional adaptive thinking and streaming
 
 **Version**: 1
 

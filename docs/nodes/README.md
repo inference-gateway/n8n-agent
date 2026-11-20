@@ -1,6 +1,6 @@
 # N8N Nodes Documentation
 
-Documentation for 523 n8n nodes, generated from the official n8n repository.
+Documentation for 524 n8n nodes, generated from the official n8n repository.
 
 ## Quick Reference for n8n-cli
 
@@ -15,7 +15,7 @@ nodes:
     type: n8n-nodes-base.nodeName
 ```
 
-## Available Nodes (523)
+## Available Nodes (524)
 
 ### Standard Nodes
 - [Action Network](./actionNetwork.md) (`n8n-nodes-base.actionNetwork`) - Consume the Action Network API
@@ -252,7 +252,6 @@ nodes:
 - [MQTT](./mqtt.md) (`n8n-nodes-base.mqtt`) - Push messages to MQTT
 - [MQTT Trigger](./mqttTrigger.md) (`n8n-nodes-base.mqttTrigger`) - Listens to MQTT events
 - [MSG91](./msg91.md) (`n8n-nodes-base.msg91`) - Sends transactional SMS via MSG91
-- [n8n](./n8n.md) (`n8n-nodes-base.n8n`) - Handle events and perform actions on your n8n instance
 - [n8n Form](./form.md) (`n8n-nodes-base.form`) - Generate webforms in n8n and pass their responses to the workflow
 - [n8n Trigger](./n8nTrigger.md) (`n8n-nodes-base.n8nTrigger`) - Handle events and perform actions on your n8n instance
 - [NASA](./nasa.md) (`n8n-nodes-base.nasa`) - Retrieve data from the NASA API
@@ -272,7 +271,7 @@ nodes:
 - [OpenWeatherMap](./openWeatherMap.md) (`n8n-nodes-base.openWeatherMap`) - Gets current and future weather information
 - [Orbit](./orbit.md) (`n8n-nodes-base.orbit`) - Consume Orbit API
 - [Oura](./oura.md) (`n8n-nodes-base.oura`) - Consume Oura API
-- [Paddle](./paddle.md) (`n8n-nodes-base.paddle`) - Consume Paddle API
+- [Paddle Classic](./paddle.md) (`n8n-nodes-base.paddle`) - Consume Paddle Classic API
 - [PagerDuty](./pagerDuty.md) (`n8n-nodes-base.pagerDuty`) - Consume PagerDuty API
 - [PayPal](./payPal.md) (`n8n-nodes-base.payPal`) - Consume PayPal API
 - [PayPal Trigger](./payPalTrigger.md) (`n8n-nodes-base.payPalTrigger`) - Handle PayPal events via webhooks
@@ -413,7 +412,7 @@ nodes:
 - [AgentV3](./langchain.AgentV3.md) (`@n8n/n8n-nodes-langchain.AgentV3`) - AgentV3 - LangChain AI Node
 - [AlibabaCloud](./langchain.AlibabaCloud.md) (`@n8n/n8n-nodes-langchain.AlibabaCloud`) - AlibabaCloud - LangChain AI Node
 - [Anthropic](./langchain.Anthropic.md) (`@n8n/n8n-nodes-langchain.Anthropic`) - Anthropic - LangChain AI Node
-- [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Language Model Anthropic
+- [Anthropic Chat Model](./langchain.lmChatAnthropic.md) (`@n8n/n8n-nodes-langchain.lmChatAnthropic`) - Run Claude models, with optional adaptive thinking and streaming
 - [Auto-fixing Output Parser](./langchain.outputParserAutofixing.md) (`@n8n/n8n-nodes-langchain.outputParserAutofixing`) - Deprecated, use structured output parser
 - [AWS Bedrock Chat Model](./langchain.lmChatAwsBedrock.md) (`@n8n/n8n-nodes-langchain.lmChatAwsBedrock`) - Language Model AWS Bedrock
 - [Basic LLM Chain](./langchain.chainLlm.md) (`@n8n/n8n-nodes-langchain.chainLlm`) - A simple chain to prompt a large language model
@@ -434,8 +433,10 @@ nodes:
 - [Cohere Chat Model](./langchain.lmChatCohere.md) (`@n8n/n8n-nodes-langchain.lmChatCohere`) - For advanced usage with an AI chain
 - [Cohere Model](./langchain.lmCohere.md) (`@n8n/n8n-nodes-langchain.lmCohere`) - Language Model Cohere
 - [Contextual Compression Retriever](./langchain.retrieverContextualCompression.md) (`@n8n/n8n-nodes-langchain.retrieverContextualCompression`) - Enhances document similarity search by contextual compression.
+- [Custom Endpoint Chat Model](./langchain.lmChatCustomEndpoint.md) (`@n8n/n8n-nodes-langchain.lmChatCustomEndpoint`) - Chat with any OpenAI-compatible endpoint, such as a gateway or a proxy
 - [Databricks AI Agent](./langchain.databricksAiAgent.md) (`@n8n/n8n-nodes-langchain.databricksAiAgent`) - An AI agent that exports its runs to MLflow Tracing in Databricks
 - [Databricks Chat Model](./langchain.lmChatDatabricks.md) (`@n8n/n8n-nodes-langchain.lmChatDatabricks`) - For advanced usage with an AI chain
+- [Databricks Lakebase Chat Memory](./langchain.memoryLakebaseChat.md) (`@n8n/n8n-nodes-langchain.memoryLakebaseChat`) - Stores the chat history in a Databricks Lakebase table.
 - [DeepSeek Chat Model](./langchain.lmChatDeepSeek.md) (`@n8n/n8n-nodes-langchain.lmChatDeepSeek`) - For advanced usage with an AI chain
 - [Default Data Loader](./langchain.documentDefaultDataLoader.md) (`@n8n/n8n-nodes-langchain.documentDefaultDataLoader`) - Load data from previous step in the workflow
 - [Embeddings AWS Bedrock](./langchain.embeddingsAwsBedrock.md) (`@n8n/n8n-nodes-langchain.embeddingsAwsBedrock`) - Use Embeddings AWS Bedrock
@@ -451,7 +452,7 @@ nodes:
 - [Embeddings Oracle Database](./langchain.embeddingsOracleDb.md) (`@n8n/n8n-nodes-langchain.embeddingsOracleDb`) - Use ONNX Embeddings
 - [ExtendedPGVectorStore](./langchain.ExtendedPGVectorStore.md) (`@n8n/n8n-nodes-langchain.ExtendedPGVectorStore`) - ExtendedPGVectorStore - LangChain AI Node
 - [GitHub Document Loader](./langchain.documentGithubLoader.md) (`@n8n/n8n-nodes-langchain.documentGithubLoader`) - Use GitHub data as input to this chain
-- [Google Gemini Chat Model](./langchain.lmChatGoogleGemini.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleGemini`) - Chat Model Google Gemini
+- [Google Gemini Chat Model](./langchain.lmChatGoogleGemini.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleGemini`) - Run Gemini models, with optional adjustable safety filters
 - [Google Vertex Chat Model](./langchain.lmChatGoogleVertex.md) (`@n8n/n8n-nodes-langchain.lmChatGoogleVertex`) - Chat Model Google Vertex
 - [GoogleGemini](./langchain.GoogleGemini.md) (`@n8n/n8n-nodes-langchain.GoogleGemini`) - GoogleGemini - LangChain AI Node
 - [Groq Chat Model](./langchain.lmChatGroq.md) (`@n8n/n8n-nodes-langchain.lmChatGroq`) - Language Model Groq
@@ -477,12 +478,12 @@ nodes:
 - [Microsoft Foundry Chat Model](./langchain.lmChatAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatAzureOpenAi`) - For advanced usage with an AI chain
 - [Microsoft Foundry Embeddings](./langchain.embeddingsAzureOpenAi.md) (`@n8n/n8n-nodes-langchain.embeddingsAzureOpenAi`) - Use Microsoft Foundry Embeddings
 - [MiniMax](./langchain.MiniMax.md) (`@n8n/n8n-nodes-langchain.MiniMax`) - MiniMax - LangChain AI Node
-- [MiniMax Chat Model](./langchain.lmChatMinimax.md) (`@n8n/n8n-nodes-langchain.lmChatMinimax`) - For advanced usage with an AI chain
+- [MiniMax Chat Model](./langchain.lmChatMinimax.md) (`@n8n/n8n-nodes-langchain.lmChatMinimax`) - Run MiniMax models, with options to hide or show reasoning
 - [Mistral Cloud Chat Model](./langchain.lmChatMistralCloud.md) (`@n8n/n8n-nodes-langchain.lmChatMistralCloud`) - For advanced usage with an AI chain
 - [Model Selector](./langchain.modelSelector.md) (`@n8n/n8n-nodes-langchain.modelSelector`) - Use this node to select one of the connected models to this node based on workfl...
 - [MongoDB Chat Memory](./langchain.memoryMongoDbChat.md) (`@n8n/n8n-nodes-langchain.memoryMongoDbChat`) - Stores the chat history in MongoDB collection.
 - [Moonshot](./langchain.Moonshot.md) (`@n8n/n8n-nodes-langchain.Moonshot`) - Moonshot - LangChain AI Node
-- [Moonshot Kimi Chat Model](./langchain.lmChatMoonshot.md) (`@n8n/n8n-nodes-langchain.lmChatMoonshot`) - For advanced usage with an AI chain
+- [Moonshot Kimi Chat Model](./langchain.lmChatMoonshot.md) (`@n8n/n8n-nodes-langchain.lmChatMoonshot`) - Run Kimi models, with optional response-format settings
 - [Motorhead](./langchain.memoryMotorhead.md) (`@n8n/n8n-nodes-langchain.memoryMotorhead`) - Use Motorhead Memory
 - [MultiQuery Retriever](./langchain.retrieverMultiQuery.md) (`@n8n/n8n-nodes-langchain.retrieverMultiQuery`) - Automates prompt tuning, generates diverse queries and expands document pool for...
 - [NVIDIA Nemotron Chat Model](./langchain.lmChatNvidia.md) (`@n8n/n8n-nodes-langchain.lmChatNvidia`) - NVIDIA Nemotron models from build.nvidia.com or self-hosted NIM
@@ -492,7 +493,7 @@ nodes:
 - [Ollama Model](./langchain.lmOllama.md) (`@n8n/n8n-nodes-langchain.lmOllama`) - Language Model Ollama
 - [OpenAi](./langchain.OpenAi.md) (`@n8n/n8n-nodes-langchain.OpenAi`) - OpenAi - LangChain AI Node
 - [OpenAI Assistant](./langchain.openAiAssistant.md) (`@n8n/n8n-nodes-langchain.openAiAssistant`) - Utilizes Assistant API from Open AI.
-- [OpenAI Chat Model](./langchain.lmChatOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatOpenAi`) - For advanced usage with an AI chain
+- [OpenAI Chat Model](./langchain.lmChatOpenAi.md) (`@n8n/n8n-nodes-langchain.lmChatOpenAi`) - Run GPT models, with optional Responses API for web search, file search, and cod...
 - [OpenAI Model](./langchain.lmOpenAi.md) (`@n8n/n8n-nodes-langchain.lmOpenAi`) - For advanced usage with an AI chain
 - [OpenAiV1](./langchain.OpenAiV1.md) (`@n8n/n8n-nodes-langchain.OpenAiV1`) - OpenAiV1 - LangChain AI Node
 - [OpenAiV2](./langchain.OpenAiV2.md) (`@n8n/n8n-nodes-langchain.OpenAiV2`) - OpenAiV2 - LangChain AI Node
@@ -501,7 +502,7 @@ nodes:
 - [Pinecone: Load](./langchain.vectorStorePineconeLoad.md) (`@n8n/n8n-nodes-langchain.vectorStorePineconeLoad`) - Load data from Pinecone Vector Store index
 - [Postgres Chat Memory](./langchain.memoryPostgresChat.md) (`@n8n/n8n-nodes-langchain.memoryPostgresChat`) - Stores the chat history in Postgres table.
 - [Question and Answer Chain](./langchain.chainRetrievalQa.md) (`@n8n/n8n-nodes-langchain.chainRetrievalQa`) - Answer questions about retrieved documents
-- [Qwen Cloud Chat Model](./langchain.lmChatAlibabaCloud.md) (`@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`) - For advanced usage with an AI chain
+- [Qwen Cloud Chat Model](./langchain.lmChatAlibabaCloud.md) (`@n8n/n8n-nodes-langchain.lmChatAlibabaCloud`) - Run Qwen models, with optional response-format settings
 - [Recursive Character Text Splitter](./langchain.textSplitterRecursiveCharacterTextSplitter.md) (`@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter`) - Split text into chunks by characters recursively, recommended for most use cases
 - [Redis Chat Memory](./langchain.memoryRedisChat.md) (`@n8n/n8n-nodes-langchain.memoryRedisChat`) - Stores the chat history in Redis.
 - [Reranker Cohere](./langchain.rerankerCohere.md) (`@n8n/n8n-nodes-langchain.rerankerCohere`) - Use Cohere Reranker to reorder documents after retrieval from a vector store by ...
@@ -559,8 +560,8 @@ nodes:
 
 ## Generation Stats
 
-- **Nodes Documented**: 523
-- **Generated**: 2026-10-15T15:42:04.079Z
+- **Nodes Documented**: 524
+- **Generated**: 2026-11-20T01:08:59.601Z
 
 ---
 *Generated from n8n source code for n8n-cli compatibility*

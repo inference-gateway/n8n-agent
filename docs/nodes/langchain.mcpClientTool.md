@@ -18,7 +18,7 @@ nodes:
       sseEndpoint: "" # SSE Endpoint of your MCP server
       endpointUrl: "" # Endpoint of your MCP server
       authentication: "none" # The way to authenticate with your endpoint
-      authentication: "none" # The way to authenticate with your endpoint
+      authentication: "none" # Use a generic OAuth2 API credential. It has no Resource URL field. If your server needs one, use MCP OAuth2.
       credentials: ""
       include: "all" # How to select the tools you want to be exposed to the AI Agent
       includeTools: [] # Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>
@@ -59,7 +59,7 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"none"`
-- **Description**: The way to authenticate with your endpoint
+- **Description**: Use a generic OAuth2 API credential. It has no Resource URL field. If your server needs one, use MCP OAuth2.
 
 ### Credentials
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-For advanced usage with an AI chain
+Run MiniMax models, with options to hide or show reasoning
 
 **Version**: 1
 

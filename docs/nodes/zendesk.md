@@ -16,6 +16,8 @@ nodes:
     name: Zendesk
     parameters:
       authentication: "apiToken"
+      authentication: "oAuth2"
+      apiTokenRetirementNotice: ""
       resource: "ticket" # Tickets are the means through which your end users (customers) communicate with agents in Zendesk Support
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.zendesk
@@ -28,6 +30,18 @@ nodes:
 - **Name**: `authentication`
 - **Type**: `options`
 - **Default**: `"apiToken"`
+
+### Authentication
+
+- **Name**: `authentication`
+- **Type**: `options`
+- **Default**: `"oAuth2"`
+
+### Zendesk is retiring API token authentication. Switch this node to OAuth2. <a href="https://developer.zendesk.com/documentation/authentication/oauth-migration/#migration-timeline" target="_blank">Learn more about OAuth migration (Zendesk)</a>
+
+- **Name**: `apiTokenRetirementNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Resource
 

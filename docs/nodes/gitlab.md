@@ -45,13 +45,13 @@ nodes:
         name: "" # The name of the release
         description: "" # The description of the release
         ref: "" # If Tag doesn’t exist, the release will be created from Ref. It can be a commit SHA, another tag name, or a branch name.
-      projectId: "" # The ID or URL-encoded path of the project
+      projectId: "" # The ID or path of the project, for example <code>group/project</code>
       tag_name: "" # The Git tag the release is associated with
-      projectId: "" # The ID or URL-encoded path of the project
+      projectId: "" # The ID or path of the project, for example <code>group/project</code>
       returnAll: false # Whether to return all results or only up to a given limit
       limit: "20" # Max number of results to return
       additionalFields: {} # The field to use as order
-      projectId: "" # The ID or URL-encoded path of the project
+      projectId: "" # The ID or path of the project, for example <code>group/project</code>
       tag_name: "" # The Git tag the release is associated with
       additionalFields: # The release name
         name: "" # The release name
@@ -306,7 +306,7 @@ nodes:
 - **Name**: `projectId`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: The ID or URL-encoded path of the project
+- **Description**: The ID or path of the project, for example <code>group/project</code>
 
 ### Tag Name
 
@@ -320,7 +320,7 @@ nodes:
 - **Name**: `projectId`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: The ID or URL-encoded path of the project
+- **Description**: The ID or path of the project, for example <code>group/project</code>
 
 ### Return All
 
@@ -348,7 +348,7 @@ nodes:
 - **Name**: `projectId`
 - **Type**: `string`
 - **Default**: `""`
-- **Description**: The ID or URL-encoded path of the project
+- **Description**: The ID or path of the project, for example <code>group/project</code>
 
 ### Tag Name
 

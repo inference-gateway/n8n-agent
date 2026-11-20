@@ -1,8 +1,8 @@
-# Paddle
+# Paddle Classic
 
 ## Description
 
-Consume Paddle API
+Consume Paddle Classic API
 
 **Version**: 1
 
@@ -13,14 +13,21 @@ Use this node in your n8n workflows with the following type:
 ```yaml
 nodes:
   - id: ${unique-node-id}
-    name: Paddle
+    name: Paddle Classic
     parameters:
+      paddleBillingNotice: ""
       resource: "coupon"
     position: [x, y]  # Canvas position coordinates
     type: n8n-nodes-base.paddle
 ```
 
 ## Parameters
+
+### This node only works with Paddle Classic. If you use Paddle Billing, use the Paddle Billing node instead.
+
+- **Name**: `paddleBillingNotice`
+- **Type**: `notice`
+- **Default**: `""`
 
 ### Resource
 
@@ -32,7 +39,7 @@ nodes:
 ## Node Information
 
 - **Node Type**: `n8n-nodes-base.paddle`
-- **Display Name**: Paddle
+- **Display Name**: Paddle Classic
 - **Internal Name**: `paddle`
 - **Package**: `n8n-nodes-base`
 - **Category**: Based on file location in n8n repository

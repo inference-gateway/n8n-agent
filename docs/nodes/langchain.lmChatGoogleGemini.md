@@ -2,7 +2,7 @@
 
 ## Description
 
-Chat Model Google Gemini
+Run Gemini models, with optional adjustable safety filters
 
 **Version**: 1
 
